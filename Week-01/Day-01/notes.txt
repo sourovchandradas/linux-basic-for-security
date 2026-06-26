@@ -1,1 +1,21 @@
+• Topic: Linux Basics & Essential Terms for Hackers
+---------------------------------------------------------
 
+• Key Points:
+  1. Case Sensitivity: Linux is strictly case-sensitive. "Desktop" and "desktop" are treated as two completely different names.
+  2. The 'root' Account: The superuser or administrator account in Linux. It has absolute control over the system, and most hacking/pentesting tools require root privileges to run.
+  3. Directories & Home: In Linux, folders are called directories. Every user has a personal space called the '/home' directory, where files are saved by default.
+  4. Binaries & Executables: Files that can be executed (run) like programs. They usually sit in '/usr/bin' or '/usr/sbin'.
+  5. Shell & Terminal: The Terminal is the Command Line Interface (CLI) where we type commands. The Shell (like 'bash') is the environment that interprets and runs those commands.
+  6. Scripts: A series of commands executed line-by-line. Python is currently the most popular scripting language for hackers.
+  7. Kali Linux: A special Linux distribution pre-loaded with hundreds of tools for penetration testing and hacking.
+
+• Commands/Examples:
+  - Common Binaries (Utilities): ps, cat, ls, ifconfig
+  - Security Tools (Examples): aircrack-ng (Wireless hacking), Snort (Intrusion Detection System)
+  - Common Shell: bash (Bourne-again shell)
+  - Case Sensitivity Example: 
+    Creating a file named "Secret.txt" is NOT the same as "secret.txt". Typing the wrong case will return a "file or directory not found" error.
+
+• Summary:
+Hackers are hands-on learners who need to interact with the system directly rather than just reading heavy theory. To start hacking with Kali Linux, understanding the filesystem hierarchy, the power of the root account, case sensitivity, and how the bash shell executes binaries/scripts is fundamental.MM
