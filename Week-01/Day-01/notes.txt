@@ -18,4 +18,4 @@
     Creating a file named "Secret.txt" is NOT the same as "secret.txt". Typing the wrong case will return a "file or directory not found" error.
 
 • Summary:
-Hackers are hands-on learners who need to interact with the system directly rather than just reading heavy theory. To start hacking with Kali Linux, understanding the filesystem hierarchy, the power of the root account, case sensitivity, and how the bash shell executes binaries/scripts is fundamental.MM
+Hackers are hands-on learners who need to interact with the system directly rather than just reading heavy theory. To start hacking with Kali Linux, understanding the filesystem hierarchy, the power of the root account, case sensitivity, and how the bash shell executes binaries/scripts is fundamental.
