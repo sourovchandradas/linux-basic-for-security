@@ -2,7 +2,8 @@
 
 ## 🖥️ A Tour of Kali Linux
 -> Login Screen: When you start Kali, you will see a login screen (**Logging-into-Kali**).  
-![Logging into Kali](A tour of Kali / Logging-into-Kali.png)
+![Logging into Kali](A tour of Kali/Logging-Into-Kali.png)
+
 
 
 -> Default Credentials:  
@@ -10,7 +11,7 @@
    - Password: toor (use your new password if you changed it earlier).  
 
 -> After Login: You will get access to the Kali desktop (**The-Kali-Desktop**).  
-![The Kali Desktop](The-Kali-Desktop.png) 
+![The Kali Desktop](A tour of Kali/The-Kali-Desktop.png)
 
 -> Key Aspects to Explore: The Terminal Interface and File Structure.  
 
@@ -18,7 +19,7 @@
 
 ## 💻 The Terminal (Command Line Interface)
 -> How to Open: Click the terminal icon along the left of the Kali desktop (**The-Kali-Terminal**).  
-![The Kali Terminal](The-Kali-Terminal.png)  
+![The Kali Terminal](A tour of Kali/The-Kali-Terminal.png)
 
 -> The Shell: The terminal opens the command line environment known as the shell. It enables you to run commands on the underlying operating systems and write scripts.  
 
@@ -27,7 +28,7 @@
 -> Password Command: To change your password, use the command:  
 ```bash
 passwd
-Output : ![Figure 1-4: default Password Change](default-Password-Change.png) 
+Output : ![default Password Change](A tour of Kali/default-Password-Change.png)
 📂 The Linux Filesystem
 -> Structure Concept: Unlike Windows, Linux does not have physical drives (like C: drive) at the base. It uses a logical filesystem instead.
 
