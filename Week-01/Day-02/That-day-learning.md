@@ -5,7 +5,6 @@
 
 ![Logging into Kali](A%20tour%20of%20Kali/Logging-Into-Kali.png)
 
-
 -> Default Credentials:  
    - Username: root  
    - Password: toor (use your new password if you changed it earlier).  
