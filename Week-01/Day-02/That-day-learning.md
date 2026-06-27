@@ -29,9 +29,10 @@
 -> Default Shell: Bash (Bourne-Again SHell) is the most popular and the default shell in Kali and many other Linux distributions.  
 
 -> Password Command: To change your password, use the command:  
-```bash
 passwd
+
 Output : 
+
 ![Default Password Change](https://raw.githubusercontent.com/sourovchandradas/linux-basic-for-security/main/Week-01/Day-02/A%20tour%20of%20Kali/Default-Password-Change.png)
 
 
