@@ -2,16 +2,14 @@
 
 ## 🖥️ A Tour of Kali Linux
 -> Login Screen: When you start Kali, you will see a login screen (**Logging-into-Kali**).  
-![Figure 1-1: Logging into Kali]([Logging-into-Kali.png](https://github.com/sourovchandradas/linux-basic-for-security/blob/main/Week-01/Day-02/A%20tour%20of%20Kali/Logging-into-Kali.png))  
-*Figure 1-1: Logging into Kali*
+![Logging into Kali]([Logging-into-Kali.png](https://github.com/sourovchandradas/linux-basic-for-security/blob/main/Week-01/Day-02/A%20tour%20of%20Kali/Logging-into-Kali.png))  
 
 -> Default Credentials:  
    - Username: root  
    - Password: toor (use your new password if you changed it earlier).  
 
 -> After Login: You will get access to the Kali desktop (**The-Kali-Desktop**).  
-![Figure 1-2: The Kali Desktop](The-Kali-Desktop.png)  
-*Figure 1-2: The Kali Desktop*
+![The Kali Desktop](The-Kali-Desktop.png) 
 
 -> Key Aspects to Explore: The Terminal Interface and File Structure.  
 
@@ -19,8 +17,7 @@
 
 ## 💻 The Terminal (Command Line Interface)
 -> How to Open: Click the terminal icon along the left of the Kali desktop (**The-Kali-Terminal**).  
-![Figure 1-3: The Kali Terminal](The-Kali-Terminal.png)  
-*Figure 1-3: The Kali Terminal*
+![The Kali Terminal](The-Kali-Terminal.png)  
 
 -> The Shell: The terminal opens the command line environment known as the shell. It enables you to run commands on the underlying operating systems and write scripts.  
 
