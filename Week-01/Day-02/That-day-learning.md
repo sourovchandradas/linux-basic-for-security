@@ -32,7 +32,8 @@
 ```bash
 passwd
 Output : 
-![Default Password Change](A%20tour%20of%20Kali/Default-Password-Change.png)
+![Default Password Change](https://raw.githubusercontent.com/sourovchandradas/linux-basic-for-security/main/Week-01/Day-02/A%20tour%20of%20Kali/Default-Password-Change.png)
+
 
 📂 The Linux Filesystem
 -> Structure Concept: Unlike Windows, Linux does not have physical drives (like C: drive) at the base. It uses a logical filesystem instead.
