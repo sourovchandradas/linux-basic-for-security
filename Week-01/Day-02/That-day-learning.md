@@ -2,7 +2,8 @@
 
 ## 🖥️ A Tour of Kali Linux
 -> Login Screen: When you start Kali, you will see a login screen (**Logging-into-Kali**).  
-![Logging into Kali]([Logging-into-Kali.png](https://github.com/sourovchandradas/linux-basic-for-security/blob/main/Week-01/Day-02/A%20tour%20of%20Kali/Logging-into-Kali.png))  
+![Logging into Kali](A tour of Kali / Logging-into-Kali.png)
+
 
 -> Default Credentials:  
    - Username: root  
