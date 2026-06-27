@@ -1,4 +1,4 @@
-# 📖 Learning Linux Basics for Security
+।# 📖 Learning Linux Basics for Security
 
 ## 🖥️ A Tour of Kali Linux
 -> Login Screen: When you start Kali, you will see a login screen (**Logging-into-Kali**).
@@ -31,7 +31,9 @@
 -> Password Command: To change your password, use the command:  
 ```bash
 passwd
-Output : ![default Password Change](A tour of Kali/default-Password-Change.png)
+Output : 
+![Default Password Change](A%20tour%20of%20Kali/Default-Password-Change.png)
+
 📂 The Linux Filesystem
 -> Structure Concept: Unlike Windows, Linux does not have physical drives (like C: drive) at the base. It uses a logical filesystem instead.
 
