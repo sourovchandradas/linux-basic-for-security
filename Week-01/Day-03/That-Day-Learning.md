@@ -1,6 +1,7 @@
 LINUX BASICS & CORE COMMANDS
 
-OS: Kali LinuxUser: sourov (Standard User / Non-root)
+OS: Kali Linux
+User: sourov (Standard User / Non-root)
 
 This note covers the absolute fundamental concepts and commands required to navigate the Linux filesystem, identify users, check contents, and get help.
 
