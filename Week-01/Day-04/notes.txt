@@ -1,1 +1,116 @@
+========================================================================
+                      LINUX COMMANDS: FINDING STUFF
+========================================================================
+Topic: Linux File & Process Searching (Day 04)
+========================================================================
 
+## 1. Searching with 'locate'
+------------------------------------------------------------------------
+* Description: The easiest way to search. It scans the entire filesystem 
+  for every occurrence of a keyword.
+* Example:
+  kali > locate aircrack-ng
+  Output shows all paths containing "aircrack-ng" (e.g., /usr/bin/, /usr/share/).
+
+* Disadvantages:
+  - Can give too much information (overwhelming results).
+  - Uses a database that updates only once a day. Newly created files 
+    might not appear until the next day.
+
+
+## 2. Finding Binaries with 'whereis'
+------------------------------------------------------------------------
+* Description: Used specifically to find binary files. It returns the 
+  location of the binary, its source code, and its man page (if available).
+* Advantage: More efficient than 'locate' because it filters out 
+  unnecessary files.
+* Example:
+  kali > whereis aircrack-ng
+  Output: aircarck-ng: /usr/bin/aircarck-ng /usr/share/man/man1/aircarck-ng.1.gz
+
+
+## 3. Finding Binaries in PATH with 'which'
+------------------------------------------------------------------------
+* Description: Even more specific than 'whereis'. It only searches and 
+  returns binaries located within the directories listed in the system's 
+  $PATH variable.
+* Note on PATH: PATH is a variable holding directories (like /usr/bin, 
+  /usr/sbin) where the OS looks for commands you execute.
+* Example:
+  kali > which aircrack-ng
+  Output: /usr/bin/aircrack-ng
+
+
+## 4. Powerful Searches with 'find'
+------------------------------------------------------------------------
+* Description: The most powerful and flexible searching tool. It starts 
+  from a designated directory and searches based on parameters like name, 
+  creation date, owner, permissions, and file size.
+* Syntax: 
+  find [directory] [options] [expression]
+
+* Examples:
+  - Search from root (/) for a regular file (-type f) named "apache2":
+    kali > find / -type f -name apache2
+    (Note: This searches the whole system and can be slow.)
+
+  - Speeding up the search by starting in a specific directory (/etc):
+    kali > find /etc -type f -name apache2
+
+* Key Rule: 'find' only displays exact matches. It will not find 
+  "apache2.conf" if you search for "apache2".
+
+
+## 4.1 Understanding 'find' Syntax
+------------------------------------------------------------------------
+Syntax: find [directory] [options] [expression]
+
+1. [directory]: Where to start looking.
+   - It tells Linux which folder to search inside (including all its subfolders).
+   - Examples:
+     * /    (Starts searching from the absolute root—the entire system)
+     * /etc (Starts searching only inside the configuration folder)
+     * .    (A single dot means start searching from your current folder)
+
+2. [options]: What properties/attributes to look for.
+   - It specifies the criteria or rules for the search, such as the type of file.
+   - Examples:
+     * -type f (Look only for regular files)
+     * -type d (Look only for directories/folders)
+
+3. [expression]: The specific name or pattern you want to match.
+   - This is the actual value or name you are trying to find.
+   - Examples:
+     * -name apache2 (Find files exactly named "apache2")
+     * -name "*.txt" (Find all files that end with a ".txt" extension)
+
+
+## 5. A Quick Look at Wildcards
+------------------------------------------------------------------------
+Wildcards help match multiple characters when you don't know the exact name.
+
+* '?' (Question Mark): Matches exactly one single character.
+  - Example: '?at' finds cat, hat, bat (but NOT 'what').
+* '[]' (Square Brackets): Matches any character written inside the brackets.
+  - Example: '[c,b]at' finds cat and bat (but NOT 'hat').
+* '*' (Asterisk): Matches any characters of any length (from 0 to unlimited).
+  - Example: '*at' finds cat, hat, what, and bat.
+  - Using with find: 'find /etc -type f -name apache2.\*' finds "apache2.conf".
+
+
+## 6. Filtering with 'grep' and Piping (|)
+------------------------------------------------------------------------
+* Description: Used as a filter to search for specific keywords inside text or command outputs.
+* Piping (|): Sends the output of one command as the input to another command.
+
+* Checking Running Processes (ps aux + grep):
+  - 'ps aux' displays all running processes on the system.
+  - Piping it to grep helps check if a specific service (like apache2) is running.
+* Example:
+  kali > ps aux | grep apache2
+  Output shows specific lines containing "apache2" with process IDs, 
+  saving time and eyesight.
+
+========================================================================
+                          End of Day 04 Notes
+========================================================================
