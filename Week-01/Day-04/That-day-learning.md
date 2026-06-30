@@ -23,6 +23,7 @@ Welcome to Day 04 of my Linux Security learning journey. This document serves as
 ### 2. 📁 Finding Binaries with 'whereis'
 
 * **Description:** Finds binary, source, and manual (`man`) page locations.
+* **Hacker's Perspective:** This is much more efficient than `locate` when trying to find out where a target tool or exploit binary is hidden.
 * **Example:**
 ```bash
 kali > whereis aircrack-ng
@@ -38,6 +39,7 @@ kali > whereis aircrack-ng
 ### 3. 🌐 Finding Binaries in PATH with 'which'
 
 * **Description:** Only searches and returns binaries located in directories listed in the `$PATH` variable.
+* **What is PATH?** A built-in Linux variable holding a list of directories (like `/usr/bin`, `/usr/sbin`) where the Operating System automatically looks whenever you type a command.
 * **Example:**
 ```bash
 kali > which aircrack-ng
@@ -115,6 +117,7 @@ kali > find /etc -type f -name apache2.\*
 
 * **Piping (`|`):** Sends the output of one command as direct input to another command.
 * **Grep:** Filters text or command outputs for specific keywords.
+* **Process Tracking:** Combining `ps aux` (displays all active system processes) with `| grep <keyword>` allows a hacker to immediately verify if a background service is running.
 * **Example (List all processes and filter for apache2):**
 ```bash
 kali > ps aux
@@ -131,6 +134,18 @@ kali > ps aux
 
 ---
 
+
+## 🛠️ Utilities & Tool Reference
+
+| Category | Component/Tool | Syntax / Structure | Description |
+| :--- | :--- | :--- | :--- |
+| **Quick Search** | `locate` | `locate [keyword]` | Fast, database-driven file scanning across the system. |
+| **Binary Search** | `whereis` | `whereis [binary_name]` | Returns binary, source code, and man page paths. |
+| **PATH Search** | `which` | `which [binary_name]` | Only finds executables inside the system `$PATH`. |
+| **Live Search** | `find` | `find [directory] [options] [expression]` | Real-time, multi-parameter, heavy-duty file locator. |
+| **Data Filter** | `grep` | `[command] \| grep [keyword]` | Filters command outputs or file content for keywords. |
+
+---
 ```
 
 ```
