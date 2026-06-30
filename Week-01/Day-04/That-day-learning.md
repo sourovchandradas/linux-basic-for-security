@@ -126,11 +126,15 @@ kali > ps aux
 
 #### 🖼️ Process Output
 
+
 ![PS Aux](Screenshots/ps-aux.png)
+
 
 #### 🖼️ Process & Filter Output
 
+
 ![Grep](Screenshots/grep.png)
+
 
 ---
 
