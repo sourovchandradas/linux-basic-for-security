@@ -8,6 +8,8 @@ Welcome to Day 04 of my Linux Security learning journey. This document serves as
 
 ### 1. 🔍 Searching with 'locate'
 * **Description:** Scans the entire filesystem for a keyword. Very fast but uses a database updated once a day (new files won't show up).
+* **Mechanism:** It does not scan live; instead, it looks inside a pre-built system database.
+* **Limitations:** The database usually updates only once a day. If you create a file a few minutes ago, `locate` will not find it until the next day's update. It can also produce overwhelming results.
 * **Example:**
   ```bash
   kali > locate aircrack-ng
