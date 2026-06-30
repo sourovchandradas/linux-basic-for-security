@@ -1,79 +1,134 @@
-========================================================================
-                      LINUX COMMANDS: FINDING STUFF
-========================================================================
-Topic: Linux File & Process Searching (Day 04)
-Source: Chapter 1 - Getting Started with the Basics
-========================================================================
+# 🐧 Day 04: Linux File Searching & Filtering Utilities
 
-## 1. Searching with 'locate'
-------------------------------------------------------------------------
-* Description: Scans entire filesystem for a keyword. Very fast but uses a database updated once a day (new files won't show up).
-* Example:
+Welcome to Day 04 of my Linux Security learning journey. This document serves as a professional summary of the core tools and techniques used to efficiently locate files, paths, and active processes within a Linux environment.
+
+---
+
+## 🎯 Key Points & Core Concepts
+
+### 1. 🔍 Searching with 'locate'
+* **Description:** Scans the entire filesystem for a keyword. Very fast but uses a database updated once a day (new files won't show up).
+* **Example:**
+  ```bash
   kali > locate aircrack-ng
 
-![Locate](Screenshots/locate.png)
+#### 🖼️ Terminal Output
 
+![Locate Command](Screenshots/locate.png)
 
-## 2. Finding Binaries with 'whereis'
-------------------------------------------------------------------------
-* Description: Finds binary, source, and man page locations.
-* Example:
-  kali > whereis aircrack-ng
+---
 
-![Whereis](Screenshots/whereis.png)
+### 2. 📁 Finding Binaries with 'whereis'
 
+* **Description:** Finds binary, source, and manual (`man`) page locations.
+* **Example:**
+```bash
+kali > whereis aircrack-ng
 
-## 3. Finding Binaries in PATH with 'which'
-------------------------------------------------------------------------
-* Description: Only searches in directories listed in the $PATH variable.
-* Example:
-  kali > which aircrack-ng
+```
 
-![Which](Screenshots/which.png)
+#### 🖼️ Terminal Output
 
+![Whereis Command](Screenshots/whereis.png)
 
-## 4. Powerful Searches with 'find'
-------------------------------------------------------------------------
-* Description: Most powerful search tool. Can look by name, date, size, permissions, etc. Only shows exact matches.
-* Syntax: find [directory] [options] [expression]
+---
 
-### 4.1 Understanding Syntax:
-1. [directory]: Where to start searching (e.g., / for root, /etc for config folder, . for current folder).
-2. [options]: Search criteria (e.g., -type f for files, -type d for folders).
-3. [expression]: What name to match (e.g., -name apache2).
+### 3. 🌐 Finding Binaries in PATH with 'which'
 
-* Example 1 (Search from Root - Slow):
-  kali > find / -type f -name apache2
+* **Description:** Only searches and returns binaries located in directories listed in the `$PATH` variable.
+* **Example:**
+```bash
+kali > which aircrack-ng
+
+```
+
+#### 🖼️ Terminal Output
+
+![Which Command](Screenshots/which.png)
+
+---
+
+### 4. 💪 Powerful Searches with 'find'
+
+* **Description:** Most powerful and flexible search tool. Can look by name, date, size, permissions, etc. Only shows exact matches.
+* **Syntax:** ```bash
+find [directory] [options] [expression]
+```
+
+```
+
+### ⚙️ Understanding Syntax:
+
+1. **[directory]:** Where to start searching (e.g., `/` for root, `/etc` for config folder, `.` for current folder).
+2. **[options]:** Search criteria (e.g., `-type f` for files, `-type d` for folders).
+3. **[expression]:** What name or pattern to match (e.g., `-name apache2`).
+
+### 🚀 Practical Examples
+
+* **Example 1 (Search from Root - Slow):**
+```bash
+kali > find / -type f -name apache2
+
+```
+#### 🖼️ Terminal Output
+
 
 ![Find Root](Screenshots/find-with-root.png)
 
-* Example 2 (Search in /etc - Faster):
-  kali > find /etc -type f -name apache2
+
+* **Example 2 (Search in /etc - Faster):**
+```bash
+kali > find /etc -type f -name apache2
+
+```
+#### 🖼️ Terminal Output
+
 
 ![Find Config Folder](Screenshots/find-with-configuration-file.png)
 
 
-## 5. A Quick Look at Wildcards
-------------------------------------------------------------------------
-* '?' : Matches 1 character (e.g., ?at finds cat, hat).
-* '[]' : Matches characters inside brackets (e.g., [c,b]at finds cat, bat).
-* '*' : Matches any characters of any length.
-* Example with find:
-  kali > find /etc -type f -name apache2.\*
+---
+
+### 5. 🃏 A Quick Look at Wildcards
+
+Wildcards help match multiple characters when you don't know the exact name:
+
+* **`?`** $\rightarrow$ Matches exactly **1** character (e.g., `?at` finds *cat*, *hat*).
+* **`[]`** $\rightarrow$ Matches characters inside brackets (e.g., `[c,b]at` finds *cat*, *bat*).
+* **`*`** $\rightarrow$ Matches any characters of **any length**.
+* **Example using Wildcard with Find:**
+```bash
+kali > find /etc -type f -name apache2.\*
+
+```
+#### 🖼️ Terminal Output
+
 
 ![Find Wildcard](Screenshots/find-with-main-apache-config.png)
 
 
-## 6. Filtering with 'grep' and Piping (|)
-------------------------------------------------------------------------
-* Piping (|): Sends output of one command as input to another.
-* grep: Filters text for specific keywords.
-* Example (List all processes and filter for apache2):
-  kali > ps aux | grep apache2
+---
+
+### 6. 🪠 Filtering with 'grep' and Piping (`|`)
+
+* **Piping (`|`):** Sends the output of one command as direct input to another command.
+* **Grep:** Filters text or command outputs for specific keywords.
+* **Example (List all processes and filter for apache2):**
+```bash
+kali > ps aux
+
+```
+
+#### 🖼️ Process Output
 
 ![PS Aux](Screenshots/ps-aux.png)
+
+#### 🖼️ Process & Filter Output
+
 ![Grep](Screenshots/grep.png)
 
-========================================================================
-                          End of Day 04 Notes
-========================================================================
+---
+
+```
+
+```
