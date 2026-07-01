@@ -1,1 +1,123 @@
+========================================================================
+                  LINUX COMMANDS: MODIFYING FILES & DIR
+========================================================================
+Topic: Modifying Files and Directories (Day 05)
+Source: Chapter 1 - Getting Started with the Basics (Linux Basics for Hackers)
+========================================================================
 
+## 1. Creating Files with 'cat'
+------------------------------------------------------------------------
+* Description: 'cat' is short for concatenate (meaning to combine pieces 
+  together). While generally used to display file contents, it can also 
+  be used to create small files.
+* Note on Large Files: For bigger files, it's better to use text editors 
+  like vim, emacs, leafpad, gedit, or kate.
+
+* Concatenation with cat (Single Redirect '>'):
+  Using a single redirect (>) followed by a filename creates a new file. 
+  Linux goes into interactive mode. Type your text and press Ctrl-D to 
+  save and exit.
+  ⚠️ Warning: If the file already exists, '>' will completely overwrite it.
+
+* Example (Create/Overwrite):
+  kali > cat > hackingskills
+  Hacking is the most valuable skill set of the 21st century!
+  (Press Ctrl-D to return to prompt)
+
+  kali > cat hackingskills
+  Output: Hacking is the most valuable skill set of the 21st century!
+
+* Appending Content (Double Redirect '>>'):
+  To add or append more content to the end of an existing file without 
+  deleting the old text, use the double redirect (>>).
+
+* Example (Append):
+  kali > cat >> hackingskills
+  Everyone should learn hacking
+  (Press Ctrl-D to return to prompt)
+
+  kali > cat hackingskills
+  Output: Hacking is the most valuable skill set of the 21st century! 
+  Everyone should learn hacking
+
+
+## 2. File Creation with 'touch'
+------------------------------------------------------------------------
+* Description: Originally developed to change file details (like creation 
+  or modification date). However, if the file doesn't already exist, 
+  this command creates that blank file by default.
+* Note: Newly created files using touch have a size of 0 bytes because 
+  there is no content inside.
+
+* Example:
+  kali > touch newfile
+  (Creates a blank file named "newfile")
+
+
+## 3. Creating a Directory with 'mkdir'
+------------------------------------------------------------------------
+* Description: 'mkdir' is a contraction of "make directory". It is used 
+  to create new folders in Linux.
+
+* Example:
+  kali > mkdir newdirectory
+  kali > cd newdirectory
+  (Creates "newdirectory" and navigates straight into it)
+
+
+## 4. Copying a File with 'cp'
+------------------------------------------------------------------------
+* Description: Creates an exact duplicate of the file in a new location 
+  and leaves the original source file in place.
+* Renaming: Renaming during copy is optional. Simply add the new name 
+  at the end of the destination path. If omitted, it keeps the original name.
+
+* Example:
+  kali > touch oldfile
+  kali > cp oldfile /root/newdirectory/newfile
+
+  kali > cd newdirectory
+  kali > ls
+  Output: newfile   oldfile
+
+
+## 5. Renaming a File with 'mv'
+------------------------------------------------------------------------
+* Description: Linux does not have a command intended solely for renaming. 
+  Instead, it uses the 'mv' (move) command.
+* Function: It can move a file/directory to a new location or simply 
+  give an existing file/directory a new name in the same path.
+
+* Example:
+  kali > mv newfile newfile2
+  kali > ls
+  Output: oldfile   newfile2
+  (The file "newfile" is successfully renamed to "newfile2")
+
+
+## 6. Removing Files and Directories ('rm', 'rmdir', 'rm -r')
+------------------------------------------------------------------------
+* Removing Files: Use the 'rm' command to permanently delete files.
+  - Example: kali > rm newfile2
+
+* Removing Directories ('rmdir'): Safe command that removes folders. 
+  ⚠️ Critical Rule: 'rmdir' will NOT remove a directory if it is not empty. 
+  This stops you from accidentally deleting objects inside.
+  - Example Failure Output:
+    rmdir: failed to remove 'newdirectory': Directory not empty
+
+* Recursive Deletion ('rm -r'): If you want to delete a directory and all 
+  of its files/content all in one go, use the '-r' switch.
+  - Example: kali > rm -r newdirectory
+
+* ⚠️ Caution: Be very careful using 'rm -r' (especially at first). Running 
+  'rm -r' inside your home directory would instantly wipe every single file 
+  and folder inside it by mistake.
+
+🔑 Quick Recap: rm = delete file
+                rmdir = empty dir only
+                rm -r = recursive delete.
+
+========================================================================
+                          End of Day 05 Notes
+========================================================================
