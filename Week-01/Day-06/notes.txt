@@ -1,0 +1,165 @@
+================================================================================
+                            TEXT MANIPULATION IN LINUX
+                        Weekly Notes - Week 01, Day 06
+================================================================================
+
+OVERVIEW:
+---------
+In Linux, nearly everything you deal with directly is a file, and most often 
+these will be text files. All configuration files in Linux are text files. 
+To reconfigure an application, you simply:
+  1. Open the configuration file
+  2. Change the text
+  3. Save the file
+  4. Restart the application
+
+With so many text files in Linux, manipulating text becomes crucial for 
+managing Linux and Linux applications.
+
+================================================================================
+KEY CONCEPTS:
+================================================================================
+
+1. VIEWING FILES
+   ===============
+   
+   a) CAT Command (Basic):
+      - Most basic text display command
+      - Limitations: streams entire file to end
+      - Usage: cat /etc/snort/snort.conf
+      - Problem: Not convenient for large files
+   
+   b) HEAD Command (View Beginning):
+      - Displays first 10 lines by default
+      - Usage: head /etc/snort/snort.conf
+      - Custom lines: head -20 /etc/snort/snort.conf
+      - Syntax: head -[number] [filename]
+      - Example: head -20 /etc/snort/snort.conf
+   
+   c) TAIL Command (View End):
+      - Displays last 10 lines by default
+      - Usage: tail /etc/snort/snort.conf
+      - Custom lines: tail -20 /etc/snort/snort.conf
+      - Syntax: tail -[number] [filename]
+      - Example: tail -20 /etc/snort/snort.conf
+
+2. NUMBERING LINES
+   ================
+   
+   a) NL Command (Number Lines):
+      - Adds line numbers to file display
+      - Usage: nl /etc/snort/snort.conf
+      - Useful for: Very long files (snort.conf has 600+ lines)
+      - Benefit: Makes referencing and navigation easier
+      - Note: Skips numbering for blank lines
+
+3. FILTERING TEXT
+   ===============
+   
+   a) GREP Command (Most Important):
+      - Probably the most widely used text manipulation command
+      - Purpose: Filter content of a file for display
+      - Searches for specific words or phrases
+      - Usage: cat [filename] | grep [search_term]
+      
+      Example:
+      $ cat /etc/snort/snort.conf | grep output
+      
+      - This displays all lines containing the word "output"
+      - Uses pipe (|) operator to send input to grep
+      - Grep takes file as input, searches, and displays matches only
+      - Extremely powerful for finding occurrences in files
+      - Can save hours of manual searching
+
+================================================================================
+PRACTICAL EXAMPLE (SNORT Configuration):
+================================================================================
+
+File: /etc/snort/snort.conf (Network Intrusion Detection System config)
+
+Command Demonstrations:
+
+1. View entire file:
+   $ cat /etc/snort/snort.conf
+   Result: Streams entire file (600+ lines) - not practical
+
+2. View first 10 lines:
+   $ head /etc/snort/snort.conf
+   Output:
+   #------------------------------------------------
+   #    VRT Rule Packages Snort.conf
+   #
+   #    For more information visit us at:
+
+3. View first 20 lines:
+   $ head -20 /etc/snort/snort.conf
+
+4. View last 10 lines:
+   $ tail /etc/snort/snort.conf
+   Output: Shows include statements for rules files
+
+5. View last 20 lines:
+   $ tail -20 /etc/snort/snort.conf
+
+6. View with line numbers:
+   $ nl /etc/snort/snort.conf
+   Output: 
+   612 #dynamic library rules
+   613 #include $SO_RULE_PATH/bad-traffic.rules
+   614 #include $SO_RULE_PATH/chat.rules
+   ...
+
+7. Filter for "output" keyword:
+   $ cat /etc/snort/snort.conf | grep output
+   Output: Shows all lines containing "output"
+
+================================================================================
+IMPORTANT NOTES:
+================================================================================
+
+- Text files are fundamental to Linux administration
+- Configuration files are always text files
+- Text manipulation is essential for Linux security professionals
+- GREP is a critical tool for hackers and security professionals
+- Understanding NIDSs (Network Intrusion Detection Systems) is important
+- Snort is one of the world's best NIDSs (developed by Marty Roesch, owned by Cisco)
+- NIDSs are used to detect intrusions - security professionals must understand them
+
+Installation Note:
+If Kali Linux doesn't have Snort preinstalled:
+$ apt-get install snort
+
+================================================================================
+COMMAND SUMMARY TABLE:
+================================================================================
+
+Command          | Purpose                    | Default | Syntax
+-----------------+----------------------------+---------+------------------------------
+cat              | Display entire file        | All     | cat [filename]
+head             | Display beginning of file  | 10 lines| head -[n] [filename]
+tail             | Display end of file        | 10 lines| tail -[n] [filename]
+nl               | Display file with numbers  | All     | nl [filename]
+grep             | Filter for specific text   | N/A     | grep [pattern] [filename]
+                 |                            |         | or: cat [file] | grep [pattern]
+
+================================================================================
+KEY TAKEAWAYS:
+================================================================================
+
+1. Linux administration relies heavily on text file manipulation
+2. Know the right tool for the right job:
+   - cat: Quick view of entire file
+   - head/tail: View specific portions
+   - nl: Add line numbers for reference
+   - grep: Search for specific content
+
+3. Pipe operator (|) connects commands together
+4. These skills are essential for:
+   - System administration
+   - Security analysis
+   - Configuration management
+   - Log file analysis
+
+5. Grep is your most powerful and essential tool for finding content
+
+================================================================================
