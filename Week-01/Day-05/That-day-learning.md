@@ -1,6 +1,3 @@
-
-
-```markdow
 # 🐧 Day 05: Linux File & Directory Modification Utilities
 
 Welcome to Day 05 of my Linux Security learning journey. This document serves as a professional summary of the core tools and techniques used to efficiently create, copy, rename, and delete files and directories within a Linux environment.
@@ -15,12 +12,12 @@ Welcome to Day 05 of my Linux Security learning journey. This document serves as
 * **Mechanism:** Using a single redirect (`>`) followed by a filename creates a new file and enters interactive mode. Type text and press `Ctrl-D` to save and exit.
 * **Limitations:** If the file already exists, `>` will completely overwrite it. To add content to the end without deleting old text, use the double redirect (`>>`).
 * **Example:**
-  ```bash
+
   kali > cat > hackingskills
 
-```
-
 #### 🖼️ Terminal Output
+
+![create file with cat](Screenshot/create-file-cat.png)
 
 ---
 
