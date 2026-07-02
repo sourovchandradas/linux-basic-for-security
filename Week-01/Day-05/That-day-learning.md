@@ -196,13 +196,3 @@ $ rm -r oldproject
 | Recursive / Force Deletion | `rm` | `rm -r [directory_name]` / `rm -rf [path]` | Delete directory and contents (use with extreme caution). |
 
 ---
-
-## 🔐 Security Tips
-
-- Always double-check the path before running `rm -r` or using `sudo` with destructive commands.
-- Use `-i` flags for `cp`, `mv`, and `rm` when working with important files to get a prompt before overwriting or deleting.
-- Keep backups of critical data and consider using version control (git) for text/config files.
-
----
-
-If you want, I can further polish the captions/copy or add Bengali translations. I have re‑added the screenshots and included short captions so the examples show both commands and visual output.
