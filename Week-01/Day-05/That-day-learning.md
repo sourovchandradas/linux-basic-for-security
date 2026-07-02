@@ -16,7 +16,6 @@ Welcome to Day 05 of my Linux Security learning journey. This document serves as
   kali > cat > LinuxSkills
   My goal is to become a cybersecurity engineer.
 
-```
 
 #### 🖼️ Terminal Output
 
