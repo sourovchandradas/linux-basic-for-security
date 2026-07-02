@@ -12,8 +12,8 @@ Welcome to Day 05 of my Linux Security learning journey. This document summarize
 - Example — create/overwrite a file:
 
 ```bash
-$ cat > hackingskills.txt
-Everyone in IT security without hacking skills is in the dark
+$ cat > LinuxSkills.txt
+My goal is to become a cybersecurity engineer.
 ^D
 ```
 (Press Ctrl-D to send EOF and finish input.)
@@ -26,7 +26,7 @@ Everyone in IT security without hacking skills is in the dark
 
 ```bash
 $ cat >> hackingskills.txt
-Everyone should learn hacking
+So,Linux is very important for my learning journey.
 ^D
 ```
 
@@ -38,8 +38,7 @@ Everyone should learn hacking
 
 ```bash
 $ cat hackingskills.txt
-Everyone in IT security without hacking skills is in the dark
-Everyone should learn hacking
+Everyone in IT security without hacking skills is in the dark.
 ```
 
 #### 🖼️ Terminal Output (display)
