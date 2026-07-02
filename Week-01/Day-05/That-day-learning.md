@@ -66,7 +66,7 @@ kali > cat LinuxSkills
 
 ---
 
-* **Example 5 (Overwriting Existing File):**
+* **Example (Overwriting Existing File):**
 ```bash
 kali > cat > LinuxSkills
 Everyone in IT security without hacking skills is in the dark
@@ -81,7 +81,7 @@ Everyone in IT security without hacking skills is in the dark
 
 ---
 
-* **Example 6 (Display Overwritten Content):**
+* **Example (Display Overwritten Content):**
 ```bash
 kali > cat LinuxSkills
 
@@ -136,8 +136,6 @@ kali > cd newdirectory
 * **Description:** Creates a duplicate of the file in the new location and leaves the old one in place.
 * **Syntax:** ```bash
 cp [source_file] [destination_path]
-
-```
 
 ### ⚙️ Understanding Syntax:
 
