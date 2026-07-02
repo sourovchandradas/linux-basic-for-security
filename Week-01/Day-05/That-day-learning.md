@@ -11,7 +11,7 @@ Welcome to Day 05 of my Linux Security learning journey. This document serves as
 * **Note on Large Files:** For bigger files, it's better to use text editors like `vim`, `emacs`, `leafpad`, `gedit`, or `kate`.
 * **Mechanism:** When using a single redirect (`>`), Linux goes into interactive mode. Type your text and press `Ctrl-D` to save, exit, and return to the prompt. Running `cat` without a redirect simply prints the file's contents back.
 * **Limitations:** If the file already exists, a single redirect (`>`) will completely overwrite it. To add or append content to the end without deleting old text, use the double redirect (`>>`).
-* **Example (Create/Overwrite):**
+* **Example 1 (Create/Overwrite):**
   ```bash
   kali > cat > LinuxSkills
   My goal is to become a cybersecurity engineer.
@@ -23,7 +23,7 @@ Welcome to Day 05 of my Linux Security learning journey. This document serves as
 
 ---
 
-* **Example (Display Content):**
+* **Example 2 (Display Content):**
 ```bash
 kali > cat LinuxSkills
 
@@ -37,7 +37,7 @@ kali > cat LinuxSkills
 
 ---
 
-* **Example (Append Content):**
+* **Example 3 (Append Content):**
 ```bash
 kali > cat >> LinuxSkills
 So,Linux is very important for my learning journey.
@@ -52,7 +52,7 @@ So,Linux is very important for my learning journey.
 
 ---
 
-* **Example  (Display Appended Content):**
+* **Example 4 (Display Appended Content):**
 ```bash
 kali > cat LinuxSkills
 
@@ -66,7 +66,7 @@ kali > cat LinuxSkills
 
 ---
 
-* **Example (Overwriting Existing File):**
+* **Example 5 (Overwriting Existing File):**
 ```bash
 kali > cat > LinuxSkills
 Everyone in IT security without hacking skills is in the dark
@@ -81,7 +81,7 @@ Everyone in IT security without hacking skills is in the dark
 
 ---
 
-* **Example (Display Overwritten Content):**
+* **Example 6 (Display Overwritten Content):**
 ```bash
 kali > cat LinuxSkills
 
