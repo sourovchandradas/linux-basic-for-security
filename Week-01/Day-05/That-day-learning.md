@@ -18,6 +18,10 @@ Everyone in IT security without hacking skills is in the dark
 ```
 (Press Ctrl-D to send EOF and finish input.)
 
+#### 🖼️ Terminal Output
+
+![Create file with cat](Screenshot/create-file-cat.png)
+
 - Note: `cat > filename` will overwrite an existing file. To append instead of overwrite, use `cat >> filename`:
 
 ```bash
@@ -26,6 +30,10 @@ Everyone should learn hacking
 ^D
 ```
 
+#### 🖼️ Terminal Output (append)
+
+![Append with cat](Screenshot/append-with-cat.png)
+
 - Display the file content:
 
 ```bash
@@ -33,6 +41,10 @@ $ cat hackingskills.txt
 Everyone in IT security without hacking skills is in the dark
 Everyone should learn hacking
 ```
+
+#### 🖼️ Terminal Output (display)
+
+![Display with cat](Screenshot/display-with-cat.png)
 
 - Alternatives for larger or structured input: use a text editor (`vim`, `nano`, `gedit`), `tee` (for piping to a file while still seeing output), or here-documents (`<<EOF ... EOF`).
 
@@ -55,6 +67,10 @@ $ ls -l newfile.txt
 -rw-r--r-- 1 user user 0 Jun 30 12:00 newfile.txt
 ```
 
+#### 🖼️ Terminal Output
+
+![File created with touch](Screenshot/file-create-with-touch.png)
+
 ---
 
 ### 3. 🌐 Creating Directories with `mkdir`
@@ -68,6 +84,10 @@ Example:
 $ mkdir -p projects/linux-basics
 $ cd projects/linux-basics
 ```
+
+#### 🖼️ Terminal Output
+
+![Make directory with mkdir](Screenshot/make-directory.png)
 
 ---
 
@@ -88,6 +108,10 @@ $ cp oldfile.txt /root/newdirectory/newfile.txt
 $ ls /root/newdirectory
 newfile.txt
 ```
+
+#### 🖼️ Terminal Output
+
+![Copy with cp](Screenshot/copy-with-cp.png)
 
 ---
 
@@ -111,6 +135,10 @@ Example — move to another directory:
 $ mv newfile2.txt ../otherdir/
 ```
 
+#### 🖼️ Terminal Output
+
+![Rename and move](Screenshot/rename-and-move.png)
+
 ---
 
 ### 6. 🪠 Removing Files and Directories (`rm`, `rmdir`)
@@ -129,9 +157,29 @@ Examples:
 
 ```bash
 $ rm newfile2.txt
+```
+
+#### 🖼️ Process Output
+
+![Remove file](Screenshot/remove-file.png)
+
+
+```bash
 $ rmdir emptydirectory
+```
+
+#### 🖼️ Process Output
+
+![Remove directory with rmdir](Screenshot/remove-directory-with-rmdir.png)
+
+
+```bash
 $ rm -r oldproject
 ```
+
+#### 🖼️ Process Output
+
+![Remove directory with rm -r](Screenshot/remove-directory-with-rm-r.png)
 
 ---
 
@@ -157,4 +205,4 @@ $ rm -r oldproject
 
 ---
 
-If you want, I can commit this improved version directly to the repository. I have made the content clearer, removed incomplete placeholders, standardized the examples to use `$` prompts (so users can copy commands easily), and added notes about common options and safety. If you'd like any Bengali translations, more screenshots, or additional examples, tell me and I will update the file accordingly.
+If you want, I can further polish the captions/copy or add Bengali translations. I have re‑added the screenshots and included short captions so the examples show both commands and visual output.
