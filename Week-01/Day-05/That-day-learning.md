@@ -16,20 +16,15 @@ Welcome to Day 05 of my Linux Security learning journey. This document serves as
   
 #### 🖼️ Terminal Output
 
-![File create with cat](Screenshot/display-with-cat.png)
+![File create with cat](Screenshot/create-file-cat.png)
 
 ---
 
 * **Example 2 (Display Content):**
-```bash
-kali > cat hackingskills
 
-```
+#### 🖼️ Terminal Output:
 
-
-
-#### 🖼️ Terminal Output
-
+![Display with cat](Screenshot/display-with-cat.png)
 ---
 
 * **Example 3 (Append Content):**
