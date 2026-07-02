@@ -40,7 +40,7 @@ kali > cat LinuxSkills
 * **Example (Append Content):**
 ```bash
 kali > cat >> LinuxSkills
-So,Linux is very important for my journey.
+So,Linux is very important for my learning journey.
 
 ```
 
