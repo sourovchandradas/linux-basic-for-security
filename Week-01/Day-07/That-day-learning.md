@@ -15,7 +15,7 @@ Welcome to Day 07 of my Linux Security learning journey. This document summarize
 Example — Filter for "mod" keyword:
 ```bash
 
-kali > cat /etc/snort/snort.conf | grep mod
+kali > cat /etc/snort/snort.lua | grep mod
 
 ```
 
@@ -32,7 +32,7 @@ kali > cat /etc/snort/snort.conf | grep mod
 * Step 1 — Locate the line number using `nl` and `grep`:
 
 ```bash
-kali > nl /etc/snort/snort.conf | grep output
+kali > nl /etc/snort/snort.lua | grep mod
     34    # 6) Configure output plugins
    512    # Step #6: Configure output plugins
    518    # output unified2: filename merged.log, limit 128, nostamp...
@@ -112,18 +112,18 @@ kali > sed s/mysql/MySQL/2 snort.conf > snort2.conf
 
 * Description: `more` displays a text file one complete page at a time and stops, letting you page down through it.
 * Navigation notes: Press the `Enter` key or `Spacebar` to see additional lines/pages. Enter `q` to quit the viewer.
+* It also shows what percentage of the file's text is displayed on the screen.
 
 Example:
 
 ```bash
-kali > more /etc/snort/snort.conf
-#      Snort build options:
-# Options: --enable-gre --enable-mpls --enable-targetbased--enable-ppm --enable-perfprofiling enable-zlib --enable-active-response --enable-normalizer --enable-reload --enable-react--enable-flexresp3
-#--More--(2%)
+kali > more /etc/snort/snort.lua
 
 ```
 
 #### 🖼️ Terminal Output
+
+![more Command](Screenshot/more-command&output.png)
 
 #### B. Displaying and Filtering with `less`
 
@@ -134,20 +134,17 @@ kali > more /etc/snort/snort.conf
 Example:
 
 ```bash
-kali > less /etc/snort/snort.conf
-# (Press / key and type output)
-/output
-
-# Jumps directly to the output section:
-# Step #6: Configure output plugins
-# For more information, see Snort Manual, Configuring Snort - Output Modules
-#####################################################################
-#unified2
-output unified2: filename snort.log, limit 128, nostamp, mpls_event_types, vlan_event_types
+kali > less /etc/snort/snort.lua
 
 ```
 
+#### 🖼️ Terminal Command
+
+![less Command](Screenshot/less-command.png)
+
 #### 🖼️ Terminal Output
+
+![less Output](Screenshot/less-output.png)
 
 ---
 
