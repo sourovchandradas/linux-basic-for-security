@@ -1,1 +1,111 @@
+========================================================================
+                  LINUX TEXT MANIPULATION NOTES
+========================================================================
 
+1. Filtering Text with 'grep'
+------------------------------------------------------------------------
+The 'grep' command is the most widely used text manipulation tool. It allows 
+you to filter the content of a file for specific keywords or phrases.
+
+Example: Displaying lines containing the word "mod" in 'snort.lua'
+Command:
+kali > cat /etc/snort/snort.lua | grep mod
+
+Output:
+
+Only these line diplay that contains mod keyword.
+
+How it works:
+This command uses a pipe (|) to send the output of 'cat' into 'grep'. 
+'grep' takes the file content as input, searches for the word "mod", 
+and displays only those matching lines.
+
+
+------------------------------------------------------------------------
+[Hacker Challenge] Using grep, nl, tail, and head
+------------------------------------------------------------------------
+Challenge: Display the 5 lines immediately before a specific line that 
+says "# Step #6: Configure output plugins" using at least 4 commands.
+
+Step 1: Find the line number using 'nl' (number lines) and 'grep'.
+Command:
+kali > nl /etc/snort/snort.lua | grep mod
+
+Output:
+ Only the lines that contain the keyword ‘mod’ are displayed, along with their line numbers.
+
+Analysis:
+The target string is on line 220. We need lines 213 to 220 (the  preceding 7
+lines plus the line itself = 8 lines total).
+
+Step 2: Extract the exact lines using 'tail' and 'head'.
+Command:
+kali > tail -n+213 /etc/snort/snort.conf | head -n 8
+
+Output:
+
+Only 213-220 line print.
+
+Explanation:
+'tail -n+2013' starts reading the file from line 213 to the end. Then, 
+'head -n 8' catches that stream and prints only the top 8 lines.
+
+
+========================================================================
+2. Using 'sed' to Find and Replace
+========================================================================
+The 'sed' command (Stream Editor) allows you to search for text patterns 
+and perform actions on them (like Find and Replace). Linux is case-sensitive.
+
+Base Case: Checking existing instances of "mysql"
+kali > cat /etc/snort/snort.lua | grep mod
+
+* Syntax Variations for Replacement:
+
+1. Global Replacement (All instances in the file):
+   Use the 'g' flag at the end of the substitution command.
+   kali > sed s/mysql/MySQL/g /etc/snort/snort.lua > snort2.lua
+
+2. First Occurrence Only:
+   Leave out the trailing 'g' option.
+   kali > sed s/mysql/MySQL/ snort.lua > snort2.lua
+
+3. Specific Occurrence Only (e.g., replacing only the 2nd instance):
+   Specify the instance number at the end of the command.
+   kali > sed s/mysql/MySQL/2 snort.lua > snort2.lua
+
+Verification:
+kali > cat snort2.lua | grep MySQL
+
+
+========================================================================
+3. Viewing Large Files with 'more' and 'less'
+========================================================================
+While 'cat' displays the entire file at once (making large files scroll past 
+too quickly), 'more' and 'less' provide controlled pagination.
+
+A. Controlling the Display with 'more'
+------------------------------------------------------------------------
+Displays a file one page at a time.
+Command:
+kali > more /etc/snort/snort.lua
+
+Controls:
+* Press [Enter] or [Space] to scroll down.
+* Displays progress percentage in the lower-left corner (e.g., --More--(10%)).
+* Press [q] to quit.
+
+
+B. Displaying and Filtering with 'less'
+------------------------------------------------------------------------
+"Less is more" - 'less' has more advanced functionality than 'more', allowing 
+both forward/backward scrolling and text filtering.
+
+Command:
+kali > less /etc/snort/snort.conf
+
+In-view Filtering/Searching:
+1. Press the forward slash [/] key while inside 'less'.
+2. Type the search term (e.g., /output) and hit Enter. It highlights the match.
+3. Press [n] to jump to the next occurrence of the highlighted keyword.
+========================================================================
