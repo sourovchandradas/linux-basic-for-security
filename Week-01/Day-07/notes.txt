@@ -24,8 +24,8 @@ and displays only those matching lines.
 ------------------------------------------------------------------------
 [Hacker Challenge] Using grep, nl, tail, and head
 ------------------------------------------------------------------------
-Challenge: Display the 5 lines immediately before a specific line that 
-says "# Step #6: Configure output plugins" using at least 4 commands.
+Challenge: Display the 8 lines immediately before a specific line that 
+says "-file_log" using at least 4 commands.
 
 Step 1: Find the line number using 'nl' (number lines) and 'grep'.
 Command:
@@ -40,14 +40,14 @@ lines plus the line itself = 8 lines total).
 
 Step 2: Extract the exact lines using 'tail' and 'head'.
 Command:
-kali > tail -n+213 /etc/snort/snort.conf | head -n 8
+kali > tail -n+213 /etc/snort/snort.lua | head -n 8
 
 Output:
 
 Only 213-220 line print.
 
 Explanation:
-'tail -n+2013' starts reading the file from line 213 to the end. Then, 
+'tail -n+213' starts reading the file from line 213 to the end. Then, 
 'head -n 8' catches that stream and prints only the top 8 lines.
 
 
@@ -102,10 +102,17 @@ B. Displaying and Filtering with 'less'
 both forward/backward scrolling and text filtering.
 
 Command:
-kali > less /etc/snort/snort.conf
+kali > less /etc/snort/snort.lua
 
 In-view Filtering/Searching:
 1. Press the forward slash [/] key while inside 'less'.
 2. Type the search term (e.g., /output) and hit Enter. It highlights the match.
 3. Press [n] to jump to the next occurrence of the highlighted keyword.
+
 ========================================================================
+
+Syntax Summary:
+grep [options] pattern file
+sed 's/old/new/g' file
+tail -n+X file | head -n Y
+more/less for pagination
