@@ -103,7 +103,7 @@ kali > tail /etc/snort/snort.lua
 * **Example 2 — Expanded Footprint Invocation (Custom 20 Lines to view full rule block):**
 
 ```bash
-kali > tail -20 /etc/snort/snort.lua
+kali > tail -25 /etc/snort/snort.lua
 
 ```
 
@@ -136,7 +136,7 @@ kali > nl /etc/snort/snort.lua
 
 
 
-![Number Lines](Screenshot/numberring-the-lines-with-nl-tail.png)
+![Number Lines](Screenshot/numbering-the-lines-with-nl-tail.png)
 
 
 ---
@@ -151,7 +151,3 @@ kali > nl /etc/snort/snort.lua
 | **Dynamic Text Indexing** | `nl` | `nl [filename]` | Attaches sequential line numbers to the standard output. Automatically drops indexing numbers on blank rows. |
 
 ---
-
-```
-
-```
