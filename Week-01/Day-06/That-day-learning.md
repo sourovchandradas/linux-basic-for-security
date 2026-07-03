@@ -97,7 +97,7 @@ kali > tail /etc/snort/snort.lua
 
 #### 🖼️ Terminal Output (Default Tail)
 
-![Default Tail](Screenshot/tail-command/png)
+![Default Tail](Screenshot/tail-command.png)
 
 
 * **Example 2 — Expanded Footprint Invocation (Custom 20 Lines to view full rule block):**
