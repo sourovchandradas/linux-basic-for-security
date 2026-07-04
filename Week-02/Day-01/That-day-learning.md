@@ -64,6 +64,11 @@ kali >
 
 ```
 #### 🖼️ Terminal Output
+
+
+![Network Mask & Broadcast Address](Screenshot/netmask&bcast.png)
+
+
 ### 5. 🎭 Spoofing Your MAC Address
  * Description: The MAC address is globally unique and often used as a security measure to keep hackers out of networks—or to trace them. Changing your MAC address to spoof a different MAC address is almost trivial and neutralizes those security measures.
  * Interface State Sequence: To successfully spoof your MAC address, you must first use the down option to disable the interface. Then enter the hardware modification command (hw ether), and finally bring the interface back up with the up option.
