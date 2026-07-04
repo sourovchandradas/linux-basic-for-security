@@ -17,6 +17,9 @@ sourov@kali > pwd
 
 ```
 #### 🖼️ Terminal Output
+
+![Print Working Directory](Screenshot/pwd.png)
+
 ### 2. 👤 Active Session Identification (whoami)
  * Description: Displays the specific username of the current active terminal shell session.
  * Root vs Non-Root Architecture: The root account is the all-powerful system superuser required to run deep administration and advanced network tracking tools.
