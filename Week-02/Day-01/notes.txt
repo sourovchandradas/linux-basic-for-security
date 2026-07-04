@@ -1,1 +1,71 @@
+========================================================================
+               LINUX NETWORKING BASICS FOR HACKING
+========================================================================
 
+1. Introduction to Linux Networking
+------------------------------------------------------------------------
+Understanding networking is crucial for any hacker. Whether connecting with 
+a hidden IP or redirecting DNS queries to your system, managing networks 
+requires fundamental Linux network knowledge.
+
+
+2. Analyzing Networks with 'ifconfig'
+------------------------------------------------------------------------
+The 'ifconfig' command is one of the most basic tools for examining and 
+interacting with active network interfaces.
+
+Command:
+kali > ifconfig
+
+Key Output Elements:
+* eth0     : The first detected wired Ethernet interface (Linux starts counting from 0).
+* HWaddr   : The Media Access Control (MAC) address, a globally unique hardware address.
+* inet addr: The current IP address assigned to the interface (e.g., 192.168.181.131).
+* Bcast    : The broadcast address used to send data to all IPs on the subnet.
+* netmask  : Used to determine what part of the IP address is connected to the local network.
+* lo       : Loopback interface (localhost, typically 127.0.0.1). A special software 
+             address used to test local services (like a local web server).
+* wlan0    : Wireless network interface/adapter (displays MAC address for wireless).
+
+
+3. Checking Wireless Network Devices with 'iwconfig'
+------------------------------------------------------------------------
+The 'iwconfig' command gathers crucial wireless information (IP, MAC, wireless 
+standards, operating mode) needed for tools like 'aircrack-ng'.
+
+Command:
+kali > iwconfig
+
+Output Analysis:
+* Shows which interfaces have wireless extensions (typically 'wlan0').
+* Identifies supported IEEE wireless standards (e.g., 802.11bg).
+* Shows the current mode (e.g., Mode:Managed). For wireless cracking, 
+  switching to "monitor" or "promiscuous" mode is required.
+* Displays 'Tx-Power' (signal strength, e.g., 20 dBm).
+
+
+4. Changing Your Network Information
+------------------------------------------------------------------------
+Modifying network information helps evade detection, access restricted networks, 
+or perform attacks like IP spoofing in Denial-of-Service (DoS) scenarios.
+
+A. Changing Your IP Address
+Command:
+kali > ifconfig eth0 192.168.181.115
+
+Note: When successful, Linux returns a blank command prompt silently. Verify the 
+change by running 'ifconfig' again.
+
+B. Changing Network Mask and Broadcast Address
+Command:
+kali > ifconfig eth0 192.168.181.115 netmask 255.255.0.0 broadcast 192.168.1.255
+
+C. Spoofing Your MAC Address
+Changing your MAC address helps bypass network access controls and security measures. 
+This process requires taking the interface down, changing the address, and bringing it back up.
+
+Commands:
+kali > ifconfig eth0 down
+kali > ifconfig eth0 hw ether 00:11:22:33:44:55
+kali > ifconfig eth0 up
+========================================================================
