@@ -75,23 +75,31 @@ kali >
  * Description: The MAC address is globally unique and often used as a security measure to keep hackers out of networks—or to trace them. Changing your MAC address to spoof a different MAC address is almost trivial and neutralizes those security measures.
  * Interface State Sequence: To successfully spoof your MAC address, you must first use the down option to disable the interface. Then enter the hardware modification command (hw ether), and finally bring the interface back up with the up option.
 Example — Executing a Hardware MAC Address Spoofing Attack Pattern:
-```bash
+```bash step-1
 kali > ifconfig eth0 down
-kali > ifconfig eth0 hw ether 00:11:22:33:44:55
-kali > ifconfig eth0 up
 
 ```
 #### 🖼️ Terminal Command Step-1
 
-![MAC Spoofing Step-1](Screenshot/mac-spoofing-step-1.png)
+![MAC Spoofing Step-1](Screenbash/mac-spoofing-step-1.png)
 
 
-#### 🖼️ Terminal Command Step-1
+```bash step-2
+
+kali > ifconfig eth0 hw ether 00:11:22:33:44:55
+
+```
+#### 🖼️ Terminal Command Step-2
 
 ![MAC Spoofing Step-2](Screenshot/mac-spoofing-step-2.png)
 
 
-#### 🖼️ Terminal Command Step-1
+```bash step-3
+kali > ifconfig eth0 up
+
+```
+
+#### 🖼️ Terminal Command Step-3
 
 ![MAC Spoofing Step-3](Screenshot/mac-spoofing-step-3.png)
 
