@@ -66,7 +66,7 @@ kali >
 #### 🖼️ Terminal Output
 
 
-![Network Mask & Broadcast Address](Screenshot/netmask&bcast.png)
+![Network Mask & Broadcast Address](Screenshot/netmask-bcast.png)
 
 
 ### 5. 🎭 Spoofing Your MAC Address
