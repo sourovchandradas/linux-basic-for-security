@@ -81,7 +81,7 @@ kali > ifconfig eth0 down
 ```
 #### 🖼️ Terminal Command Step-1
 
-![MAC Spoofing Step-1](Screenbash/mac-spoofing-step-1.png)
+![MAC Spoofing Step-1](Screenshot/mac-spoofing-step-1.png)
 
 
 ```bash step-2
