@@ -137,8 +137,3 @@ rm -rf lab-day01
 - Debian Administrator's Handbook (useful even if not running Debian): https://debian-handbook.info/
 
 ---
-
-*Changelog: Filled truncated sentences, clarified shell vs terminal, added quick overview, safety notes, and a short hands-on lab. If you want, I can also:*
-- Add screenshots or command outputs, or
-- Create a similar improved draft for Week-02/Day-01 (networking), or
-- Open a PR with these changes if you'd prefer that workflow.
