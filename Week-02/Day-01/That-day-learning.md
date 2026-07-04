@@ -24,6 +24,7 @@ kali > ifconfig
 
 ![ifconfig](Screenshot/ifconfig.png)
 
+
 ### 2. 📡 Checking Wireless Network Devices with iwconfig
  * Description: If you have an external USB wireless card, you can use the iwconfig command to gather crucial information for wireless hacking such as the adapter’s IP address, MAC address, its current running mode, and signal strength.
  * Utility Integration: The information you can glean from this command is particularly important when you’re using wireless hacking tools like aircrack-ng.
@@ -39,6 +40,7 @@ kali > iwconfig
 
 ![iwconfig](Screenshot/iwconfig.png)
 
+
 ### 3. ⚡ Changing Your IP Address
  * Description: Being able to change your IP address and other network information is a useful skill because it helps you access other networks while appearing as a trusted device on those environments.
  * Evasion Strategy: In a Denial-of-Service (DoS) attack, you can spoof your IP so that the attack appears to come from another source, helping you evade IP capture during forensic analysis.
@@ -49,7 +51,7 @@ kali > ifconfig eth0 192.168.181.115
 kali >
 
 ```
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
 
 ![IP Address](Screenshot/ip-address.png)
 
@@ -59,11 +61,11 @@ kali >
  * Syntax Rule: Pass the interface parameter first, followed by the target IP, the keyword netmask with its value, and the keyword broadcast with its target address.
 Example — Overriding Netmask and Broadcast Simultaneously:
 ```bash
-kali > ifconfig eth0 192.168.181.115 netmask 255.255.0.0 broadcast 192.168.1.255
+kali > ifconfig eth0 192.168.181.115 netmask 255.255.0.0 bOu92.168.1.255
 kali > 
 
 ```
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
 
 
 ![Network Mask & Broadcast Address](Screenshot/netmask-bcast.png)
@@ -79,7 +81,22 @@ kali > ifconfig eth0 hw ether 00:11:22:33:44:55
 kali > ifconfig eth0 up
 
 ```
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command Step-1
+
+![MAC Spoofing Step-1](Screenshot/mac-spoofing-step-1.png)
+
+
+#### 🖼️ Terminal Command Step-1
+
+![MAC Spoofing Step-2](Screenshot/mac-spoofing-step-2.png)
+
+
+#### 🖼️ Terminal Command Step-1
+
+![MAC Spoofing Step-3](Screenshot/mac-spoofing-step-3.png)
+
+
+
 ## 🛠️ Utilities & Tool Reference
 | Category | Component/Tool | Syntax / Structure | Description |
 |---|---|---|---|
