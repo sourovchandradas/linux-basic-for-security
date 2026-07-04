@@ -1,117 +1,161 @@
 # 🐧 Day 08 : Linux Networking Basics
 
-Welcome to Day 01 of Week 02 of my Linux Security learning journey. This document serves as a clean, structured summary of analyzing network interfaces, verifying wireless configurations, and modifying network variables like IP addresses, netmasks, and MAC addresses.
+Welcome to Day 01 of Week 02 of my Linux Security learning journey. This document serves as a clean, structured summary of analyzing network interfaces, verifying wireless configurations, and modifying network parameters for testing and learning in a safe, lab environment.
 
 ---
 
 ## 🎯 Key Points & Core Concepts
 
 ### 1. 🔍 Analyzing Networks with `ifconfig`
-* Description: The `ifconfig` command is one of the most basic tools for examining and interacting with active network interfaces. You can use it to query your active network connections by simply entering it in the terminal.
-* Interface Naming: At the top of the output is the name of the first detected interface, `eth0`, which is short for Ethernet0 (Linux starts counting at 0 rather than 1). This is the first wired network connection.
-* Hardware Address (MAC): The type of network being used (Ethernet) is listed next, followed by `HWaddr`. This is the globally unique address stamped on every piece of network hardware—the Network Interface Card (NIC), usually referred to as the Media Access Control (MAC) address.
-* IP Configuration Layer: The second line contains information on the IP address currently assigned to that interface, the `Bcast` (broadcast address) used to send out information to all IPs on the subnet, and finally the `netmask`, used to determine what part of the IP address is connected to the local network.
-* Loopback Interface (`lo`): Short for loopback address and sometimes called `localhost` (represented with the IP address `127.0.0.1`). This is a special software address that connects you to your own system to test local services like web servers.
-* Wireless Interface (`wlan0`): This connection appears only if you have a wireless interface or adapter attached, displaying its own unique physical MAC address.
+* Description: The `ifconfig` command is a traditional tool for examining and interacting with active network interfaces. It can be used to list interfaces, view IPv4 addresses, MAC (hardware) addresses, and basic statistics for each interface.
+* Interface Naming: Interface names commonly appear as `eth0`, `wlan0`, `lo`, or on modern systems as `enp0s3`, `wlp2s0`, etc. These names identify wired, wireless, and loopback devices.
+* Hardware Address (MAC): The output shows a physical address (MAC) for each interface. This address is globally unique to the network adapter and often labeled as HWaddr or ether depending on the tool/version.
+* IP Configuration Layer: The output contains the IPv4 address assigned to that interface, the broadcast (`Bcast`) address, and the netmask. This information indicates how the interface communicates on the network.
+* Loopback Interface (`lo`): The loopback interface (`lo`) uses the IP `127.0.0.1` (localhost). It's a software-only interface used for inter-process communication on the same host.
+* Wireless Interface (`wlan0`/`wlp*`): A wireless adapter appears only if present and shows its own MAC address and other wireless-specific fields when using wireless tools.
 
-Example — Querying Local Active Network Parameters:
+Example — Querying local active network parameters (traditional):
 ```bash
-
-kali > ifconfig
-
+# Show legacy ifconfig output
+sudo ifconfig
 ```
+
+Note: On many modern distributions `ifconfig` is deprecated in favor of the iproute2 `ip` commands. The examples below show both for compatibility.
+
 #### 🖼️ Terminal Output
 
-![ifconfig](Screenshot/ifconfig.png)
+![ifconfig output showing eth0 and lo interfaces](Screenshot/ifconfig.png)
 
 
-### 2. 📡 Checking Wireless Network Devices with iwconfig
- * Description: If you have an external USB wireless card, you can use the iwconfig command to gather crucial information for wireless hacking such as the adapter’s IP address, MAC address, its current running mode, and signal strength.
- * Utility Integration: The information you can glean from this command is particularly important when you’re using wireless hacking tools like aircrack-ng.
- * Wireless Standard Extensions: The output explicitly details what 802.11 IEEE wireless standards your device is capable of (e.g., b and g, or the newer n standard).
- * Operation Modes: It displays the mode of the wireless extension (e.g., Mode:Managed, in contrast to monitor or promiscuous mode). Security professionals require monitor/promiscuous mode for cracking wireless passwords.
- * Signal Strength Parameter: The output displays if the adapter is connected (Not Associated) to an Access Point (AP) and shows its current operational power in dBm, representing signal strength.
-Example — Querying Wireless Adapter Properties:
+### 2. 📡 Checking Wireless Network Devices with `iwconfig`
+* Description: `iwconfig` reports wireless-specific information for wireless interfaces (link quality, ESSID, mode, frequency, etc.). On modern systems, `iw` provides more detailed control and information.
+* Utility Integration: The details from `iwconfig`/`iw` are useful when using wireless auditing tools (for example aircrack-ng suite) or when verifying adapter capabilities.
+* Wireless Standard Extensions: Output can indicate supported 802.11 standards (b/g/n/ac), rates, and supported channels.
+* Operation Modes: Displays operating mode (Managed, Monitor, Master, etc.). Monitor mode is required to capture raw 802.11 frames for wireless auditing.
+* Signal Strength Parameter: Shows whether the adapter is associated with an AP and reports signal strength (dBm) or link quality.
+
+Example — Querying wireless adapter properties (legacy and modern):
 ```bash
-kali > iwconfig
+# Legacy
+sudo iwconfig
 
+# Modern (more detailed):
+sudo iw dev
 ```
+
 #### 🖼️ Terminal Output
 
-![iwconfig](Screenshot/iwconfig.png)
+![iwconfig output showing wlan0 properties](Screenshot/iwconfig.png)
 
 
 ### 3. ⚡ Changing Your IP Address
- * Description: Being able to change your IP address and other network information is a useful skill because it helps you access other networks while appearing as a trusted device on those environments.
- * Evasion Strategy: In a Denial-of-Service (DoS) attack, you can spoof your IP so that the attack appears to come from another source, helping you evade IP capture during forensic analysis.
- * Silent Success: To change your IP address, enter ifconfig followed by the interface you want to reassign and the new IP address. When you do this correctly, Linux will simply return the command prompt silently.
-Example — Changing the IP Address Allocation on eth0:
-```bash
-kali > ifconfig eth0 192.168.181.115
-kali >
+* Description: Changing the IP address assigned to an interface is a common network administration and lab task. This is useful for testing, isolation, and learning. Always perform such actions only on networks you control or are authorized to test.
+* Warning: Changing IP addresses on production networks can disrupt services. IP/MAC spoofing to evade detection or to attack networks is illegal without explicit authorization.
+* How-to (legacy and modern):
 
+Legacy (ifconfig):
+```bash
+# Assign a specific IPv4 address
+sudo ifconfig eth0 192.168.181.115
 ```
+
+Modern (iproute2):
+```bash
+# Add IPv4 address with prefix length; /24 equals netmask 255.255.255.0
+sudo ip addr add 192.168.181.115/24 dev eth0
+# To remove an address
+sudo ip addr del 192.168.181.115/24 dev eth0
+```
+
 #### 🖼️ Terminal Command
 
-![IP Address](Screenshot/ip-address.png)
+![ifconfig showing changed IP address](Screenshot/ip-address.png)
 
 
 ### 4. 🌐 Changing Network Mask and Broadcast Address
- * Description: You can also change your network mask (netmask) and broadcast address with the ifconfig command to align with a custom subnet architecture.
- * Syntax Rule: Pass the interface parameter first, followed by the target IP, the keyword netmask with its value, and the keyword broadcast with its target address.
-Example — Overriding Netmask and Broadcast Simultaneously:
-```bash
-kali > ifconfig eth0 192.168.181.115 netmask 255.255.0.0 bOu92.168.1.255
-kali > 
+* Description: You can change the netmask and broadcast address to place an interface into a custom subnet. Use caution — incorrect settings can disconnect your host.
+* Syntax Rule: Provide the interface first, target IP, `netmask` and `broadcast` keywords for `ifconfig`, or use prefix notation with `ip`.
 
+Example — Overriding Netmask and Broadcast (fixed):
+```bash
+# Legacy (ifconfig) — note the correct keywords and values
+sudo ifconfig eth0 192.168.181.115 netmask 255.255.0.0 broadcast 192.168.1.255
+
+# Modern (ip) — set address with prefix (e.g. /16 for 255.255.0.0)
+sudo ip addr add 192.168.181.115/16 dev eth0
 ```
+
 #### 🖼️ Terminal Command
 
-
-![Network Mask & Broadcast Address](Screenshot/netmask-bcast.png)
+![Network Mask & Broadcast Address example](Screenshot/netmask-bcast.png)
 
 
 ### 5. 🎭 Spoofing Your MAC Address
- * Description: The MAC address is globally unique and often used as a security measure to keep hackers out of networks—or to trace them. Changing your MAC address to spoof a different MAC address is almost trivial and neutralizes those security measures.
- * Interface State Sequence: To successfully spoof your MAC address, you must first use the down option to disable the interface. Then enter the hardware modification command (hw ether), and finally bring the interface back up with the up option.
-Example — Executing a Hardware MAC Address Spoofing Attack Pattern:
-```bash step-1
-kali > ifconfig eth0 down
+* Description: The MAC (hardware) address identifies a network adapter at layer 2. Changing (spoofing) your MAC can be useful for privacy testing and lab exercises, but may violate network policies or laws if used maliciously.
+* Interface State Sequence: To change the MAC address, bring the interface down, set the new address, then bring it back up.
 
+Warning: Only perform MAC spoofing in lab environments or on networks where you have explicit permission.
+
+Example — MAC spoofing (recommended modern method using `ip`):
+```bash
+# 1. Take interface down
+sudo ip link set dev eth0 down
+
+# 2. Change MAC address
+sudo ip link set dev eth0 address 00:11:22:33:44:55
+
+# 3. Bring interface up
+sudo ip link set dev eth0 up
+
+# 4. Verify
+ip link show eth0
 ```
-#### 🖼️ Terminal Command Step-1
+
+Legacy method (ifconfig):
+```bash
+sudo ifconfig eth0 down
+sudo ifconfig eth0 hw ether 00:11:22:33:44:55
+sudo ifconfig eth0 up
+```
+
+#### 🖼️ Terminal Command Steps
 
 ![MAC Spoofing Step-1](Screenshot/mac-spoofing-step-1.png)
-
-
-```bash step-2
-
-kali > ifconfig eth0 hw ether 00:11:22:33:44:55
-
-```
-#### 🖼️ Terminal Command Step-2
-
 ![MAC Spoofing Step-2](Screenshot/mac-spoofing-step-2.png)
-
-
-```bash step-3
-kali > ifconfig eth0 up
-
-```
-
-#### 🖼️ Terminal Command Step-3
-
 ![MAC Spoofing Step-3](Screenshot/mac-spoofing-step-3.png)
 
 
-
 ## 🛠️ Utilities & Tool Reference
-| Category | Component/Tool | Syntax / Structure | Description |
-|---|---|---|---|
-| Network Auditing | ifconfig | ifconfig | Queries, displays, and configures active standard network configuration states. |
-| Wireless Auditing | iwconfig | iwconfig | Targets and displays parameters specific to wireless media extensions and standards. |
-| Device Control | down / up | ifconfig [interface] down / up | Disables or enables a target interface to safely apply configuration changes. |
-| Hardware Spoofing | hw ether | ifconfig [interface] hw ether [mac] | Programmatically re-writes the active physical address of a target network adapter. |
-```
 
-```
+| Category | Component / Tool | Syntax / Structure | Description |
+|---|---:|---|---|
+| Network Auditing | ifconfig | `sudo ifconfig` | Legacy tool to query and configure IPv4/IPv6 and link-layer settings. Deprecated on some distros in favor of `ip`.
+| Network Management | ip (iproute2) | `sudo ip addr`, `sudo ip link` | Modern replacement for ifconfig/route; supports advanced routing, namespaces, and modern network features.
+| Wireless Auditing | iwconfig / iw | `sudo iwconfig` / `sudo iw dev` | Wireless-specific information; `iw` is newer and more capable.
+| Device Control | down / up | `sudo ip link set dev <iface> down` / `up` | Disable or enable a network interface to apply changes safely.
+| Hardware Spoofing | hw ether / ip link set address | `sudo ifconfig <iface> hw ether <mac>` or `sudo ip link set dev <iface> address <mac>` | Change the MAC address of a network adapter.
+
+
+## Quick commands (one-liners)
+
+- Show all addresses: `ip addr show`
+- Show link-layer info: `ip link show`
+- Bring interface down: `sudo ip link set dev eth0 down`
+- Bring interface up: `sudo ip link set dev eth0 up`
+- Change MAC (temporary): `sudo ip link set dev eth0 address 00:11:22:33:44:55`
+
+
+## Lab setup & Safety
+
+Set up an isolated VM, container, or a dedicated test network when practicing these techniques. Never run offensive or evasive actions (MAC/IP spoofing, packet injection, DoS) on networks you do not own or have permission to test.
+
+## Further reading
+
+- man pages: `man ip`, `man ifconfig`, `man iw`, `man iwconfig`
+- iproute2 documentation: https://wiki.linuxfoundation.org/networking/iproute2
+- aircrack-ng project: https://www.aircrack-ng.org/
+
+
+---
+
+*Notes: I fixed typos, completed truncated sentences, corrected command examples (including the netmask/broadcast example), added modern `ip`/`iw` equivalents, and included explicit sudo and warning notes for operations that require root or may be illegal if misused.*
