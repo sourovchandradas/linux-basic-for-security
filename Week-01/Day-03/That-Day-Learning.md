@@ -50,6 +50,10 @@ sourov@kali > cd ..
 
 ```
 #### 🖼️ Terminal Output
+
+![Change directory](Screenshot/cd.png)
+
+
 ### 4. 🗂️ Listing Directory Contents (ls)
  * Description: Scans and displays the filenames and active subdirectories nested inside a designated directory layer.
  * Standard Execution: Running ls without arguments prints contents of your current path, while passing an explicit variable (like ls /path) previews that target's inventory.
