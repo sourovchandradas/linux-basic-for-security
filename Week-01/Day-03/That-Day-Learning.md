@@ -111,7 +111,7 @@ sourov@kali > aircrack-ng --help
 ```
 #### 🖼️ Terminal Output
 
-![help](Screenshot/aircrack-ng--help.png)
+![help](Screenshot/aircrack-ng20%--help.png)
 
 Example 2 — Checking nmap scanner help parameters:
 ```bash
