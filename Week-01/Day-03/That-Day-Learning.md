@@ -117,12 +117,12 @@ sourov@kali > aircrack-ng --help
 
 Example 2 — Checking nmap scanner help parameters:
 ```bash
-sourov@kali > nmap -h
+sourov@kali > nmap --help
 
 ```
 #### 🖼️ Terminal Output
 
-[h](Screenshot/nmap--help.png)
+[nmap help](Screenshot/nmap--help.png)
 
 ### 6. 📖 Deep Documentation Manuals (man)
  * Description: Opens the comprehensive, complete official manual pages for any targeted Linux binary, command, or structural utility.
