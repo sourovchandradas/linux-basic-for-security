@@ -122,7 +122,7 @@ sourov@kali > nmap -h
 ```
 #### 🖼️ Terminal Output
 
-[-h](Screenshot/nmap%20--help.png)
+[h](Screenshot/nmap%20--help.png)
 
 ### 6. 📖 Deep Documentation Manuals (man)
  * Description: Opens the comprehensive, complete official manual pages for any targeted Linux binary, command, or structural utility.
@@ -137,6 +137,9 @@ sourov@kali > man aircrack-ng
 
 ```
 #### 🖼️ Terminal Output
+
+![man](Screenshot/man%20aircrack-ng.png)
+
 ## 🛠️ Utilities & Tool Reference
 | Category | Component/Tool | Syntax / Structure | Description |
 |---|---|---|---|
