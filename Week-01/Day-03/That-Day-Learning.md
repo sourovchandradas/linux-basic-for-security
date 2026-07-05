@@ -155,7 +155,7 @@ sourov@kali > man aircrack-ng
  3. cd → Shifts context locations across folder paths.
  4. ls → Details standard, long (-l), or hidden (-a) folder inventories.
  5. --help / man → Safely parses parameters and commands when working with new tools.
-*⚡ End of Week 01 • Day 01 Notes • Organized for GitHub & OneNote*
+
 ```
 
 ```
