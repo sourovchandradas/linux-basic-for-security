@@ -45,7 +45,7 @@ sourov
    * cd / : Immediately snaps your terminal context directly to the absolute top/root level of the entire file layout.
 Example — Shifting path locations:
 ```bash
-sourov@kali > cd /etc/snort
+sourov@kali > cd /etc
 sourov@kali > cd ..
 
 ```
@@ -80,6 +80,10 @@ drwxr-xr-x 2 sourov sourov 4096 Jul  5 00:00 Desktop
 
 ```
 #### 🖼️ Terminal Output
+
+![Long list](Screenshot/ls-l.png)
+
+
 Example 3 — Hidden Files Discovery View (-a):
 ```bash
 sourov@kali > ls -a
