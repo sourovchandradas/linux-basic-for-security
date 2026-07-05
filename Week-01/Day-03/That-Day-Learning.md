@@ -112,7 +112,7 @@ sourov@kali > aircrack-ng --help
 #### 🖼️ Terminal Output
 
 
-![Help](Screenshot/aircrack-ng-help.png)
+![Help](Screenshot/aircrack-ng%20--help.png)
 
 
 Example 2 — Checking nmap scanner help parameters:
