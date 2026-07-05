@@ -31,6 +31,10 @@ sourov
 
 ```
 #### 🖼️ Terminal Output
+
+![Who ami I](Screenshot/whoami.png)
+
+
 ### 3. 📂 Changing Directory Layouts (cd)
  * Description: Used to seamlessly migrate and shift your working operational environment from one directory to another.
  * Syntax Rule & Navigation Variants:
