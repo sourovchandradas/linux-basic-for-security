@@ -121,6 +121,9 @@ sourov@kali > nmap -h
 
 ```
 #### 🖼️ Terminal Output
+
+[-h](Screenshot/nmap%20--help.png)
+
 ### 6. 📖 Deep Documentation Manuals (man)
  * Description: Opens the comprehensive, complete official manual pages for any targeted Linux binary, command, or structural utility.
  * Viewport Navigation Matrix:
