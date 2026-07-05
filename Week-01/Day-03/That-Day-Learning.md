@@ -81,7 +81,7 @@ drwxr-xr-x 2 sourov sourov 4096 Jul  5 00:00 Desktop
 ```
 #### 🖼️ Terminal Output
 
-![Long list](Screenshot/ls-l.png)
+![Long list](Screenshot/longlist.png)
 
 
 Example 3 — Hidden Files Discovery View (-a):
@@ -91,6 +91,9 @@ sourov@kali > ls -a
 
 ```
 #### 🖼️ Terminal Output
+
+![Hidden list](Screenshot/hiddenlist.png)
+
 Example 4 — Combined Long and Hidden Manifest (-la):
 ```bash
 sourov@kali > ls -la
