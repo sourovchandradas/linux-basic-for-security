@@ -68,6 +68,10 @@ Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 
 ```
 #### 🖼️ Terminal Output
+
+![List](Screenshot/ls.png)
+
+
 Example 2 — Long Listing Representation (-l):
 ```bash
 sourov@kali > ls -l
