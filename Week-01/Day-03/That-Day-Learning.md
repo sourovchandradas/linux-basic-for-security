@@ -64,7 +64,7 @@ sourov@kali > cd ..
 Example 1 — Standard Contents List:
 ```bash
 sourov@kali > ls
-Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates Text  Videos
 
 ```
 #### 🖼️ Terminal Output
@@ -75,8 +75,6 @@ Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 Example 2 — Long Listing Representation (-l):
 ```bash
 sourov@kali > ls -l
-drwxr-xr-x 2 sourov sourov 4096 Jul  5 00:00 Desktop
--rw-r--r-- 1 sourov sourov  124 Jul  5 00:00 notes.txt
 
 ```
 #### 🖼️ Terminal Output
@@ -87,7 +85,6 @@ drwxr-xr-x 2 sourov sourov 4096 Jul  5 00:00 Desktop
 Example 3 — Hidden Files Discovery View (-a):
 ```bash
 sourov@kali > ls -a
-.  ..  .bash_history  .bashrc  .config  Desktop  Documents
 
 ```
 #### 🖼️ Terminal Output
@@ -97,12 +94,12 @@ sourov@kali > ls -a
 Example 4 — Combined Long and Hidden Manifest (-la):
 ```bash
 sourov@kali > ls -la
-drwxr-xr-x 15 sourov sourov 4096 Jul  5 00:00 .
-drwxr-xr-x  3 root   root   4096 Jul  5 00:00 ..
--rw-r--r--  1 sourov sourov 3771 Jul  5 00:00 .bashrc
 
 ```
 #### 🖼️ Terminal Output
+
+![Hidden & long list](Screenshot/hiddenlist+longlist.png)
+
 ### 5. ❓ Standard Help Switch Execution (--help)
  * Description: Displays a fast reference syntax summary, tool description, and available flag arguments inside the active standard output.
  * Rule of Thumb: Use a double dash (--) before complete word options, and use a single dash (-) to invoke single-letter flags.
@@ -113,6 +110,9 @@ sourov@kali > aircrack-ng --help
 
 ```
 #### 🖼️ Terminal Output
+
+![help](Screenshot/aircrack-ng--help.png)
+
 Example 2 — Checking nmap scanner help parameters:
 ```bash
 sourov@kali > nmap -h
