@@ -1,1 +1,97 @@
+========================================================================
+                DHCP, DNS MANIPULATION, AND HOSTS MAPPING
+========================================================================
 
+1. Assigning New IP Addresses from the DHCP Server
+------------------------------------------------------------------------
+* DHCP (Dynamic Host Configuration Protocol) runs a background process 
+  (daemon) called 'dhcpd'.
+* It automatically assigns IP addresses to devices on a subnet and maintains 
+  logs, which forensic analysts often use to trace hackers.
+* After using a static IP, you must request a new DHCP-assigned IP to reconnect 
+  to the internet normally (without needing a system reboot).
+
+Command (Requesting a new IP for eth0):
+kali > sudo dhclient eth0
+
+How it works behind the scenes:
+1. DHCPDISCOVER : Sent from your interface (e.g., eth0) to find a server.
+2. DHCPOFFER    : Received from the DHCP server with an available IP.
+3. DHCPREQUEST  : Your system requests the offered IP.
+4. DHCPACK      : Server confirms and assigns the new IP, netmask, and broadcast.
+
+Verification:
+Run 'ifconfig' to verify the newly assigned network details.
+
+
+2. Manipulating the Domain Name System (DNS)
+------------------------------------------------------------------------
+DNS translates domain names (e.g., hackers-arise.com) into IP addresses. It is 
+a treasure trove for reconnaissance (early info-gathering before an attack).
+
+A. Examining DNS with 'dig'
+The 'dig' (Domain Information Groper) command gathers critical domain information, such as target name 
+servers, mail servers, subdomains, and associated IP addresses.
+
+* Querying Nameservers (NS):
+Command:
+kali > dig microsoft.com ns
+
+Output Analysis:
+Look at the "ANSWER SECTION" for target nameservers (e.g., ns3-39.azure-dns.org) 
+and the "ADDITIONAL SECTION" for the actual IP address of that DNS server.
+
+* Querying Mail Exchange (MX) Servers:
+Critical for planning attacks on email infrastructure.
+Command:
+kali > dig microsoft.com mx
+
+Note: BIND (Berkeley Internet Name Domain) is the most common Linux DNS server; 
+the terms DNS and BIND are often used interchangeably in Linux environments.
+
+
+3. Changing Your DNS Server
+------------------------------------------------------------------------
+To route your DNS requests through a specific server (like Google's public 
+DNS at 8.8.8.8), you need to modify the '/etc/resolv.conf' file.
+
+Method 1: Graphical/Text Editor
+kali > mousepad /etc/resolv.conf
+(Add the line: nameserver 8.8.8.8)
+
+Method 2: Directly via Command Line (Quick Overwrite):
+kali > echo "nameserver 8.8.8.8">  sudo /etc/resolv.conf
+
+Important Nuances:
+* Multi-DNS Setup: You can list multiple nameservers. The OS queries them in 
+  the exact order they appear. Keeping a local DNS first maintains speed, 
+  while adding a public DNS below acts as a backup.
+* DHCP Overwrite Warning: If you are using DHCP, renewing your IP lease will 
+  often overwrite '/etc/resolv.conf' with the DHCP server's default DNS settings.
+
+
+4. Mapping Your Own IP Addresses via the Hosts File
+------------------------------------------------------------------------
+The '/etc/hosts' file is a local plaintext file that performs domain-to-IP 
+translation before the system ever queries an external DNS server.
+
+Hacking Utility:
+By mapping a legitimate domain to a malicious local IP, you can hijack 
+local TCP connections and redirect target traffic using tools like 'dnsspoof'.
+
+Editing the file:
+kali > sudo mousepad /etc/hosts
+
+Default file structure vs. Malicious entry example:
+127.0.0.1       localhost
+127.1.1.1       kali
+192.168.181.131 bankofamerica.com
+192.168.181.131 www.bankofamerica.com
+
+Formatting Rule: Always use the [TAB] key—not the spacebar—between the 
+IP address and the domain name when editing this file.
+
+Ping the domain name:
+kali > ping www.bankofamerica.com
+
+========================================================================
