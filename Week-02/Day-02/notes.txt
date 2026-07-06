@@ -21,7 +21,11 @@ How it works behind the scenes:
 4. DHCPACK      : Server confirms and assigns the new IP, netmask, and broadcast.
 
 Verification:
-Run 'ifconfig' to verify the newly assigned network details.
+kali > ifconfig
+(Look for eth0 with a new IP address assigned)
+
+⚠️ IMPORTANT: If DHCP fails, check if the DHCP daemon is running:
+kali > sudo systemctl status dhcpd
 
 
 2. Manipulating the Domain Name System (DNS)
@@ -29,9 +33,9 @@ Run 'ifconfig' to verify the newly assigned network details.
 DNS translates domain names (e.g., hackers-arise.com) into IP addresses. It is 
 a treasure trove for reconnaissance (early info-gathering before an attack).
 
-A. Examining DNS with 'dig'
-The 'dig' (Domain Information Groper) command gathers critical domain information, such as target name 
-servers, mail servers, subdomains, and associated IP addresses.
+A. Examining DNS with 'dig' Command
+The 'dig' (Domain Information Groper) command gathers critical domain information, 
+such as target name servers, mail servers, subdomains, and associated IP addresses.
 
 * Querying Nameservers (NS):
 Command:
@@ -42,9 +46,16 @@ Look at the "ANSWER SECTION" for target nameservers (e.g., ns3-39.azure-dns.org)
 and the "ADDITIONAL SECTION" for the actual IP address of that DNS server.
 
 * Querying Mail Exchange (MX) Servers:
-Critical for planning attacks on email infrastructure.
+Critical for reconnaissance on email infrastructure.
 Command:
 kali > dig microsoft.com mx
+
+Example Output (MX):
+microsoft.com.   3600  IN  MX  10 microsoft-com.olc.protection.outlook.com.
+
+* Querying A Records (Standard IP lookup):
+kali > dig microsoft.com a
+kali > dig microsoft.com
 
 Note: BIND (Berkeley Internet Name Domain) is the most common Linux DNS server; 
 the terms DNS and BIND are often used interchangeably in Linux environments.
@@ -55,32 +66,54 @@ the terms DNS and BIND are often used interchangeably in Linux environments.
 To route your DNS requests through a specific server (like Google's public 
 DNS at 8.8.8.8), you need to modify the '/etc/resolv.conf' file.
 
-Method 1: Graphical/Text Editor
-kali > mousepad /etc/resolv.conf
+Method 1: Using Text Editor
+kali > sudo mousepad /etc/resolv.conf
 (Add the line: nameserver 8.8.8.8)
 
-Method 2: Directly via Command Line (Quick Overwrite):
-kali > echo "nameserver 8.8.8.8">  sudo /etc/resolv.conf
+Method 2: Direct Command Line (Append method - safer):
+kali > echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
+
+Method 3: Using sed to replace:
+kali > sudo sed -i 's/nameserver.*/nameserver 8.8.8.8/' /etc/resolv.conf
+
+Verify DNS change:
+kali > cat /etc/resolv.conf
+kali > dig google.com
 
 Important Nuances:
 * Multi-DNS Setup: You can list multiple nameservers. The OS queries them in 
   the exact order they appear. Keeping a local DNS first maintains speed, 
   while adding a public DNS below acts as a backup.
-* DHCP Overwrite Warning: If you are using DHCP, renewing your IP lease will 
-  often overwrite '/etc/resolv.conf' with the DHCP server's default DNS settings.
+
+Example /etc/resolv.conf with multiple nameservers:
+nameserver 127.0.0.1        (Local DNS - fastest)
+nameserver 8.8.8.8          (Google DNS - backup)
+nameserver 1.1.1.1          (Cloudflare DNS - fallback)
+
+⚠️ DHCP OVERWRITE WARNING: If you are using DHCP, renewing your IP lease will 
+often OVERWRITE '/etc/resolv.conf' with the DHCP server's default DNS settings.
+Use '/etc/resolv.conf.head' or NetworkManager config for persistent changes.
 
 
 4. Mapping Your Own IP Addresses via the Hosts File
 ------------------------------------------------------------------------
 The '/etc/hosts' file is a local plaintext file that performs domain-to-IP 
-translation before the system ever queries an external DNS server.
+translation BEFORE the system ever queries an external DNS server.
+
+Location: /etc/hosts
 
 Hacking Utility:
-By mapping a legitimate domain to a malicious local IP, you can hijack 
-local TCP connections and redirect target traffic using tools like 'dnsspoof'.
+By mapping a legitimate domain to a malicious local IP, you can:
+* Hijack local TCP connections
+* Redirect target traffic using tools like 'dnsspoof'
+* Perform DNS spoofing attacks locally
+* Bypass DNS-based filtering
 
 Editing the file:
 kali > sudo mousepad /etc/hosts
+
+OR using command line (append entry):
+kali > echo "192.168.181.131  bankofamerica.com" | sudo tee -a /etc/hosts
 
 Default file structure vs. Malicious entry example:
 127.0.0.1       localhost
@@ -88,10 +121,37 @@ Default file structure vs. Malicious entry example:
 192.168.181.131 bankofamerica.com
 192.168.181.131 www.bankofamerica.com
 
-Formatting Rule: Always use the [TAB] key—not the spacebar—between the 
-IP address and the domain name when editing this file.
+FORMATTING RULES:
+✓ Always use the [TAB] key—NOT the spacebar—between IP and domain name
+✓ One entry per line
+✓ IP address must be first, domain name second
+✓ Comments start with #
 
-Ping the domain name:
+Test the hosts file entry:
 kali > ping www.bankofamerica.com
+
+Example output showing local redirection:
+PING www.bankofamerica.com (192.168.181.131) 56(84) bytes of data
+64 bytes from 192.168.181.131: icmp_seq=1 ttl=64 time=0.123 ms
+
+Check which DNS source was used:
+kali > nslookup www.bankofamerica.com
+(If it returns the local IP from /etc/hosts, the hosts file took precedence)
+
+Clear DNS cache (if applicable):
+kali > sudo systemctl restart nscd
+OR
+kali > sudo systemctl restart systemd-resolved
+
+========================================================================
+QUICK REFERENCE - DNS QUERY ORDER
+========================================================================
+Your system queries DNS sources in this order:
+1. /etc/hosts (local file - FASTEST)
+2. systemd-resolved (local cache)
+3. /etc/resolv.conf (configured nameservers)
+4. External DNS servers (last resort)
+
+This is why /etc/hosts is so powerful for local DNS spoofing!
 
 ========================================================================
