@@ -1,4 +1,4 @@
-# 🐧 Day 09 (Week 02 • Day 02): DHCP, DNS Manipulation, and Hosts Mapping
+# 🐧 Day 09 : DHCP, DNS Manipulation, and Hosts Mapping
 
 Welcome to Day 02 of Week 02 of my Linux Security learning journey. This document details the underlying mechanics of dynamic host configurations, tactical DNS reconnaissance with dig, routing manipulation via name resolution files, and local domain redirection attacks using the hosts architecture.
 
@@ -23,6 +23,10 @@ kali > dhclient eth0
 
 #### 🖼️ Terminal Output
 
+
+![DHCP](Screenshot/dhclient.png)
+
+
 ---
 
 Example — Verifying the newly assigned dynamic network details:
@@ -34,11 +38,15 @@ kali > ifconfig
 
 #### 🖼️ Terminal Output
 
+
+![ifconfig](Screenshot/ifconfig.png)
+
+
 ---
 
 ### 2. 🔍 Examining Nameservers (NS) with `dig`
 
-* Description: The Domain Name System (DNS) translates human-readable domains (e.g., `hackers-arise.com`) into machine-routable IP addresses. It serves as an absolute treasure trove for active reconnaissance during early information-gathering phases before an attack.
+* Description: The Domain Name System (DNS) translates human-readable domains (e.g., `microsoft.com`) into machine-routable IP addresses. It serves as an absolute treasure trove for active reconnaissance during early information-gathering phases before an attack.
 * The `dig` Engine: A dedicated terminal utility used to gather critical infrastructure domain information, such as target name servers, mail servers, subdomains, and associated IP addresses.
 * Layout Breakdown: The `ANSWER SECTION` identifies the designated target name servers (e.g., `ns6.wixdns.net`), while the `ADDITIONAL SECTION` exposes the absolute IP addresses of those infrastructure servers.
 
