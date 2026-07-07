@@ -53,11 +53,15 @@ kali > ifconfig
 Example — Querying infrastructure Nameservers:
 
 ```bash
-kali > dig hackers-arise.com ns
+kali > dig microsoft.com ns
 
 ```
 
 #### 🖼️ Terminal Output
+
+
+![Nameserver](Screenshot/nameserver.png)
+
 
 ---
 
@@ -69,11 +73,13 @@ kali > dig hackers-arise.com ns
 Example — Querying domain Mail Exchange infrastructure:
 
 ```bash
-kali > dig hackers-arise.com mx
+kali > dig microsoft.com mx
 
 ```
 
 #### 🖼️ Terminal Output
+
+![Mail Exchange](Screenshot/mail-exchange.png)
 
 ---
 
