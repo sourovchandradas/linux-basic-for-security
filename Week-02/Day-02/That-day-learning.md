@@ -91,12 +91,14 @@ kali > dig microsoft.com mx
 Example — Manually editing the operational resolution architecture:
 
 ```bash
-kali > leafpad /etc/resolv.conf
+kali > mousepad /etc/resolv.conf
 # Manually add the line: nameserver 8.8.8.8
 
 ```
 
 #### 🖼️ Terminal Output
+
+[Mousepad resolv.conf](Screenshot/mousepad-resolv.conf.png)
 
 ---
 
