@@ -17,7 +17,7 @@ Welcome to Day 02 of Week 02 of my Linux Security learning journey. This documen
 
 Example — Requesting a fresh DHCP lease configuration for eth0:
 ```bash
-kali > dhclient eth0
+kali > sudo dhclient eth0
 
 ```
 
@@ -44,7 +44,7 @@ kali > ifconfig
 
 ---
 
-### 2. 🔍 Examining Nameservers (NS) with `dig`
+### 2. 🔍 Examining Nameservers (NS) with `dig`(Domain Informaion Groper)
 
 * Description: The Domain Name System (DNS) translates human-readable domains (e.g., `microsoft.com`) into machine-routable IP addresses. It serves as an absolute treasure trove for active reconnaissance during early information-gathering phases before an attack.
 * The `dig` Engine: A dedicated terminal utility used to gather critical infrastructure domain information, such as target name servers, mail servers, subdomains, and associated IP addresses.
@@ -79,14 +79,16 @@ kali > dig microsoft.com mx
 
 #### 🖼️ Terminal Output
 
+
 ![Mail Exchange](Screenshot/mail-exchange.png)
+
 
 ---
 
 ### 4. 🛠️ Changing Your DNS Server via Graphical / Text Editor
 
 * Description: To route your DNS requests through a specific server (like Google’s public DNS at `8.8.8.8`), you need to modify the persistent system file `/etc/resolv.conf`.
-* Interactive Editing: You can use a lightweight graphical text editor like `leafpad` to open and manually append or edit your resolver configurations.
+* Interactive Editing: You can use a lightweight graphical text editor like `mousepad` to open and manually append or edit your resolver configurations.
 
 Example — Manually editing the operational resolution architecture:
 
@@ -98,7 +100,10 @@ kali > mousepad /etc/resolv.conf
 
 #### 🖼️ Terminal Output
 
-[Mousepad resolv.conf](Screenshot/mousepad-resolv.conf.png)
+![Mousepad resolv.conf](Screenshot/mousepad-resolv.conf.png)
+
+
+![resolv.conf command](Screenshot/resolv.conf-edit.png)
 
 ---
 
@@ -110,11 +115,16 @@ kali > mousepad /etc/resolv.conf
 Example — Overwriting the resolver configuration instantly via the shell:
 
 ```bash
-kali > echo "nameserver 8.8.8.8" > /etc/resolv.conf
+kali > echo "nameserver 8.8.8.8" > sudo /etc/resolv.conf
 
 ```
 
 #### 🖼️ Terminal Output
+
+
+![mousepad](Screenshot/resolv.conf-command.png)
+
+
 
 *(⚠️ DHCP Overwrite Warning: If you are using DHCP, renewing your dynamic IP lease will often automatically overwrite `/etc/resolv.conf` with the DHCP server's default DNS settings.)*
 
@@ -133,16 +143,39 @@ kali > echo "nameserver 8.8.8.8" > /etc/resolv.conf
 Example — Editing the local hosts mapping file:
 
 ```bash
-kali > leafpad /etc/hosts
+kali > mousepad /etc/hosts
 
 # Default file structure vs Malicious entry setup:
 127.0.0.1       localhost
 127.1.1.1       kali
 192.168.181.131 bankofamerica.com
+192.168.181.131 www.bankofamerica.com
 
 ```
 
 #### 🖼️ Terminal Output
+
+![mousepad](Screenshot/mousepad-hosts.png)
+
+
+![Before edit mousepad](Screenshot/before-edit-mousepad-hosts.png)
+
+
+![After edit mousepad](Screenshot/after-edit-mousepad.png)
+
+---
+
+Example — Ping the dns: 
+
+```bash
+kali > ping www.bankofamerica.com
+
+```
+
+#### 🖼️ Terminal Output
+
+
+![Ping](Screenshot/ping-bankofamerica.png)
 
 ---
 
