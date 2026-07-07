@@ -98,10 +98,11 @@ kali > mousepad /etc/resolv.conf
 
 ```
 
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Output : Open mousepad for resolv.conf
 
 ![Mousepad resolv.conf](Screenshot/mousepad-resolv.conf.png)
 
+#### 🖼️ Terminal Output : Edit mousepad
 
 ![resolv.conf command](Screenshot/resolv.conf-edit.png)
 
@@ -153,15 +154,21 @@ kali > mousepad /etc/hosts
 
 ```
 
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Output : Open mousepad for hosts
 
 ![mousepad](Screenshot/mousepad-hosts.png)
+
+#### 🖼️ Terminal Output : Before edit mousepad
 
 
 ![Before edit mousepad](Screenshot/before-edit-mousepad-hosts.png)
 
 
+#### 🖼️ Terminal Output : After edit mousepad
+
+
 ![After edit mousepad](Screenshot/after-edit-mousepad.png)
+
 
 ---
 
@@ -176,6 +183,7 @@ kali > ping www.bankofamerica.com
 
 
 ![Ping](Screenshot/ping-bankofamerica.png)
+
 
 ---
 
@@ -202,7 +210,3 @@ Your operating system queries name resolution sources in this strict priority se
 
 ---
 
-
-```
-
-```
