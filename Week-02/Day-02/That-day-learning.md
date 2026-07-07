@@ -98,7 +98,7 @@ kali > mousepad /etc/resolv.conf
 
 ```
 
-#### 🖼️ Terminal Output : Open mousepad for resolv.conf
+#### 🖼️ Terminal Command : Open mousepad for resolv.conf
 
 ![Mousepad resolv.conf](Screenshot/mousepad-resolv.conf.png)
 
@@ -120,7 +120,7 @@ kali > echo "nameserver 8.8.8.8" > sudo /etc/resolv.conf
 
 ```
 
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
 
 
 ![mousepad](Screenshot/resolv.conf-command.png)
@@ -154,7 +154,7 @@ kali > mousepad /etc/hosts
 
 ```
 
-#### 🖼️ Terminal Output : Open mousepad for hosts
+#### 🖼️ Terminal Command : Open mousepad for hosts
 
 ![mousepad](Screenshot/mousepad-hosts.png)
 
