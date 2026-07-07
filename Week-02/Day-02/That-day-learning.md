@@ -21,7 +21,7 @@ kali > sudo dhclient eth0
 
 ```
 
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
 
 
 ![DHCP](Screenshot/dhclient.png)
@@ -36,7 +36,7 @@ kali > ifconfig
 
 ```
 
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
 
 
 ![ifconfig](Screenshot/ifconfig.png)
@@ -116,7 +116,7 @@ kali > mousepad /etc/resolv.conf
 Example — Overwriting the resolver configuration instantly via the shell:
 
 ```bash
-kali > echo "nameserver 8.8.8.8" > sudo /etc/resolv.conf
+kali > echo "nameserver 8.8.8.8"> sudo /etc/resolv.conf
 
 ```
 
