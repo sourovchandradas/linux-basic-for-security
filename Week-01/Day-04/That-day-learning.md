@@ -55,9 +55,11 @@ kali > which aircrack-ng
 ### 4. 💪 Powerful Searches with 'find'
 
 * **Description:** Most powerful and flexible search tool. Can look by name, date, size, permissions, etc. Only shows exact matches.
-* **Syntax:** ```bash
+* **Syntax:**
+```bash
 find [directory] [options] [expression]
 
+```
 
 ### ⚙️ Understanding Syntax:
 
