@@ -17,7 +17,8 @@ Welcome to Day 01 of Week 02 of my Linux Security learning journey. This documen
 Example — Querying local active network parameters (traditional):
 ```bash
 # Show legacy ifconfig output
-sudo ifconfig
+kali > ifconfig
+
 ```
 
 Note: On many modern distributions `ifconfig` is deprecated in favor of the iproute2 `ip` commands. The examples below show both for compatibility.
