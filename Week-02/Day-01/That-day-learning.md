@@ -38,10 +38,10 @@ Note: On many modern distributions `ifconfig` is deprecated in favor of the ipro
 Example — Querying wireless adapter properties (legacy and modern):
 ```bash
 # Legacy
-sudo iwconfig
+kali > iwconfig
 
 # Modern (more detailed):
-sudo iw dev
+kali > sudo iw dev
 ```
 
 #### 🖼️ Terminal Output
