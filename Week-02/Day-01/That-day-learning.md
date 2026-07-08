@@ -81,10 +81,10 @@ kali > sudo ip addr del 192.168.181.115/24 dev eth0
 Example — Overriding Netmask and Broadcast (fixed):
 ```bash
 # Legacy (ifconfig) — note the correct keywords and values
-sudo ifconfig eth0 192.168.181.115 netmask 255.255.0.0 broadcast 192.168.1.255
+kali > sudo ifconfig eth0 192.168.181.115 netmask 255.255.0.0 broadcast 192.168.1.255
 
 # Modern (ip) — set address with prefix (e.g. /16 for 255.255.0.0)
-sudo ip addr add 192.168.181.115/16 dev eth0
+kali > sudo ip addr add 192.168.181.115/16 dev eth0
 ```
 
 #### 🖼️ Terminal Command
