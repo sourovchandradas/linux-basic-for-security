@@ -57,15 +57,16 @@ kali > sudo iw dev
 Legacy (ifconfig):
 ```bash
 # Assign a specific IPv4 address
-sudo ifconfig eth0 192.168.181.115
+kali > ifconfig eth0 192.168.181.115
+
 ```
 
 Modern (iproute2):
 ```bash
 # Add IPv4 address with prefix length; /24 equals netmask 255.255.255.0
-sudo ip addr add 192.168.181.115/24 dev eth0
+kali sudo ip addr add 192.168.181.115/24 dev eth0
 # To remove an address
-sudo ip addr del 192.168.181.115/24 dev eth0
+kali sudo ip addr del 192.168.181.115/24 dev eth0
 ```
 
 #### 🖼️ Terminal Command
