@@ -115,9 +115,9 @@ ip link show eth0
 
 Legacy method (ifconfig):
 ```bash
-sudo ifconfig eth0 down
-sudo ifconfig eth0 hw ether 00:11:22:33:44:55
-sudo ifconfig eth0 up
+kali > sudo ifconfig eth0 down
+kali > sudo ifconfig eth0 hw ether 00:11:22:33:44:55
+kali > sudo ifconfig eth0 up
 ```
 
 #### 🖼️ Terminal Command Steps
