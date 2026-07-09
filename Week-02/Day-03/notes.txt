@@ -1,1 +1,78 @@
+========================================================================
+               ADDING AND REMOVING SOFTWARE USING APT
+========================================================================
 
+1. Introduction to Software Management
+------------------------------------------------------------------------
+Managing software (adding/removing packages) is a fundamental OS task. 
+Linux software often relies on "dependencies" or "libraries" (other software 
+required to run successfully). A software package bundles these files together 
+along with installation scripts.
+
+Key installation methods covered:
+* apt package manager (Advanced Packaging Tool)
+* GUI-based installation managers
+* git
+
+
+2. Using 'apt' / 'apt-get' to Handle Software
+------------------------------------------------------------------------
+In Debian-based distributions (like Kali and Ubuntu), 'apt' is the default 
+package manager. While 'apt' is popular for simplicity, 'apt-get' offers 
+more advanced functionality and is essential to learn early on.
+
+A. Searching for a Package
+Before downloading, check if the package exists in your system's repository cache.
+Syntax:
+apt-cache search keyword
+
+Example (Searching for the Snort IDS):
+kali > apt-cache search snort
+
+B. Adding Software (Installation)
+Downloads and installs the specified package from the repository.
+Syntax:
+apt-get install packagename
+
+Example:
+kali > apt-get install snort
+(Type 'Y' or 'y' when prompted "Install these packages without verification?")
+
+
+3. Removing Software (Uninstall & Purge)
+------------------------------------------------------------------------
+* Standard Removal: Removes the software but retains configuration files 
+  (allows future reinstallation without reconfiguring).
+  kali > apt-get remove snort
+
+* Purging (Complete Removal): Removes the software along with all its 
+  associated configuration files.
+  kali > apt-get purge snort
+
+* Cleaning Dependencies (autoremove): When software is uninstalled, its 
+  isolated dependencies/libraries remain behind. Use 'autoremove' to clean 
+  them up and free disk space.
+  kali > apt autoremove snort
+
+
+4. Updating vs. Upgrading Packages
+------------------------------------------------------------------------
+There is a fundamental difference between updating and upgrading in Linux:
+* Update  : Refreshes the local database list of available packages from the repository.
+* Upgrade : Downloads and installs the actual latest versions of the software.
+
+A. Updating Packages
+Command:
+kali > apt-get update
+
+Note: Look for "Reading package lists... Done" to confirm a successful update.
+
+B. Upgrading Packages
+Requires root privileges. It checks all repository-linked tools on your system 
+and upgrades them simultaneously. This process can be highly time-consuming.
+Command:
+kali > apt-get upgrade
+
+Note: Review the estimated disk space usage in the terminal before typing 
+'Y' to proceed with the system-wide upgrade.
+========================================================================
