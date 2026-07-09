@@ -36,7 +36,7 @@ snort-common - flexible Network Intrusion Detection System - common files
 Example — Installing the Snort utility package from default repositories:
 
 ```bash
-kali > apt-get install snort
+kali > sudo apt-get install snort
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -50,6 +50,8 @@ Install these packages without verification [Y/n]?
 
 #### 🖼️ Terminal Output
 
+![Adding Software](Screenshot/sudo%20apt-get%20install.png)
+
 ---
 
 ### 3. ❌ Removing Software (`apt-get remove`)
@@ -60,7 +62,7 @@ Install these packages without verification [Y/n]?
 Example — Removing the core application layer while preserving configurations:
 
 ```bash
-kali > apt-get remove snort
+kali > sudo apt-get remove snort
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -71,6 +73,8 @@ Do you want to continue [Y/n]?
 ```
 
 #### 🖼️ Terminal Output
+
+![Removing Software](Screenshot/sudo%20apt-get%20remove.png)
 
 ---
 
@@ -82,7 +86,7 @@ Do you want to continue [Y/n]?
 Example — Purging both the application and its custom configurations:
 
 ```bash
-kali > apt-get purge snort
+kali > sudo apt-get purge snort
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -94,6 +98,8 @@ Do you want to continue [Y/n]?
 
 #### 🖼️ Terminal Output
 
+![Purge](Screenshot/apt-get%20purge.png)
+
 ---
 
 ### 5. 🧼 Cleaning Leftover Dependencies (`apt autoremove`)
@@ -104,7 +110,7 @@ Do you want to continue [Y/n]?
 Example — Sweeping leftover package components out of system storage:
 
 ```bash
-kali > apt autoremove snort
+kali > sudo apt autoremove snort
 Reading Package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -116,6 +122,8 @@ Removing oinkmaster (2.0-4)
 
 #### 🖼️ Terminal Output
 
+![Auto Remove](Screenshot/apt-get%20autoremove.png)
+
 ---
 
 ### 6. 🔄 Synchronizing Repository Metadata (`apt-get update`)
@@ -126,7 +134,7 @@ Removing oinkmaster (2.0-4)
 Example — Pulling down the latest upstream repository package definitions:
 
 ```bash
-kali > apt-get update
+kali > sudo apt-get update
 Get:1 http://mirrors.ocf.berkeley.edu/kali kali-rolling InRelease [30.5kb]
 Get:2 http://mirrors.ocf.berkeley.edu/kali kali-rolling/main amd64 Packages [14.9MB]
 Fetched 15.2 MB in 1min 4s (236 kB/s)
@@ -135,6 +143,12 @@ Reading package lists... Done
 ```
 
 #### 🖼️ Terminal Output
+
+![Update Command](Screenshot/sudo%20apt-get%20update.png)
+
+![Update Command](Screenshot/update-output-1.png)
+
+![Update Command](Screenshot/update-output-2.png)
 
 ---
 
@@ -146,7 +160,7 @@ Reading package lists... Done
 Example — Processing actual package binary installations across the system:
 
 ```bash
-kali > apt-get upgrade
+kali > sudo apt-get upgrade
 Reading package lists... Done
 Building dependency tree... Done
 Calculating upgrade... Done
@@ -159,6 +173,16 @@ Do you want to continue? [Y/n]
 ```
 
 #### 🖼️ Terminal Output
+
+![Upgrade Command](Screenshot/sudo%20apt-get%20upgrade.png)
+
+![Upgrade Output-1](Screenshot/upgrade-output-1.png)
+
+![Upgrade Output-2](Screenshot/upgrade-output-2.png)
+
+![Upgrade Output-3](Screenshot/upgrade-output-3.png)
+
+![Upgrade Output-4](Screenshot/upgrade-output-4.png)
 
 ---
 
