@@ -12,7 +12,7 @@ Welcome to Day 04 of Week 02 of my Linux Security learning journey. This documen
 
 Example — Opening the repository index file using a standard text editor:
 ```bash
-kali > sudo mousepad /etc/apt/sources.list
+kali > mousepad /etc/apt/sources.list
 
 ```
 
@@ -89,9 +89,9 @@ kali > synaptic
 
 #### 🖼️ Terminal Output
 
-![Synaptic Command](Screenshot/synaptic-command.png)
-
 ![Synaptic Command Output](Screenshot/install-synaptic-output-1.png)
+
+![Synaptic Command](Screenshot/synaptic-command.png)
 
 ![GUI base installer](Screenshot/GUI-base-installer-01.png)
 
@@ -125,9 +125,6 @@ Checking connectivity... Done.
 
 ![Installing software with git-03](Screenshot/installing-with-git-03.png)
 
-![Installing software with git-04](Screenshot/installing-with-git-04.png)
-
-
 ---
 
 ### 6. 🛠️ Post-Git Clone Directory Auditing (`ls -l`)
@@ -149,6 +146,9 @@ drwxr-xr-x 2 root root  4096 Dec  5 11:17 Music
 ```
 
 #### 🖼️ Terminal Output
+
+![Installing software with git-04](Screenshot/installing-with-git-04.png)
+
 
 ![Installing software with git-5](Screenshot/installing-with-git-05.png)
 
