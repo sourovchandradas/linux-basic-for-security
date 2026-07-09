@@ -24,7 +24,7 @@ snort-common - flexible Network Intrusion Detection System - common files
 
 #### 🖼️ Terminal Output
 
-[Search](Screenshot/apt-cache%20search%20keyword.png)
+![Search](Screenshot/apt-cache%20search%20keyword.png)
 
 ---
 
