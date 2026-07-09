@@ -98,7 +98,7 @@ Do you want to continue [Y/n]?
 
 #### 🖼️ Terminal Output
 
-![Purge](Screenshot/apt-get%20purge.png)
+![Purge](Screenshot/sudo%20apt-get%20purge.png)
 
 ---
 
