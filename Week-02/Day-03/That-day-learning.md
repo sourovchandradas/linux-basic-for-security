@@ -186,6 +186,31 @@ Do you want to continue? [Y/n]
 
 ---
 
+### 8. 🔄 System Update & Reboot Sequence
+Description: Certain core package upgrades modify essential backend system components, requiring an absolute system restart to securely reload dependencies and switch over to the updated environment.
+
+Polkitd (Policy Kit Daemon) : The foundational access control architecture managing internal system policies and user privilege boundaries has been updated. A system reboot is mandatory to apply these kernel-level alterations safely.
+
+Ettercap (Graphical) : The GUI network analysis tool used for inline packet sniffing and Man-in-the-Middle (MITM) intersection testing has been patched to its latest rolling version.
+
+Kali Desktop & Java Environment : The main visual desktop framework (XFCE Core) and the runtime engine (openjdk-21) have both been updated.
+
+Initramfs Initialization : The primary boot image structure (initrd.img) has been completely regenerated to support newly updated modules during the system startup lifecycle.
+
+Example — Executing an administrative reboot step to apply core changes:
+
+Bash
+```bash
+kali > sudo reboot
+
+```
+
+🖼️ Terminal Output
+
+![reboot](Screenshot/sudo%20reboot.png)
+
+---
+
 ## 🛠️ Utilities & Tool Reference
 
 | Category | Component/Tool | Syntax / Structure | Description |
