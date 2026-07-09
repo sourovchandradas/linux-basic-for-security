@@ -1,4 +1,4 @@
-# 🐧 Day 10 (Week 02 • Day 03): Adding and Removing Software
+# 🐧 Day 10 : Adding and Removing Software
 
 Welcome to Day 03 of Week 02 of my Linux Security learning journey. This document details the fundamental architecture of Linux package management using the Advanced Packaging Tool (`apt`), including searching repositories, package installation mechanics, deep removal strategies, and system cache synchronizations.
 
@@ -14,7 +14,7 @@ Welcome to Day 03 of Week 02 of my Linux Security learning journey. This documen
 Example — Searching the system cache for the Snort NIDS package:
 
 ```bash
-kali > apt-cache search snort
+kali > sudo apt-cache search snort
 fwsnort - Snort-to-iptables rule translator
 ippl - IP protocols logger
 snort - flexible Network Intrusion Detection System
@@ -23,6 +23,8 @@ snort-common - flexible Network Intrusion Detection System - common files
 ```
 
 #### 🖼️ Terminal Output
+
+[Search](Screenshot/apt-cache%20search%20keyword.png)
 
 ---
 
