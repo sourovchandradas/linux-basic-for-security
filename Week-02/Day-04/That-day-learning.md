@@ -19,7 +19,7 @@ Since Kali Linux specializes in security and offensive hacking applications, it 
 Open the repository index file using a text editor with sudo privileges:
 
 ```bash
-sudo mousepad /etc/apt/sources.list
+kali > sudo mousepad /etc/apt/sources.list
 
 ```
 
