@@ -1,5 +1,5 @@
 ========================================================================
-                ADDING AND REMOVING SOFTWARE USING APT
+                    ADDING AND REMOVING SOFTWARE
 ========================================================================
 
 1. Introduction to Software Management
