@@ -209,8 +209,3 @@ Do you want to continue? [Y/n]
 
 ---
 
-*⚡ End of Week 02 • Day 03 Notes • Organized for GitHub & OneNote*
-
-```
-
-```
