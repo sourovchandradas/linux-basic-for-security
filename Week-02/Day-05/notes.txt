@@ -1,1 +1,69 @@
+========================================================================
+             CONTROLLING FILE AND DIRECTORY PERMISSIONS(Part-01)
+========================================================================
 
+1. Introduction to Linux Permissions & Users
+------------------------------------------------------------------------
+Linux is a multiuser, enterprise-level operating system that uses a strict 
+security system to secure file and directory access. The system administrator 
+(root) or the file owner can grant or restrict access to prevent unwanted 
+tampering.
+
+Types of Users & Groups:
+* Root User : All-powerful; has full access and can perform any system action. 
+              Belongs to the 'root' group by default.
+* Regular Users: Have limited privileges. They are typically organized into 
+                 Groups (e.g., finance, security, developers) to easily inherit 
+                 shared access permissions.
+
+
+2. Understanding Permission Levels
+------------------------------------------------------------------------
+Each file and directory has three distinct levels of permissions:
+* r (Read)    : Permission to open and view the contents.
+* w (Write)   : Permission to edit/modify the contents.
+* x (Execute) : Permission to run a file (binary or script) or access a directory.
+
+
+3. Changing File and Group Ownership
+------------------------------------------------------------------------
+A. Granting Ownership to an Individual User ('chown')
+Transfers the primary ownership of a file to another user.
+Syntax:
+chown username /path/to/file
+
+Example (Passing ownership of bobsfile to the user 'bob'):
+kali > chown bob /tmp/bobsfile
+
+B. Granting Ownership to a Group ('chgrp')
+Transfers group ownership, allowing multiple users in a project or pentesting 
+team to collaborate.
+Syntax:
+chgrp groupname /path/to/file
+
+Example (Passing ownership of newIDS to the 'security' group):
+kali > chgrp security newIDS
+
+
+4. Checking Permissions via 'ls -l'
+------------------------------------------------------------------------
+To view permissions, use the long listing command:
+kali > ls -l /usr/share/hashcat
+
+Example Output Line:
+-rw-r--r-- 1 root root 33685504 June 28 2018 hashcat.hcstat
+
+Breaking Down the Output Layout (From Left to Right):
+1. First Character : Represents the file type ('d' = Directory, '-' = Regular file).
+2. Next 9 Characters: Split into 3 sets of 3, representing 'rwx' status:
+   * 1st Set (e.g., rw-) : Owner permissions (Read & Write, no Execute).
+   * 2nd Set (e.g., r--) : Group permissions (Read only).
+   * 3rd Set (e.g., r--) : All other users' permissions (Read only).
+   * Note: A dash (-) means that specific permission is denied.
+3. Links Count     : Number of links to the file.
+4. Owner Name      : The user who owns the file (e.g., root).
+5. Group Name      : The group that owns the file (e.g., root).
+6. File Size       : Size of the file in bytes.
+7. Modification Date: When the file was last updated.
+8. File Name       : The actual name of the file (e.g., hashcat.hcstat).
+========================================================================
