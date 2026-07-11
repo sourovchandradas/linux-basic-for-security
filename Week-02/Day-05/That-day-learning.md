@@ -28,7 +28,7 @@ kali > sudo chown sourov /tmp/LinuxSkills
 
 ![Change Owner](Screenshot/chown-02.png)
 
-![Change Owner](SCreenshot/chown-03.png)
+![Change Owner](Screenshot/chown-03.png)
 
 ---
 
