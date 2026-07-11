@@ -108,15 +108,24 @@ kali > ls -l LinuxSkills
 Example — Auditing directory properties inside the hashcat directory:
 
 ```bash
-kali > ls -l /usr/share/hashcat
-total 32952
-drwxr-xr-x 5 root root     4096 Dec 5 10:47 charsets
--rw-r--r-- 1 root root 33685504 June 28 2018 hashcat.hcstat
--rw-r--r-- 1 root root 33685504 June 28 2018 hashcat.hctune
-drwxr-xr-x 2 root root     4096 Dec 5 10:47 masks
-drwxr-xr-x 2 root root     4096 Dec 5 10:47 OpenCL
-drwxr-xr-x 3 root root     4096 Dec 5 10:47 rules
+┌──(sourov㉿kali)-[~]
+└─$ ls -l /usr/share/hashcat
+total 524
+lrwxrwxrwx 1 root root     25 Oct 25  2025 bridges -> ../../lib/hashcat/bridges
+drwxr-xr-x 6 root root   4096 Jul  9 10:53 charsets
+-rw-r----  1 root root 240526 Apr 14  01:00 hashcat.hcstat2
+drwxr-xr-x 2 root root   4096 Jul  9 10:53 layouts
+drwxr-xr-x 2 root root   4096 Jul  9 10:53 masks
+lrwxrwxrwx 1 root root     25 Oct 25  2025 modules -> ../../lib/hashcat/modules
+drwxr-xr-x 2 root root 262144 Jul  9 10:53 OpenCL
+drwxr-xr-x 2 root root   4096 Jul  9 10:53 Python
+drwxr-xr-x 3 root root   4096 Jul  9 10:53 rules
+drwxr-xr-x 3 root root   4096 Jul  9 10:53 Rust
+drwxr-xr-x 2 root root   4096 Jul  9 10:53 tools
+drwxr-xr-x 2 root root   4096 Jul  9 10:53 tunings
 
+┌──(sourov㉿kali)-[~]
+└─$
 ```
 
 #### 🖼️ Terminal Output
