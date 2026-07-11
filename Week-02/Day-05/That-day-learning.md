@@ -31,7 +31,8 @@ Example — Granting individual ownership of a designated file to user 'sourov':
 ![Change Owner](Screenshot/chown-02.png)
 
 ```bash
-kali > ls -l /tmp/LinuxSkills
+┌──(sourov㉿kali)-[~]
+└─$ ls -l /tmp/LinuxSkills
 
 ```
 
