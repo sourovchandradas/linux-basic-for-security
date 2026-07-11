@@ -86,7 +86,6 @@ kali > ls -l LinuxSkills
 ![Change Group-04](Screenshot/chgrp-ls-l.png)
 
 
-#### 🖼️ Terminal Output
 ![Change Group-05](Screenshot/check-chgrp.png)
 
 ---
