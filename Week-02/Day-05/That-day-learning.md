@@ -19,8 +19,7 @@ Welcome to Day 13 of my Linux Security learning journey. This document details t
 Example — Granting individual ownership of a designated file to user 'sourov':
 ```bash
 
-┌──(sourov㉿kali)-[~]
-└─$ sudo chown sourov /tmp/LinuxSkills
+sudo chown sourov /tmp/LinuxSkills
 
 ```
 
@@ -31,8 +30,8 @@ Example — Granting individual ownership of a designated file to user 'sourov':
 ![Change Owner](Screenshot/chown-02.png)
 
 ```bash
-┌──(sourov㉿kali)-[~]
-└─$ ls -l /tmp/LinuxSkills
+
+ls -l /tmp/LinuxSkills
 
 ```
 
@@ -52,7 +51,8 @@ Example — Granting individual ownership of a designated file to user 'sourov':
 Example — Transferring file group ownership parameters to the 'security' group:
 
 ```bash
-kali > sudo groupadd permissions
+
+sudo groupadd permissions
 
 ```
 
@@ -62,7 +62,8 @@ kali > sudo groupadd permissions
 
 
 ```bash
-kali > touch LinuxSkills
+
+touch LinuxSkills
 
 ```
 
@@ -71,7 +72,8 @@ kali > touch LinuxSkills
 
 
 ```bash
-kali > sudo chgrp permissions LinuxSkills
+
+sudo chgrp permissions LinuxSkills
 
 ```
 
@@ -80,7 +82,8 @@ kali > sudo chgrp permissions LinuxSkills
 
 
 ```bash
-kali > ls -l LinuxSkills
+
+ls -l LinuxSkills
 
 ```
 
@@ -111,21 +114,8 @@ kali > ls -l LinuxSkills
 Example — Auditing directory properties inside the hashcat directory:
 
 ```bash
-┌──(sourov㉿kali)-[~]
-└─$ ls -l /usr/share/hashcat
-total 524
-lrwxrwxrwx 1 root root     25 Oct 25  2025 bridges -> ../../lib/hashcat/bridges
-drwxr-xr-x 6 root root   4096 Jul  9 10:53 charsets
--rw-r----  1 root root 240526 Apr 14  01:00 hashcat.hcstat2
-drwxr-xr-x 2 root root   4096 Jul  9 10:53 layouts
-drwxr-xr-x 2 root root   4096 Jul  9 10:53 masks
-lrwxrwxrwx 1 root root     25 Oct 25  2025 modules -> ../../lib/hashcat/modules
-drwxr-xr-x 2 root root 262144 Jul  9 10:53 OpenCL
-drwxr-xr-x 2 root root   4096 Jul  9 10:53 Python
-drwxr-xr-x 3 root root   4096 Jul  9 10:53 rules
-drwxr-xr-x 3 root root   4096 Jul  9 10:53 Rust
-drwxr-xr-x 2 root root   4096 Jul  9 10:53 tools
-drwxr-xr-x 2 root root   4096 Jul  9 10:53 tunings
+
+ls -l /usr/share/hashcat
 
 ```
 
@@ -188,9 +178,3 @@ $$\underbrace{-}_{\text{File Type}} \quad \underbrace{\text{r w -}}_{\text{Owner
 2. **The Execution Constraint:** Standard user profiles can only execute structured binaries or automated scripts if their respective permission block explicitly contains the active `x` flag.
 
 ---
-
-*⚡ End of Week 02 • Day 06 Notes • Organized for GitHub & OneNote*
-
-```
-
-```
