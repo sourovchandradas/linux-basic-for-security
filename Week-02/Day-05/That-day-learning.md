@@ -46,7 +46,15 @@ kali > chgrp security newIDS
 
 #### 🖼️ Terminal Output
 
+![Change Group-01](Screenshot/create-group.png)
 
+![Change Group-02](Screenshot/create-touch-file.png)
+
+![Change Group-03](Screenshot/sudo%20chgrp.png)
+
+![Change Group-04](Screenshot/check-chgrp.png)
+
+![Change Group-05](Screenshot/checking-permissions.png)
 
 ---
 
