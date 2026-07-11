@@ -52,9 +52,9 @@ kali > chgrp security newIDS
 
 ![Change Group-03](Screenshot/sudo%20chgrp.png)
 
-![Change Group-04](Screenshot/check-chgrp.png)
+![Change Group-04](Screenshot/chgrp-ls-l.png)
 
-![Change Group-05](Screenshot/checking-permissions.png)
+![Change Group-05](Screenshot/check-chgrp.png)
 
 ---
 
@@ -88,6 +88,10 @@ drwxr-xr-x 3 root root     4096 Dec 5 10:47 rules
 ```
 
 #### 🖼️ Terminal Output
+
+
+![Checking Permissions](Screenshot/checking-permissions.png)
+
 
 ---
 
