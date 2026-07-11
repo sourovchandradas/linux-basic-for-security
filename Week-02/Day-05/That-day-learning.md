@@ -57,12 +57,36 @@ kali > sudo groupadd permissions
 
 ![Change Group-01](Screenshot/create-group.png)
 
+
+```bash
+kali > touch LinuxSkills
+
+```
+
+#### 🖼️ Terminal Output
 ![Change Group-02](Screenshot/create-touch-file.png)
 
+
+```bash
+kali > sudo chgrp permissions LinuxSkills
+
+```
+
+#### 🖼️ Terminal Output
 ![Change Group-03](Screenshot/sudo%20chgrp.png)
+
+
+```bash
+kali > ls -l LinuxSkills
+
+```
+
+#### 🖼️ Terminal Output
 
 ![Change Group-04](Screenshot/chgrp-ls-l.png)
 
+
+#### 🖼️ Terminal Output
 ![Change Group-05](Screenshot/check-chgrp.png)
 
 ---
