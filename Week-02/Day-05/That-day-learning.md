@@ -124,8 +124,6 @@ drwxr-xr-x 3 root root   4096 Jul  9 10:53 Rust
 drwxr-xr-x 2 root root   4096 Jul  9 10:53 tools
 drwxr-xr-x 2 root root   4096 Jul  9 10:53 tunings
 
-┌──(sourov㉿kali)-[~]
-└─$
 ```
 
 #### 🖼️ Terminal Output
