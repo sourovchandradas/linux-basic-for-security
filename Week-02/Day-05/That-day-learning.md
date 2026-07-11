@@ -18,7 +18,7 @@ Welcome to Day 13 of my Linux Security learning journey. This document details t
 
 Example — Granting individual ownership of a designated file to user 'bob':
 ```bash
-kali > chown bob /tmp/bobsfile
+kali > sudo chown sourov /tmp/LinuxSkills
 
 ```
 
@@ -27,6 +27,8 @@ kali > chown bob /tmp/bobsfile
 ![Change Owner](Screenshot/chown-01.png)
 
 ![Change Owner](Screenshot/chown-02.png)
+
+![Change Owner](SCreenshot/chown-03.png)
 
 ---
 
