@@ -28,7 +28,16 @@ kali > sudo chown sourov /tmp/LinuxSkills
 
 ![Change Owner](Screenshot/chown-02.png)
 
+```bash
+kali > ls -l /tmp/LinuxSkills
+
+```
+
+#### 🖼️ Terminal Output
+
+
 ![Change Owner](Screenshot/chown-03.png)
+
 
 ---
 
