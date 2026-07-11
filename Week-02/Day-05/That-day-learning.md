@@ -40,7 +40,7 @@ kali > sudo chown sourov /tmp/LinuxSkills
 Example — Transferring file group ownership parameters to the 'security' group:
 
 ```bash
-kali > chgrp security newIDS
+kali > sudo groupadd permissions
 
 ```
 
