@@ -16,9 +16,11 @@ Welcome to Day 13 of my Linux Security learning journey. This document details t
 * Description: Every file has an allocated user owner and a group owner, typically inheriting the identity parameters of the creator. To shift individual file control and delegation rights to another account, you must use the `chown` (change owner) utility.
 * System Syntax Matrix: Pass the command statement first, specify the target username receiving ownership, and append the exact directory path or filename destination.
 
-Example — Granting individual ownership of a designated file to user 'bob':
+Example — Granting individual ownership of a designated file to user 'sourov':
 ```bash
-kali > sudo chown sourov /tmp/LinuxSkills
+
+┌──(sourov㉿kali)-[~]
+└─$ sudo chown sourov /tmp/LinuxSkills
 
 ```
 
