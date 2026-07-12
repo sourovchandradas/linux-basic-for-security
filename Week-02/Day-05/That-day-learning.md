@@ -142,7 +142,13 @@ ls -l /usr/share/hashcat
 * Group Bits (`r--`): Members of the owning group can only Read the file.
 * Others Bits (`r--`): All other system accounts can only Read the file.
 
+![Update && Install](Screenshot/hashcat.hcstat2-update&&install-command.png)
 
+![Update && Install](Screenshot/hashcat.hcstat2-update&install-output-01.png)
+
+![Update && Install](Screenshot/hashcat.hcstat2-update&install-output-02.png)
+
+![Update && Install](Screenshot/hashcat.hcstat2-update&install-output-03.png)
 
 Example — Checking permission metrics on a specific database file:
 
