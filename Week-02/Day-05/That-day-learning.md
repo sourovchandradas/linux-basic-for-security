@@ -147,7 +147,7 @@ ls -l /usr/share/hashcat
 Example — Checking permission metrics on a specific database file:
 
 ```bash
-ls -l /usr/share/hashcat/hashcat.hcstat
+ls -l /usr/share/hashcat/hashcat.hcstat2
 
 ```
 
