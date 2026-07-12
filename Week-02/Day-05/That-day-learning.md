@@ -153,6 +153,8 @@ ls -l /usr/share/hashcat/hashcat.hcstat2
 
 #### 🖼️ Terminal Output
 
+![Long listing](Screenshot/long-listing-hashcat.hcstat2.png)
+
 ---
 
 ## 🛠️ Utilities & Tool Reference
