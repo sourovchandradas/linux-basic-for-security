@@ -147,8 +147,7 @@ ls -l /usr/share/hashcat
 Example — Checking permission metrics on a specific database file:
 
 ```bash
-kali > ls -l /usr/share/hashcat/hashcat.hcstat
--rw-r--r-- 1 root root 33685504 June 28 2018 hashcat.hcstat
+ls -l /usr/share/hashcat/hashcat.hcstat
 
 ```
 
