@@ -1,1 +1,99 @@
+========================================================================
+          CONTROLLING FILE AND DIRECTORY PERMISSIONS(Part-02)
+========================================================================
+Objective:
+This section documents the practical application of the 'chmod' utility to 
+modify access control lists on Linux filesystems. It covers both absolute 
+(octal/decimal) and symbolic (UGO) mutations, demonstrating how to address 
+"Permission Denied" states commonly encountered after downloading new binaries.
 
+------------------------------------------------------------------------
+1. Fundamental Access Control Rules
+------------------------------------------------------------------------
+* The 'chmod' (Change Mode) utility alters permissions for files and directories.
+* Only the explicit file owner or the 'root' administrator can execute 'chmod'.
+* Modifications apply to three scopes: Owner/User (u), Group (g), and Others (o).
+
+
+------------------------------------------------------------------------
+2. Method A: Decimal / Octal Notation (Absolute Mode)
+------------------------------------------------------------------------
+Linux filesystem permissions map directly to binary switches (1 for ON, 0 for OFF).
+A complete rwx sequence consists of 3 binary bits, effectively represented by a 
+single octal digit ranging from 0 to 7.
+
+Mathematical Weight Profile:
+* r (Read)    = 4  [Binary: 100]
+* w (Write)   = 2  [Binary: 010]
+* x (Execute) = 1  [Binary: 001]
+
+Common Binary/Octal Permissions Matrix:
+* 000 = 0 -> --- (No Permissions)
+* 001 = 1 -> --x (Execute Only)
+* 010 = 2 -> -w- (Write Only)
+* 011 = 3 -> -wx (Write and Execute: 2 + 1 = 3)
+* 100 = 4 -> r-- (Read Only)
+* 101 = 5 -> r-x (Read and Execute: 4 + 1 = 5)
+* 110 = 6 -> rw- (Read and Write: 4 + 2 = 6)
+* 111 = 7 -> rwx (Full Access: 4 + 2 + 1 = 7)
+
+Command Execution Pattern (Syntax: chmod [User][Group][Others] file):
+kali > chmod 774 hashcat.hcstat
+
+Effect:
+* Owner Privilege : 7 (rwx) -> Full Control
+* Group Privilege : 7 (rwx) -> Full Control
+* Others Privilege: 4 (r--) -> Read-Only
+
+Post-Execution Audit (via ls -l):
+-rwxrwxr-- 1 root root 33685504 June 28 2018 hashcat.hcstat
+
+
+------------------------------------------------------------------------
+3. Method B: Symbolic Notation (UGO Syntax)
+------------------------------------------------------------------------
+An alternative, character-based syntax that leverages explicit flags and mathematical 
+operators to mutate exact blocks without affecting other permissions.
+
+Target Designations:
+* u : User / Owner
+* g : Group
+* o : Others / World
+
+Evaluation Operators:
+* [+] : Grants a specific permission attribute.
+* [-] : Revokes a specific permission attribute.
+* [=] : Sets a precise permission profile explicitly.
+
+Practical Use Cases:
+1. Stripping Write Privilege from the File Owner:
+   kali > chmod u-w hashcat.hcstat
+   Resulting mode string: -r-xr-xr--
+
+2. Appending Execute Privileges to User and Others Simultaneously:
+   kali > chmod u+x,o+x hashcat.hcstat
+   (Note the use of comma separation without whitespaces).
+
+
+------------------------------------------------------------------------
+4. Pentesting Real-World Context: Bypassing Tool Execution Blocks
+------------------------------------------------------------------------
+Security Defaults:
+Linux enforces defensive access masks when external scripts or security binaries 
+(e.g., newhackertool) are cloned or downloaded. By default, they lack execute 
+privileges entirely (often presenting an initial mask like 666). Attempting to run 
+them returns a "Permission denied" error.
+
+Remediation Step:
+To convert the downloaded binary into an executable asset for the owner while 
+retaining standard read/write rights for groups and others:
+kali > chmod 766 newhackertool
+
+Validation Scan:
+kali > ls -l LinuxSkills
+-rwxrw-rw- 1 root root 1072 Dec 5 11:17 LinuxSkills
+
+Outcome: 
+Owner profile shifts to 'rwx' (4+2+1=7), allowing full local script execution. 
+Group and Others maintain 'rw-' (4+2+0=6).
+========================================================================
