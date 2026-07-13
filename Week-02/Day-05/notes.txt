@@ -16,6 +16,9 @@ Types of Users & Groups:
                  Groups (e.g., finance, security, developers) to easily inherit 
                  shared access permissions.
 
+Note: Each user has a primary group and may belong to supplementary groups.
+Check with: `id username` or `groups username`.
+
 
 2. Understanding Permission Levels
 ------------------------------------------------------------------------
@@ -23,6 +26,10 @@ Each file and directory has three distinct levels of permissions:
 * r (Read)    : Permission to open and view the contents.
 * w (Write)   : Permission to edit/modify the contents.
 * x (Execute) : Permission to run a file (binary or script) or access a directory.
+
+For directories specifically:
+* x (Execute) for a directory means "traverse/enter". Without the 'x' bit on a
+  directory you cannot cd into it or access files inside even if you have 'r'.
 
 
 3. Changing File and Group Ownership
@@ -32,8 +39,13 @@ Transfers the primary ownership of a file to another user.
 Syntax:
 chown username /path/to/file
 
-Example (Passing ownership of bobsfile to the user 'bob'):
-kali > chown bob /tmp/bobsfile
+Examples and important notes:
+kali> sudo chown bob /tmp/bobsfile
+kali> sudo chown alice:developers /opt/project   # change owner and group
+kali> sudo chown -R alice:developers /opt/project   # recursive (USE WITH CAUTION)
+
+Use `sudo` when changing ownership of files you do not own. Avoid changing
+ownership of system files unless you know what you're doing.
 
 B. Granting Ownership to a Group ('chgrp')
 Transfers group ownership, allowing multiple users in a project or pentesting 
@@ -41,32 +53,54 @@ team to collaborate.
 Syntax:
 chgrp groupname /path/to/file
 
-Example (Passing ownership of newIDS to the 'security' group):
-kali > chgrp security newIDS
+Examples:
+kali> sudo chgrp security /var/log/newIDS
+kali> sudo chgrp -R security /var/www/html   # recursive
 
 
 4. Checking Permissions via 'ls -l'
 ------------------------------------------------------------------------
 To view permissions, use the long listing command:
 
-┌──(sourov㉿kali)-[~]
-└─$ ls -l /usr/share/hashcat
+kali> ls -l /usr/share/hashcat
 
-Example Output Line:
+Example Output Lines:
+total 524
+lrwxrwxrwx 1 root root     25 Oct 25  2025 bridges -> ../../lib/hashcat/bridges
+drwxr-xr-x 6 root root   4096 Jul  9 10:53 charsets
 -rw-r--r-- 1 root root 240526 Apr 14 01:00 hashcat.hcstat2
 
-
 Breaking Down the Output Layout (From Left to Right):
-1. First Character : Represents the file type ('d' = Directory, '-' = Regular file).
+1. First Character (file type):
+   - d : Directory
+   - - : Regular file
+   - l : Symbolic link
+   - c : Character device
+   - b : Block device
+   - s : Socket
+   - p : Named pipe (FIFO)
+
 2. Next 9 Characters: Split into 3 sets of 3, representing 'rwx' status:
    * 1st Set (e.g., rw-) : Owner permissions (Read & Write, no Execute).
    * 2nd Set (e.g., r--) : Group permissions (Read only).
    * 3rd Set (e.g., r--) : All other users' permissions (Read only).
    * Note: A dash (-) means that specific permission is denied.
-3. Links Count     : Number of links to the file.
+
+3. Links Count     : Number of links to the file. For regular files this is the
+                    number of hard links; for directories it's typically number
+                    of subdirectories + 2 (for '.' and '..').
 4. Owner Name      : The user who owns the file (e.g., root).
 5. Group Name      : The group that owns the file (e.g., root).
 6. File Size       : Size of the file in bytes.
 7. Modification Date: When the file was last updated.
 8. File Name       : The actual name of the file (e.g., hashcat.hcstat).
+
+Permission → octal conversion example:
+  rwxr-xr-x  ->  owner rwx = 7, group r-x = 5, others r-x = 5  => 0755
+  rw-r--r--  ->  0644
+
+Example lines (for regular file, directory, and symlink):
+-rw-r--r-- 1 root root 240526 Apr 14 01:00 hashcat.hcstat2
+drwxr-xr-x 6 root root   4096 Jul  9 10:53 charsets
+lrwxrwxrwx 1 root root     25 Oct 25 2025 bridges -> ../../lib/hashcat/bridges
 ========================================================================
