@@ -1,5 +1,5 @@
 ========================================================================
-             CONTROLLING FILE AND DIRECTORY PERMISSIONS(Part-01)
+           CONTROLLING FILE AND DIRECTORY PERMISSIONS(Part-01)
 ========================================================================
 
 1. Introduction to Linux Permissions & Users
