@@ -40,9 +40,7 @@ Syntax:
 chown username /path/to/file
 
 Examples and important notes:
-kali> sudo chown bob /tmp/bobsfile
-kali> sudo chown alice:developers /opt/project   # change owner and group
-kali> sudo chown -R alice:developers /opt/project   # recursive (USE WITH CAUTION)
+kali> sudo chown sourov /tmp/LinuxSkills
 
 Use `sudo` when changing ownership of files you do not own. Avoid changing
 ownership of system files unless you know what you're doing.
@@ -54,8 +52,7 @@ Syntax:
 chgrp groupname /path/to/file
 
 Examples:
-kali> sudo chgrp security /var/log/newIDS
-kali> sudo chgrp -R security /var/www/html   # recursive
+kali> sudo chgrp permissions LinuxSkills
 
 
 4. Checking Permissions via 'ls -l'
