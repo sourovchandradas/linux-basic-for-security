@@ -1,21 +1,55 @@
-• Topic: Linux Basics & Essential Terms for Hackers
----------------------------------------------------------
+========================================================================
+											GETTING STARTED WITH THE BASICS
+========================================================================
 
-• Key Points:
-  1. Case Sensitivity: Linux is strictly case-sensitive. "Desktop" and "desktop" are treated as two completely different names.
-  2. The 'root' Account: The superuser or administrator account in Linux. It has absolute control over the system, and most hacking/pentesting tools require root privileges to run.
-  3. Directories & Home: In Linux, folders are called directories. Every user has a personal space called the '/home' directory, where files are saved by default.
-  4. Binaries & Executables: Files that can be executed (run) like programs. They usually sit in '/usr/bin' or '/usr/sbin'.
-  5. Shell & Terminal: The Terminal is the Command Line Interface (CLI) where we type commands. The Shell (like 'bash') is the environment that interprets and runs those commands.
-  6. Scripts: A series of commands executed line-by-line. Python is currently the most popular scripting language for hackers.
-  7. Kali Linux: A special Linux distribution pre-loaded with hundreds of tools for penetration testing and hacking.
+1. Introduction
+------------------------------------------------------------------------
+* Hackers are doers who want to touch, play, create, and sometimes break 
+  things, rather than reading long tomes of IT theory.
+* This chapter provides fundamental skills to get up and running in Kali Linux 
+  just enough to play and explore, saving in-depth discussions for later.
 
-• Commands/Examples:
-  - Common Binaries (Utilities): ps, cat, ls, ifconfig
-  - Security Tools (Examples): aircrack-ng (Wireless hacking), Snort (Intrusion Detection System)
-  - Common Shell: bash (Bourne-again shell)
-  - Case Sensitivity Example: 
-    Creating a file named "Secret.txt" is NOT the same as "secret.txt". Typing the wrong case will return a "file or directory not found" error.
 
-• Summary:
-Hackers are hands-on learners who need to interact with the system directly rather than just reading heavy theory. To start hacking with Kali Linux, understanding the filesystem hierarchy, the power of the root account, case sensitivity, and how the bash shell executes binaries/scripts is fundamental.
+2. Introductory Terms and Concepts
+------------------------------------------------------------------------
+* Binaries: 
+  Files that can be executed, similar to executables in Windows. They generally 
+  reside in the /usr/bin or /usr/sbin directory. 
+  Examples: ps, cat, ls, ifconfig, aircrack-ng, and Snort.
+
+* Directory: 
+  The same as a folder in Windows, providing a way of organizing files in a 
+  hierarchical manner.
+
+* Home: 
+  Each user has their own /home directory, where files created by them will be 
+  saved by default.
+
+* Kali: 
+  A distribution of Linux specifically designed for penetration testing. It has 
+  hundreds of tools preinstalled (using Kali 2018.2, first released in April 2018).
+
+* root: 
+  The administrator or superuser account designed for a trusted person who can 
+  do nearly anything on the system (reconfiguring the system, adding users, 
+  changing passwords). Many hacker tools require the root account to give you 
+  control over the system.
+
+* Script: 
+  A series of commands run in an interpretive environment that converts each 
+  line to source code. Run with the bash interpreter or others like Python, 
+  Perl, or Ruby. Python is currently the most popular interpreter among hackers.
+
+* Shell: 
+  An environment and interpreter for running commands in Linux. The most widely 
+  used shell is bash (Bourne-again shell), but other popular shells include the 
+  C shell and Z shell.
+
+* Terminal: 
+  A command line interface (CLI).
+
+⚠️ Note (Case sensitivity): 
+Unlike Windows, the Linux filesystem is case sensitive (e.g., Desktop, desktop, 
+and DeskTop represent different files or directories). If you get the error 
+"file or directory not found", you probably need to check your case.
+========================================================================
