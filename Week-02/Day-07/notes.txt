@@ -1,1 +1,65 @@
+========================================================================
+              SPECIAL PERMISSIONS & PRIVILEGE ESCALATION
+========================================================================
 
+1. Granting Temporary Root Permissions with SUID
+------------------------------------------------------------------------
+* SUID (Set User ID) allows any user to execute a file with the privileges 
+  of the file's owner.
+* These elevated privileges do not extend beyond the use of that specific file.
+* Useful for programs that require root access during execution (e.g., a file 
+  allowing users to change their password needs access to '/etc/shadow').
+* Representation: Represented by placing a '4' before the regular octal 
+  permissions (e.g., regular '644' becomes '4644' with SUID set).
+
+Command (Setting SUID via chmod):
+kali > chmod 4644 filename
+
+
+2. Granting Group Permissions with SGID
+------------------------------------------------------------------------
+* SGID (Set Group ID) grants temporary elevated permissions of the file owner's 
+  group, rather than the file's owner.
+* Allows someone without execute permission to run a file if the owner belongs 
+  to the group that has permission to execute it.
+* Directory Behavior: When set on a directory, ownership of newly created files 
+  goes to the directory creator's group (not the file creator's group). Highly 
+  useful for shared directories.
+* Representation: Represented by placing a '2' before the regular octal 
+  permissions (e.g., regular '644' becomes '2644' with SGID set).
+
+Command (Setting SGID via chmod):
+kali > chmod 2644 filename
+
+
+3. The Outmoded Sticky Bit
+------------------------------------------------------------------------
+* A permission bit set on a directory to allow a user to delete or rename files 
+  within that directory.
+* This is a legacy of older Unix systems; modern Linux systems ignore it.
+
+
+4. Special Permissions and Privilege Escalation
+------------------------------------------------------------------------
+* Hackers can exploit SUID/SGID permissions to perform privilege escalation—allowing 
+  a regular user to gain root or sysadmin privileges.
+* If a script or application (like password changers) has the SUID bit set to access 
+  root files, a hacker can use that permission to gain temporary root privileges 
+  and access sensitive files like '/etc/shadow'.
+
+Command (Finding files with the SUID bit set owned by root):
+kali > find / -user root -perm -4000
+
+Output / Explanation:
+The output lists SUID files (e.g., /usr/bin/sudo, /usr/bin/passwd, etc.).
+
+Verification (Auditing SUID files):
+kali > cd /usr/bin
+kali > ls -l
+
+Example Output:
+-rwsr-xr-x 1  root  root  140944    Jul 5  2018    sudo
+
+* Analysis: The 's' in place of 'x' in the owner's permission set indicates that 
+  the SUID bit is active. Anyone running 'sudo' executes it with root privileges.
+========================================================================
