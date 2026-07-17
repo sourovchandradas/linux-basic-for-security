@@ -18,7 +18,8 @@
   -> Scheduling processes (running them on specific days, dates, and times).
 
 
-2. The ps Command
+2. Viewing Process
+The ps Command
 ------------------------------------------------------------------------
 * The most common tool for viewing processes is the ps command.
 * Running just ps displays the processes currently running in the active terminal session.
