@@ -11,7 +11,7 @@
   -> To optimize the system.
   -> To understand which process is consuming more resources.
   -> To terminate any process if necessary, such as an antivirus or firewall.
-  - To run scripts at specific intervals (e.g., scanning scripts).
+  -> To run scripts at specific intervals (e.g., scanning scripts).
 * What can be learned in this chapter:
   - Searching and finding processes (knowing which one uses more resources).
   - Managing processes (running in the background, prioritizing, and terminating if necessary).
