@@ -20,6 +20,7 @@
 
 2. Viewing Process
 ------------------------------------------------------------------------
+* The ps Command
 * The most common tool for viewing processes is the ps command.
 * Running just ps displays the processes currently running in the active terminal session.
 
