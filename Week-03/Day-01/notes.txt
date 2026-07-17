@@ -1,5 +1,5 @@
 ========================================================================
- DAY 06 | LINUX PROCESS MANAGEMENT
+ | LINUX PROCESS MANAGEMENT
 ========================================================================
 
 1. Introduction to Linux Process Management
