@@ -1,1 +1,129 @@
+========================================================================
+WEEK 02 - DAY 06 | LINUX PROCESS MANAGEMENT
+========================================================================
 
+1. Introduction to Linux Process Management
+------------------------------------------------------------------------
+* What is a Process: A process is a running program that utilizes system resources such as CPU, RAM, Disk, etc.
+  - Examples: Terminal, web browser, commands, databases, GUI interfaces, etc.
+* Why Process Management is Needed:
+  - To optimize the system.
+  - To understand which process is consuming more resources.
+  - To terminate any process if necessary, such as an antivirus or firewall.
+  - To run scripts at specific intervals (e.g., scanning scripts).
+* What can be learned in this chapter:
+  - Searching and finding processes (knowing which one uses more resources).
+  - Managing processes (running in the background, prioritizing, and terminating if necessary).
+  - Scheduling processes (running them on specific days, dates, and times).
+
+
+2. Filtering by Process Name
+------------------------------------------------------------------------
+* Why Filtering is Needed: Viewing all processes together displays too much information. Usually, we want information about a specific process, so the grep command is used to filter the output.
+
+Command (Searching for the Metasploit Process):
+kali > msfconsole
+kali > ps aux | grep msfconsole
+
+Output/Explanation:
+* When Metasploit launches, it takes over the terminal, so a new terminal must be opened to run ps aux.
+* Output Analysis:
+  - It shows that the /usr/bin/msfconsole program is running.
+  - The grep msfconsole command itself is also visible below it.
+  - The header list (USER, PID, etc.) does not appear in the output because the keyword is not in the header.
+* Important Note: The format remains the same; it just filters according to the keyword. From here, you can see how much resource Metasploit is consuming (e.g., CPU column -> 35.1% CPU, Memory column -> 15.2% memory). Metasploit consumes a lot of resources; it is a demanding tool.
+* Bottom Line: You can find a specific process and view its resource usage using ps aux | grep <process_name>.
+
+
+3. Finding Greediest Processes with top
+------------------------------------------------------------------------
+* Difference Between ps and top:
+  - ps command: Takes a single snapshot, and processes are sorted by PID.
+  - top command: Sorted by resource usage and refreshes every 3 seconds.
+* Why Use top:
+  - To find resource-hungry processes.
+  - To live monitor CPU, RAM, and Swap usage.
+  - For system administrators or hackers to see which task is consuming the most resources while running heavy operations.
+* Sample Output (Key Sections):
+  - System Info: uptime, load average, users.
+  - CPU Usage: user %, system %, idle %.
+  - Memory & Swap: total, used, free, cache.
+  - Process Table: PID, USER, priority (PR), nice value (NI), memory usage (RES, SHR), CPU %, MEM %, time, command.
+
+Interactive Keys in top:
+* H or ? -> help menu (interactive commands list)
+* Q -> quit top
+* Other keys -> priority change, kill process, etc. (to be learned in the next chapter)
+
+Practical Use:
+* System administrators often keep top running for live resource monitoring.
+* Hackers or advanced users identify greedy processes with top before changing process priority or killing them.
+* One-liner to remember: top = dynamic process monitor -> shows greediest processes by CPU/MEM usage, unlike ps which is a static snapshot.
+
+
+4. Detailed Explanation: nice & renice
+------------------------------------------------------------------------
+* Background: Many processes run simultaneously in a Linux system. Each process exerts influence over resources like CPU, RAM, etc. The Kernel always makes the final decision on which process gets resources first.
+* Role of nice: The nice command basically suggests a priority when starting a process. Priority means which process gets resources first. The concept is—the more resources your process consumes, the more it is considered "not nice" to others.
+* Niceness Value Range:
+  - Range: -20 to +19 (0 = default value)
+  - -20 -> highest priority (greedy process, not nice)
+  - +19 -> lowest priority (very nice process, gets fewer resources)
+  - When a process starts, it inherits the niceness of its parent process.
+  - Shortcut: Low value = High priority, High value = Low priority
+* Who Can Change Priority:
+  - Normal user: Can only decrease priority (can increase the value).
+  - Root user: Can assign any value (increase/decrease).
+
+
+5. Setting Priority with nice
+------------------------------------------------------------------------
+* Scenario: Suppose we have a process named /bin/slowprocess. Now we want this process to either finish quickly or consume fewer resources.
+
+Command (High Priority / Speed Up):
+kali > nice -n -10 /bin/slowprocess
+(Here, -10 means the niceness value has been decreased. Decreasing niceness increases the priority -> the process gets more CPU/RAM. As a result, the process finishes faster).
+
+Command (Low Priority / Be Nice to Others):
+kali > nice -n 10 /bin/slowprocess
+(Here, 10 means the niceness value has been increased. Increasing niceness decreases the priority -> the process gets fewer resources. Other processes get more resources).
+
+Command (Verify with ps):
+kali > ps -o pid,ni,comm
+(The niceness value will be visible under the NI column).
+
+Hacker/Admin Context:
+* A hacker might increase the priority while running an exploit -> so that the exploit executes faster.
+* An admin might lower the priority of a background task -> so that the main service runs smoothly.
+
+⚠️ Rules to remember:
+* Low niceness value = High priority
+* High niceness value = Low priority
+* One-liner: nice -n -10 -> process is greedy (fast), nice -n 10 -> process is polite (slow).
+
+
+6. Changing Priority of a Running Process with renice
+------------------------------------------------------------------------
+* What is renice?: The renice command changes the priority of an already running process. It takes an absolute value (from -20 to +19), meaning it sets a specific niceness value directly, rather than an increment.
+* User Permissions:
+  - Normal user -> Can only decrease priority (can only assign positive values).
+  - Root user -> Can assign negative values (can increase priority).
+
+Command (Syntax: renice <value> <PID>):
+kali > renice 19 6996
+(Here, the niceness value of process 6996 will directly become 19. The priority will decrease -> other processes will get more resources).
+
+Using top for Renice:
+* While top is running -> pressing the R key opens the renice option.
+* Then, enter the PID and the new niceness value.
+* The output updates instantly to display the new priority.
+
+Practical Use:
+* If a process is consuming too much CPU/RAM -> lower its priority using renice 19.
+* If a critical process needs to finish quickly -> the root user can assign a negative value like renice -10.
+
+⚠️ Rules to remember:
+* Low value (-20) -> High priority (greedy process).
+* High value (+19) -> Low priority (polite process).
+* One-liner: renice = changes the priority of a running process using an absolute value. The root user retains full control.
+========================================================================
