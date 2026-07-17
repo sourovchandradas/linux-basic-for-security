@@ -35,28 +35,26 @@ The output displays:
   -> When managing processes, the PID is far more important than the process name because you must use the PID to take any        action.
 
 ⚠️ Rule to remember:
-* To perform any work on a process in Linux, knowing its PID is absolutely essential.
+    -> To perform any work on a process in Linux, knowing its PID is absolutely essential.
 
-
-3. The ps aux Command
-------------------------------------------------------------------------
-* Running ps aux displays all running processes from all users across the entire system.
-* Note that no dash (-) is used with this command, and it must be written in lowercase (as Linux is case-sensitive).
+* The ps aux Command:
+    -> Running ps aux displays all running processes from all users across the entire system.
+    -> Note that no dash (-) is used with this command, and it must be written in lowercase (as Linux is case-sensitive).
 
 Output/Explanation:
-The output lists many processes, such as:
-* The first process -> /sbin/init
-* The last process -> The ps aux command itself that we just executed
+* The output lists many processes, such as:
+    -> The first process  : /sbin/init
+    -> The last process   : The ps aux command itself that we just executed
 
-Important Columns to Know:
-* USER -> The user who started the process
-* PID -> Process ID
-* %CPU -> The percentage of CPU power the process is using
-* %MEM -> The percentage of RAM memory the process is using
-* COMMAND -> The command that launched the process
+* Important Columns to Know:
+    -> USER    = The user who started the process
+    -> PID     = Process ID
+    -> %CPU    = The percentage of CPU power the process is using
+    -> %MEM    = The percentage of RAM memory the process is using
+    -> COMMAND = The command that launched the process
 
 
-2. Filtering by Process Name
+3. Filtering by Process Name
 ------------------------------------------------------------------------
 * Why Filtering is Needed: Viewing all processes together displays too much information. Usually, we want information about a specific process, so the grep command is used to filter the output.
 
@@ -74,7 +72,7 @@ Output/Explanation:
 * Bottom Line: You can find a specific process and view its resource usage using ps aux | grep <process_name>.
 
 
-3. Finding Greediest Processes with top
+4. Finding Greediest Processes with top
 ------------------------------------------------------------------------
 * Difference Between ps and top:
   - ps command: Takes a single snapshot, and processes are sorted by PID.
@@ -100,7 +98,7 @@ Practical Use:
 * One-liner to remember: top = dynamic process monitor -> shows greediest processes by CPU/MEM usage, unlike ps which is a static snapshot.
 
 
-4. Detailed Explanation: nice & renice
+5. Detailed Explanation: nice & renice
 ------------------------------------------------------------------------
 * Background: Many processes run simultaneously in a Linux system. Each process exerts influence over resources like CPU, RAM, etc. The Kernel always makes the final decision on which process gets resources first.
 * Role of nice: The nice command basically suggests a priority when starting a process. Priority means which process gets resources first. The concept is—the more resources your process consumes, the more it is considered "not nice" to others.
@@ -115,7 +113,7 @@ Practical Use:
   - Root user: Can assign any value (increase/decrease).
 
 
-5. Setting Priority with nice
+6. Setting Priority with nice
 ------------------------------------------------------------------------
 * Scenario: Suppose we have a process named /bin/slowprocess. Now we want this process to either finish quickly or consume fewer resources.
 
@@ -141,7 +139,7 @@ Hacker/Admin Context:
 * One-liner: nice -n -10 -> process is greedy (fast), nice -n 10 -> process is polite (slow).
 
 
-6. Changing Priority of a Running Process with renice
+7. Changing Priority of a Running Process with renice
 ------------------------------------------------------------------------
 * What is renice?: The renice command changes the priority of an already running process. It takes an absolute value (from -20 to +19), meaning it sets a specific niceness value directly, rather than an increment.
 * User Permissions:
