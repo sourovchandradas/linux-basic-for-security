@@ -17,14 +17,11 @@
   -> Managing processes (running in the background, prioritizing, and terminating if necessary).
   -> Scheduling processes (running them on specific days, dates, and times).
 
-
 2. Viewing Process
 ------------------------------------------------------------------------
-
-* The ps Command
-
-* The most common tool for viewing processes is the ps command.
-* Running just ps displays the processes currently running in the active terminal session.
+* The ps Command:
+  -> The most common tool for viewing processes is the ps command.
+  -> Running just ps displays the processes currently running in the active terminal session.
 
 Output/Explanation:
 The output displays:
