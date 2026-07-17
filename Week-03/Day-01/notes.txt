@@ -8,7 +8,7 @@
   -> A process is a running program that utilizes system resources such as CPU, RAM, Disk, etc.
   -> Examples: Terminal, web browser, commands, databases, GUI interfaces, etc.
 * Why Process Management is Needed?
-  - To optimize the system.
+  -> To optimize the system.
   - To understand which process is consuming more resources.
   - To terminate any process if necessary, such as an antivirus or firewall.
   - To run scripts at specific intervals (e.g., scanning scripts).
