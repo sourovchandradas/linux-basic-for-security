@@ -18,6 +18,46 @@
   -> Scheduling processes (running them on specific days, dates, and times).
 
 
+2. The ps Command
+------------------------------------------------------------------------
+* The most common tool for viewing processes is the ps command.
+* Running just ps displays the processes currently running in the active terminal session.
+
+Output/Explanation:
+The output displays:
+* PID -> Process ID
+* TTY -> The terminal where the process is running
+* TIME -> Total CPU time used by the process
+* CMD -> The command that started the process
+
+
+2. The Importance of PID
+------------------------------------------------------------------------
+* The Linux kernel assigns a unique PID to every process when it is created.
+* When managing processes, the PID is far more important than the process name because you must use the PID to take any action.
+
+⚠️ Rule to remember:
+* To perform any work on a process in Linux, knowing its PID is absolutely essential.
+
+
+3. The ps aux Command
+------------------------------------------------------------------------
+* Running ps aux displays all running processes from all users across the entire system.
+* Note that no dash (-) is used with this command, and it must be written in lowercase (as Linux is case-sensitive).
+
+Output/Explanation:
+The output lists many processes, such as:
+* The first process -> /sbin/init
+* The last process -> The ps aux command itself that we just executed
+
+Important Columns to Know:
+* USER -> The user who started the process
+* PID -> Process ID
+* %CPU -> The percentage of CPU power the process is using
+* %MEM -> The percentage of RAM memory the process is using
+* COMMAND -> The command that launched the process
+
+
 2. Filtering by Process Name
 ------------------------------------------------------------------------
 * Why Filtering is Needed: Viewing all processes together displays too much information. Usually, we want information about a specific process, so the grep command is used to filter the output.
