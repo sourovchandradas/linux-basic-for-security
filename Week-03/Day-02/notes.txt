@@ -29,33 +29,39 @@ kali > kill -9 6996
 Command (Kill by name without PID):
 kali > killall -9 rogueprocess
 
-Using top to Kill:
-* When top is running -> press K key.
-* Enter PID -> process will terminate.
+* Using top to Kill:
+    -> When top is running:
+        Step-01  :  press K key.
+        Step-02  :  Enter PID -> process will terminate.
 
 ⚠️ Rule to remember:
-* Kill command = sends signal to terminate process. SIGTERM = default, SIGKILL = absolute force kill.
+* Kill command = sends signal to terminate process. 
+* SIGTERM      = default.
+* SIGKILL      = absolute force kill.
 
 
 2. Running Processes in the Background
 ------------------------------------------------------------------------
-* Shell & Process Execution: In Linux, all commands are executed from the shell. When a command runs, the shell waits until the process finishes.
-* Why Background Processes?: Terminal gets blocked if a long process runs. Running in the background keeps the terminal free for other commands, allowing multitask saving of resources and screen space.
+* Shell & Process Execution:
+    -> In Linux, all commands are executed from the shell. When a command runs, the shell waits until the process finishes.
+*Why Background Processes?
+    -> Terminal gets blocked if a long process runs. Running in the background keeps the terminal free for other commands,
+       allowing multitask saving of resources and screen space.
 
 Command (Foreground Execution - Terminal stays busy):
-kali > leafpad newscript
+kali > mousepad LinuxScript
 
 Command (Run in Background via &):
-kali > leafpad newscript &
+kali > mousepad LinuxScript &
 (Adding & runs the process in the background. Terminal immediately gives a new prompt for other commands).
 
 Command (Move a running process to background via bg):
 kali > bg <PID>
 (If PID is unknown -> find it using the ps command).
 
-Practical Use:
-* Long processes (scanner, exploit, editor, script) are better in the background.
-* Hacker context -> multiple terminals can run simultaneously.
+* Practical Use:
+    -> Long processes (scanner, exploit, editor, script) are better in the background.
+    -> Hacker context : multiple terminals can run simultaneously.
 
 ⚠️ Rule to remember:
 * Background process = keeps terminal free. Done with & or bg command.
