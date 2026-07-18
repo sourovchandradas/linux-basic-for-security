@@ -69,16 +69,20 @@ kali > bg <PID>
 
 3. Moving a Process to the Foreground
 ------------------------------------------------------------------------
-* Foreground vs Background: Foreground process is active in the terminal and blocks the prompt. Background process leaves the terminal free while the process continues.
-* Why Move to Foreground?: Sometimes background processes need direct control, so they are brought to the foreground to attach the terminal back to that process.
+* Foreground vs Background:
+    -> Foreground process is active in the terminal and blocks the prompt.
+    -> Background process leaves the terminal free while the process continues.
+* Why Move to Foreground?
+    -> Sometimes background processes need direct control, so they are brought to the foreground to attach the terminal back
+       to that process.
 
 Command (Syntax: fg <PID>):
 kali > fg 1234
 (Process 1234 moves to foreground. If PID is unknown -> use 'ps aux' to find it).
 
-Practical Use:
-* Hacker context -> exploit/scanner moved back to foreground for control.
-* Sysadmin context -> debugging critical services may require foreground.
+* Practical Use:
+    -> Hacker context    : exploit/scanner moved back to foreground for control.
+    -> Sysadmin context  : debugging critical services may require foreground.
 
 ⚠️ Rule to remember:
 * fg = brings background process to foreground using PID.
