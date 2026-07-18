@@ -101,7 +101,9 @@ Output/Explanation:
 * Practical Use:
     -> System administrators often keep top running for live resource monitoring.
     -> Hackers or advanced users identify greedy processes with top before changing process priority or killing them.
-    -> One-liner to remember: top = dynamic process monitor -> shows greediest processes by CPU/MEM usage, unlike ps which is a static snapshot.
+  
+* One-liner to remember: 
+    -> top = dynamic process monitor -> shows greediest processes by CPU/MEM usage, unlike ps which is a static snapshot.
 
 
 5. Detailed Explanation: nice & renice
