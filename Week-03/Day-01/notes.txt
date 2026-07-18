@@ -70,7 +70,9 @@ Output/Explanation:
     -> The grep msfconsole command itself is also visible below it.
     -> The header list (USER, PID, etc.) does not appear in the output because the keyword is not in the header.
 * Important Note: 
-    -> The format remains the same; it just filters according to the keyword. From here, you can see how much resource Metasploit is consuming (e.g., CPU column -> 35.1% CPU, Memory column -> 15.2% memory). Metasploit consumes a lot of resources; it is a demanding tool.
+    -> The format remains the same; it just filters according to the keyword. From here, you can see how much resource Metasploit is
+consuming (e.g., CPU column -> 35.1% CPU, Memory column -> 15.2% memory). Metasploit consumes a lot of resources; it is a demanding
+tool.
 * Bottom Line:
     -> You can find a specific process and view its resource usage using ps aux | grep <process_name>.
 
