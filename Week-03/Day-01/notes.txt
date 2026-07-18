@@ -24,7 +24,7 @@
   -> Running just ps displays the processes currently running in the active terminal session.
 
 Output/Explanation:
-The output displays:
+* The output displays:
   -> PID  = Process ID
   -> TTY  = The terminal where the process is running
   -> TIME = Total CPU time used by the process
@@ -56,7 +56,8 @@ Output/Explanation:
 
 3. Filtering by Process Name
 ------------------------------------------------------------------------
-* Why Filtering is Needed: Viewing all processes together displays too much information. Usually, we want information about a specific process, so the grep command is used to filter the output.
+* Why Filtering is Needed?
+    -> Viewing all processes together displays too much information. Usually, we want information about a specific process, so the           grep command is used to filter the output.
 
 Command (Searching for the Metasploit Process):
 kali > msfconsole
@@ -65,11 +66,13 @@ kali > ps aux | grep msfconsole
 Output/Explanation:
 * When Metasploit launches, it takes over the terminal, so a new terminal must be opened to run ps aux.
 * Output Analysis:
-  - It shows that the /usr/bin/msfconsole program is running.
-  - The grep msfconsole command itself is also visible below it.
-  - The header list (USER, PID, etc.) does not appear in the output because the keyword is not in the header.
-* Important Note: The format remains the same; it just filters according to the keyword. From here, you can see how much resource Metasploit is consuming (e.g., CPU column -> 35.1% CPU, Memory column -> 15.2% memory). Metasploit consumes a lot of resources; it is a demanding tool.
-* Bottom Line: You can find a specific process and view its resource usage using ps aux | grep <process_name>.
+    -> It shows that the /usr/bin/msfconsole program is running.
+    -> The grep msfconsole command itself is also visible below it.
+    -> The header list (USER, PID, etc.) does not appear in the output because the keyword is not in the header.
+* Important Note: 
+    -> The format remains the same; it just filters according to the keyword. From here, you can see how much resource Metasploit is         consuming (e.g., CPU column -> 35.1% CPU, Memory column -> 15.2% memory). Metasploit consumes a lot of resources; it is a             demanding tool.
+* Bottom Line:
+    -> You can find a specific process and view its resource usage using ps aux | grep <process_name>.
 
 
 4. Finding Greediest Processes with top
