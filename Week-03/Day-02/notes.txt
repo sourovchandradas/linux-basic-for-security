@@ -90,25 +90,27 @@ kali > fg 1234
 
 4. Scheduling Processes in Linux
 ------------------------------------------------------------------------
-* Why Scheduling?: System administrators schedule regular tasks like backups (e.g., Saturday 2 AM). Hackers schedule reconnaissance scripts regularly (open ports, vulnerabilities).
+* Why Scheduling?
+    -> System administrators schedule regular tasks like backups (e.g., Saturday 2 AM). Hackers schedule reconnaissance
+       scripts regularly (open ports, vulnerabilities).
 * Tools for Scheduling:
-  - at command -> runs a task once in the future.
-  - crond daemon -> schedules tasks regularly (daily, weekly, monthly).
+    -> at command    = runs a task once in the future.
+    -> crond daemon  = schedules tasks regularly (daily, weekly, monthly).
 
-Common Time Formats for at command:
-* at 7:20pm          -> Runs today at 7:20 pm.
-* at 7:20pm June 25  -> Runs on June 25 at 7:20 pm.
-* at noon            -> Runs today at noon.
-* at noon June 25    -> Runs on June 25 at noon.
-* at tomorrow        -> Runs tomorrow.
-* at now + 20 minutes-> Runs 20 minutes from now.
-* at now + 10 hours  -> Runs 10 hours from now.
-* at now + 5 days    -> Runs 5 days from now.
-* at now + 3 weeks   -> Runs 3 weeks from now.
-* at 7:20pm 06/25/2019 -> Runs on June 25, 2019 at 7:20 pm.
+* Common Time Formats for at command:
+    -> at 7:20pm            = Runs today at 7:20 pm.
+    -> at 7:20pm June 22    = Runs on June 22 at 7:20 pm.
+    -> at noon              = Runs today at noon.
+    -> at noon June 25      = Runs on June 25 at noon.
+    -> at tomorrow          = Runs tomorrow.
+    -> at now + 20 minutes  = Runs 20 minutes from now.
+    -> at now + 10 hours    = Runs 10 hours from now.
+    -> at now + 5 days      = Runs 5 days from now.
+    -> at now + 3 weeks     = Runs 3 weeks from now.
+    -> at 7:20pm 06/22/2026 = Runs on June 25, 2026 at 7:20 pm.
 
-Interactive Mode & Command Example:
-* Running 'at' shows the 'at>' prompt. Write commands there to execute at the scheduled time and finish with Ctrl+D.
+* Interactive Mode & Command Example:
+    -> Running 'at' shows the 'at>' prompt. Write commands there to execute at the scheduled time and finish with Ctrl+D.
 
 kali > at 7:20am
 at> /root/myscanningscript
