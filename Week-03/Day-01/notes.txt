@@ -133,11 +133,13 @@ Output/Explanation:
 
 Command (High Priority / Speed Up):
 kali > nice -n -10 /bin/slowprocess
-(Here, -10 means the niceness value has been decreased. Decreasing niceness increases the priority -> the process gets more CPU/RAM. As a result, the process finishes faster).
+(Here, -10 means the niceness value has been decreased. Decreasing niceness increases the priority -> the process gets more CPU/RAM.
+As a result, the process finishes faster).
 
 Command (Low Priority / Be Nice to Others):
 kali > nice -n 10 /bin/slowprocess
-(Here, 10 means the niceness value has been increased. Increasing niceness decreases the priority -> the process gets fewer resources. Other processes get more resources).
+(Here, 10 means the niceness value has been increased. Increasing niceness decreases the priority -> the process gets fewer
+resources. Other processes get more resources).
 
 Command (Verify with ps):
 kali > ps -o pid,ni,comm
