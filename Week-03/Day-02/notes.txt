@@ -13,12 +13,12 @@
 Command (Syntax: kill -signal PID):
 kali > kill -signal PID
 
-Common Kill Signals:
-* 1  (SIGHUP)  -> Stops the process and restarts with the same PID.
-* 2  (SIGINT)  -> Interrupt signal, weak kill, usually works.
-* 3  (SIGQUIT) -> Creates a core dump, terminates process, saves info in core file.
-* 15 (SIGTERM) -> Default termination signal. Process stops gracefully.
-* 9  (SIGKILL) -> Absolute kill signal. Forcefully stops process, sends resources to /dev/null.
+* Common Kill Signals:
+    -> 1  (SIGHUP)    =  Stops the process and restarts with the same PID.
+    -> 2  (SIGINT)    =  Interrupt signal, weak kill, usually works.
+    -> 3  (SIGQUIT)   =  Creates a core dump, terminates process, saves info in core file.
+    -> 15 (SIGTERM)   =  Default termination signal. Process stops gracefully.
+    -> 9  (SIGKILL)   =  Absolute kill signal. Forcefully stops process, sends resources to /dev/null. 
 
 Command (Restart process with HUP):
 kali > kill -1 6996
