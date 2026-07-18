@@ -115,19 +115,21 @@ Output/Explanation:
     -> The nice command basically suggests a priority when starting a process. Priority means which process gets resources first.
        The concept is—the more resources your process consumes, the more it is considered "not nice" to others.
 * Niceness Value Range:
-  - Range: -20 to +19 (0 = default value)
-  - -20 -> highest priority (greedy process, not nice)
-  - +19 -> lowest priority (very nice process, gets fewer resources)
-  - When a process starts, it inherits the niceness of its parent process.
-  - Shortcut: Low value = High priority, High value = Low priority
-* Who Can Change Priority:
-  - Normal user: Can only decrease priority (can increase the value).
-  - Root user: Can assign any value (increase/decrease).
+    -> Range    : -20 to +19 (0 = default value)
+    -> -20      : highest priority (greedy process, not nice)
+    -> +19      : lowest priority (very nice process, gets fewer resources)
+
+* When a process starts, it inherits the niceness of its parent process.
+* Shortcut: Low value = High priority, High value = Low priority
+* Who Can Change Priority?
+    -> Normal user: Can only decrease priority (can increase the value).
+    -> Root user: Can assign any value (increase/decrease).
 
 
 6. Setting Priority with nice
 ------------------------------------------------------------------------
-* Scenario: Suppose we have a process named /bin/slowprocess. Now we want this process to either finish quickly or consume fewer resources.
+* Scenario: 
+    -> Suppose we have a process named /bin/slowprocess. Now we want this process to either finish quickly or consume fewer resources.
 
 Command (High Priority / Speed Up):
 kali > nice -n -10 /bin/slowprocess
@@ -141,38 +143,42 @@ Command (Verify with ps):
 kali > ps -o pid,ni,comm
 (The niceness value will be visible under the NI column).
 
-Hacker/Admin Context:
-* A hacker might increase the priority while running an exploit -> so that the exploit executes faster.
-* An admin might lower the priority of a background task -> so that the main service runs smoothly.
+* Hacker/Admin Context:
+    -> A hacker might increase the priority while running an exploit -> so that the exploit executes faster.
+    -> An admin might lower the priority of a background task -> so that the main service runs smoothly.
 
 ⚠️ Rules to remember:
-* Low niceness value = High priority
-* High niceness value = Low priority
+    -> Low niceness value = High priority
+    -> High niceness value = Low priority
+
 * One-liner: nice -n -10 -> process is greedy (fast), nice -n 10 -> process is polite (slow).
 
 
 7. Changing Priority of a Running Process with renice
 ------------------------------------------------------------------------
-* What is renice?: The renice command changes the priority of an already running process. It takes an absolute value (from -20 to +19), meaning it sets a specific niceness value directly, rather than an increment.
+* What is renice?
+    -> The renice command changes the priority of an already running process. It takes an absolute value (from -20 to +19), meaning it
+       sets a specific niceness value directly, rather than an increment.
 * User Permissions:
-  - Normal user -> Can only decrease priority (can only assign positive values).
-  - Root user -> Can assign negative values (can increase priority).
+    -> Normal user : Can only decrease priority (can only assign positive values).
+    -> Root user   : Can assign negative values (can increase priority).
 
 Command (Syntax: renice <value> <PID>):
 kali > renice 19 6996
 (Here, the niceness value of process 6996 will directly become 19. The priority will decrease -> other processes will get more resources).
 
-Using top for Renice:
-* While top is running -> pressing the R key opens the renice option.
-* Then, enter the PID and the new niceness value.
-* The output updates instantly to display the new priority.
+* Using top for Renice:
+    -> While top is running?
+          Step-01 : pressing the R key opens the renice option.
+          Step-02 : Then, enter the PID and the new niceness value.
+          Output  -> The output updates instantly to display the new priority.
 
-Practical Use:
-* If a process is consuming too much CPU/RAM -> lower its priority using renice 19.
-* If a critical process needs to finish quickly -> the root user can assign a negative value like renice -10.
+* Practical Use:
+    -> If a process is consuming too much CPU/RAM     = lower its priority using renice 19.
+    -> If a critical process needs to finish quickly  = the root user can assign a negative value like renice -10.
 
 ⚠️ Rules to remember:
-* Low value (-20) -> High priority (greedy process).
-* High value (+19) -> Low priority (polite process).
+* Low value (-20) -> High priority (greedy process,not nice for everyone).
+* High value (+19) -> Low priority (polite process,very nice for everyone).
 * One-liner: renice = changes the priority of a running process using an absolute value. The root user retains full control.
 ========================================================================
