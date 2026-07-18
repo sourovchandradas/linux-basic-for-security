@@ -32,7 +32,7 @@ Output/Explanation:
 
 * The Importance of PID:
   -> The Linux kernel assigns a unique PID to every process when it is created.
-  -> When managing processes, the PID is far more important than the process name because you must use the PID to take any        action.
+  -> When managing processes, the PID is far more important than the process name because you must use the PID to take any action.
 
 ⚠️ Rule to remember:
     -> To perform any work on a process in Linux, knowing its PID is absolutely essential.
