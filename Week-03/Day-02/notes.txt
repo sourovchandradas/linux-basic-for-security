@@ -7,7 +7,8 @@
 * Why Kill Processes?
     -> When a process consumes too many resources, behaves abnormally, or freezes, it is called a rogue process.
        Rogue processes waste resources and slow down important processes.
-* Kill Command Basics: Linux has 64 kill signals, but only a few are commonly used. If no signal is specified, the default is SIGTERM (15).
+* Kill Command Basics: 
+    -> Linux has 64 kill signals, but only a few are commonly used. If no signal is specified, the default is SIGTERM (15).
 
 Command (Syntax: kill -signal PID):
 kali > kill -signal PID
