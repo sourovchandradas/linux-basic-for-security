@@ -106,8 +106,12 @@ Output/Explanation:
 
 5. Detailed Explanation: nice & renice
 ------------------------------------------------------------------------
-* Background: Many processes run simultaneously in a Linux system. Each process exerts influence over resources like CPU, RAM, etc. The Kernel always makes the final decision on which process gets resources first.
-* Role of nice: The nice command basically suggests a priority when starting a process. Priority means which process gets resources first. The concept is—the more resources your process consumes, the more it is considered "not nice" to others.
+* Background:
+    -> Many processes run simultaneously in a Linux system. Each process exerts influence over resources like CPU, RAM, etc
+       The Kernel always makes the final decision on which process gets resources first.
+* Role of nice:
+    -> The nice command basically suggests a priority when starting a process. Priority means which process gets resources first. The
+       concept is—the more resources your process consumes, the more it is considered "not nice" to others.
 * Niceness Value Range:
   - Range: -20 to +19 (0 = default value)
   - -20 -> highest priority (greedy process, not nice)
