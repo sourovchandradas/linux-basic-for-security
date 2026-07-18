@@ -44,7 +44,7 @@ kali > killall -9 rogueprocess
 ------------------------------------------------------------------------
 * Shell & Process Execution:
     -> In Linux, all commands are executed from the shell. When a command runs, the shell waits until the process finishes.
-*Why Background Processes?
+* Why Background Processes?
     -> Terminal gets blocked if a long process runs. Running in the background keeps the terminal free for other commands,
        allowing multitask saving of resources and screen space.
 
