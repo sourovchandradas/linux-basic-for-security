@@ -57,7 +57,8 @@ Output/Explanation:
 3. Filtering by Process Name
 ------------------------------------------------------------------------
 * Why Filtering is Needed?
-    -> Viewing all processes together displays too much information. Usually, we want information about a specific process, so the           grep command is used to filter the output.
+    -> Viewing all processes together displays too much information. Usually, we want information about a specific process, so the
+       grep command is used to filter the output.
 
 Command (Searching for the Metasploit Process):
 kali > msfconsole
