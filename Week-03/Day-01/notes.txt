@@ -78,27 +78,27 @@ Output/Explanation:
 4. Finding Greediest Processes with top
 ------------------------------------------------------------------------
 * Difference Between ps and top:
-  - ps command: Takes a single snapshot, and processes are sorted by PID.
-  - top command: Sorted by resource usage and refreshes every 3 seconds.
-* Why Use top:
-  - To find resource-hungry processes.
-  - To live monitor CPU, RAM, and Swap usage.
-  - For system administrators or hackers to see which task is consuming the most resources while running heavy operations.
+    -> ps command: Takes a single snapshot, and processes are sorted by PID.
+    -> top command: Sorted by resource usage and refreshes every 3 seconds.
+* Why Use top?
+    -> To find resource-hungry processes.
+    -> To live monitor CPU, RAM, and Swap usage.
+    -> For system administrators or hackers to see which task is consuming the most resources while running heavy operations.
 * Sample Output (Key Sections):
-  - System Info: uptime, load average, users.
-  - CPU Usage: user %, system %, idle %.
-  - Memory & Swap: total, used, free, cache.
-  - Process Table: PID, USER, priority (PR), nice value (NI), memory usage (RES, SHR), CPU %, MEM %, time, command.
+    -> System Info    = uptime, load average, users.
+    -> CPU Usage      = user %, system %, idle %.
+    -> Memory & Swap  = total, used, free, cache.
+    -> Process Table  = PID, USER, priority (PR), nice value (NI), memory usage (RES, SHR), CPU %, MEM %, time, command.
 
-Interactive Keys in top:
-* H or ? -> help menu (interactive commands list)
-* Q -> quit top
-* Other keys -> priority change, kill process, etc. (to be learned in the next chapter)
+* Interactive Keys in top:
+    -> H or ?     = help menu (interactive commands list)
+    -> Q          = quit top
+    -> Other keys = priority change, kill process, etc. (to be learned in the next chapter)
 
-Practical Use:
-* System administrators often keep top running for live resource monitoring.
-* Hackers or advanced users identify greedy processes with top before changing process priority or killing them.
-* One-liner to remember: top = dynamic process monitor -> shows greediest processes by CPU/MEM usage, unlike ps which is a static snapshot.
+* Practical Use:
+    -> System administrators often keep top running for live resource monitoring.
+    -> Hackers or advanced users identify greedy processes with top before changing process priority or killing them.
+    -> One-liner to remember: top = dynamic process monitor -> shows greediest processes by CPU/MEM usage, unlike ps which is a              static snapshot.
 
 
 5. Detailed Explanation: nice & renice
