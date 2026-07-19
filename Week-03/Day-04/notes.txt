@@ -66,13 +66,12 @@ Explanation:
 
 
 4. Adding to the PATH Variable
-
----
-
+------------------------------------------------------------------------
 * Why Append Custom Directories to PATH?
--> If you installed a new tool (e.g., newhackingtool) into /root/newhackingtool.
--> You could only use commands from that tool when you're in that specific directory.
--> Adding it to PATH allows executing applications from anywhere on your system.
+    -> If you installed a new tool (e.g., newhackingtool) into /root/newhackingtool.
+    -> You could only use commands from that tool when you're in that specific directory.
+    -> Adding it to PATH allows executing applications from anywhere on your system.
+
 * Correct Syntax to Append a Directory:
 kali > PATH=$PATH:/root/newhackingtool
 * Verifying the Appended Directory:
