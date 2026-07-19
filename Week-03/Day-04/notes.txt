@@ -22,6 +22,7 @@
 2. Customizing and Exporting the PS1 Prompt
 ------------------------------------------------------------------------
 * Changing Prompt for the Current Session:
+
    kali > PS1="World's Best Hacker: #"
    World's Best Hacker: #
 
@@ -30,12 +31,14 @@
     -> The PS1 variable only holds values for your current terminal session.
 
 * Making the Prompt Persist via Exporting:
+
    kali > export PS1
 
     -> Tells the shell to pass the modified PS1 variable to child processes.
     -> Keeps the custom prompt working inside that ongoing session.
 
 * Simulating a Windows Command Prompt:
+
    kali > export PS1='C:\w> '
    kali > cd /tmp
    C:/tmp>
@@ -54,6 +57,7 @@ Explanation:
     -> Standard commands like grep, ls, and echo live inside these paths.
 
 * Viewing the System PATH:
+
    kali > echo $PATH
    /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
@@ -73,9 +77,11 @@ Explanation:
     -> Adding it to PATH allows executing applications from anywhere on your system.
 
 * Correct Syntax to Append a Directory:
+
    kali > PATH=$PATH:/root/newhackingtool
 
 * Verifying the Appended Directory:
+
    kali > echo $PATH
    /usr/local/sbin:usr/local/bin:/usr/sbin:/sbin/bin:/root/newhackingtool
 
@@ -90,24 +96,28 @@ Explanation:
 
 
 5. How Not to Add to the PATH Variable
-
----
-
+------------------------------------------------------------------------
 * Common Beginner Mistake: Replacing Instead of Appending
-kali > PATH=/root/newhackingtool
-kali > echo $PATH
-/root/newhackingtool
+
+   kali > PATH=/root/newhackingtool
+   kali > echo $PATH
+   /root/newhackingtool
+
 Effect:
--> PATH variable will only contain the /root/newhackingtool directory.
--> No longer contains system binaries directories like /bin, /sbin, etc.
+    -> PATH variable will only contain the /root/newhackingtool directory.
+    -> No longer contains system binaries directories like /bin, /sbin, etc.
+
 * Destructive Error Impact:
+
 kali > ls
 bash: ls: command not found
+
 Explanation:
--> Critical system commands become completely broken and inaccessible.
--> Unless you navigate manually to the system binaries directory first.
--> Remember that you want to append to the PATH variable, not replace it.
--> If you're in doubt, save the contents of the variable somewhere before modifying.
+    -> Critical system commands become completely broken and inaccessible.
+    -> Unless you navigate manually to the system binaries directory first.
+    -> Remember that you want to append to the PATH variable, not replace it.
+    -> If you're in doubt, save the contents of the variable somewhere before modifying.
+
 
 6. Creating a User-Defined Variable
 
