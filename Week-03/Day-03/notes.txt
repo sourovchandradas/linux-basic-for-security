@@ -124,9 +124,9 @@
     -> Used by many applications to store config files.
 
 * SHELL (Default Shell):
-   -> Path to the default shell being used.
-   -> Usually: /bin/bash (Bash shell)
-   -> Can be changed for different shell preferences.
+    -> Path to the default shell being used.
+    -> Usually: /bin/bash (Bash shell)
+    -> Can be changed for different shell preferences.
 
 
 5. Changing Variable Values for Current Session
