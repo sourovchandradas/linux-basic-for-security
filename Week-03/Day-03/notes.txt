@@ -170,42 +170,42 @@
 6. Making Variable Changes Permanent
 ------------------------------------------------------------------------
 * The export Command:
-   -> Exports variable from current shell to all child processes.
-   -> Makes changes persist in current session and new child shells.
-   -> Syntax: export VARIABLE_NAME=value
+    -> Exports variable from current shell to all child processes.
+    -> Makes changes persist in current session and new child shells.
+    -> Syntax: export VARIABLE_NAME=value
    
-   OR
+    OR
    
-   -> Export after changing: export VARIABLE_NAME
+    -> Export after changing: export VARIABLE_NAME
 
 * Example-01: Permanent HISTSIZE Change (Session-wide)
    kali > HISTSIZE=0
    kali > export HISTSIZE
    
    Effect:
-   -> All new child shells inherit HISTSIZE=0.
-   -> But still lost when terminal closes.
+      -> All new child shells inherit HISTSIZE=0.
+      -> But still lost when terminal closes.
 
 * Example-02: Undo Variable Change
    kali > HISTSIZE=1000
    kali > export HISTSIZE
    
-   -> Resets HISTSIZE back to default value.
-   -> Useful if you want to restore original behavior.
+    -> Resets HISTSIZE back to default value.
+    -> Useful if you want to restore original behavior.
 
 * Making Changes Survive Terminal Restart:
-   -> Edit shell configuration files: ~/.bashrc or ~/.profile
-   -> Add lines like: export HISTSIZE=0
-   -> Changes apply automatically on next login.
+    -> Edit shell configuration files: ~/.bashrc or ~/.profile
+    -> Add lines like: export HISTSIZE=0
+    -> Changes apply automatically on next login.
 
 * Backup Before Modifying:
    kali > echo $HISTSIZE > ~/valueofHISTSIZE.txt
    kali > set > ~/valueofALL.txt
    
    Effect:
-   -> Saves current values before modification.
-   -> Allows reverting changes if something breaks.
-   -> Good practice when experimenting with variables.
+      -> Saves current values before modification.
+      -> Allows reverting changes if something breaks.
+      -> Good practice when experimenting with variables.
 
 
 7. Viewing Variable Values
