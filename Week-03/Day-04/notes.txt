@@ -18,6 +18,7 @@
     -> \h = The hostname.
     -> \w = The base name of the current working directory.
 
+
 2. Customizing and Exporting the PS1 Prompt
 ------------------------------------------------------------------------
 * Changing Prompt for the Current Session:
@@ -44,23 +45,25 @@ Explanation:
     -> \w ensures the user can still see their active Linux directory route.
     -> Generally useful for a beginner to see the active current directory.
 
+
 3. Understanding the PATH Variable
-
----
-
+------------------------------------------------------------------------
 * What is the PATH Variable?
--> One of the most important variables in your environment.
--> Controls where on your system your shell will look for commands you enter.
--> Standard commands like grep, ls, and echo live inside these paths.
+    -> One of the most important variables in your environment.
+    -> Controls where on your system your shell will look for commands you enter.
+    -> Standard commands like grep, ls, and echo live inside these paths.
+
 * Viewing the System PATH:
-kali > echo $PATH
-/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+   kali > echo $PATH
+   /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 Explanation:
--> The directories where your terminal will search for any command.
--> When you enter 'ls', system searches PATH directories for 'ls' executable.
--> Each directory path is separated by a colon (:).
--> $ symbol before a variable asks the system for the content of that variable.
--> If the bash shell doesn't find the command, it returns: command not found.
+    -> The directories where your terminal will search for any command.
+    -> When you enter 'ls', system searches PATH directories for 'ls' executable.
+    -> Each directory path is separated by a colon (:).
+    -> $ symbol before a variable asks the system for the content of that variable.
+    -> If the bash shell doesn't find the command, it returns: command not found.
+
 
 4. Adding to the PATH Variable
 
