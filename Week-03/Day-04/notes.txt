@@ -21,25 +21,28 @@
 2. Customizing and Exporting the PS1 Prompt
 ------------------------------------------------------------------------
 * Changing Prompt for the Current Session:
-  kali > PS1="World's Best Hacker: #"
-  World's Best Hacker: #
+   kali > PS1="World's Best Hacker: #"
+   World's Best Hacker: #
 
     -> Changes the prompt text immediately in the active terminal window.
     -> Subsequent terminals will still have the default command prompt.
     -> The PS1 variable only holds values for your current terminal session.
 
 * Making the Prompt Persist via Exporting:
-kali > export PS1
--> Tells the shell to pass the modified PS1 variable to child processes.
--> Keeps the custom prompt working inside that ongoing session.
+   kali > export PS1
+
+    -> Tells the shell to pass the modified PS1 variable to child processes.
+    -> Keeps the custom prompt working inside that ongoing session.
+
 * Simulating a Windows Command Prompt:
-kali > export PS1='C:\w> '
-kali > cd /tmp
-C:/tmp>
+   kali > export PS1='C:\w> '
+   kali > cd /tmp
+   C:/tmp>
+
 Explanation:
--> Using 'C:\w> ' changes the prompt style to look like Windows cmd.
--> \w ensures the user can still see their active Linux directory route.
--> Generally useful for a beginner to see the active current directory.
+    -> Using 'C:\w> ' changes the prompt style to look like Windows cmd.
+    -> \w ensures the user can still see their active Linux directory route.
+    -> Generally useful for a beginner to see the active current directory.
 
 3. Understanding the PATH Variable
 
