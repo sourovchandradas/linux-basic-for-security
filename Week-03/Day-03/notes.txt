@@ -15,11 +15,11 @@
     -> Shell Variables        : Only valid in the shell they are set in, typically lowercase.
 
 * Why Manage Environment Variables?
-   -> To optimize system performance.
-   -> To tailor your work environment to your needs.
-   -> To customize appearance and behavior.
-   -> To cover your tracks (e.g., disabling command history).
-   -> To configure tools and applications efficiently.
+    -> To optimize system performance.
+    -> To tailor your work environment to your needs.
+    -> To customize appearance and behavior.
+    -> To cover your tracks (e.g., disabling command history).
+    -> To configure tools and applications efficiently.
 
 * Variable Format:
    -> Single value        : KEY=value
