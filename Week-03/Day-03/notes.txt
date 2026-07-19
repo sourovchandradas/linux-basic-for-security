@@ -87,30 +87,30 @@
 4. Understanding Key Environment Variables
 ------------------------------------------------------------------------
 * HISTSIZE (Command History Size):
-   -> Controls maximum number of commands stored in command history.
-   -> Default value: 1000 (stores last 1,000 commands).
-   -> Accessible via up/down arrow keys in terminal.
-   -> Set to 0 to disable history (for stealth/security).
+    -> Controls maximum number of commands stored in command history.
+    -> Default value: 1000 (stores last 1,000 commands).
+    -> Accessible via up/down arrow keys in terminal.
+    -> Set to 0 to disable history (for stealth/security).
    
    Example:
    kali > set | grep HISTSIZE
    HISTSIZE=1000
 
 * PATH (Command Search Path):
-   -> Most important variable for system functioning.
-   -> Contains directories separated by colons (:).
-   -> System searches these directories when you type a command.
-   -> Example: /usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:/bin
+    -> Most important variable for system functioning.
+    -> Contains directories separated by colons (:).
+    -> System searches these directories when you type a command.
+    -> Example: /usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:/bin
    
    Explanation:
-   -> If you type 'ls', system searches PATH directories for 'ls' executable.
-   -> First match is executed; order matters.
-   -> Adding custom directories to PATH allows running scripts from anywhere.
+      -> If you type 'ls', system searches PATH directories for 'ls' executable.
+      -> First match is executed; order matters.
+      -> Adding custom directories to PATH allows running scripts from anywhere.
 
 * PS1 (Prompt String):
-   -> Controls what your command prompt looks like.
-   -> Default might be: $ (regular user) or # (root user).
-   -> Can be customized with colors, username, hostname, directory info.
+    -> Controls what your command prompt looks like.
+    -> Default might be: $ (regular user) or # (root user).
+    -> Can be customized with colors, username, hostname, directory info.
    
    Example:
    kali > echo $PS1
