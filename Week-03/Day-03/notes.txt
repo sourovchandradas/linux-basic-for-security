@@ -46,12 +46,12 @@
 
 * Important Default Variables:
     -> HOME    = User's home directory (e.g., /root for root user)
-   PATH    = Directories where the system searches for executable commands
-   SHELL   = Current shell being used (e.g., /bin/bash)
-   USER    = Username of the current user
-   TERM    = Terminal type (e.g., xterm-256color)
-   LANG    = System language and locale settings
-   PWD     = Present/Current working directory
+    -> PATH    = Directories where the system searches for executable commands
+    -> SHELL   = Current shell being used (e.g., /bin/bash)
+    -> USER    = Username of the current user
+    -> TERM    = Terminal type (e.g., xterm-256color)
+    -> LANG    = System language and locale settings
+    -> PWD     = Present/Current working directory
 
 
 3. Viewing All Variables (Including User-Defined)
