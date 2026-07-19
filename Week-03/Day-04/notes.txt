@@ -76,15 +76,18 @@ Explanation:
    kali > PATH=$PATH:/root/newhackingtool
 
 * Verifying the Appended Directory:
-kali > echo $PATH
-/usr/local/sbin:usr/local/bin:/usr/sbin:/sbin/bin:/root/newhackingtool
+   kali > echo $PATH
+   /usr/local/sbin:usr/local/bin:/usr/sbin:/sbin/bin:/root/newhackingtool
+
 Explanation:
--> Assigns the original PATH variable plus the /root/newhackingtool directory.
--> Variable contains everything it did before, plus the new tool directory.
+    -> Assigns the original PATH variable plus the /root/newhackingtool directory.
+    -> Variable contains everything it did before, plus the new tool directory.
+
 * Important Note:
 ⚠️ Be careful not to add too many directories to your PATH variable.
 -> System has to search through each and every directory in PATH to find commands.
 -> Adding a lot of directories could slow down your terminal and your hacking.
+
 
 5. How Not to Add to the PATH Variable
 
