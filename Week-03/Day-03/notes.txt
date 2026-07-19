@@ -214,8 +214,8 @@
    kali > echo $HISTSIZE
    1000
    
-   -> $ prefix is required to expand variable.
-   -> Without $, it just prints the literal text "HISTSIZE".
+    -> $ prefix is required to expand variable.
+    -> Without $, it just prints the literal text "HISTSIZE".
 
 * Example-01: View HOME Directory
    kali > echo $HOME
@@ -237,38 +237,38 @@
    kali > export HISTSIZE
    
    Why:
-   -> Hacker/pentester doesn't want to leave evidence of commands used.
-   -> System won't store executed commands.
+    -> Hacker/pentester doesn't want to leave evidence of commands used.
+    -> System won't store executed commands.
 
 * Scenario-02: Add Custom Tools to PATH
    kali > PATH=$PATH:/opt/mytools
    kali > export PATH
    
    Why:
-   -> Avoids typing full path every time you run a custom tool.
-   -> Makes tools accessible from anywhere in filesystem.
+    -> Avoids typing full path every time you run a custom tool.
+    -> Makes tools accessible from anywhere in filesystem.
 
 * Scenario-03: Customize Prompt (Visual Identification)
    kali > export PS1="[ROOT@KALI] \w $ "
    
    Why:
-   -> Helps identify which user/host you're on.
-   -> Useful when managing multiple systems.
+    -> Helps identify which user/host you're on.
+    -> Useful when managing multiple systems.
 
 * Scenario-04: Temporary Variable for Script/Tool Configuration
    kali > export JAVA_HOME=/usr/lib/jvm/java-11
    kali > export PATH=$PATH:$JAVA_HOME/bin
    
    Why:
-   -> Tools need specific configuration to function.
-   -> Java tools, in particular, require JAVA_HOME.
+    -> Tools need specific configuration to function.
+    -> Java tools, in particular, require JAVA_HOME.
 
 * Scenario-05: Reset Variable to Default
    kali > HISTSIZE=1000
    kali > export HISTSIZE
    
    Why:
-   -> Restore original behavior after testing.
+    -> Restore original behavior after testing.
 
 
 9. Important Rules and Best Practices
@@ -276,46 +276,46 @@
 ⚠️ Key Rules to Remember:
 
    1. Environment Variable Naming:
-      -> Always UPPERCASE (HOME, PATH, SHELL, USER, etc.).
-      -> Shell variables are typically lowercase.
+        -> Always UPPERCASE (HOME, PATH, SHELL, USER, etc.).
+        -> Shell variables are typically lowercase.
 
    2. Setting vs. Exporting:
-      -> Setting (HISTSIZE=0): Only current shell.
-      -> Exporting (export HISTSIZE): Current + child shells.
-      -> Neither makes changes permanent across sessions.
+        -> Setting (HISTSIZE=0)        : Only current shell.
+        -> Exporting (export HISTSIZE) : Current + child shells.
+        -> Neither makes changes permanent across sessions.
 
    3. Making Changes Permanent:
-      -> Edit ~/.bashrc or ~/.profile.
-      -> Add: export VARIABLE_NAME=value
-      -> Reload: source ~/.bashrc
+        -> Edit ~/.bashrc or ~/.profile.
+        -> Add: export VARIABLE_NAME=value
+        -> Reload: source ~/.bashrc
 
    4. Accessing Variable Values:
-      -> Use $ prefix: echo $HOME (correct).
-      -> No $ prefix: echo HOME (just prints "HOME").
+        -> Use $ prefix: echo $HOME (correct).
+        -> No $ prefix: echo HOME (just prints "HOME").
 
    5. PATH Modifications:
-      -> Always preserve existing PATH: $PATH:/new/path.
-      -> Never replace: PATH=/new/path (will break system).
+        -> Always preserve existing PATH: $PATH:/new/path.
+        -> Never replace: PATH=/new/path (will break system).
 
    6. Multiple Values in Variables:
-      -> Separator: Colon (:)
-      -> Example: PATH=dir1:dir2:dir3
+        -> Separator: Colon (:)
+        -> Example: PATH=dir1:dir2:dir3
 
    7. Spaces in Values:
-      -> Use quotation marks: PS1="My Custom Prompt"
+        -> Use quotation marks: PS1="My Custom Prompt"
 
    8. Backup Before Modifying:
-      -> Save current values: set > ~/backup.txt
-      -> Allows reverting if something breaks.
+        -> Save current values: set > ~/backup.txt
+        -> Allows reverting if something breaks.
 
    9. Security/Stealth Implications:
-      -> HISTSIZE=0 hides command history.
-      -> Environment variables can reveal system info.
-      -> Hackers may modify PS1 to disguise their presence.
+        -> HISTSIZE=0 hides command history.
+        -> Environment variables can reveal system info.
+        -> Hackers may modify PS1 to disguise their presence.
 
 * One-liner to Remember:
-   -> env = view environment variables.
-   -> set = view all variables.
-   -> export = make changes persist to child processes.
-   -> Edit ~/.bashrc = make changes permanent across sessions.
+    -> env = view environment variables.
+    -> set = view all variables.
+    -> export = make changes persist to child processes.
+    -> Edit ~/.bashrc = make changes permanent across sessions.
 ========================================================================
