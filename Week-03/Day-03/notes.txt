@@ -59,9 +59,9 @@
 * The set Command (View All Variables):
    kali > set
    
-   -> Displays ALL variables: environment variables, shell variables, and functions.
-   -> Output is very long and may not fit on one screen.
-   -> Shows user-defined variables and command aliases as well.
+    -> Displays ALL variables: environment variables, shell variables, and functions.
+    -> Output is very long and may not fit on one screen.
+    -> Shows user-defined variables and command aliases as well.
 
 * Making Output Manageable with more:
    kali > set | more
