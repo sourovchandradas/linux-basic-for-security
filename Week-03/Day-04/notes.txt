@@ -8,13 +8,15 @@
     -> The shell prompt is an environment variable (PS1) that provides useful info.
     -> It tells you at a glance who you are operating as and your current directory.
     -> Extremely useful when managing multiple shells or logged into multiple accounts.
+
 * Default Prompt Format in Kali Linux:
--> Format structure  : username@hostname:current_directory #
--> Root user profile : root@kali:current_directory #
+    -> Format structure  : username@hostname:current_directory #
+    -> Root user profile : root@kali:current_directory #
+
 * Key PS1 Placeholders:
--> \u = The name of the current user.
--> \h = The hostname.
--> \w = The base name of the current working directory.
+    -> \u = The name of the current user.
+    -> \h = The hostname.
+    -> \w = The base name of the current working directory.
 
 2. Customizing and Exporting the PS1 Prompt
 
