@@ -19,15 +19,15 @@
     -> \w = The base name of the current working directory.
 
 2. Customizing and Exporting the PS1 Prompt
-
----
-
+------------------------------------------------------------------------
 * Changing Prompt for the Current Session:
-kali > PS1="World's Best Hacker: #"
-World's Best Hacker: #
--> Changes the prompt text immediately in the active terminal window.
--> Subsequent terminals will still have the default command prompt.
--> The PS1 variable only holds values for your current terminal session.
+  kali > PS1="World's Best Hacker: #"
+  World's Best Hacker: #
+
+    -> Changes the prompt text immediately in the active terminal window.
+    -> Subsequent terminals will still have the default command prompt.
+    -> The PS1 variable only holds values for your current terminal session.
+
 * Making the Prompt Persist via Exporting:
 kali > export PS1
 -> Tells the shell to pass the modified PS1 variable to child processes.
