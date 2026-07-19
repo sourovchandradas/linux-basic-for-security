@@ -22,7 +22,6 @@
 2. Customizing and Exporting the PS1 Prompt
 ------------------------------------------------------------------------
 * Changing Prompt for the Current Session:
-
    kali > PS1="World's Best Hacker: #"
    World's Best Hacker: #
 
@@ -31,14 +30,12 @@
     -> The PS1 variable only holds values for your current terminal session.
 
 * Making the Prompt Persist via Exporting:
-
    kali > export PS1
 
     -> Tells the shell to pass the modified PS1 variable to child processes.
     -> Keeps the custom prompt working inside that ongoing session.
 
 * Simulating a Windows Command Prompt:
-
    kali > export PS1='C:\w> '
    kali > cd /tmp
    C:/tmp>
@@ -57,7 +54,6 @@ Explanation:
     -> Standard commands like grep, ls, and echo live inside these paths.
 
 * Viewing the System PATH:
-
    kali > echo $PATH
    /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
@@ -77,11 +73,9 @@ Explanation:
     -> Adding it to PATH allows executing applications from anywhere on your system.
 
 * Correct Syntax to Append a Directory:
-
    kali > PATH=$PATH:/root/newhackingtool
 
 * Verifying the Appended Directory:
-
    kali > echo $PATH
    /usr/local/sbin:usr/local/bin:/usr/sbin:/sbin/bin:/root/newhackingtool
 
@@ -98,7 +92,6 @@ Explanation:
 5. How Not to Add to the PATH Variable
 ------------------------------------------------------------------------
 * Common Beginner Mistake: Replacing Instead of Appending
-
    kali > PATH=/root/newhackingtool
    kali > echo $PATH
    /root/newhackingtool
@@ -108,9 +101,8 @@ Effect:
     -> No longer contains system binaries directories like /bin, /sbin, etc.
 
 * Destructive Error Impact:
-
-kali > ls
-bash: ls: command not found
+   kali > ls
+   bash: ls: command not found
 
 Explanation:
     -> Critical system commands become completely broken and inaccessible.
@@ -128,17 +120,15 @@ Explanation:
    kali > MYNEWVARIABLE="Hacking is the most valuable skill set in the 21st century"
 
 * Checking the Value using echo:
-
-kali > echo $MYNEWVARIABLE
-Hacking is the most valuable skill set in the 21st century
+   kali > echo $MYNEWVARIABLE
+   Hacking is the most valuable skill set in the 21st century
 
     -> Just like system variables, user-defined variables must be exported to persist.
 
 * Deleting a Variable (The unset Command):
-
-kali > unset MYNEWVARIABLE
-kali > echo $MYNEWVARIABLE
-kali >
+   kali > unset MYNEWVARIABLE
+   kali > echo $MYNEWVARIABLE
+   kali >
 
 Explanation:
     -> Using unset deletes the variable along with its value completely.
@@ -147,33 +137,40 @@ Explanation:
 
 
 7. Practical Scenarios - When to Modify Variables
-
----
-
+------------------------------------------------------------------------
 * Scenario-01: Change Visual Prompt Character Identity
-kali > PS1="World's Best Hacker: #"
-Why:
--> Reminds the tester of their dynamic operational environment during a project session.
+   kali > PS1="World's Best Hacker: #"
+
+  Why:
+    -> Reminds the tester of their dynamic operational environment during a project session.
+
 * Scenario-02: Emulating Windows prompt style
-kali > export PS1='C:\w> '
-Why:
--> Useful configuration style for tracking directories like alternative operating systems.
+   kali > export PS1='C:\w> '
+
+  Why:
+    -> Useful configuration style for tracking directories like alternative operating systems.
+
 * Scenario-03: Make Installed Hacking Tools Accessible Globally
-kali > PATH=$PATH:/root/newhackingtool
-Why:
--> Avoids navigating to the target repository folder every time you run tool applications.
+   kali > PATH=$PATH:/root/newhackingtool
+
+  Why:
+    -> Avoids navigating to the target repository folder every time you run tool applications.
+
 * Scenario-04: Shorthand Script Configuration parameters
-kali > MYNEWVARIABLE="Hacking is the most valuable skill set in the 21st century"
-Why:
--> Avoids typing out long repeated strings during advanced custom shell script files execution.
+   kali > MYNEWVARIABLE="Hacking is the most valuable skill set in the 21st century"
+
+  Why:
+    -> Avoids typing out long repeated strings during advanced custom shell script files execution.
+
 * Scenario-05: Resetting Space parameters
-kali > unset MYNEWVARIABLE
-Why:
--> Safely clears up environment memory tracking when testing profiles conclude.
+   kali > unset MYNEWVARIABLE
+
+  Why:
+    -> Safely clears up environment memory tracking when testing profiles conclude.
+
 
 8. Important Rules and Best Practices
 
----
 
 ⚠️ Key Rules to Remember:
 
