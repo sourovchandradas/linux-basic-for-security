@@ -71,17 +71,17 @@
    BASH_ALIASES=()
    --snip--
    
-   -> Piping to 'more' makes output scroll line by line.
-   -> Press Enter to advance to next line.
-   -> Press Q to quit and return to prompt.
+    -> Piping to 'more' makes output scroll line by line.
+    -> Press Enter to advance to next line.
+    -> Press Q to quit and return to prompt.
 
 * Using grep to Filter Specific Variables:
    kali > set | grep HISTSIZE
    HISTSIZE=1000
    
-   -> Searches for a specific variable without viewing all variables.
-   -> Much more convenient when looking for one particular variable.
-   -> Example: Finding HISTSIZE, which stores command history count.
+    -> Searches for a specific variable without viewing all variables.
+    -> Much more convenient when looking for one particular variable.
+    -> Example: Finding HISTSIZE, which stores command history count.
 
 
 4. Understanding Key Environment Variables
