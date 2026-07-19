@@ -170,24 +170,23 @@ Explanation:
 
 
 8. Important Rules and Best Practices
-
-
+------------------------------------------------------------------------
 ⚠️ Key Rules to Remember:
 
 1. PS1 Special Control Placeholders:
--> \u prints current user name, \h prints hostname, \w prints base directory path.
+    -> \u prints current user name, \h prints hostname, \w prints base directory path.
 2. Setting vs. Exporting Prompt:
--> PS1 holds values for that specific terminal session unless you export it.
--> Exporting passes it down to subsequent inner shell environments.
+    -> PS1 holds values for that specific terminal session unless you export it.
+    -> Exporting passes it down to subsequent inner shell environments.
 3. Safeguarding Core Binary Paths:
--> Always preserve existing paths: PATH=$PATH:/new/path.
--> Never replace directly: PATH=/new/path (breaks standard commands like ls).
+    -> Always preserve existing paths: PATH=$PATH:/new/path.
+    -> Never replace directly: PATH=/new/path (breaks standard commands like ls).
 4. Expanding Variable Values:
--> Always add the $ content symbol before a variable to read its system value.
--> Without $, it just targets or prints the literal variable word text strings.
+    -> Always add the $ content symbol before a variable to read its system value.
+    -> Without $, it just targets or prints the literal variable word text strings.
 5. Clearing Environment Values:
--> Use 'unset' to completely erase user-defined variable identities.
--> Never blindly delete standard core system variables as it impacts OS operations.
+    -> Use 'unset' to completely erase user-defined variable identities.
+    -> Never blindly delete standard core system variables as it impacts OS operations.
 
 * One-liner to Remember:
 -> PS1 changes prompt look, PATH maps command access, and unset deletes variables.
