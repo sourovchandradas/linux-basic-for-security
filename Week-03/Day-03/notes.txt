@@ -22,8 +22,8 @@
    -> To configure tools and applications efficiently.
 
 * Variable Format:
-   -> Single value      : KEY=value
-   -> Multiple values: KEY=value1:value2:value3
+   -> Single value        : KEY=value
+   -> Multiple values     : KEY=value1:value2:value3
    -> Values with spaces: KEY="value with spaces" (use quotation marks)
 
 
