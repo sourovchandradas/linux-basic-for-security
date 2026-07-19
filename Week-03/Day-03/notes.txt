@@ -1,5 +1,5 @@
 ========================================================================
-          MANAGING USER ENVIRONMENT VARIABLES
+              MANAGING USER ENVIRONMENT VARIABLES(Part-01)
 ========================================================================
 
 1. Introduction to Environment Variables
@@ -11,8 +11,8 @@
    -> Environment variables are always uppercase (e.g., HOME, PATH, SHELL).
 
 * Shell Variables vs Environment Variables:
-   -> Environment Variables: Process-wide, inherited by child processes, uppercase.
-   -> Shell Variables: Only valid in the shell they are set in, typically lowercase.
+   -> Environment Variables  : Process-wide, inherited by child processes, uppercase.
+   -> Shell Variables        : Only valid in the shell they are set in, typically lowercase.
 
 * Why Manage Environment Variables?
    -> To optimize system performance.
