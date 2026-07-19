@@ -39,13 +39,13 @@
    USER=root
    PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:/bin
    HOME=/root
-   
-   -> Displays all default environment variables set by the system.
-   -> Shows uppercase variable names and their values.
-   -> These variables come pre-configured on every Linux system.
+    
+    -> Displays all default environment variables set by the system.
+    -> Shows uppercase variable names and their values.
+    -> These variables come pre-configured on every Linux system.
 
 * Important Default Variables:
-   HOME    = User's home directory (e.g., /root for root user)
+    -> HOME    = User's home directory (e.g., /root for root user)
    PATH    = Directories where the system searches for executable commands
    SHELL   = Current shell being used (e.g., /bin/bash)
    USER    = Username of the current user
