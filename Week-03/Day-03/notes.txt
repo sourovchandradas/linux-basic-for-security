@@ -118,10 +118,10 @@
    (\u=username, \h=hostname, \w=working directory)
 
 * HOME (Home Directory):
-   -> Absolute path to current user's home directory.
-   -> For root: /root
-   -> For regular user: /home/username
-   -> Used by many applications to store config files.
+    -> Absolute path to current user's home directory.
+    -> For root: /root
+    -> For regular user: /home/username
+    -> Used by many applications to store config files.
 
 * SHELL (Default Shell):
    -> Path to the default shell being used.
