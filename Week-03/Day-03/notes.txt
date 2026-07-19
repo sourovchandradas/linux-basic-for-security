@@ -138,9 +138,9 @@
    kali > HISTSIZE=0
    
    Effect:
-   -> Command history is no longer stored.
-   -> Up/down arrow keys won't recall previous commands.
-   -> Useful for security/stealth (no evidence of activity).
+      -> Command history is no longer stored.
+      -> Up/down arrow keys won't recall previous commands.
+      -> Useful for security/stealth (no evidence of activity).
 
 * Example-02: Modify Command Prompt
    kali > PS1="[HACKED] $ "
@@ -149,17 +149,17 @@
    [HACKED] $
    
    Effect:
-   -> Prompt changes immediately to show "[HACKED]".
-   -> Only affects current session.
-   -> Reverts to default when terminal closes.
+      -> Prompt changes immediately to show "[HACKED]".
+      -> Only affects current session.
+      -> Reverts to default when terminal closes.
 
 * Example-03: Add Directory to PATH
    kali > PATH=$PATH:/home/user/scripts
    
    Effect:
-   -> Scripts in /home/user/scripts can now be executed directly.
-   -> Colon (:) separates directories in PATH.
-   -> $PATH preserves existing directories; new one is appended.
+      -> Scripts in /home/user/scripts can now be executed directly.
+      -> Colon (:) separates directories in PATH.
+      -> $PATH preserves existing directories; new one is appended.
 
 * Important Note:
    ⚠️ Changes only apply to CURRENT SESSION.
