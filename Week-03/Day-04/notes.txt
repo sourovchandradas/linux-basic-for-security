@@ -120,25 +120,31 @@ Explanation:
 
 
 6. Creating a User-Defined Variable
-
----
-
+------------------------------------------------------------------------
 * Creating a Custom Variable:
--> Useful for advanced shell scripting or avoiding long commands you type over and over.
--> Syntax requires name, assignment symbol (=) without a space, and the value.
-kali > MYNEWVARIABLE="Hacking is the most valuable skill set in the 21st century"
+    -> Useful for advanced shell scripting or avoiding long commands you type over and over.
+    -> Syntax requires name, assignment symbol (=) without a space, and the value.
+
+   kali > MYNEWVARIABLE="Hacking is the most valuable skill set in the 21st century"
+
 * Checking the Value using echo:
+
 kali > echo $MYNEWVARIABLE
 Hacking is the most valuable skill set in the 21st century
--> Just like system variables, user-defined variables must be exported to persist.
+
+    -> Just like system variables, user-defined variables must be exported to persist.
+
 * Deleting a Variable (The unset Command):
+
 kali > unset MYNEWVARIABLE
 kali > echo $MYNEWVARIABLE
 kali >
+
 Explanation:
--> Using unset deletes the variable along with its value completely.
--> If you use echo on that same variable, Linux will now return a blank line.
--> Always think before deleting a system variable, system will operate much differently.
+    -> Using unset deletes the variable along with its value completely.
+    -> If you use echo on that same variable, Linux will now return a blank line.
+    -> Always think before deleting a system variable, system will operate much differently.
+
 
 7. Practical Scenarios - When to Modify Variables
 
