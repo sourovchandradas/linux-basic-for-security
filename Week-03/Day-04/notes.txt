@@ -1,1 +1,170 @@
+========================================================================
+              MANAGING USER ENVIRONMENT VARIABLES(Part-02)
+========================================================================
 
+1. Introduction to Shell Prompt (PS1)
+------------------------------------------------------------------------
+* What is the Shell Prompt?
+    -> The shell prompt is an environment variable (PS1) that provides useful info.
+    -> It tells you at a glance who you are operating as and your current directory.
+    -> Extremely useful when managing multiple shells or logged into multiple accounts.
+* Default Prompt Format in Kali Linux:
+-> Format structure  : username@hostname:current_directory #
+-> Root user profile : root@kali:current_directory #
+* Key PS1 Placeholders:
+-> \u = The name of the current user.
+-> \h = The hostname.
+-> \w = The base name of the current working directory.
+
+2. Customizing and Exporting the PS1 Prompt
+
+---
+
+* Changing Prompt for the Current Session:
+kali > PS1="World's Best Hacker: #"
+World's Best Hacker: #
+-> Changes the prompt text immediately in the active terminal window.
+-> Subsequent terminals will still have the default command prompt.
+-> The PS1 variable only holds values for your current terminal session.
+* Making the Prompt Persist via Exporting:
+kali > export PS1
+-> Tells the shell to pass the modified PS1 variable to child processes.
+-> Keeps the custom prompt working inside that ongoing session.
+* Simulating a Windows Command Prompt:
+kali > export PS1='C:\w> '
+kali > cd /tmp
+C:/tmp>
+Explanation:
+-> Using 'C:\w> ' changes the prompt style to look like Windows cmd.
+-> \w ensures the user can still see their active Linux directory route.
+-> Generally useful for a beginner to see the active current directory.
+
+3. Understanding the PATH Variable
+
+---
+
+* What is the PATH Variable?
+-> One of the most important variables in your environment.
+-> Controls where on your system your shell will look for commands you enter.
+-> Standard commands like grep, ls, and echo live inside these paths.
+* Viewing the System PATH:
+kali > echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Explanation:
+-> The directories where your terminal will search for any command.
+-> When you enter 'ls', system searches PATH directories for 'ls' executable.
+-> Each directory path is separated by a colon (:).
+-> $ symbol before a variable asks the system for the content of that variable.
+-> If the bash shell doesn't find the command, it returns: command not found.
+
+4. Adding to the PATH Variable
+
+---
+
+* Why Append Custom Directories to PATH?
+-> If you installed a new tool (e.g., newhackingtool) into /root/newhackingtool.
+-> You could only use commands from that tool when you're in that specific directory.
+-> Adding it to PATH allows executing applications from anywhere on your system.
+* Correct Syntax to Append a Directory:
+kali > PATH=$PATH:/root/newhackingtool
+* Verifying the Appended Directory:
+kali > echo $PATH
+/usr/local/sbin:usr/local/bin:/usr/sbin:/sbin/bin:/root/newhackingtool
+Explanation:
+-> Assigns the original PATH variable plus the /root/newhackingtool directory.
+-> Variable contains everything it did before, plus the new tool directory.
+* Important Note:
+⚠️ Be careful not to add too many directories to your PATH variable.
+-> System has to search through each and every directory in PATH to find commands.
+-> Adding a lot of directories could slow down your terminal and your hacking.
+
+5. How Not to Add to the PATH Variable
+
+---
+
+* Common Beginner Mistake: Replacing Instead of Appending
+kali > PATH=/root/newhackingtool
+kali > echo $PATH
+/root/newhackingtool
+Effect:
+-> PATH variable will only contain the /root/newhackingtool directory.
+-> No longer contains system binaries directories like /bin, /sbin, etc.
+* Destructive Error Impact:
+kali > ls
+bash: ls: command not found
+Explanation:
+-> Critical system commands become completely broken and inaccessible.
+-> Unless you navigate manually to the system binaries directory first.
+-> Remember that you want to append to the PATH variable, not replace it.
+-> If you're in doubt, save the contents of the variable somewhere before modifying.
+
+6. Creating a User-Defined Variable
+
+---
+
+* Creating a Custom Variable:
+-> Useful for advanced shell scripting or avoiding long commands you type over and over.
+-> Syntax requires name, assignment symbol (=) without a space, and the value.
+kali > MYNEWVARIABLE="Hacking is the most valuable skill set in the 21st century"
+* Checking the Value using echo:
+kali > echo $MYNEWVARIABLE
+Hacking is the most valuable skill set in the 21st century
+-> Just like system variables, user-defined variables must be exported to persist.
+* Deleting a Variable (The unset Command):
+kali > unset MYNEWVARIABLE
+kali > echo $MYNEWVARIABLE
+kali >
+Explanation:
+-> Using unset deletes the variable along with its value completely.
+-> If you use echo on that same variable, Linux will now return a blank line.
+-> Always think before deleting a system variable, system will operate much differently.
+
+7. Practical Scenarios - When to Modify Variables
+
+---
+
+* Scenario-01: Change Visual Prompt Character Identity
+kali > PS1="World's Best Hacker: #"
+Why:
+-> Reminds the tester of their dynamic operational environment during a project session.
+* Scenario-02: Emulating Windows prompt style
+kali > export PS1='C:\w> '
+Why:
+-> Useful configuration style for tracking directories like alternative operating systems.
+* Scenario-03: Make Installed Hacking Tools Accessible Globally
+kali > PATH=$PATH:/root/newhackingtool
+Why:
+-> Avoids navigating to the target repository folder every time you run tool applications.
+* Scenario-04: Shorthand Script Configuration parameters
+kali > MYNEWVARIABLE="Hacking is the most valuable skill set in the 21st century"
+Why:
+-> Avoids typing out long repeated strings during advanced custom shell script files execution.
+* Scenario-05: Resetting Space parameters
+kali > unset MYNEWVARIABLE
+Why:
+-> Safely clears up environment memory tracking when testing profiles conclude.
+
+8. Important Rules and Best Practices
+
+---
+
+⚠️ Key Rules to Remember:
+
+1. PS1 Special Control Placeholders:
+-> \u prints current user name, \h prints hostname, \w prints base directory path.
+2. Setting vs. Exporting Prompt:
+-> PS1 holds values for that specific terminal session unless you export it.
+-> Exporting passes it down to subsequent inner shell environments.
+3. Safeguarding Core Binary Paths:
+-> Always preserve existing paths: PATH=$PATH:/new/path.
+-> Never replace directly: PATH=/new/path (breaks standard commands like ls).
+4. Expanding Variable Values:
+-> Always add the $ content symbol before a variable to read its system value.
+-> Without $, it just targets or prints the literal variable word text strings.
+5. Clearing Environment Values:
+-> Use 'unset' to completely erase user-defined variable identities.
+-> Never blindly delete standard core system variables as it impacts OS operations.
+
+* One-liner to Remember:
+-> PS1 changes prompt look, PATH maps command access, and unset deletes variables.
+========================================================================
