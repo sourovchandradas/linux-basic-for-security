@@ -73,7 +73,8 @@ Explanation:
     -> Adding it to PATH allows executing applications from anywhere on your system.
 
 * Correct Syntax to Append a Directory:
-kali > PATH=$PATH:/root/newhackingtool
+   kali > PATH=$PATH:/root/newhackingtool
+
 * Verifying the Appended Directory:
 kali > echo $PATH
 /usr/local/sbin:usr/local/bin:/usr/sbin:/sbin/bin:/root/newhackingtool
