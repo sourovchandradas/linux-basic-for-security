@@ -5,10 +5,10 @@
 1. Introduction to Environment Variables
 ------------------------------------------------------------------------
 * What are Environment Variables?
-   -> Environment variables are process-wide variables built into your system.
-   -> They control the way your system looks, acts, and "feels" to the user.
-   -> They are inherited by any child shells or processes.
-   -> Environment variables are always uppercase (e.g., HOME, PATH, SHELL).
+    -> Environment variables are process-wide variables built into your system.
+    -> They control the way your system looks, acts, and "feels" to the user.
+    -> They are inherited by any child shells or processes.
+    -> Environment variables are always uppercase (e.g., HOME, PATH, SHELL).
 
 * Shell Variables vs Environment Variables:
    -> Environment Variables  : Process-wide, inherited by child processes, uppercase.
