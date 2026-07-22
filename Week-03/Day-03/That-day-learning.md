@@ -28,7 +28,7 @@ env
  * Managing Output Stream: Because set dumps a massive output buffer, pipe its execution into more or grep for structured filtering.
 Example — Piping full variable inventories through the more pager:
 ```bash
-kali > set | more
+set | more
 
 ```
 #### 🖼️ Terminal Output
