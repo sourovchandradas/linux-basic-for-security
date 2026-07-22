@@ -98,4 +98,3 @@ renice 19 6996
  3. **Niceness Scale Rule:**
    
  4. **Privilege Boundary:** Non-root accounts can only demote process priorities (increase niceness value). Only root can elevate process priorities using negative niceness values.
-*⚡ End of Week 03 • Day 01 Notes • Organized for GitHub & OneNote*
