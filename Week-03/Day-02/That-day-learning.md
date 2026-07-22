@@ -1,4 +1,4 @@
-# 🐧 Day 16 (Week 03 • Day 02): Linux Process Management (Part 02)
+# 🐧 Day 16 : Linux Process Management (Part 02)
 Welcome to Day 02 of Week 03 of my Linux Security learning journey. This document details terminating unresponsive or rogue processes using kernel signals, controlling job execution environments between background and foreground states, and scheduling automated one-time tasks using the at daemon.
 ## 🎯 Key Points & Core Concepts
 ### 1. ☠️ Terminating Processes with Signals (kill and killall)
