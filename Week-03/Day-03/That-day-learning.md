@@ -1,5 +1,5 @@
 # 🐧 Day 17 : Managing User Environment Variables (Part 01)
-Welcome to Day 03 of Week 03 of my Linux Security learning journey. This document details the architectural concepts of Linux environment variables, analyzing system versus shell scope, inspecting variables with env and set, customizing active environment attributes, and implementing session-wide updates using export.
+Welcome to Day 17 of my Linux Security learning journey. This document details the architectural concepts of Linux environment variables, analyzing system versus shell scope, inspecting variables with env and set, customizing active environment attributes, and implementing session-wide updates using export.
 ## 🎯 Key Points & Core Concepts
 ### 1. 🌐 Introduction to Environment Variables
  * Description: Environment variables are system-wide, process-inherited variables embedded within the Linux operating system. They govern workspace behavior, visual themes, application defaults, and command search behaviors.
