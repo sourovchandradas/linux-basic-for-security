@@ -14,19 +14,19 @@ Welcome to Day 16 of my Linux Security learning journey. This document details t
    * top (K key): Triggers an inline interactive prompt to terminate a process by PID while monitoring system load.
 Example — Sending a restart signal (SIGHUP) to a daemon PID:
 ```bash
-kali > kill -1 6996
+kill -1 6996
 
 ```
 #### 🖼️ Terminal Output
 Example — Forcefully terminating a rogue process using SIGKILL:
 ```bash
-kali > kill -9 6996
+kill -9 6996
 
 ```
 #### 🖼️ Terminal Output
 Example — Terminating all running instances of a program by name:
 ```bash
-kali > killall -9 rogueprocess
+killall -9 rogueprocess
 
 ```
 #### 🖼️ Terminal Output
@@ -37,19 +37,19 @@ kali > killall -9 rogueprocess
    * bg <PID>: Resumes a suspended foreground process (paused via Ctrl + Z) in the background.
 Example — Executing a graphical editor in the foreground (locks terminal):
 ```bash
-kali > mousepad LinuxScript
+mousepad LinuxScript
 
 ```
 #### 🖼️ Terminal Output
 Example — Launching an editor task in the background:
 ```bash
-kali > mousepad LinuxScript &
+mousepad LinuxScript &
 
 ```
 #### 🖼️ Terminal Output
 Example — Moving a suspended or active target process to the background using its PID:
 ```bash
-kali > bg 1234
+bg 1234
 
 ```
 #### 🖼️ Terminal Output
@@ -58,7 +58,7 @@ kali > bg 1234
  * Switching Jobs: The fg command attaches the interactive terminal session back to a specified background process using its PID.
 Example — Bringing a background process back to the foreground session:
 ```bash
-kali > fg 1234
+fg 1234
 
 ```
 #### 🖼️ Terminal Output
@@ -74,7 +74,7 @@ kali > fg 1234
    * at 7:20pm 06/22/2026
 Example — Scheduling a local audit script to run automatically at 7:20 AM:
 ```bash
-kali > at 7:20am
+at 7:20am
 at> /root/myscanningscript
 at> <EOT>
 
