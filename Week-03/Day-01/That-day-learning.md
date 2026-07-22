@@ -29,7 +29,7 @@ ps aux
  * Resource Auditing: Security tools like Metasploit (msfconsole) consume substantial CPU and RAM resources. Filtering allows administrators to quickly extract their exact PID and resource metrics.
 Example — Isolating active Metasploit instances from the system process tree:
 ```bash
-kali > ps aux | grep msfconsole
+ps aux | grep msfconsole
 
 ```
 #### 🖼️ Terminal Output
