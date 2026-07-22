@@ -44,7 +44,7 @@ ps aux | grep msfconsole
      * R : Triggers the inline renice dialogue box.
 Example — Launching the dynamic resource monitoring interface:
 ```bash
-kali > top
+top
 
 ```
 #### 🖼️ Terminal Output
