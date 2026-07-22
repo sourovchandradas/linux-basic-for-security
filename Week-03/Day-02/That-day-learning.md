@@ -1,5 +1,5 @@
 # 🐧 Day 16 : Linux Process Management (Part 02)
-Welcome to Day 02 of Week 03 of my Linux Security learning journey. This document details terminating unresponsive or rogue processes using kernel signals, controlling job execution environments between background and foreground states, and scheduling automated one-time tasks using the at daemon.
+Welcome to Day 16 of my Linux Security learning journey. This document details terminating unresponsive or rogue processes using kernel signals, controlling job execution environments between background and foreground states, and scheduling automated one-time tasks using the at daemon.
 ## 🎯 Key Points & Core Concepts
 ### 1. ☠️ Terminating Processes with Signals (kill and killall)
  * Description: When a running process behaves abnormally, freezes, or consumes excessive system resources, it becomes a "rogue process." System administrators and security engineers use process termination signals to free up system memory and CPU cycles.
