@@ -1,4 +1,4 @@
-# 🐧 Day 17 (Week 03 • Day 03): Managing User Environment Variables (Part 01)
+# 🐧 Day 17 : Managing User Environment Variables (Part 01)
 Welcome to Day 03 of Week 03 of my Linux Security learning journey. This document details the architectural concepts of Linux environment variables, analyzing system versus shell scope, inspecting variables with env and set, customizing active environment attributes, and implementing session-wide updates using export.
 ## 🎯 Key Points & Core Concepts
 ### 1. 🌐 Introduction to Environment Variables
