@@ -34,7 +34,7 @@ kali > set | more
 #### 🖼️ Terminal Output
 Example — Filtering specific targets using grep:
 ```bash
-kali > set | grep HISTSIZE
+set | grep HISTSIZE
 
 ```
 #### 🖼️ Terminal Output
