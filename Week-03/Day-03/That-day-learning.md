@@ -19,7 +19,7 @@ Welcome to Day 17 of my Linux Security learning journey. This document details t
    * PWD: Present working directory path.
 Example — Displaying default environment variables:
 ```bash
-kali > env
+env
 
 ```
 #### 🖼️ Terminal Output
