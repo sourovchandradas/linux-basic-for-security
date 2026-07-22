@@ -80,7 +80,7 @@ ps -o pid,ni,comm
    * Raising priority (renice -10 <PID>) speeds up critical operations, provided the command is issued by the root user.
 Example — Lowering the priority of an active PID (6996) to minimum preference:
 ```bash
-kali > renice 19 6996
+renice 19 6996
 
 ```
 #### 🖼️ Terminal Output
