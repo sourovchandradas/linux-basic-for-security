@@ -63,7 +63,7 @@ nice -n -10 /bin/slowprocess
 #### 🖼️ Terminal Output
 Example — Starting a background task with lowered execution priority:
 ```bash
-kali > nice -n 10 /bin/slowprocess
+nice -n 10 /bin/slowprocess
 
 ```
 #### 🖼️ Terminal Output
