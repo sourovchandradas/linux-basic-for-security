@@ -69,7 +69,7 @@ nice -n 10 /bin/slowprocess
 #### 🖼️ Terminal Output
 Example — Verifying the configured niceness value (NI column) of processes:
 ```bash
-kali > ps -o pid,ni,comm
+ps -o pid,ni,comm
 
 ```
 #### 🖼️ Terminal Output
