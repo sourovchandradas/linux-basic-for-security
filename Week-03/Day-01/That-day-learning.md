@@ -20,7 +20,7 @@ Welcome to Day 15 of my Linux Security learning journey. This document details t
    * COMMAND : The explicit binary path or execution statement.
 Example — Capturing a complete system-wide process snapshot:
 ```bash
-kali > ps aux
+ps aux
 
 ```
 #### 🖼️ Terminal Output
