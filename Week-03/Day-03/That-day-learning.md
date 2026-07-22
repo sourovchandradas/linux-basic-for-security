@@ -44,7 +44,7 @@ set | grep HISTSIZE
  * PS1: Defines the primary terminal command prompt string. Supports escape tokens (e.g., \u for user, \h for hostname, \w for present working directory).
 Example — Inspecting prompt formatting string variables:
 ```bash
-kali > echo $PS1
+echo $PS1
 
 ```
 #### 🖼️ Terminal Output
