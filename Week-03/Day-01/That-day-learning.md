@@ -92,7 +92,7 @@ top
  * Privilege Restrictions: Standard users can only *increase* niceness (lower priority). Superuser (root) rights are required to assign negative values (raise priority).
 Example — Starting a heavy task with elevated execution priority:
 ```bash
-nice -n -10 /bin/slowprocess
+sudo nice -n -10 ./LinuxSkills
 
 ```
 #### 🖼️ Terminal Output
