@@ -34,6 +34,7 @@ ps aux
 
 ![ps aux output-02](Screenshot/ps%20aux-output-02.png)
 
+![ps aux output-03](Screenshot/ps%20aux-output-o3.png)
 
 ### 3. 🔍 Filtering Processes by Name (ps aux | grep)
  * Description: Because ps aux outputs hundreds of active system threads, piping its output into grep isolates specific application strings.
