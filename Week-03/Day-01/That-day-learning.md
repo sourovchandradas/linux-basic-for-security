@@ -1,4 +1,5 @@
 🐧 Day 15 : Linux Process Management (Part 01)
+
 Welcome to Day 15 of my Linux Security learning journey. This document details the foundational principles of Linux process management, including inspecting active execution threads with ps, dynamic resource auditing via top, filtering processes with grep, and manipulating process scheduling priorities using nice and renice.
 ## 🎯 Key Points & Core Concepts
 ### 1. ⚙️ Introduction to Linux Process Management
