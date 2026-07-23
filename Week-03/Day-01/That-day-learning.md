@@ -38,7 +38,7 @@ ps aux
 
 ![ps aux output-04](Screenshot/ps%20aux-output-04.png)
 
-![ps aux output-05](Screenshot/ps%20aux-output-05.png)
+![ps aux output-o5](Screenshot/ps%20aux-output-05.png)
 
 
 ### 3. 🔍 Filtering Processes by Name (ps aux | grep)
