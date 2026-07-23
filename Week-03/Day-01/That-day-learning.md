@@ -1,4 +1,4 @@
-# 🐧 Day 15 : Linux Process Management (Part 01)
+<img width="637" height="398" alt="image" src="https://github.com/user-attachments/assets/68a0a9dd-d8d0-44a0-adda-6619a81b3863" /># 🐧 Day 15 : Linux Process Management (Part 01)
 Welcome to Day 15 of my Linux Security learning journey. This document details the foundational principles of Linux process management, including inspecting active execution threads with ps, dynamic resource auditing via top, filtering processes with grep, and manipulating process scheduling priorities using nice and renice.
 ## 🎯 Key Points & Core Concepts
 ### 1. ⚙️ Introduction to Linux Process Management
@@ -72,7 +72,16 @@ Example — Launching the dynamic resource monitoring interface:
 top
 
 ```
+
+#### 🖼️ Terminal Command
+
+![top command](Screenshot/top-command.png)
+
 #### 🖼️ Terminal Output
+
+![top output](Screenshot/top-output.png)
+
+
 ### 5. ⚖️ Setting Launch Priorities (nice)
  * Description: The Linux kernel allocates CPU time based on process priority values known as "niceness." The nice utility sets a process's scheduling priority at launch time.
  * Value Bounds & Priorities:
