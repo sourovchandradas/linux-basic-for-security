@@ -49,9 +49,11 @@ Example — Isolating active Metasploit instances from the system process tree:
 ps aux | grep msfconsole
 
 ```
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
 
 ![filtering processes by name command](Screenshot/filtering-processes-by-name-command.png)
+
+#### 🖼️ Terminal Output
 
 ![filtering processes by name output](Screenshot/filtering-processes-by-name-output.png)
 
