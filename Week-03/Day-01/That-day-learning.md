@@ -50,6 +50,12 @@ ps aux | grep msfconsole
 
 ```
 #### 🖼️ Terminal Output
+
+![filtering processes by name command](Screenshot/filtering-processes-by-name-command.png)
+
+![filtering processes by name output](Screenshot/filtering-processes-by-name-output.png)
+
+
 ### 4. 📊 Live Dynamic Resource Monitoring (top)
  * Description: Unlike the static output of ps, the top command provides an interactive, live-updating interface (refreshing every 3 seconds) sorted by resource consumption.
  * Core Display Sections:
