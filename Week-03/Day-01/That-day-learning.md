@@ -24,6 +24,9 @@ ps aux
 
 ```
 #### 🖼️ Terminal Output
+
+![ps aux](Screenshot/ps%20aux%20command.png)
+
 ### 3. 🔍 Filtering Processes by Name (ps aux | grep)
  * Description: Because ps aux outputs hundreds of active system threads, piping its output into grep isolates specific application strings.
  * Resource Auditing: Security tools like Metasploit (msfconsole) consume substantial CPU and RAM resources. Filtering allows administrators to quickly extract their exact PID and resource metrics.
