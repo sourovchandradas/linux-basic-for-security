@@ -23,9 +23,14 @@ Example — Capturing a complete system-wide process snapshot:
 ps aux
 
 ```
+#### 🖼️ Terminal Command
+
+![ps aux command](Screenshot/ps%20aux%20command.png)
+
+
 #### 🖼️ Terminal Output
 
-![ps aux](Screenshot/ps%20aux%20command.png)
+![ps aux output-01](Screenshot/ps%20aux-output-01.png)
 
 ### 3. 🔍 Filtering Processes by Name (ps aux | grep)
  * Description: Because ps aux outputs hundreds of active system threads, piping its output into grep isolates specific application strings.
