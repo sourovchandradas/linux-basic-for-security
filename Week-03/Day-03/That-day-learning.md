@@ -53,19 +53,19 @@ echo $PS1
  * Session Boundary Warning: Direct assignments affect **only** the active terminal session. Closing the terminal or launching a new subshell resets modified values back to system defaults.
 Example — Disabling command history recording for stealth:
 ```bash
-kali > HISTSIZE=0
+HISTSIZE=0
 
 ```
 #### 🖼️ Terminal Output
 Example — Customizing the active prompt string:
 ```bash
-kali > PS1="[HACKED] $ "
+PS1="[HACKED] $ "
 
 ```
 #### 🖼️ Terminal Output
 Example — Appending custom script directories to $PATH without overwriting existing entries:
 ```bash
-kali > PATH=$PATH:/home/user/scripts
+PATH:/home/user/scripts
 
 ```
 #### 🖼️ Terminal Output
@@ -74,14 +74,14 @@ kali > PATH=$PATH:/home/user/scripts
  * Permanent Persistence: To ensure variables persist across reboots or terminal restarts, add export statements into shell initialization files such as ~/.bashrc or ~/.profile, then apply them using source ~/.bashrc.
 Example — Exporting a variable state across child execution layers:
 ```bash
-kali > HISTSIZE=0
-kali > export HISTSIZE
+HISTSIZE=0
+export HISTSIZE
 
 ```
 #### 🖼️ Terminal Output
 Example — Backing up current environment variables before making changes:
 ```bash
-kali > set > ~/valueofALL.txt
+set > ~/valueofALL.txt
 
 ```
 #### 🖼️ Terminal Output
@@ -89,13 +89,13 @@ kali > set > ~/valueofALL.txt
  * Description: To evaluate or expand the value stored inside an environment variable, prepend the variable name with the variable expansion operator ($).
 Example — Querying specific variable values:
 ```bash
-kali > echo $HOME
+echo $HOME
 
 ```
 #### 🖼️ Terminal Output
 Example — Printing multiple expanded variables within a string:
 ```bash
-kali > echo "User: $USER, Home: $HOME, Shell: $SHELL"
+echo "User: $USER, Home: $HOME, Shell: $SHELL"
 
 ```
 #### 🖼️ Terminal Output
