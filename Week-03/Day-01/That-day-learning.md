@@ -82,6 +82,10 @@ top
 
 ![top output](Screenshot/top-output.png)
 
+#### 🖼️ Terminal Output
+
+![top output help](Screenshot/top-output-help.png)
+
 
 ### 5. ⚖️ Setting Launch Priorities (nice)
  * Description: The Linux kernel allocates CPU time based on process priority values known as "niceness." The nice utility sets a process's scheduling priority at launch time.
@@ -95,7 +99,14 @@ Example — Starting a heavy task with elevated execution priority:
 sudo nice -n -10 ./LinuxSkills
 
 ```
+#### 🖼️ Terminal Command
+
+![nice](Screenshot/nice-priority-increase-command.png)
+
 #### 🖼️ Terminal Output
+
+![nice](Screenshot/nice-priority-increase-output.png)
+
 Example — Starting a background task with lowered execution priority:
 ```bash
 nice -n 10 /bin/slowprocess
