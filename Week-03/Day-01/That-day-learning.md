@@ -20,7 +20,6 @@ Welcome to Day 15 of my Linux Security learning journey. This document details t
    * %CPU / %MEM : Percentage of processing power and memory allocated to the task.
    * COMMAND : The explicit binary path or execution statement.
 
-
 Example — Capturing a system-wide process snapshot:
 ```bash
 ps
