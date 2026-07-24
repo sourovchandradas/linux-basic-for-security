@@ -128,11 +128,11 @@ ps -o pid,ni,comm
 ```
 #### 🖼️ Terminal Command
 
-![Verify priority decrease with nice command](Screenshot/verify-decrease-priority-with nice-command.png)
+![Verify priority decrease with nice command](Screenshot/verify-decrease-priority-with-nice-command.png)
 
 #### 🖼️ Terminal Output
 
-![Verify priority decrease with nice output](Screenshot/verify-decrease-priority-with nice-output.png)
+![Verify priority decrease with nice output](Screenshot/verify-decrease-priority-with-nice-output.png)
 
 
 ### 6. 🔄 Adjusting Live Process Priorities (renice)
