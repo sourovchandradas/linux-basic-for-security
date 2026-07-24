@@ -84,7 +84,7 @@ top
 
 #### 🖼️ Terminal Output
 
-![top output help](Screenshot/top-output-help.png)
+![top output help](Screenshot/top-command-help.png)
 
 
 ### 5. ⚖️ Setting Launch Priorities (nice)
