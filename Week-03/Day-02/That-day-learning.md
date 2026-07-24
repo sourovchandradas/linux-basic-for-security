@@ -17,19 +17,30 @@ Example — Sending a restart signal (SIGHUP) to a daemon PID:
 kill -1 42953
 
 ```
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
+
+![kill number -1](Screenshot/kill-number-1.png)
+
 Example — Forcefully terminating a rogue process using SIGKILL:
 ```bash
 kill -9 42953
 
 ```
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
+
+![kill-number-9](Screenshot/kill-number-9.png)
+
+
 Example — Terminating all running instances of a program by name:
 ```bash
 killall -9 rogueprocess
 
 ```
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
+
+![killall](Screenshot/killall-9-rougeprocess.png)
+
+
 ### 2. ⏳ Running Processes in the Background (& and bg)
  * Description: By default, commands run in the foreground, locking the current shell session until execution completes. Running processes in the background frees up the interactive terminal for multitasking.
  * Background Operators:
@@ -40,19 +51,36 @@ Example — Executing a graphical editor in the foreground (locks terminal):
 mousepad LinuxScript
 
 ```
+#### 🖼️ Terminal Command
+
+![background process without & command](Screenshot/background-process-without-&.png)
+
 #### 🖼️ Terminal Output
+
+![background process without & mousepad interface](Screenshot/background-process-without-&-mousepad-interface.png)
+
+
 Example — Launching an editor task in the background:
 ```bash
 mousepad LinuxScript &
 
 ```
+#### 🖼️ Terminal Command
+
+![background process with & command](Screenshot/background-process-with-&.png)
+
 #### 🖼️ Terminal Output
+
+![background process with & mousepad interface](Screenshot/background-process-with-&-mousepad-interface.png)
+
 Example — Moving a suspended or active target process to the background using its PID:
 ```bash
 bg 42953
 
 ```
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
+
+
 ### 3. 🔄 Restoring Processes to the Foreground (fg)
  * Description: Background processes run detached from user input. When interactive control, manual confirmation, or live debugging is required, the target task must be brought back to the foreground.
  * Switching Jobs: The fg command attaches the interactive terminal session back to a specified background process using its PID.
@@ -61,7 +89,11 @@ Example — Bringing a background process back to the foreground session:
 fg 42953
 
 ```
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
+
+![foreground](Screenshot/foreground-process.png)
+
+
 ### 4. ⏰ One-Time Task Scheduling (at)
  * Description: Task scheduling allows system administration scripts, security audits, and routine maintenance tasks to run automatically at predetermined times.
  * One-Time vs. Recurring Execution:
@@ -79,7 +111,22 @@ at> LinuxSkills
 at> <EOT>
 
 ```
+#### 🖼️ Terminal Command
+
+![at command-01](Screenshot/at-command-01.png)
+
 #### 🖼️ Terminal Output
+
+![at output-01](Screenshot/at-output-01.png)
+
+#### 🖼️ Terminal Command
+
+![at command-02](Screenshot/at-command-02.png)
+
+#### 🖼️ Terminal Output
+
+![at output-02](Screenshot/at-output-02.png)
+
 ## 🛠️ Utilities & Tool Reference
 | Category | Component/Tool | Syntax / Structure | Description |
 |---|---|---|---|
