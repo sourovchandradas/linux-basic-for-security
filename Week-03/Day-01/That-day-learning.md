@@ -114,14 +114,27 @@ nice -n 10 ./LinuxSkills
 ```
 #### 🖼️ Terminal Command
 
-![ve
+![Priority decrease with nice command](Screenshot/priority-decrease-with nice-command.png)
+
+#### 🖼️ Terminal Output
+
+![Priority decrease with nice output](Screenshot/priority-decrease-with nice-output.png)
+
 
 Example — Verifying the configured niceness value (NI column) of processes:
 ```bash
 ps -o pid,ni,comm
 
 ```
+#### 🖼️ Terminal Command
+
+![Verify priority decrease with nice command](Screenshot/verify-decrease-priority-with nice-command.png)
+
 #### 🖼️ Terminal Output
+
+![Verify priority decrease with nice output](Screenshot/verify-decrease-priority-with nice-output.png)
+
+
 ### 6. 🔄 Adjusting Live Process Priorities (renice)
  * Description: The renice command alters the niceness value of an already running process using its absolute target PID.
  * Operational Context:
