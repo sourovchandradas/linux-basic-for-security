@@ -112,7 +112,10 @@ Example — Starting a background task with lowered execution priority:
 nice -n 10 ./LinuxSkills
 
 ```
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
+
+![ve
+
 Example — Verifying the configured niceness value (NI column) of processes:
 ```bash
 ps -o pid,ni,comm
