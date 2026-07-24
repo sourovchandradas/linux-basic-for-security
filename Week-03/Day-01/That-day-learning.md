@@ -114,11 +114,11 @@ nice -n 10 ./LinuxSkills
 ```
 #### 🖼️ Terminal Command
 
-![Priority decrease with nice command](Screenshot/priority-decrease-with nice-command.png)
+![Priority decrease with nice command](Screenshot/priority-decrease-with-nice-command.png)
 
 #### 🖼️ Terminal Output
 
-![Priority decrease with nice output](Screenshot/priority-decrease-with nice-output.png)
+![Priority decrease with nice output](Screenshot/priority-decrease-with-nice-output.png)
 
 
 Example — Verifying the configured niceness value (NI column) of processes:
