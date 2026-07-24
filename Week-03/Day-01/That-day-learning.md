@@ -145,7 +145,10 @@ Example — Lowering the priority of an active PID (6996) to minimum preference:
 renice 19 6996
 
 ```
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
+
+![renice Command](Screenshot/renice-command.png)
+
 ## 🛠️ Utilities & Tool Reference
 | Category | Component/Tool | Syntax / Structure | Description |
 |---|---|---|---|
