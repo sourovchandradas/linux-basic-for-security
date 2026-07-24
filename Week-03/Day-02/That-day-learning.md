@@ -14,13 +14,13 @@ Welcome to Day 16 of my Linux Security learning journey. This document details t
    * top (K key): Triggers an inline interactive prompt to terminate a process by PID while monitoring system load.
 Example — Sending a restart signal (SIGHUP) to a daemon PID:
 ```bash
-kill -1 6996
+kill -1 42953
 
 ```
 #### 🖼️ Terminal Output
 Example — Forcefully terminating a rogue process using SIGKILL:
 ```bash
-kill -9 6996
+kill -9 42953
 
 ```
 #### 🖼️ Terminal Output
@@ -49,7 +49,7 @@ mousepad LinuxScript &
 #### 🖼️ Terminal Output
 Example — Moving a suspended or active target process to the background using its PID:
 ```bash
-bg 1234
+bg 42953
 
 ```
 #### 🖼️ Terminal Output
@@ -58,7 +58,7 @@ bg 1234
  * Switching Jobs: The fg command attaches the interactive terminal session back to a specified background process using its PID.
 Example — Bringing a background process back to the foreground session:
 ```bash
-fg 1234
+fg 42953
 
 ```
 #### 🖼️ Terminal Output
@@ -75,7 +75,7 @@ fg 1234
 Example — Scheduling a local audit script to run automatically at 7:20 AM:
 ```bash
 at 7:20am
-at> /root/myscanningscript
+at> LinuxSkills
 at> <EOT>
 
 ```
