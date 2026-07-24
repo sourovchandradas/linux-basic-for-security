@@ -109,7 +109,7 @@ sudo nice -n -10 ./LinuxSkills
 
 Example — Starting a background task with lowered execution priority:
 ```bash
-nice -n 10 ./LinuxSkills
+sudo nice -n 10 ./LinuxSkills
 
 ```
 #### 🖼️ Terminal Command
