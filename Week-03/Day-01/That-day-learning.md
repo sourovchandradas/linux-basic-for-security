@@ -82,7 +82,7 @@ top
 
 ![top output](Screenshot/top-output.png)
 
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Output (help menu)
 
 ![top output help](Screenshot/top-command-help.png)
 
