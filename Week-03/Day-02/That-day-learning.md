@@ -80,6 +80,8 @@ bg 42953
 ```
 #### 🖼️ Terminal Command
 
+![background process with bg](Screenshot/background-process-with-bg.png)
+
 
 ### 3. 🔄 Restoring Processes to the Foreground (fg)
  * Description: Background processes run detached from user input. When interactive control, manual confirmation, or live debugging is required, the target task must be brought back to the foreground.
@@ -91,7 +93,7 @@ fg 42953
 ```
 #### 🖼️ Terminal Command
 
-![foreground](Screenshot/foreground-process.png)
+![foreground process with fg](Screenshot/foreground-process-with-fg.png)
 
 
 ### 4. ⏰ One-Time Task Scheduling (at)
