@@ -150,7 +150,8 @@ set > ~valueofALL.txt
 ```
 #### 🖼️ Terminal Command
 
-![set > ~ valueofALL.txt command](backing-up-current-environment-variables-before-making-changes-command.png)
+![Backing up current environment variables before making change command](backing-up-current-environment-variables-before-making-changes-command.png)
+
 ![cat command](backing-up-current-environment-variables-before-making-changes-display-with-cat-command.png)
 
 #### 🖼️ Terminal Output
