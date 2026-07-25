@@ -48,7 +48,6 @@ ps aux
 #### 🖼️ Terminal Output
 
 ![ps aux output-01](Screenshot/ps%20aux-output-01.png)
-
 ![ps aux output-02](Screenshot/ps%20aux-output-02.png)
 
 ![ps aux output-03](Screenshot/ps%20aux-output-03.png)
