@@ -98,7 +98,27 @@ Example — Customizing the active prompt string:
 PS1="[HACKED] $ "
 
 ```
+#### 🖼️ Terminal Command
+
+![PS1="LinuxSkills $ command](Screenshot/customize-active-promt-command.png)
+
 #### 🖼️ Terminal Output
+
+![PS1="LinuxSkills $ output-01](Screenshot/customize-active-promt-output-01.png)
+![PS1="LinuxSkills $ output-02](Screenshot/customize-active-promt-output-02.png)
+![PS1="LinuxSkills $ output-03](Screenshot/customize-active-promt-output-03.png)
+![PS1="LinuxSkills $ output-04](Screenshot/customize-active-promt-output-01.png)
+![PS1="LinuxSkills $ output-05](Screenshot/customize-active-promt-output-01.png)
+![PS1="LinuxSkills $ output-06](Screenshot/customize-active-promt-output-01.png)
+![PS1="LinuxSkills $ output-07](Screenshot/customize-active-promt-output-01.png)
+![PS1="LinuxSkills $ output-08](Screenshot/customize-active-promt-output-01.png)
+![PS1="LinuxSkills $ output-09](Screenshot/customize-active-promt-output-01.png)
+![PS1="LinuxSkills $ output-10](Screenshot/customize-active-promt-output-01.png)
+![PS1="LinuxSkills $ output-11](Screenshot/customize-active-promt-output-01.png)
+![PS1="LinuxSkills $ output-12](Screenshot/customize-active-promt-output-01.png)
+![PS1="LinuxSkills $ output-13](Screenshot/customize-active-promt-output-01.png)
+
+
 Example — Appending custom script directories to $PATH without overwriting existing entries:
 ```bash
 PATH:/home/user/scripts
