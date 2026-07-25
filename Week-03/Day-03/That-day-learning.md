@@ -40,13 +40,27 @@ Example — Piping full variable inventories through the more pager:
 set | more
 
 ```
+#### 🖼️ Terminal Command
+
+![set | more command](Screenshot/set-more-command.png)
+
 #### 🖼️ Terminal Output
+
+![set | more output](Screenshot/set-more-output.png)
+
 Example — Filtering specific targets using grep:
 ```bash
 set | grep HISTSIZE
 
 ```
+#### 🖼️ Terminal Command
+
+![set | grep command](Screenshot/set-grep-command.png)
+
 #### 🖼️ Terminal Output
+
+![set | grep output](Screenshot/set-grep-output.png)
+
 ### 4. 🧠 Understanding Core Environment Variables
  * HISTSIZE: Controls the maximum number of recent commands recorded in the shell buffer (default is 1000). Setting HISTSIZE=0 disables command recording for anti-forensics and stealth operations.
  * PATH: The binary execution search index. When typing a command (like ls), the system scans directories listed in $PATH sequentially from left to right.
