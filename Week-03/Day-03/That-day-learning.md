@@ -22,7 +22,16 @@ Example — Displaying default environment variables:
 env
 
 ```
+#### 🖼️ Terminal Command
+
+![view environment](Screenshot/env-command.png)
+
 #### 🖼️ Terminal Output
+
+![view environment](Screenshot/env-output-01.png)
+![view environment](Screenshot/env-output-02.png)
+
+
 ### 3. 🔍 Viewing All System & Shell Variables (set)
  * Description: The set command displays all active variables, including environment variables, local shell variables, custom functions, and command aliases.
  * Managing Output Stream: Because set dumps a massive output buffer, pipe its execution into more or grep for structured filtering.
