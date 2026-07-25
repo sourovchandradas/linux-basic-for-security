@@ -168,11 +168,11 @@ echo $HOME
 ```
 #### 🖼️ Terminal Command
 
-![echo HOME](querying-specific-variable-values-command.png)
+![echo home(querying-specific-variable-values-command.png)
 
 #### 🖼️ Terminal Output
 
-![echo HOME](querying-specific-variable-values-output.png)
+![echo home](querying-specific-variable-values-output.png)
 
 Example — Printing multiple expanded variables within a string:
 ```bash
