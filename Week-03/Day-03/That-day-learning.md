@@ -87,6 +87,7 @@ set > ~/valueofALL.txt
 #### 🖼️ Terminal Output
 ### 7. 🖨️ Displaying Variable Values (echo $)
  * Description: To evaluate or expand the value stored inside an environment variable, prepend the variable name with the variable expansion operator ($).
+
 Example — Querying specific variable values:
 ```bash
 echo $HOME
