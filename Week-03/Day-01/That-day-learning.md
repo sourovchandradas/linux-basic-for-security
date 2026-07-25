@@ -49,11 +49,8 @@ ps aux
 
 ![ps aux output-01](Screenshot/ps%20aux-output-01.png)
 ![ps aux output-02](Screenshot/ps%20aux-output-02.png)
-
 ![ps aux output-03](Screenshot/ps%20aux-output-03.png)
-
 ![ps aux output-04](Screenshot/ps%20aux-output-04.png)
-
 ![ps aux output-o5](Screenshot/ps%20aux-output-05.png)
 
 
