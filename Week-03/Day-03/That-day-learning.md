@@ -150,13 +150,13 @@ set > ~valueofALL.txt
 ```
 #### 🖼️ Terminal Command
 
-![Backing up current environment variables before making change command](backing-up-current-environment-variables-before-making-changes-command.png)
+![Backing up current environment variables before making change command](Screenshot/backing-up-current-environment-variables-before-making-changes-command.png)
 
-![cat command](backing-up-current-environment-variables-before-making-changes-display-with-cat-command.png)
+![cat command](Screenshot/backing-up-current-environment-variables-before-making-changes-display-with-cat-command.png)
 
 #### 🖼️ Terminal Output
 
-![cat output](backing-up-current-environment-variables-before-making-changes-display-with-cat-output.png)
+![cat output](Screenshot/backing-up-current-environment-variables-before-making-changes-display-with-cat-output.png)
 
 ### 7. 🖨️ Displaying Variable Values (echo $)
  * Description: To evaluate or expand the value stored inside an environment variable, prepend the variable name with the variable expansion operator ($).
@@ -168,11 +168,11 @@ echo $HOME
 ```
 #### 🖼️ Terminal Command
 
-![echo home(querying-specific-variable-values-command.png)
+![echo home](Screenshot/querying-specific-variable-values-command.png)
 
 #### 🖼️ Terminal Output
 
-![echo home](querying-specific-variable-values-output.png)
+![echo home](Screenshot/querying-specific-variable-values-output.png)
 
 Example — Printing multiple expanded variables within a string:
 ```bash
