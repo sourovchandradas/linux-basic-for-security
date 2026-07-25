@@ -95,7 +95,7 @@ HISTSIZE=0
 
 Example — Customizing the active prompt string:
 ```bash
-PS1="LinuxSkills $ "
+PS1="LinuxSkills $"
 
 ```
 #### 🖼️ Terminal Command
