@@ -135,7 +135,14 @@ HISTSIZE=0
 export HISTSIZE
 
 ```
+#### 🖼️ Terminal Command
+
+![export HISTSIZE command](Screenshot/export-histsize-command.png)
+
 #### 🖼️ Terminal Output
+
+![export HISTSIZE output](Screenshot/export-histsize-output.png)
+
 Example — Backing up current environment variables before making changes:
 ```bash
 set > ~/valueofALL.txt
