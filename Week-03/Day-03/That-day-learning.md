@@ -72,6 +72,7 @@ PATH:/home/user/scripts
 ### 6. 📤 Exporting & Persisting Variable Changes (export)
  * Description: Assigning a variable only updates the active local shell context. The export command promotes a variable into an environment variable, passing its state down to all newly initialized child subshells.
  * Permanent Persistence: To ensure variables persist across reboots or terminal restarts, add export statements into shell initialization files such as ~/.bashrc or ~/.profile, then apply them using source ~/.bashrc.
+
 Example — Exporting a variable state across child execution layers:
 ```bash
 HISTSIZE=0
