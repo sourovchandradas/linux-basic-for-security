@@ -70,7 +70,12 @@ Example — Inspecting prompt formatting string variables:
 echo $PS1
 
 ```
+#### 🖼️ Terminal Command
+![echo PS1 command](Screenshot/PS1-command.png)
+
 #### 🖼️ Terminal Output
+![echo PS1 output](Screenshot/PS1-output.png)
+
 ### 5. 🛠️ Modifying Variables in Current Session
  * Description: Variables can be updated or overwritten directly in the shell using standard assignment statements (NAME=value).
  * Session Boundary Warning: Direct assignments affect **only** the active terminal session. Closing the terminal or launching a new subshell resets modified values back to system defaults.
