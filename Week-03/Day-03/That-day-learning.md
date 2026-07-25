@@ -107,16 +107,16 @@ PS1="[HACKED] $ "
 ![PS1="LinuxSkills $ output-01](Screenshot/customize-active-promt-output-01.png)
 ![PS1="LinuxSkills $ output-02](Screenshot/customize-active-promt-output-02.png)
 ![PS1="LinuxSkills $ output-03](Screenshot/customize-active-promt-output-03.png)
-![PS1="LinuxSkills $ output-04](Screenshot/customize-active-promt-output-01.png)
-![PS1="LinuxSkills $ output-05](Screenshot/customize-active-promt-output-01.png)
-![PS1="LinuxSkills $ output-06](Screenshot/customize-active-promt-output-01.png)
-![PS1="LinuxSkills $ output-07](Screenshot/customize-active-promt-output-01.png)
-![PS1="LinuxSkills $ output-08](Screenshot/customize-active-promt-output-01.png)
-![PS1="LinuxSkills $ output-09](Screenshot/customize-active-promt-output-01.png)
-![PS1="LinuxSkills $ output-10](Screenshot/customize-active-promt-output-01.png)
-![PS1="LinuxSkills $ output-11](Screenshot/customize-active-promt-output-01.png)
-![PS1="LinuxSkills $ output-12](Screenshot/customize-active-promt-output-01.png)
-![PS1="LinuxSkills $ output-13](Screenshot/customize-active-promt-output-01.png)
+![PS1="LinuxSkills $ output-04](Screenshot/customize-active-promt-output-04.png)
+![PS1="LinuxSkills $ output-05](Screenshot/customize-active-promt-output-05.png)
+![PS1="LinuxSkills $ output-06](Screenshot/customize-active-promt-output-06.png)
+![PS1="LinuxSkills $ output-07](Screenshot/customize-active-promt-output-07.png)
+![PS1="LinuxSkills $ output-08](Screenshot/customize-active-promt-output-08.png)
+![PS1="LinuxSkills $ output-09](Screenshot/customize-active-promt-output-09.png)
+![PS1="LinuxSkills $ output-10](Screenshot/customize-active-promt-output-10.png)
+![PS1="LinuxSkills $ output-11](Screenshot/customize-active-promt-output-11.png)
+![PS1="LinuxSkills $ output-12](Screenshot/customize-active-promt-output-12.png)
+![PS1="LinuxSkills $ output-13](Screenshot/customize-active-promt-output-13.png)
 
 
 Example — Appending custom script directories to $PATH without overwriting existing entries:
@@ -145,10 +145,18 @@ export HISTSIZE
 
 Example — Backing up current environment variables before making changes:
 ```bash
-set > ~/valueofALL.txt
+set > ~valueofALL.txt
 
 ```
+#### 🖼️ Terminal Command
+
+![set > ~ valueofALL.txt command](backing-up-current-environment-variables-before-making-changes-command.png)
+![cat command](backing-up-current-environment-variables-before-making-changes-display-with-cat-command.png)
+
 #### 🖼️ Terminal Output
+
+![cat output](backing-up-current-environment-variables-before-making-changes-display-with-cat-output.png)
+
 ### 7. 🖨️ Displaying Variable Values (echo $)
  * Description: To evaluate or expand the value stored inside an environment variable, prepend the variable name with the variable expansion operator ($).
 
@@ -157,13 +165,27 @@ Example — Querying specific variable values:
 echo $HOME
 
 ```
+#### 🖼️ Terminal Command
+
+![echo $HOME](querying-specific-variable-values-command.png)
+
 #### 🖼️ Terminal Output
+
+![echo $HOME](querying-specific-variable-values-command.png)
+
 Example — Printing multiple expanded variables within a string:
 ```bash
 echo "User: $USER, Home: $HOME, Shell: $SHELL"
 
 ```
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
+
+![echo "User: $USER, Home: $HOME, Shell: $SHELL" command](Screenshot/printing-multiple-expanded-variables-within-a-string-command.png)
+
+#### 🖼️ Terminal Command
+
+![echo "User: $USER, Home: $HOME, Shell: $SHELL" output](Screenshot/printing-multiple-expanded-variables-within-a-string-output.png)
+
 ## 🛠️ Utilities & Tool Reference
 | Category | Component/Tool | Syntax / Structure | Description |
 |---|---|---|---|
