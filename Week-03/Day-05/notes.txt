@@ -1,5 +1,5 @@
 ========================================================================
-                      BASH SCRIPTING BASICS
+                         BASH SCRIPTING(Part-01)
 ========================================================================
 
 1. Introduction to Bash Scripting & Elite Hacker Requirements
@@ -7,19 +7,20 @@
 * What is Bash Scripting?
     -> Writing a sequence of shell commands inside a script file that the system executes automatically line-by-line.
 * Why Scripting is Essential:
-    -> Command Automation: Eliminates tedious manual repetition and saves significant time.
-    -> Efficiency: Enables complex execution flows across multiple security and admin tools seamlessly.
-    -> System Administration: Crucial for managing services, users, and automated workflows in Linux.
+    -> Command Automation     : Eliminates tedious manual repetition and saves significant time.
+    -> Efficiency             : Enables complex execution flows across multiple security and admin tools seamlessly.
+    -> System Administration  : Crucial for managing services, users, and automated workflows in Linux.
 * Chapter Focus & Final Goal:
     -> Start with foundational Bash scripts and systematically add advanced logic and features.
     -> Ultimate Goal: Build a functional script that scans IP ranges to identify potential target hosts.
 * Elite Hacker Requirements (Languages Beyond Bash):
-  -> Ruby   : Metasploit exploits and modules are natively written in Ruby.
-  -> Python : The industry standard language for contemporary exploit development and security tools.
-  -> Perl   : Offers unmatched regex and text manipulation capabilities.
+    -> Ruby   : Metasploit exploits and modules are natively written in Ruby.
+    -> Python : The industry standard language for contemporary exploit development and security tools.
+    -> Perl   : Offers unmatched regex and text manipulation capabilities.
 
 ⚠️ Rule to remember:
-  -> Scripting converts manual CLI tasks into scalable security automation; it is a fundamental skill for sysadmins and hackers alike.
+    -> Scripting converts manual CLI tasks into scalable security automation; it is a fundamental skill for sysadmins and hackers
+       alike.
 
 
 2. A Crash Course in Bash & Shell Basics
