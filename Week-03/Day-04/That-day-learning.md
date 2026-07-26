@@ -32,7 +32,15 @@ PS1="World's Best Hacker: #"
 
 ```
 
+#### 🖼️ Terminal Command
+
+![PS1="" command](Screenshot/PS1-command.png)
+
 #### 🖼️ Terminal Output
+
+![PS1="" output-01](Screenshot/PS1-output-01.png)
+![PS1="" output-02](Screenshot/PS1-output-02.png)
+![PS1="" output-03](Screenshot/PS1-output-03.png)
 
 ---
 
