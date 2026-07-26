@@ -22,12 +22,23 @@
     -> Scripting converts manual CLI tasks into scalable security automation; it is a fundamental skill for sysadmins and hackers
        alike.
 
+📌 Summary
+    -> Bash scripting → automation + efficiency
+    -> Final goal → IP range scan
+    -> Other languages → Ruby, Python, Perl
+    -> Perl → best for text manipulation
+
+✅ Exam Key Points
+    -> Why Bash? → Automation + efficiency
+    -> Final goal → Scan IP ranges
+    -> Other languages → Ruby, Python, Perl
+    -> Best for text manipulation → Perl
 
 2. A Crash Course in Bash & Shell Basics
 ------------------------------------------------------------------------
 * What is a Shell?
-  -> An interactive interface between the user and the Linux kernel.
-  -> Executes programs, manipulates files, and invokes system commands directly without GUI overhead.
+    -> An interactive interface between the user and the operating system.
+    -> Executes programs, manipulates files, and invokes system commands directly without GUI overhead.
 * Types of Shells in Linux:
   -> Korn shell (ksh)
   -> Z shell (zsh)
