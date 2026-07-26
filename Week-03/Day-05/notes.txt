@@ -50,9 +50,12 @@
 * Key Commands Introduced:
     -> echo : Prints messages, strings, or variable values directly to the terminal display.
     -> read : Accepts user keyboard input and stores it into a designated variable.
-*What is variables?[https://www.w3schools.com/programming/prog_variables.php]
+* What is variables?
+    -> A variable is an area of storage that can hold something in memory. That “something” might be some letters or words
+       (strings) or numbers. It’s known as a variable because the values held within it are changeable; this is an extremely useful
+       feature for adding functionality to a script.
 * Text Editors for Scripting:
-  -> Plain text editors are mandatory (no rich-text formatting). Examples include vi, vim, nano, gedit, and leafpad.
+    -> Plain text editors are mandatory (no rich-text formatting). Examples include vi, vim, nano, gedit, and leafpad.
 
 
 3. Writing Your First Script: "Hello, Hackers-Arise!"
