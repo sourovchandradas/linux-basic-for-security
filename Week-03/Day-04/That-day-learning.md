@@ -40,7 +40,6 @@ PS1="World's Best Hacker: #"
 
 ![PS1="" output-01](Screenshot/PS1-output-01.png)
 ![PS1="" output-02](Screenshot/PS1-output-02.png)
-![PS1="" output-03](Screenshot/PS1-output-03.png)
 
 ---
 
