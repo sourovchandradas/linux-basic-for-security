@@ -1,9 +1,9 @@
-========================================================================
-              MANAGING USER ENVIRONMENT VARIABLES(Part-02)
-========================================================================
+======================================================================================================================================
+                                          MANAGING USER ENVIRONMENT VARIABLES(Part-02)
+======================================================================================================================================
 
 1. Introduction to Shell Prompt (PS1)
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 * What is the Shell Prompt?
     -> The shell prompt is an environment variable (PS1) that provides useful info.
     -> It tells you at a glance who you are operating as and your current directory.
@@ -20,7 +20,7 @@
 
 
 2. Customizing and Exporting the PS1 Prompt
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 * Changing Prompt for the Current Session:
    kali > PS1="World's Best Hacker: #"
    World's Best Hacker: #
@@ -47,7 +47,7 @@ Explanation:
 
 
 3. Understanding the PATH Variable
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 * What is the PATH Variable?
     -> One of the most important variables in your environment.
     -> Controls where on your system your shell will look for commands you enter.
@@ -66,7 +66,7 @@ Explanation:
 
 
 4. Adding to the PATH Variable
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 * Why Append Custom Directories to PATH?
     -> If you installed a new tool (e.g., newhackingtool) into /root/newhackingtool.
     -> You could only use commands from that tool when you're in that specific directory.
@@ -90,7 +90,7 @@ Explanation:
 
 
 5. How Not to Add to the PATH Variable
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 * Common Beginner Mistake: Replacing Instead of Appending
    kali > PATH=/root/newhackingtool
    kali > echo $PATH
@@ -112,7 +112,7 @@ Explanation:
 
 
 6. Creating a User-Defined Variable
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 * Creating a Custom Variable:
     -> Useful for advanced shell scripting or avoiding long commands you type over and over.
     -> Syntax requires name, assignment symbol (=) without a space, and the value.
@@ -137,7 +137,7 @@ Explanation:
 
 
 7. Practical Scenarios - When to Modify Variables
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 * Scenario-01: Change Visual Prompt Character Identity
    kali > PS1="World's Best Hacker: #"
 
@@ -170,7 +170,7 @@ Explanation:
 
 
 8. Important Rules and Best Practices
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 ⚠️ Key Rules to Remember:
 
 1. PS1 Special Control Placeholders:
@@ -190,4 +190,4 @@ Explanation:
 
 * One-liner to Remember:
 -> PS1 changes prompt look, PATH maps command access, and unset deletes variables.
-========================================================================
+======================================================================================================================================
