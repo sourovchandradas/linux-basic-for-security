@@ -28,7 +28,7 @@ Welcome to Day 04 of Week 03 of my Linux Security learning journey. This documen
 Example — Temporarily altering the shell prompt string:
 
 ```bash
-kali > PS1="World's Best Hacker: #"
+PS1="World's Best Hacker: #"
 
 ```
 
@@ -39,8 +39,8 @@ kali > PS1="World's Best Hacker: #"
 Example — Exporting a custom Windows-style prompt format:
 
 ```bash
-kali > export PS1='C:\w> '
-kali > cd /tmp
+export PS1='C:\w> '
+cd /tmp
 
 ```
 
@@ -56,7 +56,7 @@ kali > cd /tmp
 Example — Viewing the active command search paths:
 
 ```bash
-kali > echo $PATH
+echo $PATH
 
 ```
 
@@ -73,7 +73,7 @@ kali > echo $PATH
 Example — Safely appending a custom directory to `$PATH`:
 
 ```bash
-kali > PATH=$PATH:/root/newhackingtool
+PATH=$PATH:/root/newhackingtool
 
 ```
 
@@ -84,7 +84,7 @@ kali > PATH=$PATH:/root/newhackingtool
 Example — Verifying the expanded `$PATH` sequence:
 
 ```bash
-kali > echo $PATH
+echo $PATH
 
 ```
 
@@ -100,8 +100,8 @@ kali > echo $PATH
 Example — Demonstrating a destructive path replacement error:
 
 ```bash
-kali > PATH=/root/newhackingtool
-kali > ls
+PATH=/root/newhackingtool
+ls
 
 ```
 
@@ -121,8 +121,8 @@ kali > ls
 Example — Defining and evaluating a custom shell variable:
 
 ```bash
-kali > MYNEWVARIABLE="Hacking is the most valuable skill set in the 21st century"
-kali > echo $MYNEWVARIABLE
+MYNEWVARIABLE="Hacking is the most valuable skill set in the 21st century"
+echo $MYNEWVARIABLE
 
 ```
 
@@ -133,8 +133,8 @@ kali > echo $MYNEWVARIABLE
 Example — Deleting a variable using `unset`:
 
 ```bash
-kali > unset MYNEWVARIABLE
-kali > echo $MYNEWVARIABLE
+unset MYNEWVARIABLE
+echo $MYNEWVARIABLE
 
 ```
 
