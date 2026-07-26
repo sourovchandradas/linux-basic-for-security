@@ -120,39 +120,39 @@ Output/Explanation:
        or numbers. It’s known as a variable because the values held within it are changeable; this is an extremely useful feature for
        adding functionality to a script.
 * Purpose:
-  -> Introduces interactivity and dynamic data handling to make scripts flexible across different environments.
+    -> Introduces interactivity and dynamic data handling to make scripts flexible across different environments.
 
 Script Code (File: WelcomeScript.sh):
-#!/bin/bash
-# This script prompts for user input, stores it in variables, and outputs dynamic text.
+ #!/bin/bash
+ # This script prompts for user input, stores it in variables, and outputs dynamic text.
 
-echo "What is your name?"
-read name
+ echo "What is your name?"
+ read name
 
-echo "What chapter are you on in Linux Basics for Hackers?"
-read chapter
+ echo "What chapter are you on in Linux Basics for Hackers?"
+ read chapter
 
-echo "Welcome $name to Chapter $chapter of Linux Basics for Hackers!"
+ echo "Welcome $name to Chapter $chapter of Linux Basics for Hackers!"
 
 Command (Permission & Execution):
-kali > chmod +x WelcomeScript.sh
-kali > ./WelcomeScript.sh
+ kali > chmod +x WelcomeScript.sh
+ kali > ./WelcomeScript.sh
 
 Execution Output:
-What is your name?
-OccupytheWeb
-What chapter are you on in Linux Basics for Hackers?
-8
-Welcome OccupytheWeb to Chapter 8 of Linux Basics for Hackers!
+ What is your name?
+ OccupytheWeb
+ What chapter are you on in Linux Basics for Hackers?
+ 8
+ Welcome OccupytheWeb to Chapter 8 of Linux Basics for Hackers!
 
 Command & Syntax Breakdown:
-* read <var_name> : Intercepts standard input and binds the value to the variable name.
-* $ Variable Access: Preceding a variable name with `$` reads and substitutes its actual content.
-* File Extension: Saving files with `.sh` is standard convention to clearly signify a shell script.
+* read <var_name>    : Intercepts standard input and binds the value to the variable name.
+* $ Variable Access  : Preceding a variable name with `$` reads and substitutes its actual content.
+* File Extension     : Saving files with `.sh` is standard convention to clearly signify a shell script.
 
 ⚠️ Rules to remember:
-  -> Assign variables without `$`, but ALWAYS dereference/access their values using `$`.
-  -> Executing a script without running `chmod +x` will raise a "Permission denied" error.
+    -> Assign variables without `$`, but ALWAYS dereference/access their values using `$`.
+    -> Executing a script without running `chmod +x` will raise a "Permission denied" error.
 
 🔑 One-liner:
 Shebang (`#!/bin/bash`) sets the runtime engine, `read` captures user input, `$` extracts variable data, and `./` ensures local path execution.
