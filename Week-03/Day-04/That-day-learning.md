@@ -1,4 +1,4 @@
-# 🐧 Day 18 (Week 03 • Day 04): Managing User Environment Variables (Part 02)
+# 🐧 Day 18 : Managing User Environment Variables (Part 02)
 
 Welcome to Day 04 of Week 03 of my Linux Security learning journey. This document details custom shell prompt configurations via `$PS1`, deep-dive modifications to the `$PATH` variable, common pitfalls when appending execution paths, and managing user-defined variables using initial assignments and the `unset` command.
 
