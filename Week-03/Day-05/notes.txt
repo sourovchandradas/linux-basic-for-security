@@ -40,16 +40,17 @@
     -> An interactive interface between the user and the operating system.
     -> Executes programs, manipulates files, and invokes system commands directly without GUI overhead.
 * Types of Shells in Linux:
-  -> Korn shell (ksh)
-  -> Z shell (zsh)
-  -> C shell (csh)
-  -> Bourne-again shell (bash) -> The default and most widely adopted shell across distributions.
+    -> Korn shell (ksh)
+    -> Z shell (zsh)
+    -> C shell (csh)
+    -> Bourne-again shell (bash) -> The default and most widely adopted shell across distributions.
 * Why Bash?
-  -> Pre-installed on virtually all UNIX/Linux environments (including Kali Linux and macOS).
-  -> Directly executes binary applications, system tools, and native built-in commands.
+    -> Pre-installed on virtually all UNIX/Linux environments (including Kali Linux and macOS).
+    -> Directly executes binary applications, system tools, and native built-in commands.
 * Key Commands Introduced:
-  -> echo : Prints messages, strings, or variable values directly to the terminal display.
-  -> read : Accepts user keyboard input and stores it into a designated variable.
+    -> echo : Prints messages, strings, or variable values directly to the terminal display.
+    -> read : Accepts user keyboard input and stores it into a designated variable.
+*What is variables?[https://www.w3schools.com/programming/prog_variables.php]
 * Text Editors for Scripting:
   -> Plain text editors are mandatory (no rich-text formatting). Examples include vi, vim, nano, gedit, and leafpad.
 
