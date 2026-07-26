@@ -119,6 +119,16 @@ Explanation:
 -> System has to search through each and every directory in PATH to find commands.
 -> Adding a lot of directories could slow down your terminal and your hacking.
 
+📌 Summary
+    -> Append new directory → PATH=$PATH:/root/newhackingtool.
+    -> Verify → echo $PATH.
+    -> ⚠️ Too many directories slow down search.
+
+✅ Exam Key Points
+    -> Correct syntax to append.
+    -> Why append instead of replace?
+    -> Risk of adding too many directories.
+
 
 5. How Not to Add to the PATH Variable
 --------------------------------------------------------------------------------------------------------------------------------------
