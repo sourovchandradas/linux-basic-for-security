@@ -95,10 +95,6 @@ Command (Executing the Script):
 Output/Explanation:
  Hello, Hackers-Arise!
 
-* Why Use `./`?:
-    -> Explicitly targets execution from the current directory.
-    -> Prevents executing same-named executables located in the system PATH directory.
-
 📌 Summary
     -> Purpose → print message
     -> Shebang → #!/bin/bash
@@ -113,7 +109,81 @@ Output/Explanation:
     -> Importance of comments
 
 
-4. Adding Functionality with Variables and User Input
+4. Setting Execute Permissions
+------------------------------------------------------------------------
+* Default Permission Behavior:
+    -> By default, newly created bash script files lack execute permissions, even for the owner or creator.
+    -> Default permission representation: `-rw-r--r--` (644), meaning read and write for the owner, and read-only for group and
+       others.
+
+Command (Checking Default File Permissions):
+ kali > ls -l
+
+Output:
+ -rw-r--r-- 1 root root 90 Oct 22 14:32 HelloHackersArise
+
+Explanation:
+    -> Owner has `rw-` (read, write), but NO `x` (execute) permission.
+
+* Granting Execute Permissions:
+    -> Must modify file permissions using `chmod` to make the script executable.
+    -> Using `chmod 755` grants read, write, and execute (`rwx`) to the owner, and read and execute (`r-x`) to group and others.
+    -> Alternatively, `chmod +x` adds execute permission to the file.
+
+Command (Granting Execution Rights):
+ kali > chmod 755 HelloHackersArise
+
+Command (Verifying Modified Permissions):
+ kali > ls -l
+
+Output:
+-rwxr-xr-x 1 root root 90 Oct 22 14:32 HelloHackersArise
+
+Explanation:
+    -> The file now displays `-rwxr-xr-x`, indicating full execution permissions.
+    -> In the Linux terminal, executable files are highlighted in GREEN text as a visual indicator.
+
+📌 Summary
+    -> Default new script permission → -rw-r--r-- (644)
+    -> Owner → read + write, no execute
+    -> Must use chmod to add execute
+    -> chmod 755 → owner: rwx, group: r-x, others: r-x
+    -> chmod +x → adds execute permission
+    -> Check with ls -l → executable files show x and green highlight
+
+✅ Exam Key Points
+    -> Default permission → 644 (-rw-r--r--)
+    -> Why no execute by default? → security
+    -> Command to add execute → chmod 755 or chmod +x
+    -> How to check? → ls -l
+    -> Owner permissions with 755 → rwx
+
+
+5. Running HelloHackersArise
+------------------------------------------------------------------------
+Command (Executing the Script):
+ kali > ./HelloHackersArise
+
+Output:
+ Hello, Hackers-Arise!
+
+* Why Use `./`?:
+    -> Explicitly targets execution from the current working directory.
+    -> Prevents executing same-named executables located elsewhere in the system PATH directory.
+
+📌 Summary
+    -> Run → ./HelloHackersArise
+    -> ./ → current directory execution
+    -> Output → Hello, Hackers-Arise!
+    -> Best practice → avoids duplicates
+
+✅ Exam Key Points
+    -> Why ./ ? → current directory
+    -> Output → Hello, Hackers-Arise!
+    -> Good practice → avoids wrong file
+    -> Successful run → script correct
+
+6. Adding Functionality with Variables and User Input
 ------------------------------------------------------------------------
 * What is variables?
     -> A variable is an area of storage that can hold something in memory. That “something” might be some letters or words (strings)
@@ -155,5 +225,6 @@ Command & Syntax Breakdown:
     -> Executing a script without running `chmod +x` will raise a "Permission denied" error.
 
 🔑 One-liner:
-Shebang (`#!/bin/bash`) sets the runtime engine, `read` captures user input, `$` extracts variable data, and `./` ensures local path execution.
+     -> Shebang (`#!/bin/bash`) sets the runtime engine, `read` captures user input, `$` extracts variable data, and `./` ensures
+        local  path  execution.
 ========================================================================
