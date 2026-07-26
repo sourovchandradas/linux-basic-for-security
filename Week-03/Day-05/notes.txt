@@ -50,10 +50,6 @@
 * Key Commands Introduced:
     -> echo : Prints messages, strings, or variable values directly to the terminal display.
     -> read : Accepts user keyboard input and stores it into a designated variable.
-* What is variables?
-    -> A variable is an area of storage that can hold something in memory. That “something” might be some letters or words
-       (strings) or numbers. It’s known as a variable because the values held within it are changeable; this is an extremely useful
-       feature for adding functionality to a script.
 * Text Editors for Scripting:
     -> Plain text editors are mandatory (no rich-text formatting). Examples include vi, vim, nano, gedit, and leafpad.
 
@@ -75,39 +71,54 @@
 3. Writing Your First Script: "Hello, Hackers-Arise!"
 ------------------------------------------------------------------------
 * Purpose:
-  -> Understand basic script creation, execution permissions, and terminal text output.
+    -> Understand basic script creation, execution permissions, and terminal text output.
 
 Script Code (File: HelloHackersArise):
-#!/bin/bash
-# This is my first bash script. Wish me luck.
-echo "Hello, Hackers-Arise!"
+ #!/bin/bash
+ # This is my first bash script. Wish me luck.
+ echo "Hello, Hackers-Arise!"
 
 Key Structural Concepts:
 * Shebang (#!):
-  -> Always placed at the very first line (`#!/bin/bash`).
-  -> Informs the Linux kernel which interpreter should execute the file.
+    -> Always placed at the very first line (`#!/bin/bash`).
+    -> Informs the Linux kernel which interpreter should execute the file.
 * Comments (#):
-  -> Lines starting with `#` are ignored during execution.
-  -> Used for inline documentation to explain logic to developers and users.
+    -> Lines starting with `#` are ignored during execution.
+    -> Used for inline documentation to explain logic to developers and users.
 
 Command (Granting Execution Permission):
-kali > chmod +x HelloHackersArise
+ kali > chmod +x HelloHackersArise
 
 Command (Executing the Script):
-kali > ./HelloHackersArise
+ kali > ./HelloHackersArise
 
 Output/Explanation:
-Hello, Hackers-Arise!
+ Hello, Hackers-Arise!
 
 * Why Use `./`?:
-  -> Explicitly targets execution from the current directory.
-  -> Prevents executing same-named executables located in the system PATH directory.
+    -> Explicitly targets execution from the current directory.
+    -> Prevents executing same-named executables located in the system PATH directory.
+
+📌 Summary
+    -> Purpose → print message
+    -> Shebang → #!/bin/bash
+    -> Command → echo
+    -> Comments → start with #
+    -> Save + run → chmod +x, ./filename
+
+✅ Exam Key Points
+    -> Purpose of shebang
+    -> Interpreter → Bash
+    -> Command for text → echo
+    -> Importance of comments
 
 
 4. Adding Functionality with Variables and User Input
 ------------------------------------------------------------------------
-* What is a Variable?
-  -> A named storage location in system memory that holds values (strings or numbers) that can change during execution.
+* What is variables?
+    -> A variable is an area of storage that can hold something in memory. That “something” might be some letters or words (strings)
+       or numbers. It’s known as a variable because the values held within it are changeable; this is an extremely useful feature for
+       adding functionality to a script.
 * Purpose:
   -> Introduces interactivity and dynamic data handling to make scripts flexible across different environments.
 
