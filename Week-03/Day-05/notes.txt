@@ -1,9 +1,9 @@
-========================================================================
-                         BASH SCRIPTING(Part-01)
-========================================================================
+======================================================================================================================================
+                                                  BASH SCRIPTING(Part-01)
+======================================================================================================================================
 
 1. Introduction to Bash Scripting & Elite Hacker Requirements
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 * What is Bash Scripting?
     -> Writing a sequence of shell commands inside a script file that the system executes automatically line-by-line.
 * Why Scripting is Essential:
@@ -35,7 +35,7 @@
     -> Best for text manipulation → Perl
 
 2. A Crash Course in Bash & Shell Basics
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 * What is a Shell?
     -> An interactive interface between the user and the operating system.
     -> Executes programs, manipulates files, and invokes system commands directly without GUI overhead.
@@ -69,7 +69,7 @@
 
 
 3. Writing Your First Script: "Hello, Hackers-Arise!"
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 * Purpose:
     -> Understand basic script creation, execution permissions, and terminal text output.
 
@@ -110,7 +110,7 @@ Output/Explanation:
 
 
 4. Setting Execute Permissions
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 * Default Permission Behavior:
     -> By default, newly created bash script files lack execute permissions, even for the owner or creator.
     -> Default permission representation: `-rw-r--r--` (644), meaning read and write for the owner, and read-only for group and
@@ -160,7 +160,7 @@ Explanation:
 
 
 5. Running HelloHackersArise
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 Command (Executing the Script):
  kali > ./HelloHackersArise
 
@@ -184,7 +184,7 @@ Output:
     -> Successful run → script correct
 
 6. Adding Functionality with Variables and User Input
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 * What is variables?
     -> A variable is an area of storage that can hold something in memory. That “something” might be some letters or words (strings)
        or numbers. It’s known as a variable because the values held within it are changeable; this is an extremely useful feature for
@@ -227,4 +227,4 @@ Command & Syntax Breakdown:
 🔑 One-liner:
      -> Shebang (`#!/bin/bash`) sets the runtime engine, `read` captures user input, `$` extracts variable data, and `./` ensures
         local  path  execution.
-========================================================================
+======================================================================================================================================
