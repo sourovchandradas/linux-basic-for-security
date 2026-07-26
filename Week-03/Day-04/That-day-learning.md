@@ -52,7 +52,15 @@ cd /tmp
 
 ```
 
+#### 🖼️ Terminal Command
+
+![export PS1 command](Screenshot/export-PS1-command.png)
+
 #### 🖼️ Terminal Output
+
+![export PS1 output-01](Screenshot/export-PS1-output-01.png)
+![export PS1 output-02](Screenshot/export-PS1-output-02.png)
+![export PS1 output-03](Screenshot/export-PS1-output-03.png)
 
 ---
 
