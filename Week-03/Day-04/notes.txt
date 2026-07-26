@@ -18,6 +18,16 @@
     -> \h = The hostname.
     -> \w = The base name of the current working directory.
 
+📌 Summary
+    -> PS1 → environment variable, shows user + directory.
+    -> Default format → username@hostname:current_directory#.
+    -> Placeholders → \u (user), \h (hostname), \w (directory).
+
+✅ Exam Key Points
+    -> Define PS1.
+    -> Default prompt in Kali.
+    -> Placeholders: \u, \h, \w.
+
 
 2. Customizing and Exporting the PS1 Prompt
 --------------------------------------------------------------------------------------------------------------------------------------
