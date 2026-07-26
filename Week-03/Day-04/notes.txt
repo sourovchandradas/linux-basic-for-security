@@ -228,6 +228,17 @@ Explanation:
   Why:
     -> Safely clears up environment memory tracking when testing profiles conclude.
 
+📌 Summary
+    -> Change prompt identity → PS1="World's Best Hacker: #"
+    -> Emulate Windows style → export PS1='C:\w> '.
+    -> Add hacking tool globally → PATH=$PATH:/root/newhackingtool.
+    -> Shorthand variable → MYNEWVARIABLE="...".
+    -> Reset variable → unset MYNEWVARIABLE.
+
+✅ Exam Key Points
+    -> Scenario examples for PS1, PATH, custom variables.
+    -> Why modify variables in practice.
+
 
 8. Important Rules and Best Practices
 --------------------------------------------------------------------------------------------------------------------------------------
