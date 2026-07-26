@@ -43,7 +43,7 @@
     -> Korn shell (ksh)
     -> Z shell (zsh)
     -> C shell (csh)
-    -> Bourne-again shell (bash) -> The default and most widely adopted shell across distributions.
+    -> Bourne-again shell (Bash) -> The default and most widely adopted shell across distributions.
 * Why Bash?
     -> Pre-installed on virtually all UNIX/Linux environments (including Kali Linux and macOS).
     -> Directly executes binary applications, system tools, and native built-in commands.
