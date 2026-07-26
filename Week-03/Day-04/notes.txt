@@ -261,4 +261,17 @@ Explanation:
 
 * One-liner to Remember:
 -> PS1 changes prompt look, PATH maps command access, and unset deletes variables.
+
+📌 Summary
+    -> PS1 placeholders: \u, \h, \w.
+    -> Export vs set → export persists.
+    -> PATH → always append, never replace.
+    -> $ → expand variable values.
+    -> unset → clears variable.
+
+✅ Exam Key Points
+    -> One‑liner: PS1 changes prompt look, PATH maps command access, unset deletes variables.
+    -> Why never replace PATH.
+    -> Why use $ before variable.
+
 ======================================================================================================================================
