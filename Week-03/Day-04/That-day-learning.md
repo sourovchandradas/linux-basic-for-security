@@ -75,7 +75,13 @@ echo $PATH
 
 ```
 
+#### 🖼️ Terminal Command
+
+[echo-$PATH command](Screenshot/echo-$PATH-command.png)
+
 #### 🖼️ Terminal Output
+
+[echo-$PATH output](Screenshot/echo-$PATH-output.png)
 
 ---
 
