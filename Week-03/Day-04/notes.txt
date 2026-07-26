@@ -84,6 +84,17 @@ Explanation:
     -> $ symbol before a variable asks the system for the content of that variable.
     -> If the bash shell doesn't find the command, it returns: command not found.
 
+📌 Summary
+    -> PATH → tells shell where to find commands.
+    -> View → echo $PATH.
+    -> Directories separated by colon (:).
+    -> If command not found in PATH → error.
+
+✅ Exam Key Points
+    -> Define PATH.
+    -> Example PATH output.
+    -> Why PATH important?
+
 
 4. Adding to the PATH Variable
 --------------------------------------------------------------------------------------------------------------------------------------
