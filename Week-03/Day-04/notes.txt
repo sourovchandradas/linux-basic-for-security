@@ -55,6 +55,16 @@ Explanation:
     -> \w ensures the user can still see their active Linux directory route.
     -> Generally useful for a beginner to see the active current directory.
 
+📌 Summary
+    -> Change prompt → PS1="World's Best Hacker: #" (temporary).
+    -> Export prompt → export PS1 (persists in session).
+    -> Example Windows style → export PS1='C:\w> '.
+
+✅ Exam Key Points
+    -> Difference between setting vs exporting PS1.
+    -> Example of Windows‑style prompt.
+    -> Why export? → pass to child processes.
+
 
 3. Understanding the PATH Variable
 --------------------------------------------------------------------------------------------------------------------------------------
