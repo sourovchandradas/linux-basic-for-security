@@ -151,6 +151,15 @@ Explanation:
     -> Remember that you want to append to the PATH variable, not replace it.
     -> If you're in doubt, save the contents of the variable somewhere before modifying.
 
+📌 Summary
+    -> Wrong → PATH=/root/newhackingtool.
+    -> Effect → system commands break (ls: command not found).
+
+✅ Exam Key Points
+    -> Common beginner mistake.
+    -> Impact of replacing PATH.
+    -> Why preserve original PATH.
+
 
 6. Creating a User-Defined Variable
 --------------------------------------------------------------------------------------------------------------------------------------
