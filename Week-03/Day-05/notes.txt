@@ -57,6 +57,20 @@
 * Text Editors for Scripting:
     -> Plain text editors are mandatory (no rich-text formatting). Examples include vi, vim, nano, gedit, and leafpad.
 
+📌 Summary
+    -> Shell = interface between user & OS
+    -> Types → ksh, zsh, csh, bash
+    -> Bash → most widely used, built‑in commands
+    -> New commands → echo, read
+    -> Editors → vi, vim, emacs, gedit, kate
+
+✅ Exam Key Points
+    -> Define shell + advantage
+    -> Name 4 shells
+    -> Why bash chosen?
+    -> New commands → echo, read
+    -> Popular editors → vi, vim, emacs
+
 
 3. Writing Your First Script: "Hello, Hackers-Arise!"
 ------------------------------------------------------------------------
