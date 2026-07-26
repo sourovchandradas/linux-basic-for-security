@@ -185,6 +185,16 @@ Explanation:
     -> If you use echo on that same variable, Linux will now return a blank line.
     -> Always think before deleting a system variable, system will operate much differently.
 
+📌 Summary
+    -> Create → MYNEWVARIABLE="...".
+    -> Check → echo $MYNEWVARIABLE.
+    -> Delete → unset MYNEWVARIABLE.
+
+✅ Exam Key Points
+    -> Syntax of variable creation.
+    -> Command to delete variable.
+    -> Effect of unset.
+
 
 7. Practical Scenarios - When to Modify Variables
 --------------------------------------------------------------------------------------------------------------------------------------
