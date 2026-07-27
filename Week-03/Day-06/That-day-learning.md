@@ -23,9 +23,10 @@ nmap -sT 10.0.2.15
 
 ```
 #### 🖼️ Terminal Commend
+![nmap with IP address command](Screenshot/nmap-sT-ip-address-command.png)
 
 #### 🖼️ Terminal Output
-
+![nmap with IP address output](Screenshot/nmap-sT-ip-address-output.png)
 
 Example — Executing a TCP connect scan against a target port:
 
@@ -34,8 +35,10 @@ nmap -sT 10.0.2.15 -p 53
 
 ```
 #### 🖼️ Terminal Commend
+![nmap with IP address & port command](Screenshot/nmap-sT-ip-address-p-port-command.png)
 
 #### 🖼️ Terminal Output
+![nmap with IP address & port output](Screenshot/nmap-sT-ip-address-p-port-output.png)
 
 ---
 
