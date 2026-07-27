@@ -140,28 +140,51 @@ Explanation:
 | Command   | Function                                                                                         |
 +-----------+--------------------------------------------------------------------------------------------------+
 | :         | Returns 0 or true                                                                                |
-| .         | Executes a shell script in the current environment                                              |
++-----------+--------------------------------------------------------------------------------------------------+
+| .         | Executes a shell script in the current environment                                               |
++-----------+--------------------------------------------------------------------------------------------------+
 | bg / fg   | Moves jobs to background / foreground                                                            |
++-----------+--------------------------------------------------------------------------------------------------+
 | break     | Exits from a loop                                                                                |
++-----------+--------------------------------------------------------------------------------------------------+
 | cd        | Changes current directory                                                                        |
++-----------+--------------------------------------------------------------------------------------------------+
 | continue  | Resumes current loop iteration                                                                   |
++-----------+--------------------------------------------------------------------------------------------------+
 | echo      | Displays text/arguments to stdout                                                                |
++-----------+--------------------------------------------------------------------------------------------------+
 | eval      | Evaluates and executes combined expressions                                                      |
-| exec      | Executes command, replacing current process without subshell creation                             |
++-----------+--------------------------------------------------------------------------------------------------+
+| exec      | Executes command, replacing current process without subshell creation                            |
++-----------+--------------------------------------------------------------------------------------------------+
 | exit      | Quits current shell                                                                              |
-| export    | Makes a variable or function available to other programs executed from this shell               |
-| getopts   | Parses positional command-line arguments                                                        |
++-----------+--------------------------------------------------------------------------------------------------+
+| export    | Makes a variable or function available to other programs executed from this shell                |
++-----------+--------------------------------------------------------------------------------------------------+
+| getopts   | Parses positional command-line arguments                                                         |
++-----------+--------------------------------------------------------------------------------------------------+
 | jobs      | Displays background job processes                                                                |
++-----------+--------------------------------------------------------------------------------------------------+
 | pwd       | Displays current working directory path                                                          |
++-----------+--------------------------------------------------------------------------------------------------+
 | read      | Captures input from standard input into a variable                                               |
++-----------+--------------------------------------------------------------------------------------------------+
 | readonly  | Locks variable as read-only (immutable)                                                          |
++-----------+--------------------------------------------------------------------------------------------------+
 | set       | Modifies shell options and displays shell variables                                              |
++-----------+--------------------------------------------------------------------------------------------------+
 | shift     | Shifts positional parameters to left, dropping $1                                                |
++-----------+--------------------------------------------------------------------------------------------------+
 | test / [[ | Evaluates conditional expressions and logical tests                                              |
-| trap      | Intercepts signals and runs handling routines                                                   |
++-----------+--------------------------------------------------------------------------------------------------+
+| trap      | Intercepts signals and runs handling routines                                                    |
++-----------+--------------------------------------------------------------------------------------------------+
 | type      | Displays command classification (builtin, alias, file)                                           |
++-----------+--------------------------------------------------------------------------------------------------+
 | umask     | Sets default file creation permission mask                                                       |
++-----------+--------------------------------------------------------------------------------------------------+
 | unset     | Erases user-defined variable identities                                                          |
++-----------+--------------------------------------------------------------------------------------------------+
 | wait      | Blocks execution until background child processes complete                                       |
 +-----------+--------------------------------------------------------------------------------------------------+
 
