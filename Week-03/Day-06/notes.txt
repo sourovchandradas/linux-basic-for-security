@@ -1,5 +1,5 @@
 ======================================================================================================================================
-                                                        Bash Script(Part-02)
+                                                         Bash Script(Part-02)
 ======================================================================================================================================
 
 1. Introduction to Port Scanning & Nmap Basics
@@ -54,22 +54,22 @@ Explanation:
     -> How automated scripting amplifies reconnaissance.
 
 
-3. Writing a Simple MySQL Local Area Network Scanner
+3. Writing a Simple DNS Local Area Network Scanner
 --------------------------------------------------------------------------------------------------------------------------------------
 * Scenario & Goal:
-    -> Scan a local subnet (e.g., 192.168.181.0/24) for default MySQL database instances (Port 3306).
+    -> Scan a local subnet (e.g., 10.0.2.0/24) for default DNS  instances (Port 53).
 
-* Script Implementation (MySQLscanner.sh):
+* Script Implementation (dnsServer.sh):
 
     #!/bin/bash
-    # This script is designed to find hosts with MySQL installed
-    nmap -sT 192.168.181.0/24 -p 3306 >/dev/null -oG MySQLscan
-    cat MySQLscan | grep open > MySQLscan2
-    cat MySQLscan2
+    # This script is designed to find hosts with DNS installed
+    nmap -sT 10.0.2.0/24 -p 53 >/dev/null -oG dnsServer
+    cat dnsServer | grep open > dnsServer2
+    cat dnsServer2
 
 * Execution Steps:
-    kali > chmod 755 MySQLscanner.sh
-    kali > ./MySQLscanner.sh
+    kali > chmod 755 dnsServer.sh
+    kali > ./dnsServer.sh
     Host: 192.168.181.69 () Ports: 3306/open/tcp//mysql///
 
 Explanation of Key Commands & Redirections:
@@ -78,7 +78,7 @@ Explanation of Key Commands & Redirections:
     -> grep open  : Filters lines to display only active hosts with the port status marked as open.
 
 📌 Summary
-    -> Command → nmap -sT <Subnet> -p 3306 >/dev/null -oG MySQLscan.
+    -> Command → nmap -sT <Subnet> -p 3306 >/dev/null -oG dnsServer.
     -> Output filtering → grep open extracts active targets.
     -> Perms → chmod 755 to grant execution rights.
 
