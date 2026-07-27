@@ -1,136 +1,140 @@
-# ======================================================================================================================================
-FIRST HACKER SCRIPT: PORT SCANNER (Part-03)
+======================================================================================================================================
+                                          FIRST HACKER SCRIPT: PORT SCANNER (Part-03)
+======================================================================================================================================
 
 1. Introduction to Port Scanning & Nmap Basics
-
----
-
+--------------------------------------------------------------------------------------------------------------------------------------
 * What is Port Scanning?
--> Probing a target system connected to a network to discover open ports.
--> Open ports reveal running services, helping administrators or attackers evaluate target security.
+    -> Probing a target system connected to a network to discover open ports.
+    -> Open ports reveal running services, helping administrators or attackers evaluate target security.
+
 * What is Nmap?
--> Network Mapper: An essential, pre-installed network scanner on Kali Linux.
--> Used to discover hosts, open ports, and network services.
+    -> Network Mapper: An essential, pre-installed network scanner on Kali Linux.
+    -> Used to discover hosts, open ports, and network services.
+
 * Fundamental Nmap Syntax:
-kali > nmap -sT <Target_IP> -p <Port_Number>
+    kali > nmap -sT <Target_IP> -p <Port_Number>
 
 Explanation:
--> -sT : Performs a TCP Connect Scan (the standard, full 3-way handshake scan).
--> -p  : Specifies the port number to target (e.g., -p 3306 for MySQL, -p 5505 for Aloha POS).
+    -> -sT : Performs a TCP Connect Scan (the standard, full 3-way handshake scan).
+    -> -p  : Specifies the port number to target (e.g., -p 3306 for MySQL, -p 5505 for Aloha POS).
 
 📌 Summary
--> Port scanning reveals active network services.
--> Syntax → nmap -sT  -p .
--> Key flags → -sT (TCP connect), -p (port specification).
+    -> Port scanning reveals active network services.
+    -> Syntax → nmap -sT <IP> -p <Port>.
+    -> Key flags → -sT (TCP connect), -p (port specification).
 
 ✅ Exam Key Points
--> Purpose of Nmap.
--> Function of the -sT switch.
--> How to target a specific port using -p.
+    -> Purpose of Nmap.
+    -> Function of the -sT switch.
+    -> How to target a specific port using -p.
+
 
 2. Real-World Case Study: The Max Butler Aloha POS Hack
-
----
-
+--------------------------------------------------------------------------------------------------------------------------------------
 * Background Scenario:
--> Hacker Max Butler (Max Vision) identified a technical support backdoor in Aloha Point of Sale (POS) systems.
--> Technical support used Port 5505 to remotely assist restaurant clients with admin privileges.
+    -> Hacker Max Butler (Max Vision) identified a technical support backdoor in Aloha Point of Sale (POS) systems.
+    -> Technical support used Port 5505 to remotely assist restaurant clients with admin privileges.
+
 * Attack Methodology:
--> Scanned millions of public IP addresses specifically looking for open Port 5505.
--> Identified systems running the vulnerable Aloha POS and gained unauthorized administrative access.
--> Mass automation enabled scaling from stealing thousands to millions of credit card details.
+    -> Scanned millions of public IP addresses specifically looking for open Port 5505.
+    -> Identified systems running the vulnerable Aloha POS and gained unauthorized administrative access.
+    -> Mass automation enabled scaling from stealing thousands to millions of credit card details.
+
 * Takeaway for Security Professionals:
--> Automated shell scripts combined with port scanners can process large IP networks rapidly.
+    -> Automated shell scripts combined with port scanners can process large IP networks rapidly.
 
 📌 Summary
--> Real-world relevance → Scans targeting specific ports reveal vulnerable software.
--> Port 5505 → Tech support backdoor used in Aloha POS systems.
--> Scripting power → Scales scanning operations across network blocks.
+    -> Real-world relevance → Scans targeting specific ports reveal vulnerable software.
+    -> Port 5505 → Tech support backdoor used in Aloha POS systems.
+    -> Scripting power → Scales scanning operations across network blocks.
 
 ✅ Exam Key Points
--> Why attackers target specific port numbers.
--> How automated scripting amplifies reconnaissance.
+    -> Why attackers target specific port numbers.
+    -> How automated scripting amplifies reconnaissance.
+
 
 3. Writing a Simple MySQL Local Area Network Scanner
-
----
-
+--------------------------------------------------------------------------------------------------------------------------------------
 * Scenario & Goal:
--> Scan a local subnet (e.g., 192.168.181.0/24) for default MySQL database instances (Port 3306).
+    -> Scan a local subnet (e.g., 192.168.181.0/24) for default MySQL database instances (Port 3306).
+
 * Script Implementation (MySQLscanner.sh):
-#!/bin/bash
-# This script is designed to find hosts with MySQL installed
 
+    #!/bin/bash
+    # This script is designed to find hosts with MySQL installed
+    nmap -sT 192.168.181.0/24 -p 3306 >/dev/null -oG MySQLscan
+    cat MySQLscan | grep open > MySQLscan2
+    cat MySQLscan2
 
-nmap -sT 192.168.181.0/24 -p 3306 >/dev/null -oG MySQLscan
-cat MySQLscan | grep open > MySQLscan2
-cat MySQLscan2
 * Execution Steps:
-kali > chmod 755 MySQLscanner.sh
-kali > ./MySQLscanner.sh
-Host: 192.168.181.69 () Ports: 3306/open/tcp//mysql///
+    kali > chmod 755 MySQLscanner.sh
+    kali > ./MySQLscanner.sh
+    Host: 192.168.181.69 () Ports: 3306/open/tcp//mysql///
 
 Explanation of Key Commands & Redirections:
--> >/dev/null : Discards standard output so terminal screen output remains clean.
--> -oG        : Outputs Nmap scan results in "Grepable" format (easy to parse line-by-line).
--> grep open  : Filters lines to display only active hosts with the port status marked as open.
+    -> >/dev/null : Discards standard output so terminal screen output remains clean.
+    -> -oG        : Outputs Nmap scan results in "Grepable" format (easy to parse line-by-line).
+    -> grep open  : Filters lines to display only active hosts with the port status marked as open.
 
 📌 Summary
--> Command → nmap -sT  -p 3306 >/dev/null -oG MySQLscan.
--> Output filtering → grep open extracts active targets.
--> Perms → chmod 755 to grant execution rights.
+    -> Command → nmap -sT <Subnet> -p 3306 >/dev/null -oG MySQLscan.
+    -> Output filtering → grep open extracts active targets.
+    -> Perms → chmod 755 to grant execution rights.
 
 ✅ Exam Key Points
--> Purpose of /dev/null redirection.
--> Purpose of -oG switch in Nmap.
--> How to pipe Nmap output to grep.
+    -> Purpose of /dev/null redirection.
+    -> Purpose of -oG switch in Nmap.
+    -> How to pipe Nmap output to grep.
+
 
 4. Building an Advanced Dynamic Port Scanner
-
----
-
+--------------------------------------------------------------------------------------------------------------------------------------
 * Why Upgrade?
--> Hardcoded IP subnets and ports require editing the script file every time.
--> Using variables and user prompts (`read`) allows dynamic input for any subnet range and port.
+    -> Hardcoded IP subnets and ports require editing the script file every time.
+    -> Using variables and user prompts (read) allows dynamic input for any subnet range and port.
+
 * Script Implementation (MySQLscannerAdvanced.sh):
-#!/bin/bash
-echo "Enter the starting IP address : "
-read FirstIP
-echo "Enter the last octet of the last IP address : "
-read LastOctetIP
-echo "Enter the port number you want to scan for : "
-read port
-nmap -sT $FirstIP-$LastOctetIP -p$port >/dev/null -oG MySQLscan
-cat MySQLscan | grep open > MySQLscan2
-cat MySQLscan2
+
+    #!/bin/bash
+    echo "Enter the starting IP address : "
+    read FirstIP
+    echo "Enter the last octet of the last IP address : "
+    read LastOctetIP
+    echo "Enter the port number you want to scan for : "
+    read port
+
+    nmap -sT $FirstIP-$LastOctetIP -p $port >/dev/null -oG MySQLscan
+    cat MySQLscan | grep open > MySQLscan2
+    cat MySQLscan2
+
 * Execution Output Sample:
-kali > ./MySQLscannerAdvanced.sh
-Enter the starting IP address :
-192.168.181.0
-Enter the last octet of the last address :
-255
-Enter the port number you want to scan for :
-3306
-Host: 192.168.181.254 () Ports: 3306/open/tcp//mysql///
+    kali > ./MySQLscannerAdvanced.sh
+    Enter the starting IP address : 
+    192.168.181.0
+    Enter the last octet of the last address : 
+    255
+    Enter the port number you want to scan for : 
+    3306
+    Host: 192.168.181.254 () Ports: 3306/open/tcp//mysql///
 
 Explanation:
--> FirstIP, LastOctetIP, and port store interactive user responses.
--> Range Syntax: `$FirstIP-$LastOctetIP` expands to `192.168.181.0-255`.
--> Allows scanning custom ports and networks without altering source code.
+    -> FirstIP, LastOctetIP, and port store interactive user responses.
+    -> Range Syntax: $FirstIP-$LastOctetIP expands to 192.168.181.0-255.
+    -> Allows scanning custom ports and networks without altering source code.
 
 📌 Summary
--> Variable capture → read variable_name.
--> Range scan syntax → $FirstIP-$LastOctetIP.
--> Dynamic flexibility → Prompts user for target range and port.
+    -> Variable capture → read variable_name.
+    -> Range scan syntax → $FirstIP-$LastOctetIP.
+    -> Dynamic flexibility → Prompts user for target range and port.
 
 ✅ Exam Key Points
--> Syntax for accepting user input (`read`).
--> Referencing dynamic variables in commands (`$FirstIP`, `$port`).
+    -> Syntax for accepting user input (read).
+    -> Referencing dynamic variables in commands ($FirstIP, $port).
+
 
 5. Essential Built-in Bash Commands Reference
-
----
-
+--------------------------------------------------------------------------------------------------------------------------------------
 * Core Built-in Scripting Commands:
 
 +-----------+--------------------------------------------------------------------------------------------------+
@@ -146,7 +150,7 @@ Explanation:
 | eval      | Evaluates and executes combined expressions                                                      |
 | exec      | Executes command, replacing current process without subshell creation                             |
 | exit      | Quits current shell                                                                              |
-| export    | Exports variables/functions to child subshell environments                                       |
+| export    | Makes a variable or function available to other programs executed from this shell               |
 | getopts   | Parses positional command-line arguments                                                        |
 | jobs      | Displays background job processes                                                                |
 | pwd       | Displays current working directory path                                                          |
@@ -163,43 +167,42 @@ Explanation:
 +-----------+--------------------------------------------------------------------------------------------------+
 
 📌 Summary
--> Control commands → break, continue, exit.
--> Input/Output → echo, read.
--> Environment → export, unset, set, readonly.
+    -> Control commands → break, continue, exit.
+    -> Input/Output → echo, read.
+    -> Environment → export, unset, set, readonly.
 
 ✅ Exam Key Points
--> Difference between `bg` and `fg`.
--> Function of `export` vs `unset`.
--> Function of `shift` in handling script parameters.
+    -> Difference between bg and fg.
+    -> Function of export vs unset.
+    -> Function of shift in handling script parameters.
+
 
 6. Important Rules and Best Practices
-
----
-
+--------------------------------------------------------------------------------------------------------------------------------------
 ⚠️ Key Rules to Remember:
 
 1. Nmap Redirection Efficiency:
--> Redirecting raw scan output to `/dev/null` keeps terminal execution clean during automation.
+    -> Redirecting raw scan output to /dev/null keeps terminal execution clean during automation.
 2. Grepable Format (-oG):
--> Always use `-oG` when outputting Nmap scans intended for parsing via `grep` or text utils.
+    -> Always use -oG when outputting Nmap scans intended for parsing via grep or text utils.
 3. Variable Expansion in Range Scans:
--> Ensure correct concatenation formatting when defining IP ranges: `$FirstIP-$LastOctetIP`.
+    -> Ensure correct concatenation formatting when defining IP ranges: $FirstIP-$LastOctetIP.
 4. Execution Permissions:
--> Always assign execute privileges (`chmod 755 <script>.sh`) before trying to run `./<script>.sh`.
+    -> Always assign execute privileges (chmod 755 <script>.sh) before trying to run ./<script>.sh.
 5. Error Handling in Pipelines:
--> Clean temporary grep output files or overwrite them using single redirect `>` to avoid stale data.
+    -> Clean temporary grep output files or overwrite them using single redirect > to avoid stale data.
 
 * One-liner to Remember:
--> Nmap gathers network ports, `-oG` structures the data, `grep` extracts open targets, and `read` captures user parameters.
+-> Nmap gathers network ports, -oG structures the data, grep extracts open targets, and read captures user parameters.
 
 📌 Summary
--> Nmap -oG → structured grepable format.
--> >/dev/null → discard unnecessary output.
--> chmod 755 → grant script execution rights.
+    -> Nmap -oG → structured grepable format.
+    -> >/dev/null → discard unnecessary output.
+    -> chmod 755 → grant script execution rights.
 
 ✅ Exam Key Points
--> Why `-oG` is preferred for shell scripting.
--> How to clean terminal output during execution.
--> One-liner: Nmap gathers, -oG structures, grep extracts, read captures.
+    -> Why -oG is preferred for shell scripting.
+    -> How to clean terminal output during execution.
+    -> One-liner: Nmap gathers, -oG structures, grep extracts, read captures.
 
 ======================================================================================================================================
