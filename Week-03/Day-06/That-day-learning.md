@@ -26,7 +26,7 @@ nmap -sT 192.168.0.108
 ![nmap with IP address command](Screenshot/nmap-sT-ip-address-command.png)
 
 #### 🖼️ Terminal Output
-![nmap with IP address output](Screenshot/nmap-sT-ip-address-output.png)
+![nmap with IP address output](Screenshot/nmap-sT-ip-address-outptut.png)
 
 Example — Executing a TCP connect scan against a target port:
 
