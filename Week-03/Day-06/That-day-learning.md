@@ -1,1 +1,145 @@
+# 🐧 Day 19 (Week 03 • Day 05): Bash Scripting (Part 02)
 
+Welcome to Day 05 of Week 03 of my Linux Security learning journey. This document details automated network reconnaissance using Nmap inside Bash scripts, real-world port exploitation case studies, building static and interactive dynamic scanners, and reference commands for built-in Bash operations.
+
+---
+
+## 🎯 Key Points & Core Concepts
+
+### 1. 🌐 Introduction to Port Scanning & Nmap Basics
+
+* Description: Port scanning is the process of probing target network interfaces to identify open TCP/UDP ports and active services.
+* Network Mapper (Nmap): The standard network scanner pre-installed on Kali Linux for host discovery, port auditing, and service footprinting.
+* Fundamental Syntax:
+* `-sT`: Directs Nmap to perform a full TCP Connect Scan via the standard 3-way handshake (`SYN` $\rightarrow$ `SYN-ACK` $\rightarrow$ `ACK`).
+* `-p`: Specifies the target port number (e.g., `-p 53` for DNS, `-p 3306` for MySQL, or `-p 5505` for Aloha POS).
+
+
+
+Example — Executing a TCP connect scan against a target port:
+
+```bash
+kali > nmap -sT 10.0.2.15 -p 53
+
+```
+
+#### 🖼️ Terminal Output
+
+---
+
+### 2. 🚨 Case Study: The Max Butler Aloha POS Hack
+
+* Background: Security research identified an unauthenticated technical support backdoor listening on Port 5505 within Aloha Point of Sale (POS) restaurant systems.
+* Attack Execution: Hacker Max Butler (Max Vision) scripted automated scanners targeting millions of public IP addresses specifically searching for open Port 5505, allowing unauthorized root-level system takeovers.
+* Takeaway: Combining automated shell scripts with network scanners amplifies reconnaissance capabilities, allowing rapid evaluation across whole subnet blocks.
+
+---
+
+### 3. 📜 Static LAN Scanner (`dnsServer.sh`)
+
+* Purpose: Automated scanning of an entire local subnet (e.g., `10.0.2.0/24`) for default active DNS services running on Port 53.
+* Operational Flags & Syntax:
+* `>/dev/null`: Discards standard output streams to maintain a clean terminal view.
+* `-oG`: Generates "Grepable" Nmap output structured for single-line text parsing via `grep`.
+
+
+
+Example — Script implementation (`dnsServer.sh`):
+
+```bash
+#!/bin/bash
+# Local subnet scanner for active DNS services
+nmap -sT 10.0.2.0/24 -p 53 >/dev/null -oG dnsServer
+cat dnsServer | grep open > dnsServer2
+cat dnsServer2
+
+```
+
+Example — Granting execution rights and running the static scanner:
+
+```bash
+kali > chmod 755 dnsServer.sh
+kali > ./dnsServer.sh
+Host: 192.168.181.69 () Ports: 53/open/tcp//domain///
+
+```
+
+#### 🖼️ Terminal Output
+
+---
+
+### 4. 🎛️ Building a Dynamic Interactive Port Scanner (`dnsScript`)
+
+* Purpose: Hardcoded subnets and ports restrict script usability. Prompting for interactive inputs using `read` turns a fixed script into a flexible, multi-target scanner.
+* Range Expansion: Syntax like `$FirstIP-$LastOctetIP` expands dynamically (e.g., `10.0.2.1-254`) for flexible scanning.
+
+Example — Script implementation (`dnsScript`):
+
+```bash
+#!/bin/bash
+echo "Enter the starting IP address : "
+read FirstIP
+echo "Enter the last octet of the last IP address : "
+read LastOctetIP
+echo "Enter the port number you want to scan for : "
+read port
+
+nmap -sT $FirstIP-$LastOctetIP -p $port >/dev/null -oG dnsScript
+cat dnsScript | grep open > dnsScript
+cat dnsScript
+
+```
+
+Example — Interactively executing the dynamic port scanner:
+
+```bash
+kali > ./dnsScript
+Enter the starting IP address : 
+10.0.2.0
+Enter the last octet of the last IP address : 
+254
+Enter the port number you want to scan for : 
+53
+Host: 192.168.181.254 () Ports: 53/open/tcp//domain///
+
+```
+
+#### 🖼️ Terminal Output
+
+---
+
+## 🛠️ Built-in Bash Scripting Reference
+
+| Command / Symbol | Function & Purpose Description |
+| --- | --- |
+| `:` | Null command; returns a standard exit status of 0 (true). |
+| `.` | Executes a shell script directly within the current environment context. |
+| `bg` / `fg` | Shifts jobs between background (`bg`) and foreground (`fg`) states. |
+| `break` | Terminates and exits an active `for`, `while`, or `until` loop structure. |
+| `continue` | Skips the remainder of the current loop iteration and moves to the next. |
+| `exec` | Replaces the active shell process with the called command without creating subshells. |
+| `export` | Marks variables or functions to be passed down to child subshells. |
+| `getopts` | Parses positional command-line flags and arguments inside scripts. |
+| `read` | Captures input from standard input (`stdin`) into specified variables. |
+| `readonly` | Locks variable values as immutable/read-only. |
+| `shift` | Shifts positional parameters leftward, discarding `$1`. |
+| `trap` | Intercepts system signals (e.g., `SIGINT`) and executes cleanup routines. |
+| `type` | Identifies command classification (builtin, alias, binary file). |
+| `unset` | Removes variable or function definitions from environment memory. |
+
+---
+
+## 🔑 Key Takeaways for Revision
+
+1. **Output Management:** Using `>/dev/null` suppresses raw standard output, keeping the terminal clean during automated tasks.
+2. **Parsing Efficiency:** Always output scans using `-oG` (Grepable format) when results need to be parsed with text-processing utilities like `grep`, `awk`, or `sed`.
+3. **Interactive Scripting Pipeline:**
+
+$$\text{User Input } (\texttt{read}) \longrightarrow \text{Variable Assignment} \longrightarrow \text{Dynamic Execution } (\texttt{nmap \$Range})$$
+
+
+4. **Permissions Check:** Remember to grant execution privileges (`chmod 755 script.sh`) before trying to run `./script.sh`.
+
+---
+
+*⚡ End of Week 03 • Day 05 Notes • Organized for GitHub & OneNote*
