@@ -38,7 +38,7 @@ nmap -sT 192.168.0.108 -p 53
 ![nmap with IP address & port command](Screenshot/nmap-sT-ip-address-p-port-command.png)
 
 #### 🖼️ Terminal Output
-![nmap with IP address & port output](Screenshot/nmap-sT-ip-address-p-port-output.png)
+![nmap with IP address & port output](Screenshot/nmap-sT-ip-address-p-port-outptut.png.png)
 
 ---
 
