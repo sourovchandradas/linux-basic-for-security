@@ -19,7 +19,7 @@ Welcome to Day 20 of my Linux Security learning journey. This document details a
 Example — Executing a TCP connect scan against a target IP address:
 
 ```bash
-nmap -sT 10.0.2.15
+nmap -sT 192.168.0.108
 
 ```
 #### 🖼️ Terminal Commend
@@ -31,7 +31,7 @@ nmap -sT 10.0.2.15
 Example — Executing a TCP connect scan against a target port:
 
 ```bash
-nmap -sT 10.0.2.15 -p 53
+nmap -sT 192.168.0.108 -p 53
 
 ```
 #### 🖼️ Terminal Commend
