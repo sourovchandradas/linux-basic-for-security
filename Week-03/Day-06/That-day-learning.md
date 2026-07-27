@@ -1,6 +1,6 @@
-# 🐧 Day 19 (Week 03 • Day 05): Bash Scripting (Part 02)
+# 🐧 Day 20 : Bash Scripting (Part 02)
 
-Welcome to Day 05 of Week 03 of my Linux Security learning journey. This document details automated network reconnaissance using Nmap inside Bash scripts, real-world port exploitation case studies, building static and interactive dynamic scanners, and reference commands for built-in Bash operations.
+Welcome to Day 20 of my Linux Security learning journey. This document details automated network reconnaissance using Nmap inside Bash scripts, real-world port exploitation case studies, building static and interactive dynamic scanners, and reference commands for built-in Bash operations.
 
 ---
 
