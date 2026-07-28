@@ -20,15 +20,15 @@ Welcome to Day 21 f my Linux Security learning journey. This document details fi
 ### 2. 🧠 Understanding Lossy vs. Lossless Compression
 
 * **Lossy Compression:**
-    -> Achieves high compression ratios by discarding non-essential or redundant data.
-    -> Trade-off:* Original binary state cannot be reconstructed.
-    -> Common Uses:* Multimedia formats (`.mp3`, `.mp4`, `.jpg`). Unsuitable for code or execution scripts.
+*  Achieves high compression ratios by discarding non-essential or redundant data.
+*  Trade-off:* Original binary state cannot be reconstructed.
+*  Common Uses:* Multimedia formats (`.mp3`, `.mp4`, `.jpg`). Unsuitable for code or execution scripts.
 
 
 * **Lossless Compression:**
-    -> Retains absolute data integrity; decompression restores the exact original file byte-for-byte.
-    -> Trade-off:* Lower overall size reduction compared to lossy methods.
-    -> Common Uses:* Software source code, system binaries, text logs, and security scripts where data loss corrupts functionality.
+* Retains absolute data integrity; decompression restores the exact original file byte-for-byte.
+* Trade-off:* Lower overall size reduction compared to lossy methods.
+* Common Uses:* Software source code, system binaries, text logs, and security scripts where data loss corrupts functionality.
 
 
 
