@@ -72,11 +72,11 @@ tar -tvf Linuxskills.tar
 
 #### 🖼️ Terminal Command
 
-![View tarball content without extract-command](Screenshot/viewing-tarball-content-without-extract-command.png)
+![View tarball content without extract-command](Screenshot/viewing-tarball-content-without-extracting-command.png)
 
 #### 🖼️ Terminal Output
 
-![View tarball content without extract output](Screenshot/viewing-tarball-content-without-extract-output.png)
+![View tarball content without extract output](Screenshot/viewing-tarball-content-without-extracting-output.png)
 
 ---
 
