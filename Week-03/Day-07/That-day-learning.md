@@ -89,6 +89,12 @@ tar -xvf LinuxSkills.tar
 
 #### 🖼️ Terminal Output
 
+![Extract tarball content command](Screenshot/extract-tarball-content-command.png)
+
+#### 🖼️ Terminal Output
+
+![Extract tarball content output](Screenshot/extract-tarball-content-output.png)
+
 ---
 
 > ⚠️ **Overwrite Warning:** Extracting a tarball silently overwrites any existing files in the current directory that share identical filenames.
