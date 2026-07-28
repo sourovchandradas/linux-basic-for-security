@@ -53,7 +53,13 @@ tar -cvf LinuxSkills.tar LinuxSkills1.sh LinuxSkills2.sh LinuxSkills3.sh
 
 ```
 
+#### 🖼️ Terminal Command
+
+![Archive Command](Screenshot/archive-command.png)
+
 #### 🖼️ Terminal Output
+
+![Archive Output](Screenshot/archive-output.png)
 
 ---
 
@@ -64,7 +70,13 @@ tar -tvf Linuxskills.tar
 
 ```
 
+#### 🖼️ Terminal Command
+
+![View tarball content without extract-command](Screenshot/viewing-tarball-content-without-extract-command.png)
+
 #### 🖼️ Terminal Output
+
+![View tarball content without extract output](Screenshot/viewing-tarball-content-without-extract-output.png)
 
 ---
 
