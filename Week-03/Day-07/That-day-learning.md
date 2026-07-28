@@ -49,7 +49,7 @@ Welcome to Day 21 f my Linux Security learning journey. This document details fi
 Example — Archiving multiple script files into a single tarball:
 
 ```bash
-tar -cvf HackersArise.tar hackersarise1.sh hackersarise2.sh hackersarise3.sh
+tar -cvf LinuxSkills.tar LinuxSkills1.sh LinuxSkills2.sh LinuxSkills3.sh
 
 ```
 
@@ -60,7 +60,7 @@ tar -cvf HackersArise.tar hackersarise1.sh hackersarise2.sh hackersarise3.sh
 Example — Viewing tarball contents without extracting:
 
 ```bash
-tar -tvf HackersArise.tar
+tar -tvf Linuxskills.tar
 
 ```
 
@@ -71,7 +71,7 @@ tar -tvf HackersArise.tar
 Example — Extracting files from a tarball:
 
 ```bash
-tar -xvf HackersArise.tar
+tar -xvf LinuxSkills.tar
 
 ```
 
