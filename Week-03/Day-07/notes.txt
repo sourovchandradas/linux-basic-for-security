@@ -155,22 +155,22 @@
     -> Unlike logical copy utilities (like cp), dd duplicates unallocated space and preserves deleted files.
 
 * Key Use Cases:
-    -> Digital Forensics: Creates exact physical forensic images without altering evidence drives.
-    -> Post-Exploitation: Clones whole target storage drives for offline analysis and credential extraction.
+    -> Digital Forensics : Creates exact physical forensic images without altering evidence drives.
+    -> Post-Exploitation : Clones whole target storage drives for offline analysis and credential extraction.
 
 * Fundamental Syntax:
     kali > dd if=<Input_Source> of=<Output_Destination> [Options]
 
     Parameters:
-    -> if= : Input file or source block device (e.g., /dev/sdb).
-    -> of= : Output target file or device path (e.g., /root/flashcopy).
+      -> if= : Input file or source block device (e.g., /dev/sdb).
+      -> of= : Output target file or device path (e.g., /root/flashcopy).
 
 * Practical Example & Speed Optimization:
     kali > dd if=/dev/sdb of=/root/flashcopy bs=4096 conv=noerror
 
     Optimization Switches:
-    -> bs=4096      : Sets block size to 4KB (4096 bytes) instead of default 512B to accelerate transfer speeds.
-    -> conv=noerror : Instructs dd to ignore read errors and continue processing the remaining drive data.
+      -> bs=4096      : Sets block size to 4KB (4096 bytes) instead of default 512B to accelerate transfer speeds.
+      -> conv=noerror : Instructs dd to ignore read errors and continue processing the remaining drive data.
 
 📌 Summary
     -> dd performs bit-level cloning including deleted files in unallocated space.
@@ -188,13 +188,17 @@
 ⚠️ Key Rules to Remember:
 
 1. Always Archive Before Compressing:
-    -> Standalone compression utilities (like gzip) operate on individual files. Use `tar` first to bundle multiple files before compressing.
+    -> Standalone compression utilities (like gzip) operate on individual files. Use `tar` first to bundle multiple files before
+       compressing.
 2. File Extraction Safety:
-    -> Extracting tarballs overwrites existing local files without confirmation prompts. Verify current directory contents (`ls -l`) first.
+    -> Extracting tarballs overwrites existing local files without confirmation prompts. Verify current directory contents (`ls -l`)
+       first.
 3. Handle dd Target Paths Cautiously:
-    -> Misconfiguring `of=` in `dd` can completely overwrite active system partitions. Always double-check drive designations using `fdisk -l`.
+    -> Misconfiguring `of=` in `dd` can completely overwrite active system partitions. Always double-check drive designations using
+       `fdisk -l`.
 4. Speeding Up Physical Image Copies:
-    -> Always use `bs=4096` or higher when executing `dd` on large physical media to prevent bottlenecking at the default 512-byte block size.
+    -> Always use `bs=4096` or higher when executing `dd` on large physical media to prevent bottlenecking at the default 512-byte
+       block size.
 
 * One-liner to Remember:
 -> `tar` bundles directory contents, compression utilities shrink the bundle, and `dd` performs exact bit-by-bit physical cloning.
