@@ -103,8 +103,8 @@
 * Execution Examples:
 
   1. Using gzip:
-     kali > gzip HackersArise.tar         # Produces HackersArise.tar.gz
-     kali > gunzip HackersArise.tar.gz    # Restores to HackersArise.tar
+     kali > gzip LinuxSkills.tar         # Produces LinuxSkills.tar.gz
+     kali > gunzip LinuxSkills.tar.gz    # Restores to LinuxSkills.tar
 
   2. Using bzip2:
      kali > bzip2 HackersArise.tar        # Produces HackersArise.tar.bz2
