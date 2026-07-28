@@ -103,16 +103,40 @@
 * Execution Examples:
 
   1. Using gzip:
-     kali > gzip LinuxSkills.tar         # Produces LinuxSkills.tar.gz
-     kali > gunzip LinuxSkills.tar.gz    # Restores to LinuxSkills.tar
+       * Compress:
+          kali > gzip LinuxSkills.tar
+
+          -> Result: LinuxSkills.tar becomes LinuxSkills.tar.gz.
+          -> File size drops significantly (e.g., down to 3,299 bytes).
+
+       * Decompress:
+          kali > gunzip LinuxSkills.tar.gz
+
+          -> Result : Restores to LinuxSkills.tar
 
   2. Using bzip2:
-     kali > bzip2 HackersArise.tar        # Produces HackersArise.tar.bz2
-     kali > bunzip2 HackersArise.tar.bz2  # Restores to HackersArise.tar
+        * Compress:
+          kali > bzip2 LinuxSkills.tar
+
+          -> Result: Creates LinuxSkills.tar.bz2
+          -> Achieves higher compression (e.g., down to 2,081 bytes).
+
+        * Decompress:
+          kali > bunzip2 LinuxSkills.tar.bz2
+
+          -> Result : Restores to LinuxSkills.tar
 
   3. Using compress:
-     kali > compress HackersArise.tar     # Produces HackersArise.tar.Z
-     kali > uncompress HackersArise.tar.Z # Restores to HackersArise.tar
+      * Compress:
+         kali > compress LinuxSkills.tar
+
+         -> Result: Creates LinuxSkills.tar.Z.
+         -> File size drops to around 5,476 bytes.
+
+      * Decompress:
+         kali > uncompress LinuxSkills.tar.Z
+
+         -> Restores to LinuxSkills.tar
 
 📌 Summary
     -> gzip    → Best overall balance of speed and performance (.gz).
