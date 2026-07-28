@@ -52,11 +52,11 @@
     -> Generates files with the .tar extension.
 
 * Creating a Tarball:
-    kali > tar -cvf HackersArise.tar hackersarise1.sh hackersarise2.sh hackersarise3.sh
+    kali > tar -cvf LinuxSkills.tar LinuxSkills1.sh LinuxSkills2.sh LinuxSkills3.sh
 
     Flags:
     -> -c : Create a new archive.
-    -> -v : Verbose mode (displays processed files in the terminal).
+    -> -v : Verbose mode (Optional, displays processed files in the terminal).
     -> -f : Specifies the target output archive filename.
 
 * Metadata Overhead:
@@ -64,13 +64,13 @@
     -> Example: 35,094 bytes of raw files results in a 40,960 byte .tar archive.
 
 * Viewing Archive Contents (Without Extracting):
-    kali > tar -tvf HackersArise.tar
+    kali > tar -tvf LinuxSkills.tar
     Flags:
     -> -t : List/table of contents inside the archive.
 
 * Extracting Files from a Tarball:
-    kali > tar -xvf HackersArise.tar   # Verbose extraction
-    kali > tar -xf HackersArise.tar    # Silent extraction
+    kali > tar -xvf LinuxSkills.tar   # Verbose extraction
+    kali > tar -xf LinuxSkills.tar    # Silent extraction
     Flags:
     -> -x : Extract files from an archive.
     
@@ -94,7 +94,9 @@
 | Tool       | Extension   | Speed             | Compression Ratio| Decompress Cmd    | tar Integration Flag|
 +------------+-------------+-------------------+------------------+-------------------+---------------------+
 | compress   | .tar.Z      | Fastest           | Lowest           | uncompress        | -Z                  |
++------------+-------------+-------------------+------------------+-------------------+---------------------+
 | gzip       | .tar.gz     | Balanced          | Moderate         | gunzip            | -z                  |
++------------+-------------+-------------------+------------------+-------------------+---------------------+
 | bzip2      | .tar.bz2    | Slowest           | Highest          | bunzip2           | -j                  |
 +------------+-------------+-------------------+------------------+-------------------+---------------------+
 
