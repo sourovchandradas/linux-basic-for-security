@@ -49,7 +49,7 @@ Welcome to Day 21 f my Linux Security learning journey. This document details fi
 Example — Archiving multiple script files into a single tarball:
 
 ```bash
-kali > tar -cvf HackersArise.tar hackersarise1.sh hackersarise2.sh hackersarise3.sh
+tar -cvf HackersArise.tar hackersarise1.sh hackersarise2.sh hackersarise3.sh
 
 ```
 
