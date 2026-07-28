@@ -1,4 +1,4 @@
-# 🐧 Day 20 : Compression, Archiving, and Physical Drive Imaging (`dd`)
+# 🐧 Day 20 : Compression and Archiving
 
 Welcome to Day 06 of Week 03 of my Linux Security learning journey. This document details file compression theories, creating and extracting tarballs with `tar`, comparing Linux compression algorithms (`gzip`, `bzip2`, `compress`), and conducting forensic bit-by-bit physical drive imaging using `dd`.
 
