@@ -60,7 +60,7 @@ tar -cvf HackersArise.tar hackersarise1.sh hackersarise2.sh hackersarise3.sh
 Example — Viewing tarball contents without extracting:
 
 ```bash
-kali > tar -tvf HackersArise.tar
+tar -tvf HackersArise.tar
 
 ```
 
@@ -71,7 +71,7 @@ kali > tar -tvf HackersArise.tar
 Example — Extracting files from a tarball:
 
 ```bash
-kali > tar -xvf HackersArise.tar
+tar -xvf HackersArise.tar
 
 ```
 
@@ -98,8 +98,8 @@ Once archived, tarballs are compressed using one of three primary Linux utilitie
 Example — Compressing a tarball using `gzip` and restoring it with `gunzip`:
 
 ```bash
-kali > gzip HackersArise.tar
-kali > gunzip HackersArise.tar.gz
+gzip HackersArise.tar
+gunzip HackersArise.tar.gz
 
 ```
 
@@ -110,8 +110,8 @@ kali > gunzip HackersArise.tar.gz
 Example — Compressing a tarball using `bzip2` and restoring it with `bunzip2`:
 
 ```bash
-kali > bzip2 HackersArise.tar
-kali > bunzip2 HackersArise.tar.bz2
+bzip2 HackersArise.tar
+bunzip2 HackersArise.tar.bz2
 
 ```
 
@@ -122,8 +122,8 @@ kali > bunzip2 HackersArise.tar.bz2
 Example — Compressing a tarball using `compress` and restoring it with `uncompress`:
 
 ```bash
-kali > compress HackersArise.tar
-kali > uncompress HackersArise.tar.Z
+compress HackersArise.tar
+uncompress HackersArise.tar.Z
 
 ```
 
@@ -149,7 +149,7 @@ kali > uncompress HackersArise.tar.Z
 Example — Creating a physical disk image of a flash drive (`/dev/sdb`):
 
 ```bash
-kali > dd if=/dev/sdb of=/root/flashcopy bs=4096 conv=noerror
+dd if=/dev/sdb of=/root/flashcopy bs=4096 conv=noerror
 
 ```
 
