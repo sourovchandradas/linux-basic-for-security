@@ -117,11 +117,28 @@ Example — Compressing a tarball using `gzip` and restoring it with `gunzip`:
 
 ```bash
 gzip LinuxSkills.tar
+
+```
+#### 🖼️ Terminal Command
+
+![gzip command](Screenshot/gzip-command.png)
+
+#### 🖼️ Terminal Output
+
+![gzip output](Screenshot/gzip-output.png)
+
+
+```bash
 gunzip LinuxSkills.tar.gz
 
 ```
+#### 🖼️ Terminal Command
+
+![gunzip command](Screenshot/gunzip-command.png)
 
 #### 🖼️ Terminal Output
+
+![gunzip output](Screenshot/gunzip-output.png)
 
 ---
 
@@ -129,11 +146,29 @@ Example — Compressing a tarball using `bzip2` and restoring it with `bunzip2`:
 
 ```bash
 bzip2 LinuxSkills.tar
+
+```
+#### 🖼️ Terminal Command
+
+![bzip2 command](Screenshot/bzip2-command.png)
+
+#### 🖼️ Terminal Output
+
+![bzip2 output](Screenshot/bzip2-output.png)
+
+
+```bash
 bunzip2 LinuxSkills.tar.bz2
 
 ```
 
+#### 🖼️ Terminal Command
+
+![bunzip2 command](Screenshot/bunzip2-output.png)
+
 #### 🖼️ Terminal Output
+
+![bunzip2 output](Screenshot/bunzip2-output.png)
 
 ---
 
@@ -141,11 +176,28 @@ Example — Compressing a tarball using `compress` and restoring it with `uncomp
 
 ```bash
 compress LinuxSkills.tar
-uncompress LinuxSkills.tar.Z
 
 ```
 
+#### 🖼️ Terminal Command
+
+![compress command](Screenshot/compress-command.png)
+
 #### 🖼️ Terminal Output
+
+![compress output](Screenshot/compress-output.png)
+
+```bash
+uncompress LinuxSkills.tar.Z
+
+```
+#### 🖼️ Terminal Command
+
+![uncompress command](Screenshot/uncompress-command.png)
+
+#### 🖼️ Terminal Output
+
+![uncompress output](Screenshot/uncompress-output.png)
 
 ---
 
@@ -171,7 +223,10 @@ dd if=/dev/sdb of=/root/flashcopy bs=4096 conv=noerror
 
 ```
 
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
+
+![dd command](Screenshot/dd-command.png)
+
 
 ---
 
