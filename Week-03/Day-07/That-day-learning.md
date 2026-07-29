@@ -193,7 +193,7 @@ uncompress LinuxSkills.tar.Z
 ```
 #### 🖼️ Terminal Command
 
-![uncompress command](Screenshot/uncompress-command.png)
+![uncompress command](Screenshot/uncompress-commnad.png)
 
 #### 🖼️ Terminal Output
 
