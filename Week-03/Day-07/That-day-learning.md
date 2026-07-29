@@ -164,7 +164,7 @@ bunzip2 LinuxSkills.tar.bz2
 
 #### 🖼️ Terminal Command
 
-![bunzip2 command](Screenshot/bunzip2-output.png)
+![bunzip2 command](Screenshot/bunzip2-command.png)
 
 #### 🖼️ Terminal Output
 
