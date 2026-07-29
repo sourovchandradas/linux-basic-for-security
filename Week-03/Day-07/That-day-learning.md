@@ -116,8 +116,8 @@ Once archived, tarballs are compressed using one of three primary Linux utilitie
 Example — Compressing a tarball using `gzip` and restoring it with `gunzip`:
 
 ```bash
-gzip HackersArise.tar
-gunzip HackersArise.tar.gz
+gzip LinuxSkills.tar
+gunzip LinuxSkills.tar.gz
 
 ```
 
@@ -128,8 +128,8 @@ gunzip HackersArise.tar.gz
 Example — Compressing a tarball using `bzip2` and restoring it with `bunzip2`:
 
 ```bash
-bzip2 HackersArise.tar
-bunzip2 HackersArise.tar.bz2
+bzip2 LinuxSkills.tar
+bunzip2 LinuxSkills.tar.bz2
 
 ```
 
@@ -140,8 +140,8 @@ bunzip2 HackersArise.tar.bz2
 Example — Compressing a tarball using `compress` and restoring it with `uncompress`:
 
 ```bash
-compress HackersArise.tar
-uncompress HackersArise.tar.Z
+compress LinuxSkills.tar
+uncompress LinuxSkills.tar.Z
 
 ```
 
