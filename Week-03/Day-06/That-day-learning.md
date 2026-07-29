@@ -60,26 +60,80 @@ nmap -sT 192.168.0.108 -p 53
 
 
 Example — Script implementation (`dnsServer.sh`):
+```bash
+mousepad dnsServer.sh
+
+```
+#### 🖼️ Terminal Command
+![mousepad dnsServer](Screenshot/mousepad-dnsServer.sh-command.png)
+#### 🖼️ Terminal Ouput
+![mousepad interface](Screenshot/mousepad-interface.png)
 
 ```bash
 #!/bin/bash
+
+```
+#### 🖼️ Mousepad Script
+
+[write shebang command](Screenshot/write-shebang-command.png)
+
+```bash
 # Local subnet scanner for active DNS services
+
+```
+#### 🖼️ Mousepad Script
+
+![comment command](Screenshot/write-comment-command.png)
+
+```bash
 nmap -sT 10.0.2.0/24 -p 53 >/dev/null -oG dnsServer
+
+```
+#### 🖼️ Mousepad Script
+
+![namap command](Screenshot/nmap-command.png)
+
+```bash
 cat dnsServer | grep open > dnsServer2
+
+```
+#### 🖼️ Mousepad Script
+
+![cat & grep](Screenshot/cat%20&%20grep%20open.png)
+
+```bash
 cat dnsServer2
 
 ```
+#### 🖼️ Mousepad Script
+
+[Final cat](Screeshot/final-cat-command.png)
+
+#### 🖼️ Mousepad Script
+
+![Save Script](Screenshot/apply-save-script-option.png)
+
+#### 🖼️ Mousepad Script
+
+![After save](Screenshot/mousepad-interface-after-save.png)
+
+#### 🖼️ Mousepad Script
+
+![Quit mousepad](Screenshot/after-quite-mousepad.png)
 
 Example — Granting execution rights and running the static scanner:
 
 ```bash
-kali > chmod 755 dnsServer.sh
-kali > ./dnsServer.sh
-Host: 192.168.181.69 () Ports: 53/open/tcp//domain///
+chmod 755 dnsServer.sh
 
 ```
+#### 🖼️ Terminal Command
+
+![Change permissions command](Screenshot/change-permissions-command.png)
 
 #### 🖼️ Terminal Output
+
+![Change permissions output](Screenshot/change-permissions-output.png)
 
 ---
 
