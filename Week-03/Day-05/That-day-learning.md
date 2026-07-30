@@ -1,6 +1,6 @@
-# 🐧 Day 21 (Week 03 • Day 07): Bash Scripting (Part 01)
+# 🐧 Day 19 : Bash Scripting (Part 01)
 
-Welcome to Day 07 of Week 03 of my Linux Security learning journey. This document details foundational Bash scripting principles, interactive shell concepts, Shebang interpreter directives, execution permission structures (`chmod`), and capturing dynamic user input via variables.
+Welcome to Day 19 of my Linux Security learning journey. This document details foundational Bash scripting principles, interactive shell concepts, Shebang interpreter directives, execution permission structures (`chmod`), and capturing dynamic user input via variables.
 
 ---
 
@@ -42,12 +42,12 @@ Welcome to Day 07 of Week 03 of my Linux Security learning journey. This documen
 * The Shebang Line (`#!/bin/bash`): Placed at the very first line of a script file to inform the kernel which binary interpreter must execute the script.
 * Script Comments (`#`): Lines beginning with `#` (except the Shebang) are ignored by the interpreter and serve as inline documentation.
 
-Example — Simple output script (`HelloHackersArise`):
+Example — Simple output script (`BashScript`):
 
 ```bash
 #!/bin/bash
 # This is my first bash script. Wish me luck.
-echo "Hello, Hackers-Arise!"
+echo "Hello, BashScript!"
 
 ```
 
@@ -61,13 +61,17 @@ echo "Hello, Hackers-Arise!"
 Example — Granting execution permissions and verifying file modes:
 
 ```bash
-kali > chmod 755 HelloHackersArise
-kali > ls -l HelloHackersArise
--rwxr-xr-x 1 root root 90 Oct 22 14:32 HelloHackersArise
+chmod 755 BashScript
 
 ```
+#### 🖼️ Terminal Command
 
-#### 🖼️ Terminal Output
+```bash
+ls -l
+
+```
+#### 🖼️ Terminal Command
+
 
 ---
 
@@ -78,7 +82,7 @@ kali > ls -l HelloHackersArise
 Example — Executing the localized script:
 
 ```bash
-kali > ./HelloHackersArise
+kali > ./BashScript
 
 ```
 
