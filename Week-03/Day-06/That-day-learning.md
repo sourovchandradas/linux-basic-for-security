@@ -78,7 +78,7 @@ mousepad dnsServer.sh
 ![write shebang command](Screenshot/write-shebang-command.png)
 
 ```bash
-# Local subnet scanner for active DNS services
+# This script is designed to find hosts with dns installed
 
 ```
 #### 🖼️ Mousepad Script
