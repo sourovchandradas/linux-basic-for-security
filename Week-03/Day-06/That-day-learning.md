@@ -135,6 +135,20 @@ chmod 755 dnsServer.sh
 
 ![Change permissions output](Screenshot/change-permissions-output.png)
 
+Example — Script running command:
+
+```bash
+./dnsServer.sh
+
+```
+#### 🖼️ Terminal Command
+
+![Script run command](Screenshot/script-run-command.png)
+
+#### 🖼️ Terminal Output
+
+![Script output](Screenshot/script-output.png)
+
 ---
 
 ### 4. 🎛️ Building a Dynamic Interactive Port Scanner (`dnsScript`)
