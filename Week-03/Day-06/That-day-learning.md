@@ -237,6 +237,16 @@ cat dnsScript
 
 Example — Interactively executing the dynamic port scanner:
 ```bash
+chmod 755 dnsScript
+
+```
+#### 🖼️ Terminal Command
+![Change Permissions Command](Screenshot/change-permissions-script-command.png)
+
+#### 🖼️ Terminal Output
+![Change Permissions Output](Screenshot/change-permissions-script-output.png)
+
+```bash
 ./dnsScript
 
 ```
