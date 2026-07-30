@@ -109,15 +109,15 @@ cat dnsServer2
 
 ![Final Command](Screenshot/final-cat-command.png)
 
-#### 🖼️ Mousepad Script
+#### 🖼️ Mousepad Script(Save Script)
 
 ![Save Script](Screenshot/apply-save-script-option.png)
 
-#### 🖼️ Mousepad Script
+#### 🖼️ Mousepad Script(After Saving)
 
 ![After save](Screenshot/mousepad-interface-after-save.png)
 
-#### 🖼️ Mousepad Script
+#### 🖼️ Mousepad Script(After Quite mousepad)
 
 ![Quit mousepad](Screenshot/after-quite-mousepad.png)
 
