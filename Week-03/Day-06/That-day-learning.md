@@ -111,7 +111,7 @@ cat dnsServer2
 
 #### 🖼️ Mousepad Script(Save Script)
 
-![Save Script](Screenshot/apply-save-script-option.png)
+![Save Script](Screenshot/script-save-method.png)
 
 #### 🖼️ Mousepad Script(After Saving)
 
