@@ -157,13 +157,15 @@ Example — Script running command:
 * Range Expansion: Syntax like `$FirstIP-$LastOctetIP` expands dynamically (e.g., `10.0.2.1-254`) for flexible scanning.
 
 Example — Script implementation (`dnsScript`):
-#### 🖼️ Terminal Command
-
 ```bash
 mousepad dnsScript
 
 ```
+#### 🖼️ Terminal Command
+![mousepad command](Screesnshot/mousepad-command-for-dnsscript.png)
+
 #### 🖼️ Mousepad Terminal
+![Mousepad Interface](Screenshot/mousepad-interface.png)
 
 ```bash
 #!/bin/bash
