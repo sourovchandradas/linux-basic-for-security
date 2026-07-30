@@ -107,7 +107,7 @@ cat dnsServer2
 ```
 #### 🖼️ Mousepad Script
 
-[Final cat](Screeshot/final-cat-command.png)
+![Final cat](Screeshot/final-cat-command.png)
 
 #### 🖼️ Mousepad Script
 
