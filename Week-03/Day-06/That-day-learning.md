@@ -295,8 +295,11 @@ Enter the port number you want to scan for :
 53
 
 ```
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
 ![User defind input-06](Screenshot/user-defind-input-06.png)
+
+#### 🖼️ Terminal Output
+![Final output](Screenshot/script-final-output.png)
 
 ---
 
