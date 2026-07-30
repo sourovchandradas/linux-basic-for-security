@@ -260,7 +260,7 @@ chmod 755 dnsScript
 
 ```bash
 Enter the starting IP address :
- 
+
 ```
 #### 🖼️ Terminal Command
 ![User defind input-01](Screenshot/user-defind-input-01.png)
