@@ -99,7 +99,7 @@ cat dnsServer | grep open > dnsServer2
 ```
 #### 🖼️ Mousepad Script
 
-![cat & grep](Screenshot/cat%20&%20grep%20open.png)
+![cat & grep](Screenshot/cat-and-grep-open.png)
 
 ```bash
 cat dnsServer2
