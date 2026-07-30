@@ -254,7 +254,7 @@ chmod 755 dnsScript
 
 ```
 #### 🖼️ Terminal Command
-![User defind input-01](Screenshot/user-defind-input-01.png)
+![Script Command](Screenshot/script-command.png)
 
 ```bash
 Enter the starting IP address :
