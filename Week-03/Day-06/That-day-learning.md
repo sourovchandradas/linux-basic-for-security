@@ -235,6 +235,9 @@ cat dnsScript
 #### 🖼️ Mousepad Script
 ![Scripting Command-10](Screenshot/scripting-command-10.png)
 
+#### 🖼️ Terminal Interface(After Quite)
+![After quite mousepad](Screenshot/after-quite-mousepad.png)
+
 Example — Interactively executing the dynamic port scanner:
 ```bash
 chmod 755 dnsScript
