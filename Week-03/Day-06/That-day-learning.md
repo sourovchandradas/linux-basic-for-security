@@ -261,43 +261,42 @@ Enter the starting IP address :
  
 ```
 #### 🖼️ Terminal Command
-![User defind input-02](Screenshot/user-defind-input-02.png)
+![User defind input-01](Screenshot/user-defind-input-01.png)
 
 ```bash 
 10.0.2.0
 
 ```
 #### 🖼️ Terminal Command
-![User defind input-03](Screenshot/user-defind-input-03.png)
+![User defind input-02](Screenshot/user-defind-input-02.png)
 
 ```bash
 Enter the last octet of the last IP address : 
 
 ```
 #### 🖼️ Terminal Command
-![User defind input-04](Screenshot/user-defind-input-04.png)
+![User defind input-03](Screenshot/user-defind-input-03.png)
 
 ```bash
 254
 
 ```
 #### 🖼️ Terminal Command
-![User defind input-05](Screenshot/user-defind-input-05.png)
+![User defind input-04](Screenshot/user-defind-input-04.png)
 
 ```bash
 Enter the port number you want to scan for : 
 
 ```
 #### 🖼️ Terminal Command
-![User defind input-06](Screenshot/user-defind-input-06.png)
+![User defind input-05](Screenshot/user-defind-input-05.png)
 
 ```bash
 53
 
 ```
-
 #### 🖼️ Terminal Output
-![Script final output](Screenshot/Script-final-output.png)
+![User defind input-06](Screenshot/user-defind-input-06.png)
 
 ---
 
