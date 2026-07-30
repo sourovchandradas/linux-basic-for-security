@@ -157,37 +157,134 @@ Example — Script running command:
 * Range Expansion: Syntax like `$FirstIP-$LastOctetIP` expands dynamically (e.g., `10.0.2.1-254`) for flexible scanning.
 
 Example — Script implementation (`dnsScript`):
+#### 🖼️ Terminal Command
+
+```bash
+mousepad dnsScript
+
+```
+#### 🖼️ Mousepad Terminal
 
 ```bash
 #!/bin/bash
+
+```
+#### 🖼️ Mousepad Script
+![Scripting Command-01](Screenshot/scripting-command-01.png)
+
+```bash
 echo "Enter the starting IP address : "
+
+```
+#### 🖼️ Mousepad Script
+![Scripting Command-02](Screenshot/scripting-command-02.png)
+
+```bash
 read FirstIP
+
+```
+#### 🖼️ Mousepad Script
+![Scripting Command-03](Screenshot/scripting-command-03.png)
+
+```bash
 echo "Enter the last octet of the last IP address : "
+
+```
+#### 🖼️ Mousepad Script
+![Scripting Command-04](Screenshot/scripting-command-04.png)
+
+```bash
 read LastOctetIP
+
+```
+#### 🖼️ Mousepad Script
+![Scripting Command-05](Screenshot/scripting-command-05.png)
+
+```bash
 echo "Enter the port number you want to scan for : "
+
+```
+#### 🖼️ Mousepad Script
+![Scripting Command-06](Screenshot/scripting-command-06.png)
+
+```bash
 read port
 
+```
+#### 🖼️ Mousepad Script
+![Scripting Command-07](Screenshot/scripting-command-07.png)
+
+```bash
 nmap -sT $FirstIP-$LastOctetIP -p $port >/dev/null -oG dnsScript
+
+```
+#### 🖼️ Mousepad Script
+![Scripting Command-08](Screenshot/scripting-command-08.png)
+
+```bash
 cat dnsScript | grep open > dnsScript
+
+```
+#### 🖼️ Mousepad Script
+![Scripting Command-09](Screenshot/scripting-command-09.png)
+
+```bash
 cat dnsScript
 
 ```
+#### 🖼️ Mousepad Script
+![Scripting Command-10](Screenshot/scripting-command-10.png)
 
 Example — Interactively executing the dynamic port scanner:
+```bash
+./dnsScript
+
+```
+#### 🖼️ Terminal Command
+![User defind input-01](Screenshot/user-defind-input-01.png)
 
 ```bash
-kali > ./dnsScript
-Enter the starting IP address : 
+Enter the starting IP address :
+ 
+```
+#### 🖼️ Terminal Command
+![User defind input-02](Screenshot/user-defind-input-02.png)
+
+```bash 
 10.0.2.0
+
+```
+#### 🖼️ Terminal Command
+![User defind input-03](Screenshot/user-defind-input-03.png)
+
+```bash
 Enter the last octet of the last IP address : 
+
+```
+#### 🖼️ Terminal Command
+![User defind input-04](Screenshot/user-defind-input-04.png)
+
+```bash
 254
+
+```
+#### 🖼️ Terminal Command
+![User defind input-05](Screenshot/user-defind-input-05.png)
+
+```bash
 Enter the port number you want to scan for : 
+
+```
+#### 🖼️ Terminal Command
+![User defind input-06](Screenshot/user-defind-input-06.png)
+
+```bash
 53
-Host: 192.168.181.254 () Ports: 53/open/tcp//domain///
 
 ```
 
 #### 🖼️ Terminal Output
+![Script final output](Screenshot/Script-final-output.png)
 
 ---
 
