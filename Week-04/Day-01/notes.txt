@@ -1,5 +1,5 @@
 ======================================================================================================================================
-                                     FILESYSTEM AND STORAGE DEVICE MANAGEMENT (Part-05)
+                                               FILESYSTEM AND STORAGE DEVICE MANAGEMENT
 ======================================================================================================================================
 
 1. Fundamentals of Linux Storage & Drive Representation
@@ -9,7 +9,7 @@
     -> Linux uses a single hierarchical file tree structure starting at the root (`/`) directory.
     -> Additional drives or storage devices must be "mounted" onto this tree structure to access their contents.
 
-* Why Storage Management Matters in Cybersecurity:
+* Why Storage Management Matters in Cybersecurity?
     -> Loading penetration testing tools, payloads, and live operating systems from external media.
     -> Locating confidential or critical files on targeted compromised systems.
     -> Mounting target disk images during digital forensic analyses and incident response.
@@ -19,8 +19,9 @@
     -> Long listing (`ls -l /dev`) reveals hardware devices alongside virtual system nodes.
 
 * Device Node Classification (Block vs. Character Devices):
-    -> Block Devices (Prefix `b` in `ls -l`): Transfer data in fixed blocks (e.g., 512B or 4KB). Examples: `sda`, `sdb`.
-    -> Character Devices (Prefix `c` in `ls -l`): Transfer data serially, character-by-character. Examples: `/dev/tty`, serial ports.
+    -> Block Devices (Prefix `b` in `ls -l`)      : Transfer data in fixed blocks (e.g., 512B or 4KB). Examples: `sda`, `sdb`.
+    -> Character Devices (Prefix `c` in `ls -l`)  : Transfer data serially, character-by-character. Examples: `/dev/tty`, serial
+                                                    ports.
 
 📌 Summary
     -> Linux uses a single file tree rooted at `/`.
@@ -38,10 +39,10 @@
     -> Modern Drives  : SATA, SCSI, NVMe, and USB drives (`sda`, `sdb`, `sdc`).
     
     Sequential Naming Order:
-    -> `sda` : First physical SATA/SCSI hard drive or storage device.
-    -> `sdb` : Second physical SATA/SCSI drive (e.g., USB flash drive).
-    -> `sdc` : Third physical SATA/SCSI drive.
-    -> `sdd` : Fourth physical SATA/SCSI drive.
+      -> `sda` : First physical SATA/SCSI hard drive or storage device.
+      -> `sdb` : Second physical SATA/SCSI drive (e.g., USB flash drive).
+      -> `sdc` : Third physical SATA/SCSI drive.
+      -> `sdd` : Fourth physical SATA/SCSI drive.
 
 * Drive Partitioning & Minor Numbers:
     -> Storage drives are split into distinct sections called "partitions" to isolate swap space, root (`/`), and home directories.
@@ -57,7 +58,7 @@
     -> Linux Native   : `ext2`, `ext3`, `ext4` (Extended File System series; `ext4` is standard).
 
 📌 Summary
-    -> Drives → `sda`, `sdb`, `sdc`.
+    -> Drives     → `sda`, `sdb`, `sdc`.
     -> Partitions → `sda1`, `sda2`, `sdb1`.
     -> Detecting non-ext4 filesystems (e.g., NTFS/exFAT) helps identify external or cross-platform drives during forensics.
 
@@ -75,8 +76,8 @@
 * Concept of Mounting:
     -> A device must be physically connected and then logically attached ("mounted") to access its files.
     -> Mount Point : The empty target directory where the device is logically attached.
-       - `/mnt`   : Standard manual mount point directory.
-       - `/media` : Standard automatic mount point directory for removable media.
+       - `/mnt`       : Standard manual mount point directory.
+       - `/media`     : Standard automatic mount point directory for removable media.
        - `/etc/fstab` : Configuration file listing filesystems mounted automatically at boot.
 
 * Manual Mounting (`mount`):
@@ -89,7 +90,7 @@
     ⚠️ Warning: "umount" is spelled WITHOUT an "n". Busy devices with active read/write operations cannot be unmounted.
 
 📌 Summary
-    -> Inspection → `fdisk -l` or `lsblk` (tree view).
+    -> Inspection       → `fdisk -l` or `lsblk` (tree view).
     -> Attach partition → `mount <device> <mount_point>`
     -> Detach partition → `umount <device>`
 
@@ -121,28 +122,13 @@
     -> -p : Automatically repairs detected filesystem issues without interactive prompts.
 
 📌 Summary
-    -> Monitor capacity → `df`
+    -> Monitor capacity  → `df`
     -> Repair filesystem → `fsck -p` (Target device must be unmounted first).
 
 ✅ Exam Key Points
     -> Function of `df` (disk free).
     -> Mandatory prerequisite before running `fsck` (unmount target device).
     -> Purpose of `fsck -p` flag.
-
-
-5. Supplementary Reference: Combined Tar Compression Flags
---------------------------------------------------------------------------------------------------------------------------------------
-* Direct Compression During Archiving:
-    -> Instead of bundling with `tar` and compressing in two separate commands, `tar` supports integrated compression flags:
-       - `tar -czvf archive.tar.gz <target>`  : Bundles and compresses using `gzip` (`-z`).
-       - `tar -cjvf archive.tar.bz2 <target>` : Bundles and compresses using `bzip2` (`-j`).
-       - `tar -cZvf archive.tar.Z <target>`   : Bundles and compresses using `compress` (`-Z`).
-
-📌 Summary
-    -> Combine bundling and compression into one step using `-z` (gzip), `-j` (bzip2), or `-Z` (compress).
-
-✅ Exam Key Points
-    -> Integrated `tar` flags for single-step archiving and compression.
 
 
 6. Essential Rules and Best Practices
