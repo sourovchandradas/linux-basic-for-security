@@ -78,7 +78,19 @@ ls -l
 * `fdisk -l` : Displays detailed structural layout, sector counts, partition tables, and file system types.
 * `lsblk` : Displays a clean, tree-structured overview of block devices, partitions, sizes, and active mount points.
 
+Example — Inspecting storage block layout with `fdisk -l`:
 
+```bash
+fdisk -l
+
+```
+#### 🖼️ Terminal Command
+
+![fdisk list long command](Screenshot/fdisk-list-long-command.png)
+
+#### 🖼️ Terminal Output
+
+![fdisk list long command](Screenshot/fdisk-list-long-output.png)
 
 Example — Inspecting storage block layout with `lsblk`:
 
@@ -87,7 +99,13 @@ lsblk
 
 ```
 
+#### 🖼️ Terminal Command
+
+![list block command](Screenshot/list-block-command.png)
+
 #### 🖼️ Terminal Output
+
+![list block output](Screenshot/list-block-output.png)
 
 ---
 
@@ -104,7 +122,9 @@ mount /dev/sdb1 /mnt
 
 ```
 
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
+
+![mount commend](Screenshot/mount-command.png)
 
 ---
 
@@ -114,6 +134,10 @@ Example — Safely detaching an unmounted partition using `umount`:
 umount /dev/sdb1
 
 ```
+#### 🖼️ Terminal Command
+
+![Unmount command](Screenshot/umount-command.png)
+
 
 > ⚠️ **Syntax Warning:** The unmount command is spelled **`umount`** (there is no "n" after "u"). Active devices with open files or active terminal sessions cannot be unmounted.
 
@@ -134,6 +158,7 @@ df -h
 ```
 
 #### 🖼️ Terminal Output
+![df-h output](Screenshot/df-h-output.png)
 
 ---
 
@@ -153,7 +178,10 @@ fsck -p /dev/sdb1
 
 ```
 
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
+![unmount for fsck](Screenshot/umont-for-fsck.png)
+![fsck command](Screenshot/fsck-command.png)
+
 
 ---
 
