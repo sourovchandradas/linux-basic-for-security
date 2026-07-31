@@ -29,8 +29,15 @@ ls -l
 
 ```
 #### 🖼️ Terminal Command
+![Change directory cd](Screenshot/change-directory-cd.png)
 
 #### 🖼️ Terminal Output
+![Change directory cd command](Screenshot/change-directory-cd-output.png)
+
+#### 🖼️ Terminal Command
+![Change directory output-01](Screenshot/change-directory-output-01.png)
+![Change directory output-02](Screenshot/change-directory-output-02.png)
+
 ---
 
 ### 2. 🏷️ Storage Device & Partition Naming Conventions
