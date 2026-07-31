@@ -35,6 +35,9 @@ ls -l
 ![Change directory cd command](Screenshot/change-directory-cd-output.png)
 
 #### 🖼️ Terminal Command
+![Long Listing Command](Screenshot/long-listing-command.png)
+
+#### 🖼️ Terminal Output
 ![Change directory output-01](Screenshot/change-directory-output-01.png)
 ![Change directory output-02](Screenshot/change-directory-output-02.png)
 
