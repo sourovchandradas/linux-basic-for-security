@@ -21,8 +21,16 @@ Welcome to Day 22 of my Linux Security learning journey. This document details L
 * **Block Devices (Prefix `b`):** Read and write data in fixed-sized chunks or blocks (e.g., 512B, 4KB sectors). Examples: Hard drives (`sda`), USB drives (`sdb`), NVMe drives.
 * **Character Devices (Prefix `c`):** Stream data serially character-by-character. Examples: Terminal interfaces (`/dev/tty`), serial ports.
 
+Example — The Device Directory ls-l /dev:
 
+```bash
+cd /dev
+ls -l
 
+```
+#### 🖼️ Terminal Command
+
+#### 🖼️ Terminal Output
 ---
 
 ### 2. 🏷️ Storage Device & Partition Naming Conventions
