@@ -1,1 +1,170 @@
+======================================================================================================================================
+                                     FILESYSTEM AND STORAGE DEVICE MANAGEMENT (Part-05)
+======================================================================================================================================
 
+1. Fundamentals of Linux Storage & Drive Representation
+--------------------------------------------------------------------------------------------------------------------------------------
+* Differences Between Windows & Linux Storage:
+    -> Windows uses separate drive letters (e.g., C:, D:, E:) for storage partitions.
+    -> Linux uses a single hierarchical file tree structure starting at the root (`/`) directory.
+    -> Additional drives or storage devices must be "mounted" onto this tree structure to access their contents.
+
+* Why Storage Management Matters in Cybersecurity:
+    -> Loading penetration testing tools, payloads, and live operating systems from external media.
+    -> Locating confidential or critical files on targeted compromised systems.
+    -> Mounting target disk images during digital forensic analyses and incident response.
+
+* The Role of the `/dev` Directory:
+    -> In Linux, every hardware device is represented as a file inside `/dev` (dev = device).
+    -> Long listing (`ls -l /dev`) reveals hardware devices alongside virtual system nodes.
+
+* Device Node Classification (Block vs. Character Devices):
+    -> Block Devices (Prefix `b` in `ls -l`): Transfer data in fixed blocks (e.g., 512B or 4KB). Examples: `sda`, `sdb`.
+    -> Character Devices (Prefix `c` in `ls -l`): Transfer data serially, character-by-character. Examples: `/dev/tty`, serial ports.
+
+📌 Summary
+    -> Linux uses a single file tree rooted at `/`.
+    -> `/dev` stores device files, categorizing them as block (`b`) or character (`c`) nodes.
+
+✅ Exam Key Points
+    -> Concept of Linux file tree vs. Windows drive letters.
+    -> Distinction between block devices (storage) and character devices (stream/serial).
+
+
+2. Storage Device & Partition Naming Conventions
+--------------------------------------------------------------------------------------------------------------------------------------
+* Logical Drive Naming:
+    -> Legacy Drives  : Floppy drives (`fd0`), IDE/E-IDE hard drives (`hda`).
+    -> Modern Drives  : SATA, SCSI, NVMe, and USB drives (`sda`, `sdb`, `sdc`).
+    
+    Sequential Naming Order:
+    -> `sda` : First physical SATA/SCSI hard drive or storage device.
+    -> `sdb` : Second physical SATA/SCSI drive (e.g., USB flash drive).
+    -> `sdc` : Third physical SATA/SCSI drive.
+    -> `sdd` : Fourth physical SATA/SCSI drive.
+
+* Drive Partitioning & Minor Numbers:
+    -> Storage drives are split into distinct sections called "partitions" to isolate swap space, root (`/`), and home directories.
+    -> Linux labels partitions by appending a minor number to the drive designation:
+       - `sda1` : First partition on the first SATA drive (`sda`).
+       - `sda2` : Second partition on the first SATA drive (`sda`).
+       - `sda3` : Third partition on the first SATA drive (`sda`).
+       - `sda4` : Fourth partition on the first SATA drive (`sda`).
+
+* Common Filesystem Types:
+    -> Modern Windows : `NTFS`
+    -> Legacy Windows : `FAT` / `FAT32` / `exFAT` (frequently used on USB flash drives).
+    -> Linux Native   : `ext2`, `ext3`, `ext4` (Extended File System series; `ext4` is standard).
+
+📌 Summary
+    -> Drives → `sda`, `sdb`, `sdc`.
+    -> Partitions → `sda1`, `sda2`, `sdb1`.
+    -> Detecting non-ext4 filesystems (e.g., NTFS/exFAT) helps identify external or cross-platform drives during forensics.
+
+✅ Exam Key Points
+    -> Identify drive and partition designations from `/dev/sd*` paths.
+    -> Understand minor number notation for drive partitions.
+
+
+3. Partition Inspection & Drive Mounting
+--------------------------------------------------------------------------------------------------------------------------------------
+* Inspecting Partitions (`fdisk` & `lsblk`):
+    -> `fdisk -l` : Displays attached storage devices, partition structures, sector sizes, and filesystem signatures.
+    -> `lsblk`    : Displays a clean, tree-structured overview of block devices, their partitions, and active mount points.
+
+* Concept of Mounting:
+    -> A device must be physically connected and then logically attached ("mounted") to access its files.
+    -> Mount Point : The empty target directory where the device is logically attached.
+       - `/mnt`   : Standard manual mount point directory.
+       - `/media` : Standard automatic mount point directory for removable media.
+       - `/etc/fstab` : Configuration file listing filesystems mounted automatically at boot.
+
+* Manual Mounting (`mount`):
+    kali > mount /dev/sdb1 /mnt
+    kali > mount /dev/sdc1 /media
+
+* Unmounting Drives (`umount`):
+    kali > umount /dev/sdb1
+
+    ⚠️ Warning: "umount" is spelled WITHOUT an "n". Busy devices with active read/write operations cannot be unmounted.
+
+📌 Summary
+    -> Inspection → `fdisk -l` or `lsblk` (tree view).
+    -> Attach partition → `mount <device> <mount_point>`
+    -> Detach partition → `umount <device>`
+
+✅ Exam Key Points
+    -> Functions of `fdisk -l` and `lsblk`.
+    -> Correct spelling and usage of `umount` (no 'n').
+    -> Purpose of `/etc/fstab`.
+
+
+4. Filesystem Health & Disk Usage Monitoring
+--------------------------------------------------------------------------------------------------------------------------------------
+* Monitoring Disk Space (`df`):
+    -> Displays storage metrics for mounted storage devices measured in 1KB blocks.
+
+    Usage:
+    kali > df          # Lists usage metrics for all mounted storage devices
+    kali > df sdb      # Displays metrics for a specific target drive
+
+* Checking and Repairing Filesystems (`fsck`):
+    -> Scans and repairs corrupt storage partitions, marking unfixable bad sectors in the bad blocks table.
+
+    ⚠️ CRITICAL RULE: Storage devices MUST be unmounted prior to executing `fsck`. Running `fsck` on a mounted drive will abort.
+
+    Workflow:
+    1. Unmount target partition : kali > umount /dev/sdb1
+    2. Execute repair command   : kali > fsck -p /dev/sdb1
+
+    Flags:
+    -> -p : Automatically repairs detected filesystem issues without interactive prompts.
+
+📌 Summary
+    -> Monitor capacity → `df`
+    -> Repair filesystem → `fsck -p` (Target device must be unmounted first).
+
+✅ Exam Key Points
+    -> Function of `df` (disk free).
+    -> Mandatory prerequisite before running `fsck` (unmount target device).
+    -> Purpose of `fsck -p` flag.
+
+
+5. Supplementary Reference: Combined Tar Compression Flags
+--------------------------------------------------------------------------------------------------------------------------------------
+* Direct Compression During Archiving:
+    -> Instead of bundling with `tar` and compressing in two separate commands, `tar` supports integrated compression flags:
+       - `tar -czvf archive.tar.gz <target>`  : Bundles and compresses using `gzip` (`-z`).
+       - `tar -cjvf archive.tar.bz2 <target>` : Bundles and compresses using `bzip2` (`-j`).
+       - `tar -cZvf archive.tar.Z <target>`   : Bundles and compresses using `compress` (`-Z`).
+
+📌 Summary
+    -> Combine bundling and compression into one step using `-z` (gzip), `-j` (bzip2), or `-Z` (compress).
+
+✅ Exam Key Points
+    -> Integrated `tar` flags for single-step archiving and compression.
+
+
+6. Essential Rules and Best Practices
+--------------------------------------------------------------------------------------------------------------------------------------
+⚠️ Key Rules to Remember:
+
+1. Target Directory Preparation:
+    -> Ensure mount target directories (`/mnt`, `/media`, or custom paths) are empty before mounting devices over them.
+2. Mandatory Unmounting Before Maintenance:
+    -> Always run `umount` before executing `fsck` to prevent severe partition corruption.
+3. Spelling Precision:
+    -> The unmount command is `umount` (spelled without an 'n').
+4. Quick Mapping Tool Selection:
+    -> Use `lsblk` for a rapid visual tree map of partitions and mount points; use `fdisk -l` for deep partition details.
+
+* One-liner to Remember:
+-> Linux maps devices as nodes in `/dev`, attaches partitions via `mount`, maps drive layouts with `lsblk`, monitors capacity with `df`, and repairs unmounted disks using `fsck`.
+
+📌 Summary
+    -> `/dev` nodes → `lsblk` tree → `mount` partition → `df` status → `umount` → `fsck` repair.
+
+✅ Exam Key Points
+    -> Order of operations for mounting, monitoring, and maintaining Linux filesystems.
+
+======================================================================================================================================
