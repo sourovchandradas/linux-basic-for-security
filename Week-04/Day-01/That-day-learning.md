@@ -156,6 +156,8 @@ Example — Checking available disk space across all mounted drives:
 df -h
 
 ```
+#### 🖼️ Terminal Command
+![df-h output](Screenshot/df-h-command.png)
 
 #### 🖼️ Terminal Output
 ![df-h output](Screenshot/df-h-output.png)
