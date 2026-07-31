@@ -181,7 +181,7 @@ fsck -p /dev/sdb1
 ```
 
 #### 🖼️ Terminal Command
-![unmount for fsck](Screenshot/umont-for-fsck.png)
+![unmount for fsck](Screenshot/umount-for-fsck.png)
 ![fsck command](Screenshot/fsck-command.png)
 
 
