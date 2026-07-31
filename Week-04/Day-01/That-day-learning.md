@@ -1,6 +1,6 @@
-# 🐧 Day 22 (Week 04 • Day 01): Filesystem and Storage Device Management
+# 🐧 Day 22 : Filesystem and Storage Device Management
 
-Welcome to Day 01 of Week 04 of my Linux Security learning journey. This document details Linux storage architecture, `/dev` hardware node classifications, drive partitioning standards, manual/automatic mounting mechanisms, and storage monitoring and filesystem repair workflows using utilities like `fdisk`, `lsblk`, `df`, and `fsck`.
+Welcome to Day 22 of my Linux Security learning journey. This document details Linux storage architecture, `/dev` hardware node classifications, drive partitioning standards, manual/automatic mounting mechanisms, and storage monitoring and filesystem repair workflows using utilities like `fdisk`, `lsblk`, `df`, and `fsck`.
 
 ---
 
@@ -65,14 +65,7 @@ Welcome to Day 01 of Week 04 of my Linux Security learning journey. This documen
 Example — Inspecting storage block layout with `lsblk`:
 
 ```bash
-kali > lsblk
-NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sda      8:0    0   80G  0 disk 
-├─sda1   8:1    0   79G  0 part /
-├─sda2   8:2    0    1K  0 part 
-└─sda5   8:5    0  975M  0 part [SWAP]
-sdb      8:16   1 14.9G  0 disk 
-└─sdb1   8:17   1 14.9G  0 part 
+lsblk
 
 ```
 
@@ -89,7 +82,7 @@ sdb      8:16   1 14.9G  0 disk
 Example — Manually mounting a partition (`/dev/sdb1`) to the `/mnt` directory:
 
 ```bash
-kali > mount /dev/sdb1 /mnt
+mount /dev/sdb1 /mnt
 
 ```
 
@@ -100,7 +93,7 @@ kali > mount /dev/sdb1 /mnt
 Example — Safely detaching an unmounted partition using `umount`:
 
 ```bash
-kali > umount /dev/sdb1
+umount /dev/sdb1
 
 ```
 
@@ -118,10 +111,7 @@ kali > umount /dev/sdb1
 Example — Checking available disk space across all mounted drives:
 
 ```bash
-kali > df -h
-Filesystem      Size  Used Avail Use% Mounted on
-/dev/sda1        78G   12G   63G  17% /
-/dev/sdb1        15G  2.4G   13G  16% /mnt
+df -h
 
 ```
 
@@ -140,8 +130,8 @@ Filesystem      Size  Used Avail Use% Mounted on
 Example — Unmounting a damaged partition and running an automated repair:
 
 ```bash
-kali > umount /dev/sdb1
-kali > fsck -p /dev/sdb1
+umount /dev/sdb1
+fsck -p /dev/sdb1
 
 ```
 
@@ -183,5 +173,3 @@ $$\text{Step 1: Check Space } (\texttt{df}) \longrightarrow \text{Step 2: Unmoun
 
 
 ---
-
-*⚡ End of Week 04 • Day 01 Notes • Organized for GitHub & OneNote*
