@@ -26,7 +26,7 @@ Welcome to Day 23 of my Linux Security learning journey. This document details t
 Example — Viewing system logs with bare `journalctl`:
 
 ```bash
-kali > journalctl
+journalctl
 
 ```
 
@@ -46,7 +46,7 @@ kali > journalctl
 * Display syntax and help options:
 
 ```bash
-kali > journalctl -h
+journalctl -h
 
 ```
 #### 🖼️ Terminal Command
@@ -95,7 +95,7 @@ Linux categorizes log messages by severity. **Lower numerical values represent h
 Example — Querying logs by service unit and priority:
 
 ```bash
-kali > journalctl -u apache2 -p err
+journalctl -u apache2 -p err
 
 ```
 #### 🖼️ Terminal Command
@@ -117,7 +117,7 @@ kali > journalctl -u apache2 -p err
 Example — Querying logs triggered by User ID `1000` from the past 24 hours in quiet mode:
 
 ```bash
-kali > journalctl _UID=1000 -q --since "24 hours ago"
+journalctl _UID=1000 -q --since "24 hours ago"
 
 ```
 #### 🖼️ Terminal Command
@@ -132,16 +132,16 @@ kali > journalctl _UID=1000 -q --since "24 hours ago"
 Example — Viewing kernel-level ring buffer messages (`-k`):
 
 ```bash
-kali > journalctl -k --since "24 hours ago"
+journalctl -k --since "24 hours ago"
 
 ```
 #### 🖼️ Terminal Command
-![Journalctl utility kernel command](Screenshot/jounalctl-utility-kernel-command.png)
+![Journalctl utility kernel command](Screenshot/journalctl-utility-kernel-command.png)
 
 #### 🖼️ Terminal Output
-![Journalctl utility kerner Output-01](Screenshot/journalctl-utility-kernel-output-o1.png)
-![Journalctl utility kerner Output-02](Screenshot/journalctl-utility-kernel-output-o2.png)
-![Journalctl utility kerner Output-03](Screenshot/journalctl-utility-kernel-output-o3.png)
+![Journalctl utility kernel Output-01](Screenshot/journalctl-utility-kernel-output-o1.png)
+![Journalctl utility kernel Output-02](Screenshot/journalctl-utility-kernel-output-o2.png)
+![Journalctl utility kernel Output-03](Screenshot/journalctl-utility-kernel-output-o3.png)
 
 ---
 
@@ -150,7 +150,7 @@ kali > journalctl -k --since "24 hours ago"
 * **Selective Vacuuming (`--vacuum-time`):** Truncates archived journal files older than a specified relative timeframe.
 
 ```bash
-kali > sudo journalctl -u apache2 --vacuum-time=1d
+sudo journalctl -u apache2 --vacuum-time=1d
 
 ```
 #### 🖼️ Terminal Command
@@ -170,7 +170,7 @@ kali > sudo journalctl -u apache2 --vacuum-time=1d
 Example — Executing a 10-pass forced secure wipe on journal binary logs:
 
 ```bash
-kali > sudo shred -f -n 10 /var/log/journal/*/*
+sudo shred -f -n 10 /var/log/journal/*/*
 
 ```
 
@@ -240,5 +240,3 @@ $$\texttt{shred -f -n <passes>} \longrightarrow \text{Multi-pass bitwise overwri
 4. **Complete Log Suppression Directive:** Set `Storage=null` in `/etc/systemd/journald.conf` and restart `systemd-journald`.
 
 ---
-
-*⚡ End of Week 04 • Day 02 Notes • Organized for GitHub & OneNote*
