@@ -124,8 +124,8 @@ journalctl -u apache2 -p err
 
 #### 🖼️ Terminal Output
 ![Journalctl -p err output-01](Screenshot/journalctl-p-err-output-01.png)
-![Journalctl -p err output-02](Screenshot/journalctl-p-err-output-02.png)
-![Journalctl -p err output-03](Screenshot/journalctl-p-err-output-03.png)
+![Journalctl -p err output-02](Screenshot/journalctl-p-err-output-01.png)
+![Journalctl -p err output-03](Screenshot/journalctl-p-err-output-01.png)
 
 
 ### 4. 🔍 Advanced `journalctl` Querying Techniques
