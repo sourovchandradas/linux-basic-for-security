@@ -1,6 +1,6 @@
-# 🐧 Day 23 (Week 04 • Day 02): The Logging System
+# 🐧 Day 23 : The Logging System
 
-Welcome to Day 02 of Week 04 of my Linux Security learning journey. This document details the architectural evolution from legacy `syslogd` to `systemd-journald`, structured querying using `journalctl`, log priority and facility filtering, anti-forensic techniques like log vacuuming and multi-pass shredding (`shred`), and neutralizing log generation by configuring `Storage=null`.
+Welcome to Day 23 of my Linux Security learning journey. This document details the architectural evolution from legacy `syslogd` to `systemd-journald`, structured querying using `journalctl`, log priority and facility filtering, anti-forensic techniques like log vacuuming and multi-pass shredding (`shred`), and neutralizing log generation by configuring `Storage=null`.
 
 ---
 
@@ -30,7 +30,14 @@ kali > journalctl
 
 ```
 
+#### 🖼️ Terminal Command
+![Journal utility command](Screenshot/journalctl-command.png)
+
 #### 🖼️ Terminal Output
+![Journal utility output-01](Screenshot/journalctl-output-01.png)
+![Journal utility output-02](Screenshot/journalctl-output-02.png)
+![Journal utility output-03](Screenshot/journalctl-output-03.png)
+![Journal utility output-04](Screenshot/journalctl-output-04.png)
 
 ---
 
@@ -42,6 +49,10 @@ kali > journalctl
 kali > journalctl -h
 
 ```
+#### 🖼️ Terminal Command
+
+
+
 
 #### Key Source & Filtering Flags
 
@@ -87,8 +98,13 @@ Example — Querying logs by service unit and priority:
 kali > journalctl -u apache2 -p err
 
 ```
+#### 🖼️ Terminal Command
+![Journalctl -p err command](Screenshot/journalctl-p-err-command.png)
 
 #### 🖼️ Terminal Output
+![Journalctl -p err output-01](Screenshot/journalctl-p-err-output-01.png)
+![Journalctl -p err output-02](Screenshot/journalctl-p-err-output-02.png)
+![Journalctl -p err output-03](Screenshot/journalctl-p-err-output-03.png)
 
 ---
 
@@ -104,8 +120,12 @@ Example — Querying logs triggered by User ID `1000` from the past 24 hours in 
 kali > journalctl _UID=1000 -q --since "24 hours ago"
 
 ```
+#### 🖼️ Terminal Command
+![journalctl utility by uid command](Screenshot/journalctl-utility-by-uid-command.png)
 
 #### 🖼️ Terminal Output
+![journalctl utility by uid output-01](Screenshot/journalctl-utility-by-uid-output-01.png)
+![journalctl utility by uid output-02](Screenshot/journalctl-utility-by-uid-output-02.png)
 
 ---
 
@@ -115,8 +135,13 @@ Example — Viewing kernel-level ring buffer messages (`-k`):
 kali > journalctl -k --since "24 hours ago"
 
 ```
+#### 🖼️ Terminal Command
+![Journalctl utility kernel command](Screenshot/jounalctl-utility-kernel-command.png)
 
 #### 🖼️ Terminal Output
+![Journalctl utility kerner Output-01](Screenshot/journalctl-utility-kernel-output-o1.png)
+![Journalctl utility kerner Output-02](Screenshot/journalctl-utility-kernel-output-o2.png)
+![Journalctl utility kerner Output-03](Screenshot/journalctl-utility-kernel-output-o3.png)
 
 ---
 
@@ -128,6 +153,12 @@ kali > journalctl -k --since "24 hours ago"
 kali > sudo journalctl -u apache2 --vacuum-time=1d
 
 ```
+#### 🖼️ Terminal Command
+![delete 1 day traks command](Screenshot/delete-1day-tracks-command.png)
+
+#### 🖼️ Terminal Output
+![delete 1 day tracks output](Screenshot/delete-1day-tracks-output.png)
+
 
 * **Standard Deletion (`rm`) vs. Secure Overwriting (`shred`):**
 * **`rm` File Deletion:** Unlinks file metadata pointers; raw binary data remains intact on disk blocks until overwritten, making it easily recoverable via forensics tools.
