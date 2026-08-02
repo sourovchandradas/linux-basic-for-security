@@ -1,1 +1,146 @@
+======================================================================================================================================
+                                       SYSTEM LOGGING AND JOURNAL MANAGEMENT (Part-06)
+======================================================================================================================================
 
+1. Introduction to Linux Logging Frameworks
+--------------------------------------------------------------------------------------------------------------------------------------
+* Evolution of Logging Systems:
+    -> Legacy Framework : `syslog` / `syslogd` stored log files as plain text files in `/var/log`.
+       - High search complexity; required custom shell/grep scripts to parse effectively.
+    -> Modern Framework : `systemd-journald` uses `journalctl` to manage binary log files (`zeroes and ones`).
+       - Standardized across modern Linux distributions (e.g., Kali Linux, Ubuntu, Debian).
+       - Provides fast, automated, and structured querying natively without external text-parsing tools.
+
+* Role in Cybersecurity & Forensics:
+    -> Defensive : Investigating indicators of compromise (IoCs), tracking unauthorized authentication, and post-incident analysis.
+    -> Offensive : Identifying active admin sessions, covering activity footprints, and suppressing or disabling log generation.
+
+📌 Summary
+    -> `syslogd` = Plain text logs (legacy, hard to parse).
+    -> `journald` / `journalctl` = Binary logs (modern, fast, structured querying).
+
+✅ Exam Key Points
+    -> Primary utility for viewing systemd logs: `journalctl`.
+    -> Key difference between `syslogd` (text) and `journald` (binary).
+
+
+2. Log Priorities and Facility Filters
+--------------------------------------------------------------------------------------------------------------------------------------
+* Log Priority Levels (0 to 7):
+    Linux categorizes logs by severity level using standard numerical or textual designations:
+
+    Code | Severity | Description
+    -----+----------+-----------------------------------------------------------
+     0   | emerg    | System is unusable (highest severity).
+     1   | alert    | Action must be taken immediately.
+     2   | crit     | Critical conditions (e.g., hardware/device errors).
+     3   | err      | Non-critical error conditions.
+     4   | warning  | Warning conditions.
+     5   | notice   | Normal but significant condition.
+     6   | info     | Informational messages.
+     7   | debug    | Debug-level messages (lowest severity).
+
+* Querying Logs by Priority (`-p`):
+    -> By Name  : `journalctl -p "emerg"`
+    -> By Number: `journalctl -p 6` (Displays priority 6 and higher severity levels).
+
+* Querying Logs by Service Unit (`-u`):
+    -> Filters log output strictly for a specific systemd service unit.
+    -> Example (Web Server Logs): `journalctl -u apache2`
+    -> Example (SSH Service Logs): `journalctl -u ssh`
+
+📌 Summary
+    -> Priority ranges from 0 (`emerg`) down to 7 (`debug`).
+    -> `-p` filters by priority level; `-u` filters by specific service unit.
+
+✅ Exam Key Points
+    -> Order and numeric values of log priorities (0–7).
+    -> Command syntax for filtering services (`-u`) and priority levels (`-p`).
+
+
+3. Advanced `journalctl` Querying & Filtering
+--------------------------------------------------------------------------------------------------------------------------------------
+* Syntax & Options Overview:
+    `journalctl [OPTIONS...] [MATCHES...]`
+
+* Filtering by Timeframe (`--since` / `--until`):
+    -> Relative Time : `journalctl --since "24 hours ago"`
+    -> Quiet Mode    : `journalctl -q --since "24 hours ago"`
+       - Note: The `-q` (quiet) flag suppresses informational header/footer messages to minimize terminal noise.
+
+* Filtering by User ID (`_UID`):
+    -> User IDs (UIDs) track specific account actions (e.g., Root = UID `0`, Standard Users = UID `>=1000`).
+    -> Example (Filter UID 1000 activity): `journalctl _UID=1000 --since "24 hours ago"`
+
+* Filtering Kernel Messages (`-k` / `--dmesg`):
+    -> Retrieves hardware, driver, and core kernel-level log events.
+    -> Example: `journalctl -k --since "24 hours ago"`
+
+📌 Summary
+    -> Time filter : `--since "24 hours ago"`
+    -> User filter : `_UID=<number>`
+    -> Kernel filter : `-k`
+    -> Quiet flag : `-q`
+
+✅ Exam Key Points
+    -> Using `_UID` field matchers in `journalctl`.
+    -> Purpose of `-q` flag during log queries.
+    -> Purpose of `-k` flag to display kernel/dmesg entries.
+
+
+4. Log Evading, Vacuuming, and Secure File Shredding
+--------------------------------------------------------------------------------------------------------------------------------------
+* Log Vacuuming (`--vacuum-time`):
+    -> Purges archived journal files based on relative age (requires root/sudo).
+    -> Example (Purge logs older than 1 day for Apache):
+       `sudo journalctl -u apache2 --vacuum-time=1d`
+
+* Secure File Deletion (`shred`):
+    -> Standard deletion (`rm`) only unlinks file metadata, leaving raw data recoverable until overwritten.
+    -> `shred` repeatedly overwrites designated target files with random data patterns to prevent forensic recovery.
+
+    Key Command Flags:
+    -> `-f` : Force-change permissions to allow overwriting if necessary.
+    -> `-n` : Specify the exact number of overwrite iterations (default = 4).
+    -> `-u` : Deallocate and remove file after overwriting (optional).
+
+    Execution Examples:
+    -> Shred single file 10 times  : `shred -f -n 10 /var/log/auth.log`
+    -> Shred directory wildcard    : `shred -f -n 10 /var/log/journal/*/*`
+
+📌 Summary
+    -> Truncate/vacuum logs : `journalctl --vacuum-time=<time>`
+    -> Unrecoverable wipe   : `shred -f -n <passes> <target_file>`
+
+✅ Exam Key Points
+    -> Difference between `rm` (metadata unlink) and `shred` (data overwrite).
+    -> `-f` and `-n` flags for the `shred` utility.
+
+
+5. Disabling System Logging
+--------------------------------------------------------------------------------------------------------------------------------------
+* Neutralizing Systemd Journaling (`Storage=null`):
+    -> To prevent the system from writing any log entries to persistent disk storage, the journal daemon can be configured to dump incoming logs directly to `/dev/null`.
+
+* Configuration Workflow:
+    1. Edit the configuration file with administrative rights:
+       `sudo mousepad /etc/systemd/journald.conf` (or `nano` / `vim`)
+
+    2. Locate the `[Journal]` section header:
+       Change line : `#Storage=auto`
+       To value    : `Storage=null`  (Ensure the leading `#` comment symbol is removed).
+
+    3. Reload the daemon to apply changes immediately:
+       `sudo systemctl restart systemd-journald`
+
+📌 Summary
+    -> Config path  : `/etc/systemd/journald.conf`
+    -> Directive    : `Storage=null`
+    -> Apply change : `systemctl restart systemd-journald`
+
+✅ Exam Key Points
+    -> File location for configuring journald: `/etc/systemd/journald.conf`.
+    -> Setting `Storage=null` drops all incoming log streams.
+    -> Command needed to apply daemon configuration changes (`systemctl restart`).
+
+======================================================================================================================================
