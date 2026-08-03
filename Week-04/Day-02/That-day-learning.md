@@ -182,8 +182,8 @@ journalctl -k --since "24 hours ago"
 
 #### 🖼️ Terminal Output
 ![Journalctl utility kernel Output-01](Screenshot/journalctl-utility-kernel-output-01.png)
-![Journalctl utility kernel Output-02](Screenshot/journalctl-utility-kernel-output-o2.png)
-![Journalctl utility kernel Output-03](Screenshot/journalctl-utility-kernel-output-o3.png)
+![Journalctl utility kernel Output-02](Screenshot/journalctl-utility-kernel-output-02.png)
+![Journalctl utility kernel Output-03](Screenshot/journalctl-utility-kernel-output-03.png)
 
 ---
 
