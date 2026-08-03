@@ -57,7 +57,13 @@ journalctl
 journalctl -h
 
 ```
+#### 🖼️ Terminal Command
+![Journalctl -h command](Screenshot/journalctl-help-command.png)
 
+#### 🖼️ Terminal Output
+![Journalctl -h output-01](Screenshot/journalctl-help-output-01.png)
+![Journalctl -h output-02](Screenshot/journalctl-help-output-02.png)
+![Journalctl -h output-03](Screenshot/journalctl-help-output-03.png)
 
 * Syntax Structure: `journalctl [OPTIONS...] [MATCHES...]`
 
