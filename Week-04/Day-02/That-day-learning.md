@@ -123,7 +123,7 @@ journalctl -p "err"
 
 * **By Number:** `journalctl -p 6` (Displays priority 6 (`info`) and all higher severity levels 0–5).
 ```bash
-journalctl -p "err"
+journalctl -p 6
 
 ```
 #### 🖼️ Terminal Command
