@@ -190,9 +190,6 @@ journalctl _UID=1000 --since "24 hours ago"
 ![Utility Kernel command](Screenshot/journalctl-utility-kernel-command.png)
 
 #### 🖼️ Terminal Output
-![Utility Kerner output-01](Screenshot/journalctl-utility-kerner-output-01.png)
-![Utility Kerner output-02](Screenshot/journalctl-utility-kerner-output-02.png)
-![Utility Kerner output-03](Screenshot/journalctl-utility-kerner-output-03.png)
 
 Example — Querying logs triggered by User ID `1000` from the past 24 hours in quiet mode:
 
@@ -307,7 +304,8 @@ kali > sudo systemctl restart systemd-journald
 
 
 
-#### 🖼️ Terminal Output
+#### 🖼️ Terminal Command
+![System journald restart command](Screenshot/system-journald-restart-command.png)
 
 ---
 
