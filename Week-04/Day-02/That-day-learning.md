@@ -110,14 +110,29 @@ Linux categorizes logs by severity level using standard numerical or textual des
 * **Querying Logs by Priority (`-p`):**
 * **By Name:**
 ```bash
-journalctl -p "emerg"
+journalctl -p "err"
 
 ```
 #### 🖼️ Terminal Command
-![
+![-p err command](Screenshot/journalctl-p-err-command.png)
+
+#### 🖼️ Terminal Output
+![-p err output-01](Screenshot/journalctl-p-err-output-01.png)
+![-p err output-02](Screenshot/journalctl-p-err-output-02.png)
+![-p err output-03](Screenshot/journalctl-p-err-output-03.png)
 
 * **By Number:** `journalctl -p 6` (Displays priority 6 (`info`) and all higher severity levels 0–5).
+```bash
+journalctl -p "err"
 
+```
+#### 🖼️ Terminal Command
+![-p by number command](Screenshot/journalctl-p-by-number-command.png)
+
+#### 🖼️ Terminal Output
+![-p by number output-01](Screenshot/journalctl-p-by-number-output-01.png)
+![-p by number output-02](Screenshot/journalctl-p-by-number-output-02.png)
+![-p by number output-03](Screenshot/journalctl-p-by-number-output-03.png)
 
 * **Querying Logs by Service Unit (`-u`):**
 * Isolates events for a specific system daemon or service unit.
@@ -131,10 +146,6 @@ journalctl -u apache2
 
 #### 🖼️ Terminal Command
 ![Utility Output](Screenshot/journalctl-utility-output.png)
-
-* **SSH Example:** `journalctl -u ssh`
-
-
 
 Example — Querying logs by service unit and priority:
 
@@ -159,7 +170,12 @@ journalctl --since "24 hours ago"
 
 ```
 #### 🖼️ Terminal Command
+![--since 24 hours ago command](Screenshot/journalctl--since-24hours-ago-command.png)
 
+#### 🖼️ Terminal Output
+![--since 24 hours ago output-01](Screenshot/journalctl--since-24hours-ago-output-01.png)
+![--since 24 hours ago output-02](Screenshot/journalctl--since-24hours-ago-output-02.png)
+![--since 24 hours ago output-03](Screenshot/journalctl--since-24hours-ago-output-03.png)
 
 * **Quiet Flag (`-q`):**
 * Suppresses noisy, non-essential status lines, headers, and metadata to lower terminal noise and footprint.
