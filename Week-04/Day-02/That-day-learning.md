@@ -121,7 +121,17 @@ journalctl -p "emerg"
 
 * **Querying Logs by Service Unit (`-u`):**
 * Isolates events for a specific system daemon or service unit.
-* **Apache Example:** `journalctl -u apache2`
+* **Apache Example:**
+```bash
+journalctl -u apache2
+
+```
+#### 🖼️ Terminal Command
+![Utility command](Screenshot/journalctl-utility-command.png)
+
+#### 🖼️ Terminal Command
+![Utility Output](Screenshot/journalctl-utility-output.png)
+
 * **SSH Example:** `journalctl -u ssh`
 
 
