@@ -132,7 +132,6 @@ journalctl -p "err"
 #### 🖼️ Terminal Output
 ![-p by number output-01](Screenshot/journalctl-p-by-number-output-01.png)
 ![-p by number output-02](Screenshot/journalctl-p-by-number-output-02.png)
-![-p by number output-03](Screenshot/journalctl-p-by-number-output-03.png)
 
 * **Querying Logs by Service Unit (`-u`):**
 * Isolates events for a specific system daemon or service unit.
