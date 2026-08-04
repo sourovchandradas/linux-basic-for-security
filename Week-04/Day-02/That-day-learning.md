@@ -280,10 +280,13 @@ kali > sudo shred -f -n 10 /var/log/journal/subdirectory name*.*
 * **Operational Execution Steps:**
 1. Open configuration file with elevated privileges:
 ```bash
-kali > sudo mousepad /etc/systemd/journald.conf
+sudo mousepad /etc/systemd/journald.conf
 
 ```
-
+#### 🖼️ Terminal Command
+![Disable logging with mousepad command](Screenshot/disabling-logging-with-mousepad-command.png)
+#### 🖼️ Terminal Output
+![Disable logging with mousepad interface](Screenshot/disabling-logging-with-mousepad-interface.png)
 
 2. Edit directive under the `[Journal]` section header:
 * **Default line:** `#Storage=auto`
@@ -292,7 +295,7 @@ kali > sudo mousepad /etc/systemd/journald.conf
 
 3. Reload service to apply changes immediately:
 ```bash
-kali > sudo systemctl restart systemd-journald
+sudo systemctl restart systemd-journald
 
 ```
 
