@@ -234,7 +234,7 @@ journalctl _UID=1000 -q --since "24 hours ago"
 Example — Viewing kernel-level ring buffer messages (`-k`):
 
 ```bash
-journalctl -k --since "24 hours ago"
+sudo journalctl -k --since "24 hours ago"
 
 ```
 #### 🖼️ Terminal Command
