@@ -108,7 +108,14 @@ Linux categorizes logs by severity level using standard numerical or textual des
 | **7** | `debug` | Debug-level messages (lowest severity). |
 
 * **Querying Logs by Priority (`-p`):**
-* **By Name:** `journalctl -p "emerg"`
+* **By Name:**
+```bash
+journalctl -p "emerg"
+
+```
+#### 🖼️ Terminal Command
+![
+
 * **By Number:** `journalctl -p 6` (Displays priority 6 (`info`) and all higher severity levels 0–5).
 
 
@@ -137,24 +144,55 @@ journalctl -u apache2 -p err
 ### 4. 🔍 Advanced `journalctl` Querying Techniques
 
 * **Human-Language Time Queries (`--since`):**
-* Syntax: `journalctl --since "24 hours ago"`
+```bash
+journalctl --since "24 hours ago"
+
+```
+#### 🖼️ Terminal Command
 
 
 * **Quiet Flag (`-q`):**
 * Suppresses noisy, non-essential status lines, headers, and metadata to lower terminal noise and footprint.
-* Command: `journalctl -q --since "24 hours ago"`
+```bash
+journalctl -q --since "24 hours ago"
+
+```
+#### 🖼️ Terminal Command
+![Query previous 24 hours command](Screenshot/query-prev-24-hours-command.png)
+
+#### 🖼️ Terminal Output
+![Query previous 24 hours output-01](Screenshot/query-prev-24-hours-output-01.png)
+![Query previous 24 hours output-02](Screenshot/query-prev-24-hours-output-02.png)
+![Query previous 24 hours output-03](Screenshot/query-prev-24-hours-output-03.png)
 
 
 * **Querying Events by User ID (`_UID`):**
 * Filter journal events based on the user account that triggered them (Root UID = `0`, Default standard user UID = `1000`).
-* Command: `journalctl _UID=1000 --since "24 hours ago"`
+```bash
+journalctl _UID=1000 --since "24 hours ago"
+
+```
+#### 🖼️ Terminal Command
+![Utility by UID command](Screenshot/journalctl-utility-by-uid-command.png)
+
+#### 🖼️ Terminal Output
+![Utility by UID output-01](Screenshot/journal-utility-by-uid-output-01.png)
+![Utility by UID output-02](Screenshot/journal-utility-by-uid-output-02.png)
 
 
 * **Kernel Ring Buffer / Message Filtering (`-k`):**
 * Kernel controls core OS execution; `-k` focuses strictly on kernel-level logs (e.g., hardware/RAM maps, driver initializations).
-* Command: `journalctl -k --since "24 hours ago"`
+```bash
+journalctl _UID=1000 --since "24 hours ago"
 
+```
+#### 🖼️ Terminal Command
+![Utility Kernel command](Screenshot/journalctl-utility-kernel-command.png)
 
+#### 🖼️ Terminal Output
+![Utility Kerner output-01](Screenshot/journalctl-utility-kerner-output-01.png)
+![Utility Kerner output-02](Screenshot/journalctl-utility-kerner-output-02.png)
+![Utility Kerner output-03](Screenshot/journalctl-utility-kerner-output-03.png)
 
 Example — Querying logs triggered by User ID `1000` from the past 24 hours in quiet mode:
 
