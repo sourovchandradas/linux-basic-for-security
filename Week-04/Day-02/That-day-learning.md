@@ -188,7 +188,7 @@ journalctl -q --since "24 hours ago"
 
 #### 🖼️ Terminal Output
 ![Query previous 24 hours output-01](Screenshot/query-prev-24-hours-output-01.png)
-![Query previous 24 hours output-02](Screenshot/query-prev-24-hours-output-02.png)
+![Query previous 24 hours output-02](Screenshot/journalctl-q--since-24hours-ago-output-02.png)
 ![Query previous 24 hours output-03](Screenshot/query-prev-24-hours-output-03.png)
 
 
