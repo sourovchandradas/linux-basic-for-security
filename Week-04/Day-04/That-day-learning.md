@@ -46,11 +46,13 @@ Linux uses two primary frameworks for service initiation and runtime control:
  ![Service Start Command](Screenhsot/service-start-command.png)
  #### 🖼️ Terminal Output
   ![Service Start Output](Screenhsot/service-start-output.png)
+  
 **Stop Service**
  #### 🖼️ Terminal Command
   ![Service Stop Command](Screenhsot/service-stop-command.png)
  #### 🖼️ Terminal Output
   ![Service Stop Output](Screenhsot/service-stop-output.png)
+  
 **Stop Service**
  #### 🖼️ Terminal Command
   ![Service Restart Command](Screenhsot/service-restart-command.png)
