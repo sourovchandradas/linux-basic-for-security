@@ -106,6 +106,9 @@ sudo systemctl restart apache2
 sudo apt install apache2
 
 ```
+#### 🖼️ Terminal Command
+
+![apache2 install command](Screenshot/apache2-install-command.png)
 
 
 2. **Execution & Status Verification:**
@@ -115,7 +118,12 @@ sudo systemctl status apache2
 
 ```
 #### 🖼️ Terminal Command
-!
+![Status-01](Screenshot/status-01.png)
+
+![Status-02](Screenshot/status-02.png)
+
+#### 🖼️ Terminal Output
+![Status-03](Screenshot/status-03.png)
 
 
 3. **Browser Verification:**
@@ -134,8 +142,8 @@ Navigate to `http://localhost/` or `[http://127.0.0.1/](http://127.0.0.1/)` in a
 sudo mousepad /var/www/html/index.html
 
 ```
-
-
+#### 🖼️ Terminal Command
+[mousepad index.html command](Screenshot/mousepad-index.html-command.png)
 
 Example — Overwriting `/var/www/html/index.html` with custom HTML payload:
 
@@ -152,6 +160,9 @@ Example — Overwriting `/var/www/html/index.html` with custom HTML payload:
 After saving the file, refresh `http://localhost/` to view the updated web page.
 
 #### 🖼️ Terminal Output
+![mousepad index.html output-01](Screenshot/mousepad-index.html-output-01.png)
+![mousepad index.html output-02](Screenshot/mousepad-index.html-output-02.png)
+![mousepad index.html output-03](Screenshot/mosuepad-index.html-output-03.png)
 
 ---
 
