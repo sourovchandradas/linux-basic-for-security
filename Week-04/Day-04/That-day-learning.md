@@ -43,6 +43,10 @@ Linux uses two primary frameworks for service initiation and runtime control:
 
 
 **Start Service**
+```bash
+sudo systemctl start apache2
+
+```
 #### 🖼️ Terminal Command
 ![Service Start Command](Screenshot/service-start-command.png)
 
@@ -50,6 +54,10 @@ Linux uses two primary frameworks for service initiation and runtime control:
 ![Service start output](Screenshot/service-start-output.png)
   
 **Stop Service**
+```bash
+sudo systemctl stop apache2
+
+```
 #### 🖼️ Terminal Command
 ![Service stop command](Screenshot/service-stop-command.png)
 
@@ -57,6 +65,10 @@ Linux uses two primary frameworks for service initiation and runtime control:
 ![Service stop output](Screenshot/service-stop-output.png)
   
 **Stop Service**
+```bash
+sudo systemctl restart apache2
+
+```
 #### 🖼️ Terminal Command
 ![Service restart command](Screenshot/service-restart-command.png)
 
@@ -102,6 +114,8 @@ sudo systemctl start apache2
 sudo systemctl status apache2
 
 ```
+#### 🖼️ Terminal Command
+!
 
 
 3. **Browser Verification:**
