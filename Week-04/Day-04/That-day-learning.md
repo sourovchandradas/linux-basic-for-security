@@ -1,6 +1,6 @@
-# 🐧 Day 24 (Week 04 • Day 03): Using and Abusing Services (Part 01)
+# 🐧 Day 25 : Using and Abusing Services (Part 01)
 
-Welcome to Day 03 of Week 04 of my Linux Security learning journey. This document covers background service management mechanics using `systemctl` and legacy `service`, setting up and customizing an Apache2 HTTP web server for payload delivery and phishing, and constructing a covert remote surveillance node using OpenSSH and a Raspberry Pi ("Raspberry Spy Pi").
+Welcome to Day 25 of my Linux Security learning journey. This document covers background service management mechanics using `systemctl` and legacy `service`, setting up and customizing an Apache2 HTTP web server for payload delivery and phishing, and constructing a covert remote surveillance node using OpenSSH and a Raspberry Pi ("Raspberry Spy Pi").
 
 ---
 
@@ -68,15 +68,15 @@ Linux uses two primary frameworks for service initiation and runtime control:
 
 1. **Installation:**
 ```bash
-kali > sudo apt install apache2
+sudo apt install apache2
 
 ```
 
 
 2. **Execution & Status Verification:**
 ```bash
-kali > sudo systemctl start apache2
-kali > sudo systemctl status apache2
+sudo systemctl start apache2
+sudo systemctl status apache2
 
 ```
 
@@ -94,7 +94,7 @@ Navigate to `http://localhost/` or `[http://127.0.0.1/](http://127.0.0.1/)` in a
 * **Default Landing Entry Point:** `/var/www/html/index.html`
 * **Editing Command:**
 ```bash
-kali > sudo mousepad /var/www/html/index.html
+sudo mousepad /var/www/html/index.html
 
 ```
 
@@ -103,7 +103,6 @@ kali > sudo mousepad /var/www/html/index.html
 Example — Overwriting `/var/www/html/index.html` with custom HTML payload:
 
 ```html
-<!DOCTYPE html>
 <html>
   <body>
     <h1>Hackers-Arise Is the Best!</h1>
@@ -127,7 +126,7 @@ After saving the file, refresh `http://localhost/` to view the updated web page.
 * **Security Features:** Access Control Lists (ACLs), public/private key pairs or password authentication, end-to-end traffic encryption.
 * **Local Service Execution:**
 ```bash
-kali > sudo systemctl start ssh
+sudo systemctl start ssh
 
 ```
 
@@ -188,7 +187,7 @@ pi@raspberrypi:~ $ ifconfig
 From your Kali Linux host terminal, initiate an SSH shell session targeting the Pi's private IP address:
 
 ```bash
-kali > ssh pi@192.168.1.101
+ssh pi@192.168.1.101
 
 ```
 
@@ -278,4 +277,3 @@ $$\text{Modern Raspberry Pi OS } \longrightarrow \texttt{rpicam-still --output <
 
 ---
 
-*⚡ End of Week 04 • Day 03 Notes • Organized for GitHub & OneNote*
