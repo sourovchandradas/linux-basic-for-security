@@ -47,19 +47,22 @@ Linux uses two primary frameworks for service initiation and runtime control:
 ![Service Start Command](Screenshot/service-start-command.png)
 
 #### 🖼️ Terminal Output
-![Service start output](Screenshot/service-start-command.png)
+![Service start output](Screenshot/service-start-output.png)
   
 **Stop Service**
 #### 🖼️ Terminal Command
-![Service Stop Command](Screenhsot/service-stop-command.png)
+![Service stop command](Screenshot/service-stop-command.png)
+
 #### 🖼️ Terminal Output
-![Service Stop Output](Screenhsot/service-stop-output.png)
+![Service stop output](Screenshot/service-stop-output.png)
   
 **Stop Service**
- #### 🖼️ Terminal Command
- ![Service Restart Command](Screenhsot/service-restart-command.png)
- #### 🖼️ Terminal Output
- ![Service Restart Output](Screenhsot/service-restart-output.png)
+#### 🖼️ Terminal Command
+![Service restart command](Screenshot/service-restart-command.png)
+
+#### 🖼️ Terminal Output
+![Service restart output](Screenshot/service-restart-output.png)
+
  
 > 📌 **Critical Architectural Rule:** Modifying a service configuration file on disk (e.g., `/etc/apache2/apache2.conf`) does **not** alter the running process. You MUST restart (`restart`) or reload (`reload`) the service daemon to force it to re-read configuration changes from disk into volatile RAM memory.
 
