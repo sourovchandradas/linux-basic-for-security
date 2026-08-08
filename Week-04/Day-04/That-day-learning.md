@@ -41,13 +41,13 @@ Linux uses two primary frameworks for service initiation and runtime control:
 | **Check Status** | `service apache2 status` | `sudo systemctl status apache2` |
 | **Enable on Boot** | `update-rc.d apache2 enable` | `sudo systemctl enable apache2` |
 
-![Service Start Command](Screenhsot/service-start-command.png)
 
 **Start Service**
 #### 🖼️ Terminal Command
-![Service Start Command](Screenhsot/service-start-command.png)
+![Service Start Command](Screenshot/service-start-command.png)
+
 #### 🖼️ Terminal Output
-![Service Start Output](Screenhsot/service-start-output.png)
+![Service start output](Screenshot/service-start-command.png)
   
 **Stop Service**
 #### 🖼️ Terminal Command
