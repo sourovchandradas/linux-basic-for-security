@@ -125,9 +125,10 @@ sudo systemctl status apache2
 
 #### 🖼️ Terminal Command
 
+![Status-03](Screenshot/status-03.png)
 
 #### 🖼️ Terminal Output
-![Status-03](Screenshot/status-03.png)
+![Status-04](Screenshot/status-04.png)
 
 
 3. **Browser Verification:**
