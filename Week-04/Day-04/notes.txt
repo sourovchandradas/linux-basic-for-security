@@ -32,10 +32,15 @@
     Action            | Legacy Syntax (`service`)      | Modern Syntax (`systemctl`)
     ------------------+--------------------------------+----------------------------------------
     Start Service     | service apache2 start          | sudo systemctl start apache2
+    ------------------+--------------------------------+----------------------------------------
     Stop Service      | service apache2 stop           | sudo systemctl stop apache2
+    ------------------+--------------------------------+----------------------------------------
     Restart Service   | service apache2 restart        | sudo systemctl restart apache2
+    ------------------+--------------------------------+----------------------------------------
     Check Status      | service apache2 status         | sudo systemctl status apache2
+    ------------------+--------------------------------+----------------------------------------
     Enable on Boot    | update-rc.d apache2 enable     | sudo systemctl enable apache2
+    ------------------+--------------------------------+----------------------------------------
 
 📌 Critical Architectural Concept:
     -> When you modify a service's plain-text configuration file (e.g., `/etc/apache2/apache2.conf`), the changes exist ONLY on disk.
@@ -84,48 +89,50 @@
 4. REMOTE ACCESS & SURVEILLANCE VIA OPENSSH ("RASPBERRY SPY PI")
 --------------------------------------------------------------------------------------------------------------------------------------
 * SSH (Secure Shell) Protocol Mechanics:
-    - Runs on Default Port 22.
-    - Encrypted replacement for Telnet, RLOGIN, and RSH.
-    - Security Features : Access Control Lists (ACLs), public/private key or encrypted password authentication, end-to-end traffic encryption.
-    - Usage : Admins manage remote servers; attackers maintain persistent access to compromised targets.
-    - Local Kali Start  : `sudo systemctl start ssh`
+    -> Runs on Default Port 22.
+    -> Encrypted replacement for Telnet, RLOGIN, and RSH.
+    -> Security Features : Access Control Lists (ACLs), public/private key or encrypted password authentication, end-to-end traffic
+       encryption.
+    -> Usage : Admins manage remote servers; attackers maintain persistent access to compromised targets.
+    -> Local Kali Start  : `sudo systemctl start ssh`
 
 * Raspberry Spy Pi Project Overview:
-    - Concept   : Transform a credit-card-sized computer into a covert, remote surveillance platform.
-    - Hardware  : Raspberry Pi board (~$50) + Raspberry Pi Camera Module (~$15).
-    - OS        : Raspberry Pi OS (formerly Raspbian) – Debian port optimized for ARM CPUs.
-    - Legacy Default Credentials : Username: `pi` | Password: `raspberry`
+    -> Concept   : Transform a credit-card-sized computer into a covert, remote surveillance platform.
+    -> Hardware  : Raspberry Pi board (~$50) + Raspberry Pi Camera Module (~$15).
+    -> OS        : Raspberry Pi OS (formerly Raspbian) – Debian port optimized for ARM CPUs.
+    -> Legacy Default Credentials : Username: `pi` | Password: `raspberry`
 
 * Step-by-Step Hardware & Network Deployment:
     1. Enable SSH Service on Pi :
-       - GUI Method : Preferences -> Raspberry Pi Configuration -> Interfaces -> Enable SSH -> Click OK.
-       - CLI Method : `sudo systemctl start ssh`
+       -> GUI Method : Preferences -> Raspberry Pi Configuration -> Interfaces -> Enable SSH -> Click OK.
+       -> CLI Method : `sudo systemctl start ssh`
     2. Attach Camera Module :
-       - SHUT DOWN the Raspberry Pi completely.
-       - Insert ribbon cable into the dedicated camera interface port.
-       - ⚠️ CRITICAL WARNING: The camera module is fragile. Never allow camera circuitry or ribbon leads to contact GPIO pins (will cause a fatal short circuit).
-       - Power ON the Raspberry Pi.
+       -> SHUT DOWN the Raspberry Pi completely.
+       -> Insert ribbon cable into the dedicated camera interface port.
+       -> ⚠️ CRITICAL WARNING: The camera module is fragile. Never allow camera circuitry or ribbon leads to contact GPIO pins (will
+                                cause a fatal short circuit).
+       -> Power ON the Raspberry Pi.
     3. Network Enumeration :
-       - Connect Pi to local network via Ethernet or Wi-Fi.
-       - Run `ifconfig` in Pi terminal to obtain private IP address (e.g., `192.168.1.101`).
+       -> Connect Pi to local network via Ethernet or Wi-Fi.
+       -> Run `ifconfig` in Pi terminal to obtain private IP address (e.g., `192.168.1.101`).
     4. Establish Remote Control via SSH (from Kali Linux) :
-       - Command : `ssh pi@192.168.1.101`
-       - Enter default password (`raspberry`) when prompted.
+       -> Command : `ssh pi@192.168.1.101`
+       -> Enter default password (`raspberry`) when prompted.
 
 * Camera Configuration & Remote Surveillance Execution:
     1. Launch Configuration Utility :
-       - Command : `sudo raspi-config`
-       - Navigation : Select Option 6 (Interface Options / Enable Camera) -> Enable -> Finish.
-       - Reboot System when prompted.
+       -> Command : `sudo raspi-config`
+       -> Navigation : Select Option 6 (Interface Options / Enable Camera) -> Enable -> Finish.
+       -> Reboot System when prompted.
     2. Remote Image Capture Commands :
-       - Re-establish SSH connection post-reboot (`ssh pi@192.168.1.101`).
-       - Legacy Raspbian Command (`raspistill`) :
+       -> Re-establish SSH connection post-reboot (`ssh pi@192.168.1.101`).
+       -> Legacy Raspbian Command (`raspistill`) :
          `raspistill -v -o firstpicture.jpg`
          * `-v` = Verbose diagnostic output
          * `-o` = Output path/filename
-       - Modern Raspberry Pi OS Command (`rpicam-still`) :
+       -> Modern Raspberry Pi OS Command (`rpicam-still`) :
          `rpicam-still --output firstpicture.jpg`
     3. Verification :
-       - Run `ls -l` in the remote terminal to verify that `firstpicture.jpg` was written to disk.
+       -> Run `ls -l` in the remote terminal to verify that `firstpicture.jpg` was written to disk.
 
 ======================================================================================================================================
