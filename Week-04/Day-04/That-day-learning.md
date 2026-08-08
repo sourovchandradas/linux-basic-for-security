@@ -110,6 +110,9 @@ sudo apt install apache2
 
 ![apache2 install command](Screenshot/apache2-install-command.png)
 
+#### 🖼️ Terminal Output
+
+![Status-01](Screenshot/status-01.png)
 
 2. **Execution & Status Verification:**
 ```bash
