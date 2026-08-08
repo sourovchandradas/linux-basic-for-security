@@ -110,10 +110,6 @@ sudo apt install apache2
 
 ![apache2 install command](Screenshot/apache2-install-command.png)
 
-#### 🖼️ Terminal Output
-
-![Status-01](Screenshot/status-01.png)
-
 2. **Execution & Status Verification:**
 ```bash
 sudo systemctl start apache2
@@ -123,7 +119,12 @@ sudo systemctl status apache2
 #### 🖼️ Terminal Command
 ![Status-01](Screenshot/status-01.png)
 
+#### 🖼️ Terminal Output
+
 ![Status-02](Screenshot/status-02.png)
+
+#### 🖼️ Terminal Command
+
 
 #### 🖼️ Terminal Output
 ![Status-03](Screenshot/status-03.png)
