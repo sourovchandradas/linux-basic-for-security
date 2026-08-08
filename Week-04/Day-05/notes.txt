@@ -1,1 +1,170 @@
+======================================================================================================================================
+                         DATABASE FUNDAMENTALS: MYSQL & MARIADB (MASTER STUDY & PRACTICAL LAB GUIDE)
+======================================================================================================================================
 
+1. INTRODUCTION TO MYSQL & MARIADB
+--------------------------------------------------------------------------------------------------------------------------------------
+* Core Significance in Web Architecture:
+    -> MySQL is the most widely deployed relational database engine running at the backend of modern web applications.
+    -> MariaDB is an open-source, community-developed binary drop-in replacement for MySQL (created as a fork after Oracle's acquisition).
+    -> Modern websites are almost entirely database-driven; critical user credentials, PII (Personally Identifiable Information), 
+       and financial records (e.g., credit cards) reside within these databases.
+    -> Primary Target for Attackers : Exfiltrating sensitive target data via backend database exploitation (e.g., SQL Injection).
+
+* Licensing & Industry Adoption:
+    -> Open-Source Footprint : Released under the GNU General Public License (GPL).
+    -> Enterprise & Web Scale : Powers platforms like Facebook, Twitter (X), LinkedIn, YouTube, Wikipedia, Walmart.com, and Kayak.
+    -> Content Management Systems (CMS) : Core backend engine for WordPress, Joomla, Drupal, and Ruby on Rails.
+
+* Historical Evolution & Licensing Context:
+    - 1995 : Originally created by MySQL AB (Sweden).
+    - 2008 : Acquired by Sun Microsystems.
+    - 2009 : Oracle Corporation acquired Sun Microsystems, gaining ownership of MySQL.
+    - Community Response : Concerns over Oracle's open-source commitment led to the creation of MariaDB (pledged to remain 100% open-source).
+
+
+2. SERVICE INITIATION AND AUTHENTICATION MECHANICS
+--------------------------------------------------------------------------------------------------------------------------------------
+* Pre-installation Status:
+    -> Pre-installed in security-focused distributions like Kali Linux and standard Linux repositories.
+    -> Official download portal : https://www.mysql.com/downloads/
+
+* Starting the Database Service (CLI):
+    - Systemd Command : sudo systemctl start mysql
+    - Legacy Command  : sudo service mysql start
+
+* Initial Authentication & Security Vulnerability:
+    - Root Authentication Command : sudo mysql -u root -p
+      * `-u root` : Specifies the root administrative user.
+      * `-p`      : Prompts for the user password.
+    
+    ⚠️ CRITICAL VULNERABILITY (Default Out-of-the-Box Configuration):
+      -> On fresh default installations, the administrative `root` user password is BLANK (EMPTY).
+      -> Hitting 'Enter' without typing a password allows full administrative access.
+      -> System OS credentials and Database credentials are completely SEPARATE user systems.
+
+
+3. STRUCTURED QUERY LANGUAGE (SQL) FUNDAMENTALS
+--------------------------------------------------------------------------------------------------------------------------------------
+* What is SQL?
+    -> Structured Query Language is an interpreted domain-specific language used to manage, query, and manipulate relational databases.
+    -> Data is organized into structured tables consisting of rows (records) and columns (attributes).
+
+* Core SQL Data Manipulation Statements:
+    - SELECT : Retrieves records from one or more tables.
+    - UNION  : Combines the result sets of two or more SELECT queries into a single result set.
+    - INSERT : Appends new data rows into a target table.
+    - UPDATE : Modifies existing data fields within a table.
+    - DELETE : Removes specified rows from a database table.
+
+* Conditional Filtering (`WHERE` Clause):
+    -> Allows precise targeting of records matching specific logical constraints.
+    -> Example Query :
+       SELECT user, password FROM customers WHERE user='admin';
+    -> Operational Function : Extracts and returns the `user` and `password` fields from the `customers` table ONLY where the username matches 'admin'.
+
+
+4. DATABASE HARDENING: SETTING AND VERIFYING PASSWORDS
+--------------------------------------------------------------------------------------------------------------------------------------
+* Step 1: Enumerating Existing Database Users
+    -> Execute Query : SELECT user, host, password FROM mysql.user;
+    -> Finding : Confirms that the `root` account at `localhost` lacks password protection.
+
+* Step 2: Listing Default System Databases
+    -> Execute Query : SHOW DATABASES;
+    -> Default System Databases Include:
+       - `information_schema` : System metadata, table definitions, and column schemas.
+       - `mysql`              : Core administrative database (user permissions, authentication hashes).
+       - `performance_schema` : System resource monitoring and performance metrics.
+       - `sys`                : Analytical views over performance_schema.
+
+* Step 3: Selecting Administrative Context
+    -> Execute Query : USE mysql;
+
+* Step 4: Configuring Root Password
+    -> Execute Query : SET PASSWORD FOR 'root'@'localhost' = PASSWORD('hackers-arise');
+    -> Function      : Assigns the string `hackers-arise` as the encrypted authentication credential for `root`.
+
+* Step 5: Verification & Hashing Mechanics
+    -> Re-run Query  : SELECT user, host, password FROM mysql.user;
+    -> Observation   : The plain-text password is converted into a cryptographic hash string.
+    -> Security Rule : MySQL/MariaDB never stores plain-text passwords on disk; authentication relies on one-way cryptographic hashing.
+
+
+5. LOCAL & REMOTE DATABASE ACCESS MECHANICS
+--------------------------------------------------------------------------------------------------------------------------------------
+* Local Database Connection Syntax:
+    - CLI Command : mysql -u <username> -p
+    - Behavior    : Implicitly targets `localhost` (127.0.0.1) on default TCP Port 3306.
+
+* Remote Database Connection Syntax:
+    - CLI Command : mysql -u root -p 192.168.1.101
+    - Function    : Attempts a TCP network handshake with the MySQL daemon running at IP `192.168.1.101`.
+
+* Interface Considerations (CLI vs. GUI):
+    - CLI Prompt (`mysql>`) : The primary operational interface for penetration testers and remote administrators (remote GUIs are rarely exposed).
+    - Popular GUI Tools      : MySQL Workbench (Native), Navicat, TOAD for MySQL.
+
+* Command Syntax Rules:
+    -> EVERY SQL command or CLI statement MUST terminate with a semicolon (`;`) or `\g`.
+    -> Terminal Help Commands : `help;` or `\h`
+
+
+6. ENUMERATION & EXFILTRATION WORKFLOW (STEP-BY-STEP)
+--------------------------------------------------------------------------------------------------------------------------------------
+* Step 1: Discovering Target Databases
+    - Query  : SHOW DATABASES;
+    - Output : Lists all databases available to the authenticated user context (e.g., `creditcardnumbers`).
+
+* Step 2: Switching Active Working Context
+    - Query  : USE creditcardnumbers;
+    - Output : `Database changed`
+
+* Step 3: Enumerating Database Tables
+    - Query  : SHOW TABLES;
+    - Output : Displays tables defined within the selected database (e.g., `cardnumbers`).
+
+* Step 4: Inspecting Schema and Column Architecture
+    - Query  : DESCRIBE cardnumbers;  (Alternative: `EXPLAIN cardnumbers;`)
+    - Output Breakdown (Columns & Data Types) :
+       Field     | Type
+       ----------+-------------
+       customers | varchar(15)
+       address   | varchar(15)
+       city      | varchar(15)
+       state     | varchar(15)
+       cc        | int(12)
+
+* Step 5: Exfiltrating Table Records
+    - Exfiltrate Specific Columns :
+      SELECT customers, cc FROM cardnumbers;
+
+    - Exfiltrate Entire Table (Wildcard Selection) :
+      SELECT * FROM cardnumbers;
+
+* Step 6: Sample Exfiltrated Data Output
+    +-----------+----------------+-------------+-------+----------+
+    | customers | address        | city        | state | cc       |
+    +-----------+----------------+-------------+-------+----------+
+    | Jones     | 1 Wall St      | NY          | NY    | 12345678 |
+    | Sawyer    | 12 Piccadilly  | London      | UK    | 23456789 |
+    | Doe       | 25 Front St    | Los Angeles | CA    | 45678987 |
+    +-----------+----------------+-------------+scroll----+
+
+
+7. CHEAT SHEET SUMMARY OF CRITICAL MYSQL/MARIADB COMMANDS
+--------------------------------------------------------------------------------------------------------------------------------------
+* Service Control         : sudo systemctl start mysql
+* Authenticate (Local)    : mysql -u <user> -p
+* Authenticate (Remote)   : mysql -u <user> -p <IP_Address>
+* Terminate Command       : Must end with `;` or `\g`
+* Help Command            : help; OR \h
+* List All Databases      : SHOW DATABASES;
+* Select Database         : USE <database_name>;
+* List Tables in DB       : SHOW TABLES;
+* Inspect Table Schema    : DESCRIBE <table_name>;
+* Extract All Columns     : SELECT * FROM <table_name>;
+* Extract Specific Fields : SELECT field1, field2 FROM <table_name>;
+* Conditional Filtering   : SELECT * FROM <table_name> WHERE <field>='<value>';
+
+======================================================================================================================================
