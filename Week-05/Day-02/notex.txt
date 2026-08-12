@@ -1,1 +1,115 @@
+======================================================================================================================================
+                                        UNDERSTANDING AND INSPECTING WIRELESS NETWORKS(Part-02)
+======================================================================================================================================
 
+1. Introduction & Core Concepts
+--------------------------------------------------------------------------------------------------------------------------------------
+* Ubiquity of Bluetooth Technology:
+    -> Built into almost every modern gadget: computers, smartphones, iPods, tablets, speakers, game controllers, keyboards, etc.
+    -> Hacking Bluetooth can lead to data compromise, device control, and sending unwanted info to/from the device.
+
+* How Bluetooth Works:
+    -> Protocol & Frequency : Low-power, near-field communication operating at 2.4–2.485 GHz.
+    -> Frequency Hopping    : Uses spread spectrum with frequency hopping at 1,600 hops per second as a built-in security measure.
+    -> History              : Developed in 1994 by Ericsson Corp. (Sweden) and named after 10th-century Danish king Harald Bluetooth.
+    -> Range Limits         : Minimum range specification is 10 meters, but manufacturers often implement up to 100 meters
+                              (extendable further with special antennas).
+    -> Pairing & Discovery  : Connecting two devices is called pairing. Devices must be in "discoverable mode" to pair.
+    -> Discoverable Broadcasts:
+        • Name
+        • Class
+        • List of services
+        • Technical information
+    -> Authentication Keys  : Paired devices exchange a secret/link key and store it locally for future automatic identification.
+    -> Device Address       : Every device has a unique 48-bit identifier (MAC-like address) and a manufacturer-assigned name.
+
+
+2. Linux Bluetooth Stack (BlueZ)
+--------------------------------------------------------------------------------------------------------------------------------------
+* What is BlueZ?
+    -> The Linux implementation of the Bluetooth protocol stack.
+    -> Pre-installed by default on Kali Linux and most Linux distributions.
+    -> Installation Command (if missing):
+        kali > apt-get install bluez
+
+* Primary BlueZ Utilities:
+    -> hciconfig : Operates like `ifconfig`, but for Bluetooth adapters (used to query specs and bring up interfaces).
+    -> hcitool   : Inquiry tool to obtain device names, IDs, device classes, and clock information for synchronization.
+    -> hcidump   : Sniffs Bluetooth communications to capture data transmitted over the signal.
+    -> sdptool   : Queries the Service Discovery Protocol (SDP) to browse hosted services on a device.
+    -> l2ping    : Sends Link Layer pings to check device reachability and response latency.
+
+
+3. Bluetooth Scanning & Reconnaissance Workflow
+--------------------------------------------------------------------------------------------------------------------------------------
+* Step 1: Check and Enable Interface (`hciconfig`)
+  -> Check Local Adapter Status:
+        kali > hciconfig
+        hci0: Type: BR/EDR  Bus: USB
+              BD Address: 10:AE:60:58:F1:37  ACL  MTU: 310:10  SCO  MTU:  64:8
+              UP RUNNING PSCAN INQUIRY
+              RX bytes:131433 acl:45 sco:0 events:10519  errors:0
+              TX bytes:42881  acl:45 sco:0 commands:5081 errors:0
+
+  -> Enable Interface (hci0):
+        kali > hciconfig hci0 up
+        *(Runs silently with no output if successful)*
+
+* Step 2: Scan for Discoverable Devices (`hcitool scan`)
+  -> Scans for devices sending out discover beacons (in discovery mode):
+        kali > hcitool scan
+        Scanning...
+              72:6E:46:65:72:66      ANDROID BT
+              22:C5:96:08:5D:32      SCH-I535
+
+* Step 3: Detailed Low-Level Inquiry (`hcitool inq`)
+  -> Obtains MAC addresses, clock offsets, and device class codes:
+        kali > hcitool inq
+        Inquiring...
+            24:C5:96:08:5D:32    clock offset:0x4e8b      class:0x5a020c
+            76:6F:46:65:72:67    clock offset:0x21c0      class:0x5a020c
+  -> Note: Device class codes indicate the device type (can be looked up via Bluetooth SIG assigned numbers).
+
+* Step 4: Scan for Hosted Services (`sdptool browse`)
+  -> Uses Service Discovery Protocol (SDP) to query device capabilities.
+  -> Note: Target device does NOT need to be in discovery mode.
+  -> Syntax : `sdptool browse MACaddress`
+  -> Command:
+        kali > sdptool browse 76:6E:46:63:72:66
+        Browsing 76:6E:46:63:72:66...
+        Service RecHandle: 0x10002
+        Service Class ID List:
+          ""(0x1800)
+        Protocol Descriptor List:
+          "L2CAP"  (0x0100)
+            PSM: 31
+          "ATT" (0x0007)
+            uint16: 0x0001
+            uint16: 0x0005--snip-
+  -> Finding: Shows supported protocols like "ATT" (Low Energy Attribute Protocol), aiding in attack surface evaluation.
+
+* Step 5: Check Device Reachability (`l2ping`)
+  -> Sends echo packets to verify whether a target is active and within range (works in or out of discovery mode).
+  -> Syntax : `l2ping MACaddress -c NumberOfPackets`
+  -> Command:
+        kali > l2ping 76:6E:46:63:72:66 -c 3
+        Ping: 76:6E:46:63:72:66 from 10:AE:60:58:F1:37 (data size 44)...
+        44 bytes 76:6E:46:63:72:66 id 0 time 37.57ms
+        44 bytes 76:6E:46:63:72:66 id 1 time 27.23ms
+        44 bytes 76:6E:46:63:72:66 id 2 time 27.59ms
+        3 sent, 3 received, 0% loss
+
+
+4. Quick Command Summary / Cheat Sheet
+--------------------------------------------------------------------------------------------------------------------------------------
+* Install BlueZ Stack     : apt-get install bluez
+* Check Bluetooth Hardware : hciconfig
+* Enable Adapter Interface : hciconfig hci0 up
+* Scan Discovery Beacons   : hcitool scan
+* Low-Level Inquiry        : hcitool inq
+* Display Command Help     : hcitool --help
+* Browse Hosted Services   : sdptool browse <MACaddress>
+* Ping Target Device       : l2ping <MACaddress> -c <count>
+* Sniff Bluetooth Signals  : hcidump
+
+======================================================================================================================================
