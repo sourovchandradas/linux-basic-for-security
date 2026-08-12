@@ -37,9 +37,13 @@ The `traceroute` utility displays the layer-3 hop-by-hop route packets take to r
 traceroute google.com
 
 ```
+#### 🖼️ Terminal Command
 
-#### 🖼️ Terminal Output View (traceroute google.com)
+![traceroute command](Screenshot/traceroute-command.png)
 
+#### 🖼️ Terminal Output
+
+![traceroute output](Screenshot/traceroute-output.png)
 
 ---
 
