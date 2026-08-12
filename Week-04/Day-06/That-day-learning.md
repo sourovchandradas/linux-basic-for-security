@@ -34,21 +34,12 @@ Welcome to Day 27 of my Linux Security learning journey. This document covers ba
 The `traceroute` utility displays the layer-3 hop-by-hop route packets take to reach a destination.
 
 ```bash
-kali > traceroute google.com
+traceroute google.com
 
 ```
 
 #### 🖼️ Terminal Output View (traceroute google.com)
 
-```plaintext
-traceroute to google.com (172.217.1.78), 30 hops max, 60 bytes packets
- 1  192.168.1.1 (192.168.1.1)  4.152 ms 3.834 ms 32.964 ms
- 2  10.0.0.1 (10.0.0.1)  5.797 ms 6.995 ms 7.679 ms
- 3  96.120.96.45 (96.120.96.45)  27.952 ms 30.377 ms 32.964 ms
- --snip--
-18  lgal15s44-in-f14.le100.net (172.217.1.78)  94.666 ms 42.990 ms 41.564 ms
-
-```
 
 ---
 
@@ -121,14 +112,14 @@ Browse regular web pages or enter hidden service URLs ending in the `.onion` TLD
 
 * **Basic Syntax:**
 ```bash
-kali > proxychains <command_to_proxy> <arguments>
+proxychains <command_to_proxy> <arguments>
 
 ```
 
 
 * **Practical Example (Anonymous Nmap Scan):**
 ```bash
-kali > proxychains nmap -sT -Pn 192.168.1.101
+proxychains nmap -sT -Pn 192.168.1.101
 
 ```
 
