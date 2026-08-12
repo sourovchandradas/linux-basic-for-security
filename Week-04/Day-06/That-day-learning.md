@@ -1,6 +1,6 @@
-# 🐧 Day 27 (Week 04 • Day 06): Becoming Secure and Anonymous — Internet Privacy & Tracking Prevention
+# 🐧 Day 26 (Week 04 • Day 05): Becoming Secure and Anonymous — Internet Privacy & Tracking Prevention
 
-Welcome to Day 06 of Week 04 of my Linux Security learning journey. This document covers background mechanics of online tracking, network surveillance, packet routing vulnerabilities, and practical anonymity strategies.
+Welcome to Day 05 of Week 04 of my Linux Security learning journey. This document covers background mechanics of online tracking, network surveillance, packet routing vulnerabilities, and practical privacy tools including **The Onion Router (Tor)** and **ProxyChains** for penetration testing and privacy preservation.
 
 ---
 
@@ -8,15 +8,16 @@ Welcome to Day 06 of Week 04 of my Linux Security learning journey. This documen
 
 ### 1. ⚙️ Introduction: The Need for Anonymity and Security
 
-* **Current Internet Surveillance Landscape:** Nearly everything done on the internet is tracked by commercial entities (e.g., Google) and state surveillance agencies (e.g., NSA). Activities are recorded, analyzed, and monetized.
+* **Current Internet Surveillance Landscape:** Nearly everything done on the internet is tracked by commercial entities (e.g., Google) and state surveillance agencies (e.g., NSA). Activities are recorded, indexed, and mined.
 * **Critical Need:** Hackers, security professionals, and privacy-conscious individuals must understand how to limit tracking and remain anonymous.
 * **Four Core Methods for Anonymous Navigation:**
-  1. The Onion Router (Tor) Network
-  2. Proxy Servers
-  3. Virtual Private Networks (VPNs)
-  4. Private Encrypted Email / Messaging
+1. The Onion Router (Tor) Network
+2. Proxy Servers
+3. Virtual Private Networks (VPNs)
+4. Private Encrypted Email / Messaging
 
-* **Important Caveat:** No single method guarantees 100% protection. Given enough time and resources, anything can be tracked. These tools significantly increase the adversary's difficulty level.
+
+* **Important Caveat:** No single method guarantees $100\%$ protection. Given enough time and resources, anything can be tracked. These tools significantly increase the adversary's difficulty level.
 
 ---
 
@@ -34,6 +35,7 @@ The `traceroute` utility displays the layer-3 hop-by-hop route packets take to r
 
 ```bash
 kali > traceroute google.com
+
 ```
 
 #### 🖼️ Terminal Output View (traceroute google.com)
@@ -45,6 +47,7 @@ traceroute to google.com (172.217.1.78), 30 hops max, 60 bytes packets
  3  96.120.96.45 (96.120.96.45)  27.952 ms 30.377 ms 32.964 ms
  --snip--
 18  lgal15s44-in-f14.le100.net (172.217.1.78)  94.666 ms 42.990 ms 41.564 ms
+
 ```
 
 ---
@@ -67,26 +70,30 @@ traceroute to google.com (172.217.1.78), 30 hops max, 60 bytes packets
 |  Client Machine  | ------------------------> |   Guard / Entry   |
 | (Originating IP) |                           |       Node        |
 +------------------+                           +-------------------+
-                                                        |
-                                                Layer 2 Encrypted
-                                                        |
-                                                        v
+                                                         |
+                                                 Layer 2 Encrypted
+                                                         |
+                                                         v
 +------------------+      Unencrypted Payload     +-------------------+
 | Target Web Server| <--------------------------- |     Exit Node     |
 | (Destination IP) |                              | (Decrypts Layer)  |
 +------------------+                              +-------------------+
+
 ```
 
 #### Installing and Accessing Tor
 
-1. **Download & Install Tor Browser:** Download from torproject.org.
-   Obtain the official binary package from the Tor Project website and run the installer.
+1. **1. Download & Install Tor Browser:** Download from torproject.org.
+Obtain the official binary package from the Tor Project website and run the installer.
 
-2. **Establish Tor Connection:** Construct 3-hop relay circuit.
-   Launch the browser to connect to the network consensus and build an encrypted circuit (Guard → Middle → Exit).
 
-3. **Navigate Anonymously:** Surface web or .onion sites.
-   Browse regular web pages or enter hidden service URLs ending in the `.onion` TLD.
+2. **2. Establish Tor Connection:** Construct 3-hop relay circuit.
+Launch the browser to connect to the network consensus and build an encrypted circuit (Guard $\rightarrow$ Middle $\rightarrow$ Exit).
+
+
+3. **3. Navigate Anonymously:** Surface web or .onion sites.
+Browse regular web pages or enter hidden service URLs ending in the `.onion` TLD.
+
 
 #### ⚠️ Security Concerns & Limitations
 
@@ -105,7 +112,7 @@ traceroute to google.com (172.217.1.78), 30 hops max, 60 bytes packets
 
 #### Proxy Chains Architecture
 
-* **Strategy:** Routing traffic sequentially through multiple proxies (`User` → `Proxy1` → `Proxy2` → `Proxy3` → `Target`).
+* **Strategy:** Routing traffic sequentially through multiple proxies (`User` $\rightarrow$ `Proxy1` $\rightarrow$ `Proxy2` $\rightarrow$ `Proxy3` $\rightarrow$ `Target`).
 * **Security Benefit:** An investigator must obtain logs from every proxy in the chain to trace back to the original source.
 
 #### Using ProxyChains in Kali Linux
@@ -115,15 +122,21 @@ traceroute to google.com (172.217.1.78), 30 hops max, 60 bytes packets
 * **Basic Syntax:**
 ```bash
 kali > proxychains <command_to_proxy> <arguments>
+
 ```
+
 
 * **Practical Example (Anonymous Nmap Scan):**
 ```bash
 kali > proxychains nmap -sT -Pn 192.168.1.101
+
 ```
+
 
 * `-sT`: Executes a full TCP Connect scan (required for proxying).
 * `-Pn`: Disables ICMP ping (prevents leaking real IP outside the proxy).
+
+
 
 ---
 
@@ -139,7 +152,7 @@ kali > proxychains nmap -sT -Pn 192.168.1.101
 
 ---
 
-## 🛠️ Utilities & Command Reference
+### 🛠️ Utilities & Command Reference
 
 | Utility / Command | Syntax Example | Primary Purpose / Description |
 | --- | --- | --- |
@@ -150,7 +163,7 @@ kali > proxychains nmap -sT -Pn 192.168.1.101
 
 ---
 
-## 🔑 Key Takeaways for Revision
+### 🔑 Key Takeaways for Revision
 
 * **IP Address Identification:** Reveals user location and is the primary tracking vector.
 * **Hop Exposure Rule:** Intermediate Tor routers only know the IP address of the previous and next hop.
@@ -162,4 +175,4 @@ $$\text{Command Execution } \longrightarrow \texttt{proxychains <tool> <flags> <
 
 ---
 
-*⚡ End of Week 04 • Day 06 Notes • Organized for GitHub & OneNote*
+*⚡ End of Week 04 • Day 05 Notes • Organized for GitHub & OneNote*
