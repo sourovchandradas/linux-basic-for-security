@@ -1,6 +1,6 @@
-# 🐧 Day 26 (Week 04 • Day 05): Becoming Secure and Anonymous — Internet Privacy & Tracking Prevention
+# 🐧 Day 27 : Becoming Secure and Anonymous(Part-01)
 
-Welcome to Day 05 of Week 04 of my Linux Security learning journey. This document covers background mechanics of online tracking, network surveillance, packet routing vulnerabilities, and practical privacy tools including **The Onion Router (Tor)** and **ProxyChains** for penetration testing and privacy preservation.
+Welcome to Day 27 of my Linux Security learning journey. This document covers background mechanics of online tracking, network surveillance, packet routing vulnerabilities, and practical privacy tools including **The Onion Router (Tor)** and **ProxyChains** for penetration testing and privacy preservation.
 
 ---
 
@@ -174,5 +174,3 @@ kali > proxychains nmap -sT -Pn 192.168.1.101
 $$\text{Command Execution } \longrightarrow \texttt{proxychains <tool> <flags> <target\_IP>}$$
 
 ---
-
-*⚡ End of Week 04 • Day 05 Notes • Organized for GitHub & OneNote*
