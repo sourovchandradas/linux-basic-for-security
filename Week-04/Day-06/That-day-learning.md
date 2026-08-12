@@ -123,10 +123,16 @@ proxychains <command_to_proxy> <arguments>
 
 * **Practical Example (Anonymous Nmap Scan):**
 ```bash
-proxychains nmap -sT -Pn 192.168.1.101
+proxychains nmap -sT -Pn 10.0.2.15
 
 ```
+#### 🖼️ Terminal Command
 
+![proxychains with ip address command](Screenshot/proxychains-with-ip-address-command.png)
+
+#### 🖼️ Terminal Output
+
+![proxychains with ip address output](Screenshot/proxychains-with-ip-address-output.png)
 
 * `-sT`: Executes a full TCP Connect scan (required for proxying).
 * `-Pn`: Disables ICMP ping (prevents leaking real IP outside the proxy).
