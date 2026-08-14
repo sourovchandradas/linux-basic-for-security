@@ -69,18 +69,18 @@ Identifying the exact kernel version, architecture, and compiler release is esse
 
 * **Method 1: Kernel Release Query (`uname -a`)**
 ```bash
-kali > uname -a
+uname -a
 
 ```
 
+#### 🖼️ Terminal Command View (`uname -a`)
 
+![uname -a command](Screenshot/uname-a-command.png)
 
 #### 🖼️ Terminal Output View (`uname -a`)
 
-```plaintext
-Linux Kali 4.19.0-kali1-amd64 #1 SMP Debian 4.19.13-1kali1 (2019-01-03) x86_64
+![uname -a output](Screenshot/uname-a-output.png)
 
-```
 
 #### Output Data Breakdown:
 
@@ -91,18 +91,16 @@ Linux Kali 4.19.0-kali1-amd64 #1 SMP Debian 4.19.13-1kali1 (2019-01-03) x86_64
 * `2019-01-03`: Precise timestamp when the kernel binary was compiled.
 * **Method 2: Virtual File Inspection (`/proc/version`)**
 ```bash
-kali > cat /proc/version
+cat /proc/version
 
 ```
+#### 🖼️ Terminal Command View (`cat /proc/version`)
 
-
+![cat /proc/version command](Screenshot/cat-proc-version-command.png)
 
 #### 🖼️ Terminal Output View (`cat /proc/version`)
 
-```plaintext
-Linux version 4.19.0-kali1-amd64 (devel@kali.org) (gcc version 8.2.0 (Debian 8.2.0-14)) #1 SMP Debian 4.19.13-1kali1 (2019-01-03)
-
-```
+![cat /proc/version output](Screenshot/cat-proc-version-output.png)
 
 ---
 
@@ -114,7 +112,7 @@ The `sysctl` utility allows administrators to inspect and modify kernel runtime 
 
 * **Listing Active Parameters:**
 ```bash
-kali > sysctl -a | grep ipv4 | less
+sysctl -a | grep ipv4 | less
 
 ```
 
