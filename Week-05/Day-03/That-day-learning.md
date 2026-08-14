@@ -116,7 +116,17 @@ sysctl -a | grep ipv4 | less
 
 ```
 
+#### 🖼️ Terminal Command
 
+![sysctl -a | grep ipv4 | less command](Screenshot/sysctl-a-grep-less-command.png)
+
+#### 🖼️ Terminal Output
+
+![sysctl -a | grep ipv4 | less output-01](Screenshot/sysctl-a-grep-less-output-01.png)
+
+![sysctl -a | grep ipv4 | less output-02](Screenshot/sysctl-a-grep-less-output-02.png)
+
+![sysctl -a | grep ipv4 | less output-03](Screenshot/sysctl-a-grep-less-output-03.png)
 
 #### Case Study 1: Enabling IP Forwarding for MITM Attacks
 
@@ -127,6 +137,9 @@ In Man-in-the-Middle (MITM) operations (e.g., ARP spoofing), an attacker routes 
 kali > sysctl -w net.ipv4.ip_forward=1
 
 ```
+#### 🖼️ Terminal Command
+
+
 
 
 * **Persistent Configuration (Permanent):**
@@ -202,14 +215,14 @@ kali > lsmod
 
 ```
 
-#### 🖼️ Terminal Output View (`lsmod`)
+#### 🖼️ Terminal Command
 
-```plaintext
-Module                  Size  Used by
-bluetooth             516096  0
-rfkill                 28672  2 bluetooth
+![lsmod command](Screenshot/lsmod-command.png)
 
-```
+#### 🖼️ Terminal Output
+
+![lsmod output-01](Screenshot/lsmod-output-01.png)
+![lsmod output-02](Screenshot/lsmod-output-02.png)
 
 #### Output Data Breakdown:
 
@@ -228,22 +241,13 @@ kali > modinfo bluetooth
 
 ```
 
-#### 🖼️ Terminal Output View (`modinfo bluetooth`)
+#### 🖼️ Terminal Command
 
-```plaintext
-filename:       /lib/modules/4.19.0-kali1-amd64/kernel/net/bluetooth/bluetooth.ko
-license:        GPL
-version:        2.22
-description:    Bluetooth Core ver 2.22
-author:         Marcel Holtmann <marcel@holtmann.org>
-srcversion:     75FDC6D4EE96D87265EAE4A
-depends:        rfkill,ecdh_generic,crc16
-intree:         Y
-name:           bluetooth
-vermagic:       4.19.0-kali1-amd64 SMP mod_unload 
-parm:           disable_esco:Disable eSCO connection creation (bool)
+![modinfo bluetooth command](Screenshot/modinfo-bluetooth-command.png)
 
-```
+#### 🖼️ Terminal Output
+
+![modinfo bluetooth output](Screenshot/modinfo-bluetooth-output.png)
 
 #### Field Description Breakdown:
 
