@@ -2,6 +2,60 @@
                                          LINUX TASK AUTOMATION & JOB SCHEDULING
 ======================================================================================================================================
 
+সংক্ষিপ্ত নোট — Job Scheduling & Boot Automation (বাংলায়)
+--------------------------------------------------------------------------------------------------------------------------------------
+- Cron ও crontab
+  - Cron হল ব্যাকগ্রাউন্ড ডেমন (crond) যা নির্দিষ্ট সময়ে টাস্ক চালায়।
+  - System-wide crontab (/etc/crontab) এ 7টি ফিল্ড:
+    1. Minute (0–59)
+    2. Hour (0–23)
+    3. Day of Month (1–31)
+    4. Month (1–12)
+    5. Day of Week (0–7, 0 ও 7 = Sunday)
+    6. User (যে ইউজার হিসাবে রান করব���)
+    7. Command (absolute path)
+  - অপারেটর: `*` (সব), `-` (range), `,` (list)
+  - শটকাট: `@reboot`, `@yearly`/`@annually`, `@monthly`, `@weekly`, `@daily`/`@midnight`, `@noon`
+
+- সাধারণ উদাহরণ
+  - Mon–Fri, 02:30 AM: `30 2 * * 1-5 root /root/myscanningscript.sh`
+  - 15th & 30th, 02:00 AM: `00 2 15,30 * * backup /bin/systembackup.sh`
+  - Summer weekends (Jun–Aug), Sat/Sun 02:00 AM: `00 2 * 6-8 0,6 user /usr/share/MySQLscanner.sh`
+  - প্রতিদিন মধ্যরাতে (shortcut): `@midnight user /usr/share/MySQLscanner.sh`
+
+- crontab সম্পাদনা ও বজায় রাখা
+  - Current user crontab: `crontab -e` (প্রথমবার editor নির্বাচন করবে)
+  - System crontab edit: `sudo nano /etc/crontab` (অথবা পছন্দের editor)
+  - crontab লাইনে যোগ করলে সেই সময় অনুযায়ী cron ডেমন কাজ করবে (নতুন লাইনে সেভ করতে হবে)
+
+- কনটেক্সট উদাহরণ (ব্যাকআপ)
+  - প্রতি রবিবার 02:00 AM: `00 2 * * 0 backup /bin/systembackup.sh`
+  - প্রতি কাজের দিন রাত 11:00 PM: `00 23 * * 1-5 backup /root/systembackup.sh`
+
+- rc scripts ও بوت-টাইম সার্ভিস
+  - init / initd চালায় rc স্ক্রিপ্টগুলো (অটোমেটিক সিস্টেম স্টার্টআপ কনফিগারেশন)
+  - Runlevels:
+    - 0 = halt, 1 = single-user, 2–5 = multi-user, 6 = reboot
+  - সার্ভিস অটো-স্টার্টে যোগ:
+    - `sudo update-rc.d <service_name> defaults` (উদাহরণ: `sudo update-rc.d postgresql defaults`)
+    - পরিবর্তন পরে রিবুট করলে সার্ভিস অটো শুরু হবে
+  - সার্ভিস চলছে কিনা দেখার জন্য: `ps aux | grep postgresql`
+
+- GUI টুল (rudimentary)
+  - rcconf ইনস্টল: `sudo apt-get install rcconf`
+  - চালানো: `rcconf` → টিক করে সার্ভিসগুলো সিলেক্ট → OK (পরবর্তী বুটে অন/অফ নিয়ন্ত্রণ)
+
+Quick cheat-sheet (কী কমান্ড)
+- Edit current user crontab: `crontab -e`
+- Edit system crontab: `sudo nano /etc/crontab`
+- Enable service at boot: `sudo update-rc.d <service_name> defaults`
+- TUI startup configurator: `rcconf`
+- Search processes: `ps aux | grep <process_name>`
+
+======================================================================================================================================
+                                         LINUX TASK AUTOMATION & JOB SCHEDULING
+======================================================================================================================================
+
 1. Scheduling Recurring Tasks with Cron
 --------------------------------------------------------------------------------------------------------------------------------------
 * Crontab Field Structure (System-Wide: `/etc/crontab`):
