@@ -57,6 +57,7 @@
     -> Numerical representation of Sunday: `0` or `7`.
     -> Value required for Month field: Pure numbers only (`1–12`), textual names like "March" are invalid.
 
+
 3. Editing `crontab` & Practical Examples
 --------------------------------------------------------------------------------------------------------------------------------------
 * Editing Methods:
@@ -96,6 +97,7 @@
 ✅ Exam Key Points
     -> Command to safely edit user crontab: `crontab -e`.
     -> Shortcut directive used to run a task once immediately upon boot: `@reboot`.
+
 
 4. Automating Startup Services (`rc` Scripts & Runlevels)
 --------------------------------------------------------------------------------------------------------------------------------------
