@@ -196,11 +196,6 @@ kali > ps aux | grep postgresql
 
 #### 🖼️ Terminal Output View (`ps aux | grep postgresql` - Running)
 
-```plaintext
-postgres  1248  0.0  0.1  212340 18450 ?        S    10:14   0:00 /usr/lib/postgresql/13/bin/postgres -D /var/lib/postgresql/13/main -c config_file=/etc/postgresql/13/main/postgresql.conf
-root      3412  0.0  0.0   12780   940 pts/0    S+   10:32   0:00 grep --color=auto postgresql
-
-```
 
 ---
 
@@ -208,8 +203,8 @@ root      3412  0.0  0.0   12780   940 pts/0    S+   10:32   0:00 grep --color=a
 
 * **Install & Launch Utility:**
 ```bash
-kali > sudo apt-get install rcconf
-kali > sudo rcconf
+sudo apt-get install rcconf
+sudo rcconf
 
 ```
 
