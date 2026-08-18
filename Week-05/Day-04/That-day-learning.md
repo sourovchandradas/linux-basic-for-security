@@ -68,14 +68,41 @@ Instead of populating the first 5 numerical fields, built-in shortcuts simplify 
 
 #### Real-World Crontab Syntax Examples
 
-| Operational Target Scenario | Complete Crontab Syntax String |
-| --- | --- |
-| **Daily scan at 2:30 AM (Mon–Fri)** | `30 2 * * 1-5 root /root/myscanningscript` |
-| **Weekly backup (Every Sunday at 2:00 AM)** | `00 2 * * 0 backup /bin/systembackup.sh` |
-| **Bi-monthly backup (15th & 30th at 2:00 AM)** | `00 2 15,30 * * backup /root/systembackup.sh` |
-| **Nightly scan at 9:00 AM (Every day)** | `00 9 * * * user /usr/share/MySQLscanner.sh` |
-| **Summer weekend scan (June–Aug at 2:00 AM)** | `00 2 * 6-8 0,6 user /usr/share/MySQLscanner.sh` |
-| **Daily scan at midnight using shortcut** | `@midnight user /usr/share/MySQLscanner.sh` |
+**Daily scan at 2:30 AM (Mon–Fri)** 
+
+`30 2 * * 1-5 root /root/myscanningscript`
+
+### 5. 🖼️ Terminal Command
+
+**Weekly backup (Every Sunday at 2:00 AM)** 
+
+`00 2 * * 0 backup /bin/systembackup.sh`
+
+### 5. 🖼️ Terminal Command
+
+**Bi-monthly backup (15th & 30th at 2:00 AM)**
+
+`00 2 15,30 * * backup /root/systembackup.sh`
+
+### 5. 🖼️ Terminal Command
+
+**Nightly scan at 9:00 AM (Every day)**
+
+`00 9 * * * user /usr/share/MySQLscanner.sh` 
+
+### 5. 🖼️ Terminal Command
+
+**Summer weekend scan (June–Aug at 2:00 AM)**
+
+`00 2 * 6-8 0,6 user /usr/share/MySQLscanner.sh`
+
+### 5. 🖼️ Terminal Command
+
+**Daily scan at midnight using shortcut**
+
+`@midnight user /usr/share/MySQLscanner.sh` 
+
+### 5. 🖼️ Terminal Command
 
 ---
 
@@ -127,7 +154,7 @@ kali > crontab -e
 
 * **Direct Editing of System-Wide Configuration File:**
 ```bash
-kali > nano /etc/crontab
+nano /etc/crontab
 
 ```
 
