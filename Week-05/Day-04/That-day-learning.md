@@ -155,7 +155,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 * **Process Filtering Command:**
 ```bash
-kali > ps aux | grep postgresql
+ps aux | grep postgresql
 
 ```
 
@@ -163,16 +163,12 @@ kali > ps aux | grep postgresql
 
 #### 🖼️ Terminal Output View (`ps aux | grep postgresql` - Not Running)
 
-```plaintext
-root      3412  0.0  0.0   12780   940 pts/0    S+   10:32   0:00 grep --color=auto postgresql
-
-```
 
 *(Only the `grep` process is returned, proving the daemon is currently inactive).*
 
 * **Enable PostgreSQL Boot Persistence:**
 ```bash
-kali > sudo update-rc.d postgresql defaults
+sudo update-rc.d postgresql defaults
 
 ```
 
@@ -180,15 +176,11 @@ kali > sudo update-rc.d postgresql defaults
 
 #### 🖼️ Terminal Output View (`update-rc.d`)
 
-```plaintext
- Synchronizing State of postgresql.service with SysV service script with /lib/systemd/systemd-sysv-install.
- Executing: /lib/systemd/systemd-sysv-install enable postgresql
 
-```
 
 * **Post-Reboot Active Verification View:**
 ```bash
-kali > ps aux | grep postgresql
+ps aux | grep postgresql
 
 ```
 
