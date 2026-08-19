@@ -1,4 +1,4 @@
-# 🐬 Day 30 : Linux Task Automation & Job Scheduling
+# 🐧 Day 30 : Linux Task Automation & Job Scheduling
 
 Welcome to Day 32 of my Linux Security learning journey. This document covers scheduling recurring tasks using the `crond` daemon and `crontab`, time field syntax rules, special operators, preset shortcuts, system runlevel architecture, boot service automation using `update-rc.d`, and service management via `rcconf`.
 
