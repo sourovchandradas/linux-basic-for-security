@@ -1,6 +1,6 @@
-# 🐬 Day 32: Linux Task Automation & Job Scheduling
+# 🐬 Day 30 (Week 05 • Day 02): Linux Task Automation & Job Scheduling
 
-Welcome to Day 32 of my Linux Security learning journey. This document covers scheduling recurring tasks using the `crond` daemon and `crontab`, time field syntax rules, special operators, preset shortcuts, system runlevel architecture, boot service automation using `update-rc.d`, and service management via `rcconf`.
+Welcome to Day 02 of Week 05 of my Linux Security learning journey. This document covers scheduling recurring tasks using the `crond` daemon and `crontab`, time field syntax rules, special operators, preset shortcuts, system runlevel architecture, boot service automation using `update-rc.d`, and service management via `rcconf`.
 
 ---
 
@@ -68,41 +68,14 @@ Instead of populating the first 5 numerical fields, built-in shortcuts simplify 
 
 #### Real-World Crontab Syntax Examples
 
-**Daily scan at 2:30 AM (Mon–Fri)** 
-
-`30 2 * * 1-5 root /root/myscanningscript`
-
-### 5. 🖼️ Terminal Command
-
-**Weekly backup (Every Sunday at 2:00 AM)** 
-
-`00 2 * * 0 backup /bin/systembackup.sh`
-
-### 5. 🖼️ Terminal Command
-
-**Bi-monthly backup (15th & 30th at 2:00 AM)**
-
-`00 2 15,30 * * backup /root/systembackup.sh`
-
-### 5. 🖼️ Terminal Command
-
-**Nightly scan at 9:00 AM (Every day)**
-
-`00 9 * * * user /usr/share/MySQLscanner.sh` 
-
-### 5. 🖼️ Terminal Command
-
-**Summer weekend scan (June–Aug at 2:00 AM)**
-
-`00 2 * 6-8 0,6 user /usr/share/MySQLscanner.sh`
-
-### 5. 🖼️ Terminal Command
-
-**Daily scan at midnight using shortcut**
-
-`@midnight user /usr/share/MySQLscanner.sh` 
-
-### 5. 🖼️ Terminal Command
+| Operational Target Scenario | Complete Crontab Syntax String |
+| --- | --- |
+| **Daily scan at 2:30 AM (Mon–Fri)** | `30 2 * * 1-5 root /root/myscanningscript` |
+| **Weekly backup (Every Sunday at 2:00 AM)** | `00 2 * * 0 backup /bin/systembackup.sh` |
+| **Bi-monthly backup (15th & 30th at 2:00 AM)** | `00 2 15,30 * * backup /root/systembackup.sh` |
+| **Nightly scan at 9:00 AM (Every day)** | `00 9 * * * user /usr/share/MySQLscanner.sh` |
+| **Summer weekend scan (June–Aug at 2:00 AM)** | `00 2 * 6-8 0,6 user /usr/share/MySQLscanner.sh` |
+| **Daily scan at midnight using shortcut** | `@midnight user /usr/share/MySQLscanner.sh` |
 
 ---
 
@@ -154,7 +127,7 @@ kali > crontab -e
 
 * **Direct Editing of System-Wide Configuration File:**
 ```bash
-nano /etc/crontab
+kali > nano /etc/crontab
 
 ```
 
@@ -182,7 +155,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 * **Process Filtering Command:**
 ```bash
-ps aux | grep postgresql
+kali > ps aux | grep postgresql
 
 ```
 
@@ -190,12 +163,16 @@ ps aux | grep postgresql
 
 #### 🖼️ Terminal Output View (`ps aux | grep postgresql` - Not Running)
 
+```plaintext
+root      3412  0.0  0.0   12780   940 pts/0    S+   10:32   0:00 grep --color=auto postgresql
+
+```
 
 *(Only the `grep` process is returned, proving the daemon is currently inactive).*
 
 * **Enable PostgreSQL Boot Persistence:**
 ```bash
-sudo update-rc.d postgresql defaults
+kali > sudo update-rc.d postgresql defaults
 
 ```
 
@@ -203,11 +180,15 @@ sudo update-rc.d postgresql defaults
 
 #### 🖼️ Terminal Output View (`update-rc.d`)
 
+```plaintext
+ Synchronizing State of postgresql.service with SysV service script with /lib/systemd/systemd-sysv-install.
+ Executing: /lib/systemd/systemd-sysv-install enable postgresql
 
+```
 
 * **Post-Reboot Active Verification View:**
 ```bash
-ps aux | grep postgresql
+kali > ps aux | grep postgresql
 
 ```
 
@@ -215,6 +196,11 @@ ps aux | grep postgresql
 
 #### 🖼️ Terminal Output View (`ps aux | grep postgresql` - Running)
 
+```plaintext
+postgres  1248  0.0  0.1  212340 18450 ?        S    10:14   0:00 /usr/lib/postgresql/13/bin/postgres -D /var/lib/postgresql/13/main -c config_file=/etc/postgresql/13/main/postgresql.conf
+root      3412  0.0  0.0   12780   940 pts/0    S+   10:32   0:00 grep --color=auto postgresql
+
+```
 
 ---
 
@@ -222,8 +208,8 @@ ps aux | grep postgresql
 
 * **Install & Launch Utility:**
 ```bash
-sudo apt-get install rcconf
-sudo rcconf
+kali > sudo apt-get install rcconf
+kali > sudo rcconf
 
 ```
 
