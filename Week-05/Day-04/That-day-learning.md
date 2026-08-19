@@ -114,40 +114,31 @@ Restart the system and verify that the target daemon's absolute path appears in 
 
 ---
 
-### 5. 🖼️ Terminal Commands & Execution Output Views
 
-#### Modifying Crontabs (`crontab -e` & Configuration Files)
+### 5. Modifying Crontabs (`crontab -e` & Configuration Files)
 
 * **Safely Edit User Crontab Entry:**
 ```bash
-kali > crontab -e
+crontab -e
 
 ```
+### 🖼️ Terminal Command
+
+#### 🖼️ Terminal Output
 
 
 * **Direct Editing of System-Wide Configuration File:**
 ```bash
-kali > nano /etc/crontab
+nano /etc/crontab
 
 ```
+### 🖼️ Terminal Command
 
 
 
-#### 🖼️ Terminal Output View (`cat /etc/crontab`)
+#### 🖼️ Terminal Output
 
-```plaintext
-# /etc/crontab: system-wide crontab
-SHELL=/bin/sh
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-# m h dom mon dow user	command
-17 *	* * *	root	cd / && run-parts --report /etc/cron.hourly
-25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
-47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
-52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
-30 2    * * 1-5 root    /root/myscanningscript
-
-```
 
 ---
 
@@ -155,52 +146,40 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 * **Process Filtering Command:**
 ```bash
-kali > ps aux | grep postgresql
+ps aux | grep postgresql
 
 ```
+#### 🖼️ Terminal Command
 
 
+#### 🖼️ Terminal Output
 
-#### 🖼️ Terminal Output View (`ps aux | grep postgresql` - Not Running)
 
-```plaintext
-root      3412  0.0  0.0   12780   940 pts/0    S+   10:32   0:00 grep --color=auto postgresql
-
-```
 
 *(Only the `grep` process is returned, proving the daemon is currently inactive).*
 
 * **Enable PostgreSQL Boot Persistence:**
 ```bash
-kali > sudo update-rc.d postgresql defaults
+sudo update-rc.d postgresql defaults
 
 ```
+#### 🖼️ Terminal Command
 
 
+#### 🖼️ Terminal Output
 
-#### 🖼️ Terminal Output View (`update-rc.d`)
-
-```plaintext
- Synchronizing State of postgresql.service with SysV service script with /lib/systemd/systemd-sysv-install.
- Executing: /lib/systemd/systemd-sysv-install enable postgresql
-
-```
 
 * **Post-Reboot Active Verification View:**
 ```bash
-kali > ps aux | grep postgresql
+ps aux | grep postgresql
 
 ```
+#### 🖼️ Terminal Command
 
 
+#### 🖼️ Terminal Output
 
-#### 🖼️ Terminal Output View (`ps aux | grep postgresql` - Running)
 
-```plaintext
-postgres  1248  0.0  0.1  212340 18450 ?        S    10:14   0:00 /usr/lib/postgresql/13/bin/postgres -D /var/lib/postgresql/13/main -c config_file=/etc/postgresql/13/main/postgresql.conf
-root      3412  0.0  0.0   12780   940 pts/0    S+   10:32   0:00 grep --color=auto postgresql
-
-```
 
 ---
 
@@ -208,11 +187,11 @@ root      3412  0.0  0.0   12780   940 pts/0    S+   10:32   0:00 grep --color=a
 
 * **Install & Launch Utility:**
 ```bash
-kali > sudo apt-get install rcconf
-kali > sudo rcconf
+sudo apt-get install rcconf
+sudo rcconf
 
 ```
-
+#### 🖼️ Terminal Command
 
 
 #### 🖼️ Terminal View Simulation (`rcconf`)
@@ -273,5 +252,3 @@ kali > sudo rcconf
 $$\text{Check Running Service } (\texttt{ps aux}) \longrightarrow \text{Edit Cron } (\texttt{crontab -e}) \longrightarrow \text{Configure Boot Links } (\texttt{update-rc.d}) \longrightarrow \text{Verify Execution}$$
 
 ---
-
-*⚡ End of Week 05 • Day 02 Notes • Organized for GitHub & OneNote*
