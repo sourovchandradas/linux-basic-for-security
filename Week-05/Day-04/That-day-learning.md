@@ -165,10 +165,10 @@ sudo update-rc.d postgresql defaults
 
 ```
 #### 🖼️ Terminal Commad
-[rc.update command](Screenshot/rc.update-command.png)
+![rc.update command](Screenshot/rc.update-command.png)
 
 #### 🖼️ Terminal Output
-[rc.update output](Screenshot/rc.update-output.png)
+![rc.update output](Screenshot/rc.update-output.png)
 
 * **Post-Reboot Active Verification View:**
 ```bash
