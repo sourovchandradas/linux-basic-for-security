@@ -123,8 +123,10 @@ crontab -e
 
 ```
 ### 🖼️ Terminal Command
+![crontab -e command](Screenshot/crontab-e-command.png)
 
 #### 🖼️ Terminal Output
+![crontab -e output](Screenshot/crontab-e-command.png)
 
 
 * **Direct Editing of System-Wide Configuration File:**
@@ -133,11 +135,10 @@ nano /etc/crontab
 
 ```
 ### 🖼️ Terminal Command
-
-
+![nana /etc/crontab command](Screenshot/nano-etc-crontab-command.png)
 
 #### 🖼️ Terminal Output
-
+![nano /etc/crontab output](Screenshot/nano-etc-crontab-output.png)
 
 
 ---
@@ -150,10 +151,10 @@ ps aux | grep postgresql
 
 ```
 #### 🖼️ Terminal Command
-
+![ps aux | grep postgresql command](Screenshot/ps-aux-grep-postgresql-command.png)
 
 #### 🖼️ Terminal Output
-
+![ps aux | grep postgresql output](Screenshot/ps-aux-grep-postgresql-output.png)
 
 
 *(Only the `grep` process is returned, proving the daemon is currently inactive).*
@@ -163,22 +164,22 @@ ps aux | grep postgresql
 sudo update-rc.d postgresql defaults
 
 ```
-#### 🖼️ Terminal Command
-
+#### 🖼️ Terminal Commad
+[rc.update command](Screenshot/rc.update-command.png)
 
 #### 🖼️ Terminal Output
-
+[rc.update output](Screenshot/rc.update-output.png)
 
 * **Post-Reboot Active Verification View:**
 ```bash
 ps aux | grep postgresql
 
 ```
-#### 🖼️ Terminal Command
-
+#### 🖼️ Terminal Commad
+![ps aux | grep postgresql command](Screenshot/ps-aux-grep-postgresql-command.png)
 
 #### 🖼️ Terminal Output
-
+![ps aux | grep postgresql output](Screenshot/ps-aux-grep-postgresql-output.png)
 
 
 ---
@@ -192,7 +193,7 @@ sudo rcconf
 
 ```
 #### 🖼️ Terminal Command
-
+![rcconf-install-command command](Screenshot/rcconf-install-command.png)
 
 #### 🖼️ Terminal View Simulation (`rcconf`)
 
