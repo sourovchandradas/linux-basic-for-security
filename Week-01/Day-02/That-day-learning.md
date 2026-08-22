@@ -79,27 +79,6 @@ Do not log in as `root` for routine tasks (browsing the web, running tools like 
 
 ### 4. 🛠️ Command Reference & Shortcuts
 
-#### Essential Basic Commands
-
-| Command | Purpose | Example Syntax |
-| --- | --- | --- |
-| **`pwd`** | Print working directory | `pwd` |
-| **`ls`** | List files and directories | `ls` or `ls -la` |
-| **`cd`** | Change directory | `cd /home` |
-| **`mkdir`** | Make a new directory | `mkdir my-folder` |
-| **`touch`** | Create empty file | `touch file.txt` |
-| **`cat`** | Display file contents | `cat file.txt` |
-| **`cp`** | Copy files | `cp source.txt dest.txt` |
-| **`mv`** | Move/rename files | `mv old.txt new.txt` |
-| **`rm`** | Remove files | `rm file.txt` |
-| **`sudo`** | Run as superuser | `sudo apt-get update` |
-
-#### File Permissions Quick Commands
-
-* View permissions: `ls -l`
-* Change permissions: `chmod 755 file.txt`
-* Change owner: `chown user:group file.txt`
-
 #### Terminal Keyboard Shortcuts
 
 | Shortcut | Function |
