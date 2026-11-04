@@ -15,8 +15,6 @@ pwd
 ```
 * **Labs:** [pwd](labs/pwd.png)
 
-![Terminal output for pwd](Screenshot/pwd.png)
-
 ---
 
 ## 2. Identify the current user with `whoami`
