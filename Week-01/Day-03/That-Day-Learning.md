@@ -11,8 +11,7 @@ This note covers foundational Linux commands for navigating the filesystem, iden
 `pwd` prints the absolute path of the current working directory. Knowing where you are helps prevent running commands against the wrong files or folders.
 
 ```bash
-sourov@kali:~$ pwd
-/home/sourov
+pwd
 ```
 
 ![Terminal output for pwd](Screenshot/pwd.png)
@@ -24,11 +23,7 @@ sourov@kali:~$ pwd
 `whoami` prints the username associated with the current effective user ID. It is useful to confirm which account a shell is using. It does **not** show every group or permission; use `id` for that information.
 
 ```bash
-sourov@kali:~$ whoami
-sourov
-
-sourov@kali:~$ id
-uid=1000(sourov) gid=1000(sourov) groups=1000(sourov)
+whoami
 ```
 
 Most everyday commands can run as a regular user. Some administrative actions or particular operations may require elevated privileges; requirements depend on the command and its options. Use elevated privileges only when needed and authorized.
@@ -52,12 +47,10 @@ Most everyday commands can run as a regular user. Some administrative actions or
 An **absolute path** starts from `/`; a **relative path** is interpreted from the current directory.
 
 ```bash
-sourov@kali:~$ cd /etc
-sourov@kali:/etc$ pwd
-/etc
-sourov@kali:/etc$ cd ..
-sourov@kali:/$ pwd
-/
+cd /etc
+pwd
+cd ..
+pwd
 ```
 
 ![Terminal output for cd](Screenshot/cd.png)
@@ -77,10 +70,14 @@ sourov@kali:/$ pwd
 Combine options as `ls -lah` (or `ls -alh`). In a long listing, the displayed timestamp is generally the **last modification time**, not the file's creation time. File metadata and available timestamps can vary by filesystem.
 
 ```bash
-sourov@kali:~$ ls
-Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
-
-sourov@kali:~$ ls -lah
+ls
+ls -l
+ls -h
+ls -a
+ls -la
+ls -lh
+ls -ah
+ls -lha
 ```
 
 ![Standard directory listing](Screenshot/ls.png)
@@ -98,8 +95,7 @@ sourov@kali:~$ ls -lah
 Many command-line programs provide a brief usage summary with `--help`; some use `-h`, and behavior is program-specific. Check the command's own help output rather than assuming every program follows the same convention.
 
 ```bash
-sourov@kali:~$ ls --help
-sourov@kali:~$ nmap --help
+ls --help
 ```
 
 The `nmap` example displays help text only. If practicing security tools, use them only on systems and networks you own or have explicit permission to assess.
@@ -115,7 +111,7 @@ The `nmap` example displays help text only. If practicing security tools, use th
 `man` opens the installed manual page for a command. Manual pages provide more detail than a short help summary; availability depends on the package and system configuration.
 
 ```bash
-sourov@kali:~$ man ls
+man ls
 ```
 
 Useful navigation keys in the pager:
@@ -170,3 +166,7 @@ pwd
 4. Use `ls -lah` to inspect hidden entries and common file metadata; its timestamp is not generally a creation time.
 5. Consult the program's own `--help` output or manual page, since options vary between programs.
 6. Use security tools only within an explicitly authorized scope.
+
+---
+
+*Last Modified : November 5, 2026*
