@@ -1,4 +1,4 @@
-# 🐬 Day 02 (Week 01 • Day 02): A Tour of Kali Linux & Basic Command Line
+# 🐬 Day 02 : A Tour of Kali Linux & Basic Command Line
 
 Welcome to Day 02 of Week 01 of my Linux Security learning journey. This document covers logging into Kali Linux, terminal and shell fundamentals, basic command navigation, the Linux filesystem hierarchy, security best practices (root vs. standard user), keyboard shortcuts, and file permissions.
 
