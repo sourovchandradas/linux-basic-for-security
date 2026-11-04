@@ -1,161 +1,172 @@
-# 🐧 Day 03 : Linux Basics & Core Commands
+# Day 03: Linux Basics & Core Commands
 
-Welcome to Day 03 of Week 01 of my Linux Security learning journey. This absolute fundamental note covers the core concepts and commands required to navigate the Linux filesystem, identify users, check contents, and get help using Kali Linux as a non-root standard user.
+This note covers foundational Linux commands for navigating the filesystem, identifying the current user, inspecting directory contents, and finding command documentation. The examples use a Kali Linux shell, but these commands are available on most Linux distributions.
+
+> **Learning objective:** Be able to explain what each command does, choose an appropriate option, and verify the result in an authorized local environment.
 
 ---
 
-## 🎯 Key Points & Core Concepts
+## 1. Check the current directory with `pwd`
 
-### 1. 📍 Present Working Directory (`pwd`)
-* Description: Returns your exact current location or absolute path within the Linux hierarchical directory structure.
-* Core Importance: Unlike graphical user interface (GUI) environments, the command line interface (CLI) doesn't always visually display your current directory. You must know your precise coordinate before executing or creating scripts.
+`pwd` prints the absolute path of the current working directory. Knowing where you are helps prevent running commands against the wrong files or folders.
 
-Example — Querying current directory path:
 ```bash
-sourov@kali > pwd
+sourov@kali:~$ pwd
 /home/sourov
-
 ```
-#### 🖼️ Terminal Output
 
-![Print Working Directory](Screenshot/pwd.png)
+![Terminal output for pwd](Screenshot/pwd.png)
 
-### 2. 👤 Active Session Identification (whoami)
- * Description: Displays the specific username of the current active terminal shell session.
- * Root vs Non-Root Architecture: The root account is the all-powerful system superuser required to run deep administration and advanced network tracking tools.
- * Privilege Escalation Constraint: Since you are logged in as the standard user sourov, certain security utilities (such as nmap or aircrack-ng) will deny execution due to restricted permissions. To bypass this, you must prefix those commands with sudo to invoke elevated administrative privileges.
-Example — Verifying active session identity:
+---
+
+## 2. Identify the current user with `whoami`
+
+`whoami` prints the username associated with the current effective user ID. It is useful to confirm which account a shell is using. It does **not** show every group or permission; use `id` for that information.
+
 ```bash
-sourov@kali > whoami
+sourov@kali:~$ whoami
 sourov
 
+sourov@kali:~$ id
+uid=1000(sourov) gid=1000(sourov) groups=1000(sourov)
 ```
-#### 🖼️ Terminal Output
 
-![Who ami I](Screenshot/whoami.png)
+Most everyday commands can run as a regular user. Some administrative actions or particular operations may require elevated privileges; requirements depend on the command and its options. Use elevated privileges only when needed and authorized.
 
+![Terminal output for whoami](Screenshot/whoami.png)
 
-### 3. 📂 Changing Directory Layouts (cd)
- * Description: Used to seamlessly migrate and shift your working operational environment from one directory to another.
- * Syntax Rule & Navigation Variants:
-   * cd [path] : Moves the terminal context to a specific target path (e.g., cd /etc).
-   * cd .. : Jumps upward exactly one parent directory tier closer to the system root (/).
-   * cd ../.. : Jumps upward exactly two full structural directory tiers.
-   * cd ../../.. : Jumps upward exactly three structural directory tiers.
-   * cd / : Immediately snaps your terminal context directly to the absolute top/root level of the entire file layout.
-Example — Shifting path locations:
+---
+
+## 3. Navigate directories with `cd`
+
+`cd` is a shell built-in that changes the current working directory.
+
+| Command | Meaning |
+|---|---|
+| `cd /etc` | Go to the absolute path `/etc`. |
+| `cd ..` | Go to the parent of the current directory. |
+| `cd ../..` | Go up two directory levels. |
+| `cd ~` | Go to the current user's home directory. |
+| `cd -` | Return to the previous working directory. |
+
+An **absolute path** starts from `/`; a **relative path** is interpreted from the current directory.
+
 ```bash
-sourov@kali > cd /etc
-sourov@kali > cd ..
-
+sourov@kali:~$ cd /etc
+sourov@kali:/etc$ pwd
+/etc
+sourov@kali:/etc$ cd ..
+sourov@kali:/$ pwd
+/
 ```
-#### 🖼️ Terminal Output
 
-![Change directory](Screenshot/cd.png)
+![Terminal output for cd](Screenshot/cd.png)
 
+---
 
-### 4. 🗂️ Listing Directory Contents (ls)
- * Description: Scans and displays the filenames and active subdirectories nested inside a designated directory layer.
- * Standard Execution: Running ls without arguments prints contents of your current path, while passing an explicit variable (like ls /path) previews that target's inventory.
- * Tactical Switches & Flags:
-   * -l : Long Listing mode. Unlocks data rows detailing file security permissions, owners, file size, and creation timestamps.
-   * -a : All files flag. Forces the system to render hidden files that begin with a structural dot index (e.g., .bashrc).
-   * -la : Combined utility flag. Renders a long listing layout that includes hidden configurations. This is highly recommended for security audits.
-Example 1 — Standard Contents List:
+## 4. Inspect directory contents with `ls`
+
+`ls` lists directory entries. With no path argument, it lists the current directory; with a path, it lists that directory.
+
+| Option | Meaning |
+|---|---|
+| `-l` | Use a long format showing permissions, link count, owner, group, size, and modification time. |
+| `-a` | Include hidden entries whose names begin with `.` (including `.` and `..`). |
+| `-h` | With `-l`, display file sizes in a human-readable format. |
+
+Combine options as `ls -lah` (or `ls -alh`). In a long listing, the displayed timestamp is generally the **last modification time**, not the file's creation time. File metadata and available timestamps can vary by filesystem.
+
 ```bash
-sourov@kali > ls
-Desktop  Documents  Downloads  Music  Pictures  Public  Templates Text  Videos
+sourov@kali:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 
+sourov@kali:~$ ls -lah
 ```
-#### 🖼️ Terminal Output
 
-![List](Screenshot/ls.png)
+![Standard directory listing](Screenshot/ls.png)
 
+![Long directory listing](Screenshot/longlist.png)
 
-Example 2 — Long Listing Representation (-l):
+![Hidden entries](Screenshot/hiddenlist.png)
+
+![Long listing including hidden entries](Screenshot/hiddenlist+longlist.png)
+
+---
+
+## 5. Find command options with `--help`
+
+Many command-line programs provide a brief usage summary with `--help`; some use `-h`, and behavior is program-specific. Check the command's own help output rather than assuming every program follows the same convention.
+
 ```bash
-sourov@kali > ls -l
-
+sourov@kali:~$ ls --help
+sourov@kali:~$ nmap --help
 ```
-#### 🖼️ Terminal Output
 
-![Long list](Screenshot/longlist.png)
+The `nmap` example displays help text only. If practicing security tools, use them only on systems and networks you own or have explicit permission to assess.
 
+![aircrack-ng help output](Screenshot/aircrack-ng%20--help.png)
 
-Example 3 — Hidden Files Discovery View (-a):
+![nmap help output](Screenshot/nmap--help.png)
+
+---
+
+## 6. Read manual pages with `man`
+
+`man` opens the installed manual page for a command. Manual pages provide more detail than a short help summary; availability depends on the package and system configuration.
+
 ```bash
-sourov@kali > ls -a
-
+sourov@kali:~$ man ls
 ```
-#### 🖼️ Terminal Output
 
-![Hidden list](Screenshot/hiddenlist.png)
+Useful navigation keys in the pager:
 
-Example 4 — Combined Long and Hidden Manifest (-la):
+- `Space` or `Page Down`: move forward one page.
+- `b` or `Page Up`: move backward one page.
+- `/term` then `Enter`: search for `term`; press `n` for the next match.
+- `q`: quit the manual page.
+
+![Manual page example](Screenshot/man%20aircrack-ng.png)
+
+---
+
+## Hands-on practice
+
+Practice in your own home directory. These commands create a small, harmless example folder and file, then inspect them. The `mkdir` and `touch` commands are included here to make the navigation and listing exercise reproducible.
+
 ```bash
-sourov@kali > ls -la
-
-```
-#### 🖼️ Terminal Output
-
-![Hidden & long list](Screenshot/hiddenlist+longlist.png)
-
-### 5. ❓ Standard Help Switch Execution (--help)
- * Description: Displays a fast reference syntax summary, tool description, and available flag arguments inside the active standard output.
- * Rule of Thumb: Use a double dash (--) before complete word options, and use a single dash (-) to invoke single-letter flags.
- * Safety Note: If --help fails to run on a custom compiled tool, drop back to checking -h or -?.
-Example 1 — Checking aircrack-ng help layout:
-```bash
-sourov@kali > aircrack-ng --help
-
-```
-#### 🖼️ Terminal Output
-
-
-![Help](Screenshot/aircrack-ng%20--help.png)
-
-
-Example 2 — Checking nmap scanner help parameters:
-```bash
-sourov@kali > nmap --help
-
-```
-#### 🖼️ Terminal Output
-
-![nmap help](Screenshot/nmap--help.png)
-
-### 6. 📖 Deep Documentation Manuals (man)
- * Description: Opens the comprehensive, complete official manual pages for any targeted Linux binary, command, or structural utility.
- * Viewport Navigation Matrix:
-   * [Enter Key] : Scroll down line-by-line for deep inspection.
-   * [Spacebar] / [Pg Dn] : Scroll down page-by-page.
-   * [Pg Up] : Scroll back up page-by-page.
-   * [q] : Gracefully terminates the manual reader interface and returns you back to the command prompt.
-Example — Opening full manual configurations:
-```bash
-sourov@kali > man aircrack-ng
-
-```
-#### 🖼️ Terminal Output
-
-![man](Screenshot/man%20aircrack-ng.png)
-
-## 🛠️ Utilities & Tool Reference
-| Category | Component/Tool | Syntax / Structure | Description |
-|---|---|---|---|
-| Environment Check | pwd | pwd | Displays the current absolute path of your active directory. |
-| User Auditing | whoami | whoami | Returns the system username of the current running shell instance. |
-| Navigation Engine | cd | cd [target_directory] | Changes current text context and traverses across filesystem tiers. |
-| Inventory View | ls | ls -la [target_path] | Lists explicit file blocks, size variables, and hidden dot files. |
-| Fast Help Switch | --help / -h | [command] --help | Dumps syntax templates and argument switches to the terminal screen. |
-| Official Documentation | man | man [command] | Launches structural manual screens with built-in page controls. |
-## 🔑 Key Takeaways for Revision
- 1. pwd → Shows current directory coordinate path.
- 2. whoami → Identifies current active system profile name.
- 3. cd → Shifts context locations across folder paths.
- 4. ls → Details standard, long (-l), or hidden (-a) folder inventories.
- 5. --help / man → Safely parses parameters and commands when working with new tools.
-
+cd ~
+mkdir -p linux-practice/day03
+cd linux-practice/day03
+pwd
+touch notes.txt
+ls -lah
+cd ..
+pwd
+cd -
+pwd
 ```
 
-```
+**Check your understanding:** What changes in the output between `ls`, `ls -l`, and `ls -la`? Which command confirms your current location, and which one confirms your username?
+
+---
+
+## Quick reference
+
+| Command | Example | Purpose |
+|---|---|---|
+| `pwd` | `pwd` | Print the current working directory. |
+| `whoami` | `whoami` | Print the effective username. |
+| `id` | `id` | Show user and group IDs. |
+| `cd` | `cd /etc` | Change the current working directory. |
+| `ls` | `ls -lah` | List entries, including hidden entries, with detailed information. |
+| `--help` | `ls --help` | Show a program's brief help, where supported. |
+| `man` | `man ls` | Open the installed manual page. |
+
+## Key takeaways
+
+1. Use `pwd` to verify the current working directory before acting on files.
+2. Use `whoami` to identify the current effective username; use `id` to inspect user and group IDs.
+3. Understand whether a path is absolute or relative before using `cd`.
+4. Use `ls -lah` to inspect hidden entries and common file metadata; its timestamp is not generally a creation time.
+5. Consult the program's own `--help` output or manual page, since options vary between programs.
+6. Use security tools only within an explicitly authorized scope.
