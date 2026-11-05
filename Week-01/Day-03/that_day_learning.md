@@ -13,7 +13,7 @@ This note covers foundational Linux commands for navigating the filesystem, iden
 ```bash
 pwd
 ```
-* **Labs:** [pwd](labs/pwd.png)
+* **Labs:** [pwd](labs/pwd)
 
 ---
 
