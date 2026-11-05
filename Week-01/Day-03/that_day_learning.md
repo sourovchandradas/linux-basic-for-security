@@ -52,7 +52,7 @@ cd ..
 pwd
 ```
 
-![Terminal output for cd](Screenshot/cd.png)
+* **Labs:** [cd](labs/cd)
 
 ---
 
@@ -79,13 +79,7 @@ ls -ah
 ls -lha
 ```
 
-![Standard directory listing](Screenshot/ls.png)
-
-![Long directory listing](Screenshot/longlist.png)
-
-![Hidden entries](Screenshot/hiddenlist.png)
-
-![Long listing including hidden entries](Screenshot/hiddenlist+longlist.png)
+* **Labs:** [ls](labs/ls)
 
 ---
 
