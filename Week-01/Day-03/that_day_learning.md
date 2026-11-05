@@ -27,7 +27,7 @@ whoami
 
 Most everyday commands can run as a regular user. Some administrative actions or particular operations may require elevated privileges; requirements depend on the command and its options. Use elevated privileges only when needed and authorized.
 
-![Terminal output for whoami](Screenshot/whoami.png)
+* **Labs:** [whoami](labs/whoami)
 
 ---
 
