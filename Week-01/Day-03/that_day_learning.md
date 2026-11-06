@@ -4,9 +4,22 @@ This note covers foundational Linux commands for navigating the filesystem, iden
 
 > **Learning objective:** Be able to explain what each command does, choose an appropriate option, and verify the result in an authorized local environment.
 
+## Table of Contents
+* [Check the current directory with `pwd`](#check-the-current-directory-with-pwd)
+* [Identify the current user with `whoami`](#identify-the-current-user-with-whoami)
+* [Navigate directories with `cd`](#navigate-directories-with-cd)
+* [Inspect directory contents with `ls`](#inspect-directory-contents-with-ls)
+* [Find command options with `--help`](#find-command-options-with--help)
+* [Read manual pages with `man`](#read-mannual-pages-with-man)
+* [Hands-on practice](#hands--on-practice)
+* [Quick Reference](#quick-reference)
+* [Related Topics](#related-topics)
+* [Additional Resources](#additional-resources)
+* [Key Takeaways](#key-takeaways)
+
 ---
 
-## 1. Check the current directory with `pwd`
+## Check the current directory with `pwd`
 
 `pwd` prints the absolute path of the current working directory. Knowing where you are helps prevent running commands against the wrong files or folders.
 
@@ -17,7 +30,7 @@ pwd
 
 ---
 
-## 2. Identify the current user with `whoami`
+## Identify the current user with `whoami`
 
 `whoami` prints the username associated with the current effective user ID. It is useful to confirm which account a shell is using. It does **not** show every group or permission; use `id` for that information.
 
@@ -31,7 +44,7 @@ Most everyday commands can run as a regular user. Some administrative actions or
 
 ---
 
-## 3. Navigate directories with `cd`
+## Navigate directories with `cd`
 
 `cd` is a shell built-in that changes the current working directory.
 
@@ -56,7 +69,7 @@ pwd
 
 ---
 
-## 4. Inspect directory contents with `ls`
+## Inspect directory contents with `ls`
 
 `ls` lists directory entries. With no path argument, it lists the current directory; with a path, it lists that directory.
 
@@ -83,7 +96,7 @@ ls -lha
 
 ---
 
-## 5. Find command options with `--help`
+## Find command options with `--help`
 
 Many command-line programs provide a brief usage summary with `--help`; some use `-h`, and behavior is program-specific. Check the command's own help output rather than assuming every program follows the same convention.
 
@@ -97,7 +110,7 @@ The `nmap` example displays help text only. If practicing security tools, use th
 
 ---
 
-## 6. Read manual pages with `man`
+## Read manual pages with `man`
 
 `man` opens the installed manual page for a command. Manual pages provide more detail than a short help summary; availability depends on the package and system configuration.
 
@@ -137,7 +150,7 @@ pwd
 
 ---
 
-## Quick reference
+## Quick Reference
 
 | Command | Example | Purpose |
 |---|---|---|
@@ -149,7 +162,21 @@ pwd
 | `--help` | `ls --help` | Show a program's brief help, where supported. |
 | `man` | `man ls` | Open the installed manual page. |
 
-## Key takeaways
+---
+
+## Related Topics
+* [Day-04](../day-04)
+* [day-05](../day-05)
+* [day-05](../day-06)
+
+---
+
+## Additional Resources
+* **Linux Basics for Hackers**
+
+---
+
+## Key Takeaways
 
 1. Use `pwd` to verify the current working directory before acting on files.
 2. Use `whoami` to identify the current effective username; use `id` to inspect user and group IDs.
@@ -160,4 +187,4 @@ pwd
 
 ---
 
-*Last Modified : November 5, 2026*
+*Last Modified : November 6, 2026*
