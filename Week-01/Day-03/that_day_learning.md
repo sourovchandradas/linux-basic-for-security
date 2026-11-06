@@ -92,6 +92,15 @@ ls -ah
 ls -lha
 ```
 
+### Explanation
+* `ls -l`    : Shows list with **long**.
+* `ls -h`    : Shows list with **human readable format**.
+* `ls -a`    : Shows list with **hidden file**.
+* `ls -la`   : Shows list with **long and hidden**.
+* `ls -lh`   : Shows list with **long and human readable format**.
+* `ls -ah`   : Shows list with **hidden and human readable format**.
+* `ls -lha`  : Show list with **long, human readable format and hidden**.
+
 * **Labs:** [ls](labs/ls)
 
 ---
@@ -104,7 +113,7 @@ Many command-line programs provide a brief usage summary with `--help`; some use
 ls --help
 ```
 
-The `nmap` example displays help text only. If practicing security tools, use them only on systems and networks you own or have explicit permission to assess.
+`ls --help` displays a summary of the options supported by `ls`.
 
 * **Labs:** [--help](labs/--help)
 
@@ -172,7 +181,7 @@ pwd
 ---
 
 ## Additional Resources
-* **Linux Basics for Hackers**
+* [Linux Basics For Hackers](https://books.google.com.bd/books?id=HkFYswEACAAJ&printsec=copyright&redir_esc=y#v=onepage&q&f=false)
 
 ---
 
