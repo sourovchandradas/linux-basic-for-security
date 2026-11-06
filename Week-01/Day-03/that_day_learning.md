@@ -93,9 +93,7 @@ ls --help
 
 The `nmap` example displays help text only. If practicing security tools, use them only on systems and networks you own or have explicit permission to assess.
 
-![aircrack-ng help output](Screenshot/aircrack-ng%20--help.png)
-
-![nmap help output](Screenshot/nmap--help.png)
+* **Labs:** [--help](labs/--help)
 
 ---
 
@@ -114,7 +112,7 @@ Useful navigation keys in the pager:
 - `/term` then `Enter`: search for `term`; press `n` for the next match.
 - `q`: quit the manual page.
 
-![Manual page example](Screenshot/man%20aircrack-ng.png)
+* **Labs:** [man](labs/man)
 
 ---
 
