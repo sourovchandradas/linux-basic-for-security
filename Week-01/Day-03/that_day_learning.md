@@ -165,9 +165,9 @@ pwd
 ---
 
 ## Related Topics
-* [Day-04](../day-04)
-* [day-05](../day-05)
-* [day-05](../day-06)
+* [Day-04](../day-04/that_day_learning.md)
+* [day-05](../day-05/that_day_learning.md)
+* [day-05](../day-06/that_day_learning.md)
 
 ---
 
