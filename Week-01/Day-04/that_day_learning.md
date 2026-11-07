@@ -29,14 +29,12 @@ Important limitation: the database is normally updated periodically, so newly cr
 locate aircrack-ng
 ```
 
+* **Labs:** [locate](labs/locate)
+
 **Why it matters:**
 * Very fast for broad searches.
 * Good for general file lookup.
 * Not ideal for very recent files because it depends on the database update cycle.
-
-#### 🖼️ Terminal Output
-
-![Locate Command](Screenshots/locate.png)
 
 ---
 
@@ -48,14 +46,12 @@ locate aircrack-ng
 whereis aircrack-ng
 ```
 
+* **Labs:** [whereis](labs/whereis)
+
 **What it returns:**
 * the executable path
 * the source path (if installed)
 * the man page location
-
-#### 🖼️ Terminal Output
-
-![Whereis Command](Screenshots/whereis.png)
 
 ---
 
@@ -67,12 +63,10 @@ whereis aircrack-ng
 which aircrack-ng
 ```
 
+* **Labs:** [which](labs/which)
+
 **What is `PATH`?**
 `PATH` is an environment variable containing a list of directories such as `/usr/bin` and `/usr/sbin`. When you type a command, the shell searches those directories in order.
-
-#### 🖼️ Terminal Output
-
-![Which Command](Screenshots/which.png)
 
 ---
 
@@ -102,23 +96,21 @@ find / -type f -name apache2
 
 This is a broad search and can be slow because it checks the whole filesystem.
 
-#### 🖼️ Terminal Output
-
-![Find Root](Screenshots/find-with-root.png)
-
 #### Example 2: Search only in `/etc`
 
 ```bash
 find /etc -type f -name apache2
 ```
 
+* **Labs:** [find](labs/find)
+
 This is usually faster and more focused than scanning `/`.
 
-#### 🖼️ Terminal Output
+* **Labs:** [find](labs/find)
 
-![Find Config Folder](Screenshots/find-with-configuration-file.png)
-
-**Best practice:** Start with a narrow directory whenever possible to reduce search time and output clutter.
+> **Best practice:** Start with a narrow directory whenever possible to reduce search time and output clutter.
+>
+> 
 
 ---
 
@@ -138,9 +130,7 @@ find /etc -type f -name 'apache2.*'
 
 This pattern matches files such as `apache2.conf` or `apache2.log`.
 
-#### 🖼️ Terminal Output
-
-![Find Wildcard](Screenshots/find-with-main-apache-config.png)
+* **Labs:** [wildcards](labs/wildcards)
 
 ---
 
@@ -156,18 +146,12 @@ The pipe symbol `|` sends the output of one command into another command. This m
 ps aux | grep apache2
 ```
 
+* **Labs:** [grep](labs/grep)
+
 This command:
 1. shows all running processes with `ps aux`
 2. sends the output into `grep`
 3. filters the result to lines containing `apache2`
-
-#### 🖼️ Process Output
-
-![PS Aux](Screenshots/ps-aux.png)
-
-#### 🖼️ Process & Filter Output
-
-![Grep](Screenshots/grep.png)
 
 **Why this matters:** You can quickly confirm whether a service is running without manually scanning a long process list.
 
