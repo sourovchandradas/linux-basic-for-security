@@ -88,25 +88,26 @@ find [directory] [options] [expression]
 
 ### Practical examples
 
-#### Example 1: Search from the root directory
+#### Example 01: Search from the root directory
 
 ```bash
 find / -type f -name apache2
 ```
 
+* **Labs:** [find](labs/find/example-01)
+
 This is a broad search and can be slow because it checks the whole filesystem.
 
-#### Example 2: Search only in `/etc`
+#### Example 02: Search only in `/etc`
 
 ```bash
 find /etc -type f -name apache2
 ```
 
-* **Labs:** [find](labs/find)
+* **Labs:** [find](labs/find/example-02)
 
 This is usually faster and more focused than scanning `/`.
 
-* **Labs:** [find](labs/find)
 
 > **Best practice:** Start with a narrow directory whenever possible to reduce search time and output clutter.
 >
