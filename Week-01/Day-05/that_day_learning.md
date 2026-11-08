@@ -1,4 +1,4 @@
-<img width="641" height="401" alt="image" src="https://github.com/user-attachments/assets/9373b171-3465-424a-b57e-1cf5a00420e1" /># Day 05: Linux File & Directory Modification Utilities
+# Day 05: Linux File & Directory Modification Utilities
 
 This note covers common Linux commands for creating, copying, renaming, and removing files and directories. The examples use a Kali Linux shell, but these commands are available on most Linux distributions.
 
