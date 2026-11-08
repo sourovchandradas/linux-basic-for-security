@@ -1,4 +1,4 @@
-# Day 05: Linux File & Directory Modification Utilities
+<img width="641" height="401" alt="image" src="https://github.com/user-attachments/assets/9373b171-3465-424a-b57e-1cf5a00420e1" /># Day 05: Linux File & Directory Modification Utilities
 
 This note covers common Linux commands for creating, copying, renaming, and removing files and directories. The examples use a Kali Linux shell, but these commands are available on most Linux distributions.
 
@@ -33,7 +33,7 @@ My goal is to become a cybersecurity engineer.
 cat LinuxSkills
 
 cat >> LinuxSkills
-So, Linux is very important for my learning journey.
+Linux plays a very important role in my Linux learning journey.
 # Press Ctrl-D to finish input.
 
 cat LinuxSkills
@@ -47,7 +47,7 @@ To demonstrate overwriting, the original example redirects new input to the same
 
 ```bash
 cat > LinuxSkills
-Everyone in IT security without hacking skills is in the dark
+Without hacking skills, everyone in IT security is in the dark.
 # Press Ctrl-D to finish input.
 cat LinuxSkills
 ```
