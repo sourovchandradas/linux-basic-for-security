@@ -38,16 +38,10 @@ So, Linux is very important for my learning journey.
 
 cat LinuxSkills
 ```
+* **Labs:** [cat](labs/cat)
+
 
 The `>` and `>>` operators are shell redirections; `cat` itself is not entering a special file-editing mode. Be careful with `>` because it truncates an existing file immediately.
-
-![Create file with cat](Screenshot/create-file-cat.png)
-
-![Display file with cat](Screenshot/display-with-cat.png)
-
-![Append with cat](Screenshot/append-with-cat.png)
-
-![Display appended content](Screenshot/display-append-with-cat.png)
 
 To demonstrate overwriting, the original example redirects new input to the same file with `>`:
 
@@ -58,7 +52,7 @@ Everyone in IT security without hacking skills is in the dark
 cat LinuxSkills
 ```
 
-![Overwrite and display with cat](Screenshot/overwrite-with-cat-and-display.png)
+* **Labs:** [cat](labs/cat)
 
 ---
 
@@ -71,7 +65,7 @@ touch newfile
 ls -l newfile
 ```
 
-![File created with touch](Screenshot/file-create-with-touch.png)
+* **Labs:** [touch](labs/touch)
 
 ---
 
@@ -85,7 +79,7 @@ cd newdirectory
 pwd
 ```
 
-![Make directory with mkdir](Screenshot/make-directory.png)
+* **Labs:** [mkdir](labs/mkdir)
 
 ---
 
@@ -93,6 +87,7 @@ pwd
 
 `cp` creates a copy at the destination and leaves the original in place. The destination can be a directory or a new file path; providing a new filename copies and renames the file at the same time.
 
+* **Syntax**
 ```bash
 cp [source_file] [destination_path]
 ```
@@ -105,7 +100,7 @@ cp oldfile newdirectory/newfile
 ls -l oldfile newdirectory/newfile
 ```
 
-![Copy with cp](Screenshot/copy-with-cp.png)
+* **Labs:** [cp](labs/cp)
 
 ---
 
@@ -113,6 +108,7 @@ ls -l oldfile newdirectory/newfile
 
 `mv` moves a file or directory to another location. When the source and destination are in the same directory, it effectively renames the item. If the destination already exists, it may be replaced; check the destination carefully before running the command.
 
+* **Syntax**
 ```bash
 mv [source] [destination]
 ```
@@ -122,7 +118,7 @@ mv newfile newfile2
 ls
 ```
 
-![Rename and move](Screenshot/rename-and-move.png)
+* **Labs:** [mv](labs/mv)
 
 ---
 
@@ -140,7 +136,7 @@ Remove a file:
 rm newfile2
 ```
 
-![Remove file](Screenshot/remove-file.png)
+* **Labs:** [remove files and directories](labs/remove_files_and_directories/rm)
 
 Trying to remove a non-empty directory with `rmdir` fails and leaves its contents in place:
 
@@ -148,7 +144,7 @@ Trying to remove a non-empty directory with `rmdir` fails and leaves its content
 rmdir newdirectory
 ```
 
-![Remove non-empty directory with rmdir](Screenshot/remove-directory-with-rmdir.png)
+* **Labs:** [remove files and directories](labs/remove_files_and_directories/rmdir)
 
 After checking that `newdirectory` is the intended directory, remove it and its contents recursively:
 
@@ -156,7 +152,7 @@ After checking that `newdirectory` is the intended directory, remove it and its 
 rm -r newdirectory
 ```
 
-![Remove directory with rm -r](Screenshot/remove-directory-with-rm-r.png)
+* **Labs:** [remove files and directories](labs/remove_files_and_directories/rm_-r)
 
 ---
 
