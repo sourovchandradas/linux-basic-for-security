@@ -61,7 +61,9 @@ cat LinuxSkills
 `touch` creates an empty file if it does not exist. If the file already exists, it updates its access and modification timestamps rather than clearing its contents. A newly created empty file has a size of 0 bytes.
 
 ```bash
+ls
 touch newfile
+ls
 ls -l newfile
 ```
 
