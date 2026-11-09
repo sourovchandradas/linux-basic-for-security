@@ -38,7 +38,7 @@ Linux plays a very important role in my Linux learning journey.
 
 cat LinuxSkills
 ```
-* **Labs:** [cat](labs/cat)
+* **Labs:** [cat](labs/cat/create_and_display)
 
 
 The `>` and `>>` operators are shell redirections; `cat` itself is not entering a special file-editing mode. Be careful with `>` because it truncates an existing file immediately.
@@ -52,7 +52,7 @@ Without hacking skills, everyone in IT security is in the dark.
 cat LinuxSkills
 ```
 
-* **Labs:** [cat](labs/cat)
+* **Labs:** [cat](labs/cat/overwrite)
 
 ---
 
