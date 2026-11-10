@@ -23,6 +23,7 @@ This note covers the key Linux text-processing tools used to inspect, filter, an
 ```bash
 cat /etc/snort/snort.lua
 ```
+* **Labs:** [display](labs/display)
 
 `cat` is most practical when you want to read the whole content of a relatively small file. For large configuration files or logs, it is often better to view only the beginning or end with `head` or `tail`.
 
@@ -38,12 +39,9 @@ cat /etc/snort/snort.lua
 head /etc/snort/snort.lua
 head -n 20 /etc/snort/snort.lua
 ```
+* **Labs:** [head](labs/head)
 
 The `-n` option lets you choose how many lines to display. In practical use, `head` is often the fastest way to confirm file structure or look for version information and early settings.
-
-![Default Head](Screenshot/head-command.png)
-
-![Custom Head](Screenshot/first-n-lines-of-head.png)
 
 ---
 
@@ -55,12 +53,9 @@ The `-n` option lets you choose how many lines to display. In practical use, `he
 tail /etc/snort/snort.lua
 tail -n 25 /etc/snort/snort.lua
 ```
+* **Labs:** [tail](labs/tail)
 
 When analyzing logs, `tail` is often used to monitor recent activity. A common pattern is `tail -f` to follow a file as new lines are written, which is especially helpful for troubleshooting services in real time.
-
-![Default Tail](Screenshot/tail-command.png)
-
-![Custom Tail](Screenshot/last-n-lines-of-tails.png)
 
 ---
 
@@ -72,12 +67,9 @@ When analyzing logs, `tail` is often used to monitor recent activity. A common p
 nl /etc/snort/snort.lua
 nl -ba /etc/snort/snort.lua
 ```
+* **Labs:** [nl](labs/nl)
 
 By default, `nl` numbers non-empty lines. The `-ba` option numbers all lines, including blank ones, which is useful when you need precise references in a script or config file.
-
-![Number Lines - Head](Screenshot/numbering-the-lines-with-nl-head.png)
-
-![Number Lines - Tail](Screenshot/numbering-the-lines-with-nl-tail.png)
 
 ---
 
@@ -122,9 +114,9 @@ nl -ba ~/linux-practice/day06/sample.txt
 ---
 
 ## Related Topics
-* [Day-03](../Day-03/that_day_learning.md)
 * [Day-04](../Day-04/that_day_learning.md)
 * [Day-05](../Day-05/that_day_learning.md)
+* [Day-07](../Day-07/that_day_learning.md)
 
 ---
 
