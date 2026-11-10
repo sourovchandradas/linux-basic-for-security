@@ -184,7 +184,10 @@ ls -lah linux-practice/day05
 rm -r linux-practice/day05
 ```
 
-**Check your understanding:** What is the difference between `>` and `>>`? How does `cp` differ from `mv`? Why will `rmdir` refuse to remove a non-empty directory?
+**Check your understanding:** 
+* What is the difference between `>` and `>>`?
+* How does `cp` differ from `mv`?
+* Why will `rmdir` refuse to remove a non-empty directory?
 
 ---
 
