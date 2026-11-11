@@ -74,11 +74,18 @@ When analyzing logs, `tail` is often used to monitor recent activity. A common p
 
 `nl` adds line numbers to the output of a file. This makes it easier to reference exact lines during review, testing, troubleshooting, or documentation.
 
+### Without empty line
 ```bash
 nl /etc/snort/snort.lua
+```
+* **Labs:** [nl](labs/nl/without_empty_line)
+
+### With empty line
+```bash
 nl -ba /etc/snort/snort.lua
 ```
-* **Labs:** [nl](labs/nl)
+* **Labs:** [nl](labs/nl/with_empty_line)
+
 
 By default, `nl` numbers non-empty lines. The `-ba` option numbers all lines, including blank ones, which is useful when you need precise references in a script or config file.
 
