@@ -74,13 +74,13 @@ When analyzing logs, `tail` is often used to monitor recent activity. A common p
 
 `nl` adds line numbers to the output of a file. This makes it easier to reference exact lines during review, testing, troubleshooting, or documentation.
 
-### Without empty line
+#### Without empty line
 ```bash
 nl /etc/snort/snort.lua
 ```
 * **Labs:** [nl](labs/nl/without_empty_line)
 
-### With empty line
+#### With empty line
 ```bash
 nl -ba /etc/snort/snort.lua
 ```
