@@ -1,4 +1,4 @@
-# Day 06: Linux Text Manipulation Utilities
+# Day 06: Linux Text Manipulation Utilities (Part 1)
 
 This note covers the key Linux text-processing tools used to inspect, filter, and reference file contents: `cat`, `head`, `tail`, and `nl`. The examples focus on practical system administration and security workflows, especially when reviewing configuration files or logs. Always work only on systems you own or are explicitly authorized to inspect.
 
