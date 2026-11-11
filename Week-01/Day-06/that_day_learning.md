@@ -35,11 +35,13 @@ cat /etc/snort/snort.lua
 
 `head` displays the first lines of a file. By default, it shows the first **10 lines**. This is useful when you want to inspect the header, configuration comments, or the beginning of a log file without reading everything.
 
+### By default
 ```bash
 head /etc/snort/snort.lua
 ```
 * **Labs:** [head](labs/head/by_default)
 
+### User defined
 ```bash
 head -n 20 /etc/snort/snort.lua
 ```
