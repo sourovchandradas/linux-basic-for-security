@@ -37,9 +37,13 @@ cat /etc/snort/snort.lua
 
 ```bash
 head /etc/snort/snort.lua
+```
+* **Labs:** [head](labs/head/by_default)
+
+```bash
 head -n 20 /etc/snort/snort.lua
 ```
-* **Labs:** [head](labs/head)
+* **Labs:** [head](labs/head/user_defined)
 
 The `-n` option lets you choose how many lines to display. In practical use, `head` is often the fastest way to confirm file structure or look for version information and early settings.
 
