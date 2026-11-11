@@ -55,11 +55,16 @@ The `-n` option lets you choose how many lines to display. In practical use, `he
 
 `tail` displays the last lines of a file. By default, it shows the last **10 lines**. This is particularly useful for checking the end of a log file or the trailing section of a configuration file where included rules or additional definitions may appear.
 
+#### By default
 ```bash
 tail /etc/snort/snort.lua
+```
+* **Labs:** [tail](labs/tail/by_default)
+#### User defind
+```bash
 tail -n 25 /etc/snort/snort.lua
 ```
-* **Labs:** [tail](labs/tail)
+* **Labs:** [tail](labs/tail/user_defined)
 
 When analyzing logs, `tail` is often used to monitor recent activity. A common pattern is `tail -f` to follow a file as new lines are written, which is especially helpful for troubleshooting services in real time.
 
