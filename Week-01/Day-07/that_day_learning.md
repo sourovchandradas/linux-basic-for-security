@@ -1,164 +1,188 @@
-# 🐧 Day 07: Linux Text Manipulation Utilities (Part 2)
+# Day 07: Linux Text Manipulation Utilities (Part 2)
 
-Welcome to Day 07 of my Linux Security learning journey. This document summarizes core tools and techniques for filtering text with grep, solving structural text challenges, modifying contents with sed, and handling pagination with more and less. It focuses on practical usage, common options, and safety notes useful for learners.
+This note covers additional Linux text utilities for searching, editing, and reading text files: `grep`, `sed`, `more`, and `less`. It also shows how to combine commands with pipes to locate and inspect a small section of a file. The examples use Snort configuration paths for context, but paths and line numbers can vary between systems. Practice with files in your home directory, and inspect or edit system files only on systems you own or are authorized to administer.
 
----
+> **Learning objective:** Be able to search text with `grep`, understand basic `sed` substitutions, page through large files with `more` and `less`, and safely extract a chosen range of lines.
 
-## 🎯 Key Points & Core Concepts
-
-### 1. 🪠 Filtering Text with `grep`
-
-* Description: `grep` is probably the most widely used text manipulation command. It lets you filter the content of a file for display based on specific words or phrases.
-* Interaction: It uses the pipe (`|`) operator to send input to `grep`. The command first views the file and then sends it to `grep`, which takes the file as input, searches, and displays matches only.
-* Benefit: Extremely powerful for working in Linux because it can save you hours of manual searching for every occurrence of a word or command in a file.
-
-Example — Filter for "mod" keyword:
-```bash
-
-kali > cat /etc/snort/snort.lua | grep mod
-
-```
-
-#### 🖼️ Terminal Output
-
-![Filter for "mod" keyword](Screenshot/filtering-text-with-grep.png)
+## Table of Contents
+* [Search text with `grep`](#search-text-with-grep)
+* [Inspect a line range with command pipelines](#inspect-a-line-range-with-command-pipelines)
+* [Substitute text with `sed`](#substitute-text-with-sed)
+* [Read large files with `more` and `less`](#read-large-files-with-more-and-less)
+* [Hands-on practice](#hands-on-practice)
+* [Quick Reference](#quick-reference)
+* [Related Topics](#related-topics)
+* [Additional Resources](#additional-resources)
+* [Key Takeaways](#key-takeaways)
 
 ---
 
-### 🏆 Hacker Challenge: Using grep, nl, tail, and head
+## Search text with `grep`
 
-* Description: Isolating a specific structural block of text by combining multiple commands based on geographical line coordinates within a file.
-* Scenario: Displaying the 5 lines immediately preceding line 512 (`# Step #6: Configure output plugins`), plus the anchor line itself (total 6 lines).
-* Step 1 — Locate the line number using `nl` and `grep`:
+`grep` searches input for lines matching a pattern and prints matching lines. It is useful for finding settings, keywords, or messages in a configuration file or log. Linux searches are case-sensitive by default, so `mod` and `Mod` are different patterns.
 
 ```bash
-kali > nl /etc/snort/snort.lua | grep mod
-    34    # 6) Configure output plugins
-   512    # Step #6: Configure output plugins
-   518    # output unified2: filename merged.log, limit 128, nostamp...
-
+grep 'mod' /etc/snort/snort.lua
 ```
 
-#### 🖼️ Terminal Output (Challenge Step 1)
-
-* Step 2 — Use `tail` to start at line 507 and pipe into `head` for the top 6 lines:
+Use `-n` to include matching line numbers and `-i` to ignore case:
 
 ```bash
-kali > tail -n+507 /etc/snort/snort.conf | head -n 6
-nested_ip inner, \
-whitelist $WHITE_LIST_PATH/white_list.rules, \
-blacklist $BLACK_LIST_PATH/black_list.rules
-###################################################
-# Step #6: Configure output plugins
-
+grep -n 'mod' /etc/snort/snort.lua
+grep -in 'mod' /etc/snort/snort.lua
 ```
 
-#### 🖼️ Terminal Output (Challenge Step 2)
+![Filtering text with grep](Screenshot/filtering-text-with-grep.png)
+
+You can search a file directly with `grep`; piping `cat` into `grep` is usually unnecessary. A pipe is useful when the text comes from another command:
+
+```bash
+some_command | grep 'pattern'
+```
 
 ---
 
-### 2. ⚡ Using `sed` to Find and Replace
+## Inspect a line range with command pipelines
 
-* Description: `sed` stands for "Stream Editor". In its most basic form, it operates exactly like the Find and Replace function in Windows.
-* Case Sensitivity: Remember that most of Linux syntax is strictly case-sensitive (e.g., `mysql` vs `MySQL`).
-* Positional Flags:
-* `/g` : global replacement flag (replaces every single occurrence in the file)
-* `No flag` : default behavior (replaces only the first occurrence found on a line)
-* `[number]` : specific instance replacement (e.g., `2` affects only the second occurrence)
-
-
-
-Example 1 — Global replacement (using `/g` flag):
+Sometimes you know a line number and want to inspect a small surrounding section instead of printing an entire file. First find the matching line with `grep -n`. Then use `tail -n +N` to start at line `N` and `head -n COUNT` to limit the output.
 
 ```bash
-kali > cat /etc/snort/snort.conf | grep mysql
-include $RULE_PATH/mysql.rules
-#include $RULE_PATH/server-mysql.rules
-
-kali > sed s/mysql/MySQL/g /etc/snort/snort.conf > snort2.conf
-kali > cat snort2.conf | grep MySQL
-include $RULE_PATH/MySQL.rules
-#include $RULE_PATH/server-MySQL.rules
-
+grep -n -- '-file_log' /etc/snort/snort.lua
 ```
 
-#### 🖼️ Terminal Output (Global Replace)
-
-Example 2 — First occurrence replacement (leaving out `g` option):
+After checking the reported line number, set the desired start line and count. For example, to print 8 lines beginning at line 213:
 
 ```bash
-kali > sed s/mysql/MySQL/ snort.conf > snort2.conf
-
+tail -n +213 /etc/snort/snort.lua | head -n 8
 ```
 
-#### 🖼️ Terminal Output (First Occurrence)
-
-Example 3 — Specific instance replacement (replacing only the second occurrence):
-
-```bash
-kali > sed s/mysql/MySQL/2 snort.conf > snort2.conf
-
-```
-
-#### 🖼️ Terminal Output (Specific Instance)
+Here, `tail -n +213` starts at line 213, and `head -n 8` keeps only the first 8 lines from that output. Replace `213` with the correct start line for your file; line numbers can differ across versions. This pipeline only displays text and does not modify the source file.
 
 ---
 
-### 3. 📄 Viewing Files with `more` and `less`
+## Substitute text with `sed`
 
-* Description: Although `cat` is a good utility, it has severe limitations when displaying large files because it scrolls through every page until it hits the end. `more` and `less` are advanced viewing utilities designed to handle larger files efficiently.
+`sed` (stream editor) reads text, applies requested editing commands, and writes the result to standard output. A basic substitution uses the form `s/old/new/`. By default, it replaces the first match on each input line; adding `g` replaces every match on each line. Matching is case-sensitive unless the expression or options specify otherwise.
 
-#### A. Controlling the Display with `more`
-
-* Description: `more` displays a text file one complete page at a time and stops, letting you page down through it.
-* Navigation notes: Press the `Enter` key or `Spacebar` to see additional lines/pages. Enter `q` to quit the viewer.
-* It also shows what percentage of the file's text is displayed on the screen.
-
-Example:
+The following examples read a Snort configuration and save the transformed output to a separate file rather than editing the original:
 
 ```bash
-kali > more /etc/snort/snort.lua
-
+sed 's/mysql/MySQL/' /etc/snort/snort.lua > ~/linux-practice/day07/snort-first-match.lua
+sed 's/mysql/MySQL/g' /etc/snort/snort.lua > ~/linux-practice/day07/snort-all-matches.lua
 ```
 
-#### 🖼️ Terminal Output
+In the first command, only the first `mysql` match on each line is replaced. In the second, every `mysql` match on each line is replaced. The source file remains unchanged; the output file is created or overwritten, so choose its path carefully.
 
-![more Command](Screenshot/more-command&output.png)
-
-#### B. Displaying and Filtering with `less`
-
-* Description: Very similar to `more` but contains significantly expanded functionality. Hence the common Linux quip, *"Less is more."*
-* Operational features: It allows you to scroll through a file at your leisure both forward and backward, and it doesn't need to read the entire file before launching.
-* In-Viewer Filtering: Pressing the forward slash (`/`) key lets you enter search terms dynamically. Pressing `n` automatically takes you to the next highlighted occurrence.
-
-Example:
+To inspect matching lines before or after a transformation, use `grep` on the source or output file:
 
 ```bash
-kali > less /etc/snort/snort.lua
-
+grep -in 'mysql' /etc/snort/snort.lua
+grep -in 'MySQL' ~/linux-practice/day07/snort-all-matches.lua
 ```
 
-#### 🖼️ Terminal Command
+Do not test substitutions directly on live configuration files. Use a copy, review the output, and follow the application's documentation and change-control process before applying any configuration change.
 
-![less Command](Screenshot/less-command.png)
-
-#### 🖼️ Terminal Output
-
-![less Output](Screenshot/less-output.png)
+![Stream editor with sed](Screenshot/stream-editor-with-sed.png)
 
 ---
 
-## 🛠️ Utilities & Tool Reference
+## Read large files with `more` and `less`
 
-| Category | Component/Tool | Syntax / Structure | Description |
-| --- | --- | --- | --- |
-| Text Filtering | `grep` | `grep [pattern] [file]` / `cat [file] | grep [pattern]` | Filter content or stream output for specific keywords or string matching. |
-| Stream Modification | `sed` | `sed s/[old]/[new]/[flag] [file] > [newfile]` | Find and substitute specific text strings globally (`g`) or selectively. |
-| File Pagination | `more` | `more [filename]` | Displays terminal text output one complete page at a time. |
-| Advanced Pagination | `less` | `less [filename]` | Premium pagination tool allowing multidirectional scrolling and interactive searching (`/`). |
+`more` and `less` display text a screenful at a time, making large files easier to read than streaming the entire file with `cat`.
+
+### Use `more` for page-by-page viewing
+
+```bash
+more /etc/snort/snort.lua
+```
+
+- Press `Space` to move forward a page.
+- Press `Enter` to move forward one line.
+- Press `q` to quit.
+
+![more command and output](Screenshot/more-command&output.png)
+
+### Use `less` for flexible navigation and search
+
+```bash
+less /etc/snort/snort.lua
+```
+
+`less` supports moving both forward and backward through the file. While viewing it:
+
+- Press `Space` or `Page Down` to move forward; press `b` or `Page Up` to move backward.
+- Type `/term` and press `Enter` to search forward for `term`.
+- Press `n` to go to the next match and `N` to go to the previous match.
+- Press `q` to quit.
+
+![less command](Screenshot/less-command.png)
+
+![less output](Screenshot/less-output.png)
 
 ---
 
+## Hands-on practice
+
+Practice with a file in your home directory. These commands create a sample file, search it, display a selected range, write substitution results to a separate file, and open it in a pager.
+
+```bash
+mkdir -p ~/linux-practice/day07
+cat > ~/linux-practice/day07/sample.txt <<'EOF'
+Snort configuration notes
+mod output is enabled in this example.
+mysql rule paths may appear in configuration text.
+A second mysql example is included on this line: mysql.
+Use grep to find matching lines.
+EOF
+
+grep -n 'mysql' ~/linux-practice/day07/sample.txt
+tail -n +2 ~/linux-practice/day07/sample.txt | head -n 3
+sed 's/mysql/MySQL/g' ~/linux-practice/day07/sample.txt > ~/linux-practice/day07/sample-edited.txt
+grep -n 'MySQL' ~/linux-practice/day07/sample-edited.txt
+less ~/linux-practice/day07/sample.txt
 ```
 
-```
+**Check your understanding:** How does `grep -n` help you locate a match? What is the difference between `sed 's/old/new/'` and `sed 's/old/new/g'`? Which keys let you search in `less` and exit the pager?
+
+---
+
+## Quick Reference
+
+| Command | Example | Purpose |
+|---|---|---|
+| `grep` | `grep 'mod' file.txt` | Print lines matching a pattern. |
+| `grep -n` | `grep -n 'mod' file.txt` | Include line numbers for matching lines. |
+| `grep -i` | `grep -i 'mod' file.txt` | Search without distinguishing letter case. |
+| `tail` + `head` | `tail -n +10 file.txt \| head -n 5` | Display 5 lines beginning at line 10. |
+| `sed` | `sed 's/old/new/' file.txt` | Replace the first match on each line in output. |
+| `sed` with `g` | `sed 's/old/new/g' file.txt` | Replace every match on each line in output. |
+| `more` | `more file.txt` | View a file a page at a time. |
+| `less` | `less file.txt` | Navigate and search a file interactively. |
+
+---
+
+## Related Topics
+* [Day-03](../Day-03/that_day_learning.md)
+* [Day-04](../Day-04/that_day_learning.md)
+* [Day-05](../Day-05/that_day_learning.md)
+* [Day-06](../Day-06/that_day_learning.md)
+
+---
+
+## Additional Resources
+* Use `man grep`, `man sed`, `man more`, and `man less` to read the manual pages installed on your system.
+
+---
+
+## Key Takeaways
+
+1. Use `grep` to find matching lines; add `-n` for line numbers and `-i` for case-insensitive matching.
+2. Combine commands with a pipe (`|`) when one command's output should become another command's input.
+3. Use `tail -n +N file | head -n COUNT` to display a limited range beginning at line `N`.
+4. `sed` writes transformed text to standard output; redirect to a separate file when testing substitutions so the original remains unchanged.
+5. Use `more` or `less` to navigate large files interactively; `less` also supports searching within the file.
+6. Verify paths and work only with files and systems you are authorized to access or change.
+
+---
+
+*Last Modified : November 11, 2026*
