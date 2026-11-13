@@ -39,10 +39,15 @@ grep -in 'mod' /etc/snort/snort.lua
 * **Labs:** [grep](labs/grep/grep_-in)
 
 You can search a file directly with `grep`; piping `cat` into `grep` is usually unnecessary. A pipe is useful when the text comes from another command:
-
+* **Syntax:**
 ```bash
 some_command | grep 'pattern'
 ```
+* **Example:**
+```bash
+cat /etc/snort/snort.lua | grep mod
+```
+* **Labs:** [grep](labs/grep/pipe)
 
 ---
 
@@ -53,12 +58,14 @@ Sometimes you know a line number and want to inspect a small surrounding section
 ```bash
 grep -n -- '-file_log' /etc/snort/snort.lua
 ```
+* **Labs:** [pipelines](labs/pipelines) 
 
 After checking the reported line number, set the desired start line and count. For example, to print 8 lines beginning at line 213:
 
 ```bash
 tail -n +213 /etc/snort/snort.lua | head -n 8
 ```
+* **Labs:** [pipelines](labs/pipelines) 
 
 Here, `tail -n +213` starts at line 213, and `head -n 8` keeps only the first 8 lines from that output. Replace `213` with the correct start line for your file; line numbers can differ across versions. This pipeline only displays text and does not modify the source file.
 
@@ -74,6 +81,7 @@ The following examples read a Snort configuration and save the transformed outpu
 sed 's/mysql/MySQL/' /etc/snort/snort.lua > ~/linux-practice/day07/snort-first-match.lua
 sed 's/mysql/MySQL/g' /etc/snort/snort.lua > ~/linux-practice/day07/snort-all-matches.lua
 ```
+* **Labs:** [sed](labs/sed)
 
 In the first command, only the first `mysql` match on each line is replaced. In the second, every `mysql` match on each line is replaced. The source file remains unchanged; the output file is created or overwritten, so choose its path carefully.
 
@@ -83,10 +91,9 @@ To inspect matching lines before or after a transformation, use `grep` on the so
 grep -in 'mysql' /etc/snort/snort.lua
 grep -in 'MySQL' ~/linux-practice/day07/snort-all-matches.lua
 ```
+* **Labs:** [pipelines](labs/pipelines)
 
-Do not test substitutions directly on live configuration files. Use a copy, review the output, and follow the application's documentation and change-control process before applying any configuration change.
-
-![Stream editor with sed](Screenshot/stream-editor-with-sed.png)
+Do not test substitutions directly on live configuration files. Use a copy, review the output, and follow the application's documentation and change-control process before applying any configuration change
 
 ---
 
@@ -99,6 +106,7 @@ Do not test substitutions directly on live configuration files. Use a copy, revi
 ```bash
 more /etc/snort/snort.lua
 ```
+* **Labs:** [more](labs/more)
 
 - Press `Space` to move forward a page.
 - Press `Enter` to move forward one line.
@@ -119,9 +127,7 @@ less /etc/snort/snort.lua
 - Press `n` to go to the next match and `N` to go to the previous match.
 - Press `q` to quit.
 
-![less command](Screenshot/less-command.png)
-
-![less output](Screenshot/less-output.png)
+* **Labs:** [less](labs/less)
 
 ---
 
@@ -146,6 +152,8 @@ grep -n 'MySQL' ~/linux-practice/day07/sample-edited.txt
 less ~/linux-practice/day07/sample.txt
 ```
 
+* **Labs:** [Hands-on Practice](labs/hands_on_practice)
+
 **Check your understanding:** How does `grep -n` help you locate a match? What is the difference between `sed 's/old/new/'` and `sed 's/old/new/g'`? Which keys let you search in `less` and exit the pager?
 
 ---
@@ -166,15 +174,14 @@ less ~/linux-practice/day07/sample.txt
 ---
 
 ## Related Topics
-* [Day-03](../Day-03/that_day_learning.md)
 * [Day-04](../Day-04/that_day_learning.md)
 * [Day-05](../Day-05/that_day_learning.md)
-* [Day-06](../Day-06/that_day_learning.md)
+* [Week-02/Day-01](../../Week-02/Day-01/that_day_learning.md)
 
 ---
 
 ## Additional Resources
-* Use `man grep`, `man sed`, `man more`, and `man less` to read the manual pages installed on your system.
+* [Linux Hackers For Hackers](https://kea.nu/files/textbooks/humblesec/linuxbasicsforhackers.pdf)
 
 ---
 
@@ -189,4 +196,4 @@ less ~/linux-practice/day07/sample.txt
 
 ---
 
-*Last Modified : November 11, 2026*
+*Last Modified : November 13, 2026*
