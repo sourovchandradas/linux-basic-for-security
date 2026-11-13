@@ -24,15 +24,19 @@ This note covers additional Linux text utilities for searching, editing, and rea
 ```bash
 grep 'mod' /etc/snort/snort.lua
 ```
+* **Labs:** [grep](labs/grep/grep_)
 
 Use `-n` to include matching line numbers and `-i` to ignore case:
 
 ```bash
 grep -n 'mod' /etc/snort/snort.lua
+```
+* **Labs:** [grep](labs/grep/grep_-n)
+
+```bash
 grep -in 'mod' /etc/snort/snort.lua
 ```
-
-![Filtering text with grep](Screenshot/filtering-text-with-grep.png)
+* **Labs:** [grep](labs/grep/grep_-in)
 
 You can search a file directly with `grep`; piping `cat` into `grep` is usually unnecessary. A pipe is useful when the text comes from another command:
 
