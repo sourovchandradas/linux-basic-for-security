@@ -1,212 +1,183 @@
-# 🐧 Day 09 : DHCP, DNS Manipulation, and Hosts Mapping
+# 🐧 Day 09: DHCP, DNS, and the Hosts File
 
-Welcome to Day 02 of Week 02 of my Linux Security learning journey. This document details the underlying mechanics of dynamic host configurations, tactical DNS reconnaissance with dig, routing manipulation via name resolution files, and local domain redirection attacks using the hosts architecture.
+This note covers basic host configuration and name resolution on Linux: requesting a DHCP lease, inspecting DNS records with `dig`, configuring a DNS resolver, and testing local hostname mappings. Examples use Kali Linux-style commands; interface names, tools, and network-manager configuration may differ across distributions.
 
----
+> **Learning objective:** Understand how DHCP assigns network settings, how DNS records can be queried, and how `/etc/hosts` and resolver configuration affect name lookup. Practice only on systems and networks you own or are authorized to administer.
 
-## 🎯 Key Points & Core Concepts
-
-### 1. 🌐 Assigning New IP Addresses from the DHCP Server
-* Description: DHCP (Dynamic Host Configuration Protocol) runs a background process or daemon called `dhcpd`. It automatically manages and assigns dynamic IP configurations to host interfaces on a local subnet while maintaining logs, which forensic analysts often use to trace hackers.
-* Lease Request Necessity: After releasing or modifying a static IP layout, you must explicitly request a new lease from the active DHCP pool to safely restore automated internet routing without requiring a system reboot.
-* The 4-Step Handshake Behind the Scenes:
-  1. `DHCPDISCOVER` : Sent from your interface (e.g., `eth0`) as a broadcast to find an available DHCP server.
-  2. `DHCPOFFER` : Received back from the server containing an available IP address package.
-  3. `DHCPREQUEST` : Your client system replies, requesting the specific offered IP allocation.
-  4. `DHCPACK` : The server confirms the transaction and formally commits the IP, netmask, and broadcast parameters to your interface.
-
-Example — Requesting a fresh DHCP lease configuration for eth0:
-```bash
-kali > sudo dhclient eth0
-
-```
-
-#### 🖼️ Terminal Command
-
-
-![DHCP](Screenshot/dhclient.png)
-
+## Table of Contents
+* [Request a DHCP lease](#request-a-dhcp-lease)
+* [Query DNS records with `dig`](#query-dns-records-with-dig)
+* [Configure DNS servers](#configure-dns-servers)
+* [Test local name mappings with `/etc/hosts`](#test-local-name-mappings-with-etchosts)
+* [Hands-on practice](#hands-on-practice)
+* [Quick Reference](#quick-reference)
+* [Related Topics](#related-topics)
+* [Additional Resources](#additional-resources)
+* [Key Takeaways](#key-takeaways)
 
 ---
 
-Example — Verifying the newly assigned dynamic network details:
+## Request a DHCP lease
+
+DHCP (Dynamic Host Configuration Protocol) lets a network's DHCP server provide configuration such as an IP address, subnet prefix, default gateway, and DNS servers. The DHCP exchange is commonly summarized as **Discover, Offer, Request, Acknowledge (DORA)**.
+
+On systems that use the `dhclient` client, you can request or renew a lease for an interface. Replace `eth0` with the interface name shown by `ip link`:
 
 ```bash
-kali > ifconfig
-
+ip link
+sudo dhclient eth0
+ip addr show dev eth0
 ```
 
-#### 🖼️ Terminal Command
+Some systems are managed by NetworkManager or `systemd-networkd` and do not use `dhclient` directly. Check the system's network manager before changing or renewing a lease. Renewing a lease can briefly interrupt connectivity.
 
-
-![ifconfig](Screenshot/ifconfig.png)
-
+* **Labs:** [DHCP client output](Screenshot/dhclient.png), [interface configuration](Screenshot/ifconfig.png)
 
 ---
 
-### 2. 🔍 Examining Nameservers (NS) with `dig`(Domain Informaion Groper)
+## Query DNS records with `dig`
 
-* Description: The Domain Name System (DNS) translates human-readable domains (e.g., `microsoft.com`) into machine-routable IP addresses. It serves as an absolute treasure trove for active reconnaissance during early information-gathering phases before an attack.
-* The `dig` Engine: A dedicated terminal utility used to gather critical infrastructure domain information, such as target name servers, mail servers, subdomains, and associated IP addresses.
-* Layout Breakdown: The `ANSWER SECTION` identifies the designated target name servers (e.g., `ns6.wixdns.net`), while the `ADDITIONAL SECTION` exposes the absolute IP addresses of those infrastructure servers.
+DNS (Domain Name System) resolves names to records such as IP addresses and mail servers. `dig` is a command-line DNS query tool. Query only domains you are permitted to investigate; the examples below use `example.com` for learning.
 
-Example — Querying infrastructure Nameservers:
+### Query name servers (NS)
 
 ```bash
-kali > dig microsoft.com ns
-
+dig example.com NS
 ```
 
-#### 🖼️ Terminal Output
-
-
-![Nameserver](Screenshot/nameserver.png)
-
-
----
-
-### 3. ✉️ Querying Mail Exchange (MX) Records
-
-* Description: Mail Exchange records are critical indicators when planning attacks on email infrastructure. They explicitly map the mail servers tasked with handling domain communications.
-* BIND Integration Note: In Linux engineering, the terms DNS and BIND (*Berkeley Internet Name Domain*) are frequently used interchangeably, as BIND represents the most prominent open-source DNS server system in Linux environments.
-
-Example — Querying domain Mail Exchange infrastructure:
+The answer section contains the requested records. `+short` prints a compact answer:
 
 ```bash
-kali > dig microsoft.com mx
-
+dig example.com NS +short
 ```
 
-#### 🖼️ Terminal Output
+### Query mail exchangers (MX)
 
-
-![Mail Exchange](Screenshot/mail-exchange.png)
-
-
----
-
-### 4. 🛠️ Changing Your DNS Server via Graphical / Text Editor
-
-* Description: To route your DNS requests through a specific server (like Google’s public DNS at `8.8.8.8`), you need to modify the persistent system file `/etc/resolv.conf`.
-* Interactive Editing: You can use a lightweight graphical text editor like `mousepad` to open and manually append or edit your resolver configurations.
-
-Example — Manually editing the operational resolution architecture:
+MX records identify mail servers configured for a domain. They do not reveal mailboxes or grant access to those systems.
 
 ```bash
-kali > mousepad /etc/resolv.conf
-# Manually add the line: nameserver 8.8.8.8
-
+dig example.com MX
+dig example.com MX +short
 ```
 
-#### 🖼️ Terminal Command : Open mousepad for resolv.conf
-
-![Mousepad resolv.conf](Screenshot/mousepad-resolv.conf.png)
-
-#### 🖼️ Terminal Output : Edit mousepad
-
-![resolv.conf command](Screenshot/resolv.conf-edit.png)
+* **Labs:** [NS query](Screenshot/nameserver.png), [MX query](Screenshot/mail-exchange.png)
 
 ---
 
-### 5. 🪚 Changing Your DNS Server Directly via Command Line
+## Configure DNS servers
 
-* Description: For precision speed or terminal scripting, you can use output redirection to instantly overwrite system name resolution behaviors.
-* Multi-DNS Setup Nuance: You can list multiple nameservers inside the file. The OS queries them in the exact order they appear. Keeping a local DNS first maintains speed, while adding a public DNS below acts as a reliable backup.
-
-Example — Overwriting the resolver configuration instantly via the shell:
+Linux systems may receive DNS settings through DHCP and manage them with NetworkManager, `systemd-resolved`, or another network service. On many systems, `/etc/resolv.conf` is generated or managed automatically; editing it directly can be temporary or overwritten. First inspect the active configuration:
 
 ```bash
-kali > echo "nameserver 8.8.8.8"> sudo /etc/resolv.conf
-
+resolvectl status
+cat /etc/resolv.conf
 ```
 
-#### 🖼️ Terminal Command
+### NetworkManager
 
-
-![mousepad](Screenshot/resolv.conf-command.png)
-
-
-
-*(⚠️ DHCP Overwrite Warning: If you are using DHCP, renewing your dynamic IP lease will often automatically overwrite `/etc/resolv.conf` with the DHCP server's default DNS settings.)*
-
----
-
-### 6. 🎭 Mapping Your Own IP Addresses via the Hosts File
-
-* Description: The `/etc/hosts` file is a local plaintext configuration file that performs domain-to-IP translation before the system ever attempts to query an external DNS server.
-* Hacking Utility: By mapping a legitimate domain name directly to a malicious local handler IP, you can hijack local TCP connections and redirect target traffic using deployment tools like `dnsspoof`.
-* Formatting Mapping Rules:
-* The IP address must occupy the absolute first position on a line, followed by the domain name second.
-* ✓ Critical Formatting Rule: Always use the `[TAB]` key—not the spacebar—between the IP address and the domain name when editing this configuration file.
-
-
-
-Example — Editing the local hosts mapping file:
+Find the active connection name, then configure a DNS server on that connection. Replace `Wired connection 1` with the name shown by `nmcli connection show`:
 
 ```bash
-kali > mousepad /etc/hosts
-
-# Default file structure vs Malicious entry setup:
-127.0.0.1       localhost
-127.1.1.1       kali
-192.168.181.131 bankofamerica.com
-192.168.181.131 www.bankofamerica.com
-
+nmcli connection show
+sudo nmcli connection modify "Wired connection 1" ipv4.dns "1.1.1.1 8.8.8.8"
+sudo nmcli connection up "Wired connection 1"
 ```
 
-#### 🖼️ Terminal Command : Open mousepad for hosts
-
-![mousepad](Screenshot/mousepad-hosts.png)
-
-#### 🖼️ Terminal Output : Before edit mousepad
-
-
-![Before edit mousepad](Screenshot/before-edit-mousepad-hosts.png)
-
-
-#### 🖼️ Terminal Output : After edit mousepad
-
-
-![After edit mousepad](Screenshot/after-edit-mousepad.png)
-
-
----
-
-Example — Ping the dns: 
+This changes the connection's DNS configuration and may briefly reconnect it. Use DNS servers appropriate for your network or lab, and follow your organization's policy. To revert to DNS settings supplied automatically by DHCP:
 
 ```bash
-kali > ping www.bankofamerica.com
-
+sudo nmcli connection modify "Wired connection 1" ipv4.dns ""
+sudo nmcli connection modify "Wired connection 1" ipv4.ignore-auto-dns no
+sudo nmcli connection up "Wired connection 1"
 ```
 
-#### 🖼️ Terminal Output
+If you are using a different network manager, consult its documentation rather than replacing a managed `/etc/resolv.conf` file.
 
-
-![Ping](Screenshot/ping-bankofamerica.png)
-
+* **Labs:** [Open resolver settings](Screenshot/mousepad-resolv.conf.png), [resolver configuration example](Screenshot/resolv.conf-edit.png), [command output](Screenshot/resolv.conf-command.png)
 
 ---
 
-## 🛠️ Utilities & Tool Reference
+## Test local name mappings with `/etc/hosts`
 
-| Category | Component/Tool | Syntax / Structure | Description |
-| --- | --- | --- | --- |
-| **IP Management** | `dhclient` | `dhclient [interface]` | Requests, processes, and applies a dynamic dynamic IP lease from the subnet's DHCP daemon. |
-| **DNS Reconnaissance** | `dig` | `dig [domain] [record_type]` | Gathers infrastructure domain intelligence data (such as NS or MX records). |
-| **Name Resolution** | `resolv.conf` | `/etc/resolv.conf` | Coordinates active nameserver routing blocks for network queries. |
-| **Precedence Mapping** | `hosts` | `/etc/hosts` | Plaintext mapping repository that overrides external network name searches using TAB spacing. |
+The `/etc/hosts` file provides static, local hostname-to-address mappings. The system's lookup order is configured in `/etc/nsswitch.conf`; on many Linux installations, the `hosts:` line checks local files before DNS.
+
+For a safe local test, map a reserved `.test` name to the loopback address. This affects name resolution only on your own machine and does not change public DNS:
+
+```bash
+sudoedit /etc/hosts
+```
+
+Add a line such as:
+
+```text
+127.0.0.1    example.test www.example.test
+```
+
+Separate the address and names with spaces or tabs. Save the file, then verify the mapping:
+
+```bash
+getent hosts example.test
+```
+
+Remove the test line when you are finished. Do not use hosts-file changes to impersonate real services or redirect other people's traffic.
+
+* **Labs:** [Open hosts file](Screenshot/mousepad-hosts.png), [before editing](Screenshot/before-edit-mousepad-hosts.png), [after editing](Screenshot/after-edit-mousepad.png)
 
 ---
 
-## 🔑 Key Takeaways for Revision
+## Hands-on practice
 
-### Quick Reference — DNS Query Execution Order
+These commands make read-only DNS queries and test a local mapping. The hosts-file edit is optional; remove the test entry afterward.
 
-Your operating system queries name resolution sources in this strict priority sequence:
+```bash
+# Inspect the interface and current resolver configuration
+ip addr
+resolvectl status
 
-1. **`/etc/hosts`** — Local custom mapping database file (**Fastest & Take Precedence**).
-2. **`/etc/resolv.conf`** — Configured nameservers used for external lookup routing.
-3. **External DNS Servers** — Routed internet name lookup resources queried as a final resort.
+# Query example DNS records
+dig example.com NS +short
+dig example.com MX +short
+
+# After adding the local example.test mapping to /etc/hosts:
+getent hosts example.test
+```
+
+**Check your understanding:** What information does DHCP provide? What is the difference between an NS record and an MX record? Which file can provide a local hostname mapping, and how can you verify the result?
 
 ---
 
+## Quick Reference
+
+| Command / file | Example | Purpose |
+|---|---|---|
+| `ip link` | `ip link` | List network interfaces and their names. |
+| `dhclient` | `sudo dhclient eth0` | Request or renew a lease when this client is used by the system. |
+| `dig` | `dig example.com NS` | Query DNS records, such as NS or MX. |
+| `nmcli` | `nmcli connection show` | Inspect and configure NetworkManager connections. |
+| `resolvectl` | `resolvectl status` | Inspect DNS settings managed by `systemd-resolved`. |
+| `/etc/resolv.conf` | `cat /etc/resolv.conf` | Resolver configuration or a link to a manager-generated file. |
+| `/etc/hosts` | `getent hosts example.test` | Local hostname mappings, subject to system lookup configuration. |
+
+---
+
+## Related Topics
+* [Week 02, Day 01: Linux Networking Basics](../Day-01/that_day_learning.md)
+* [Week 01, Day 03: Linux Basics & Core Commands](../../../Week-01/Day-03/that_day_learning.md)
+
+---
+
+## Additional Resources
+* Manual pages: `man dhclient`, `man dig`, `man nmcli`, `man resolv.conf`, `man hosts`
+* [NetworkManager documentation](https://networkmanager.dev/docs/)
+* [systemd-resolved documentation](https://www.freedesktop.org/software/systemd/man/latest/systemd-resolved.service.html)
+
+---
+
+## Key Takeaways
+
+1. DHCP can automatically provide an address, gateway, and DNS settings; the client and network manager vary by system.
+2. Use `dig` to query DNS record types such as NS and MX for authorized learning and administration.
+3. Prefer configuring DNS through the active network manager instead of directly overwriting a managed `/etc/resolv.conf`.
+4. `/etc/hosts` can provide local name mappings; the system's name-service configuration determines lookup order.
+5. Use reserved test names such as `.test` and loopback addresses for local exercises, and clean up changes afterward.
+6. Make network configuration changes only on systems and networks you own or are authorized to manage.
